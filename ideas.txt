@@ -1,0 +1,10 @@
+- HOME: mostrar algunas estdisticas pricipales
+- PROFILE: mostrar todas las estadisticas
+- MEASURES: mostrar el registro de medidas de peso y hacer estadisticas
+- HABITS: gestion de habitos como lo que hago en hoja
+
+- Nivel de atleta basado en experiencia por entrenamiento, baja si no entrenas
+
+
+// Futuro
+- CALENDAR: mostar un calendario y marcar los dias que se registraron datos
