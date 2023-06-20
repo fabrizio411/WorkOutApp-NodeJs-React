@@ -1,0 +1,135 @@
+@use "../../var";
+
+body {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+
+
+header {
+    background-color: var.$clr-header-bg;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    .nav-menu {
+        padding: 1rem;
+
+        h1 {
+            font-size: 2rem;
+            font-weight: var.$fw-bold;
+            color: var.$clr-title-lvl1;
+        }
+
+        nav {
+            margin-top: .75rem;
+            padding: 1rem 0.5rem;
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+
+                li {
+                    a {
+                        padding: .75rem .5rem;
+                        border-radius: .5rem;
+                        text-decoration: none;
+                        font-weight: var.$fw-medium;
+                        font-size: 1.1rem;
+                        color: var.$clr-svg-lvl3;
+                        display: flex;
+                        gap: .8rem;
+                        align-items: center;
+
+                        svg {
+                            width: 24px;
+                        }
+    
+                        .nav-svg {
+                            fill: var.$clr-svg-lvl3;
+                            stroke: var.$clr-svg-lvl3;
+                            
+                        }
+
+                        &:hover {
+                            background-color: var.$clr-hover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom-menu {
+        hr {
+            color: #46484d;
+        }
+
+        .user-info-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .75rem 1.25rem;
+
+            .user-info {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+
+                img {
+                    border-radius: 100%;
+                    width: 45px;
+                }
+
+                h3 {
+                    color: var.$clr-subtitle-lvl2;
+                    font-weight: var.$fw-bold;
+                }
+            }
+
+            .menu-settings {
+                position: relative;
+
+                &:hover {
+                    .tooltip {
+                        display: block;
+                        animation: tooltipAnimation .5s;
+                    }
+                }
+
+                @keyframes tooltipAnimation {
+                    0% { opacity: 0; }
+                    100% { opacity: .9; }
+                }
+
+                .tooltip {
+                    display: none;
+                    position: absolute;
+                    color: var.$clr-subtitle-lvl2;
+                    background-color: rgb(29, 29, 29);
+                    opacity: .9;
+                    padding: 1rem;
+                    border-radius: .5rem;
+                    top: -70%;
+                    left: 50%;
+                    transform: translate(-50%, -70%);
+                }
+
+                svg {
+                    width: 24px;
+                    height: 24px;
+                    stroke: var.$clr-svg-lvl3;
+    
+                    &:hover {
+                        stroke: var.$clr-subtitle-lvl2;
+                    }
+                }
+
+
+            }
+        }
+    }
+}
