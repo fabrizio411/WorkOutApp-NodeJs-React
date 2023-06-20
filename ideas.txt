@@ -8,3 +8,5 @@
 
 // Futuro
 - CALENDAR: mostar un calendario y marcar los dias que se registraron datos
+
+-Los svg NO son mios
