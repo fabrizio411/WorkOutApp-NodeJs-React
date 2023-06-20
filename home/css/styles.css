@@ -10,6 +10,7 @@ main .container {
   flex-direction: column;
   gap: 2rem;
   width: 80%;
+  height: 100%;
   max-width: 1080px;
   margin: 0 auto;
 }
@@ -53,7 +54,7 @@ main .container .profile-box .profile-info-box .user-info .level-box .level-bar-
 main .container .profile-box .profile-info-box .user-info .level-box .level-bar-box .level-bar {
   border: 2px solid #292b2f;
   width: 100%;
-  height: 8px;
+  height: 10px;
   border-radius: 1rem;
   background-color: rgb(197, 189, 98);
   overflow: hidden;
@@ -88,6 +89,66 @@ main .container .profile-box .workouts-box .total {
   font-weight: 500;
   display: grid;
   place-items: center;
+}
+main .container .exercises-data-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2rem;
+  height: 100%;
+}
+main .container .exercises-data-box .exercise-box {
+  background-color: #1f2022;
+  border: 1px solid #2b2d30;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+main .container .exercises-data-box .exercise-box .exercise {
+  padding: 0.5rem 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.75rem;
+  color: #cecece;
+}
+main .container .exercises-data-box .exercise-box .data-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+main .container .exercises-data-box .exercise-box .data-container .total {
+  color: #cecece;
+  font-weight: 300;
+}
+main .container .exercises-data-box .exercise-box .data-container .total span {
+  font-size: 4rem;
+  font-weight: 500;
+}
+main .container .exercises-data-box .exercise-box .data-container .extradata-box {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+main .container .exercises-data-box .exercise-box .data-container .extradata-box .extra-data {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+main .container .exercises-data-box .exercise-box .data-container .extradata-box .extra-data .subtitle {
+  color: #9DA4AE;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+main .container .exercises-data-box .exercise-box .data-container .extradata-box .extra-data .subtotal {
+  color: #cecece;
+  font-weight: 300;
+}
+main .container .exercises-data-box .exercise-box .data-container .extradata-box .extra-data .subtotal span {
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 /*# sourceMappingURL=styles.css.map */

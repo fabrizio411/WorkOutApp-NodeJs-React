@@ -30,8 +30,10 @@ main {
         flex-direction: column;
         gap: 2rem;
         width: 80%;
+        height: 100%;
         max-width: 1080px;
         margin: 0 auto;
+
         
         .profile-box {
             background-color: $clr-header-bg;  // VAR
@@ -77,7 +79,7 @@ main {
                             .level-bar {
                                 border: 2px solid $clr-hover;  // VAR
                                 width: 100%;
-                                height: 8px;
+                                height: 10px;
                                 border-radius: 1rem;
                                 background-color: $clr-exp-bar;  // VAR
                                 overflow: hidden;
@@ -131,10 +133,78 @@ main {
 
         
 
+        .exercises-data-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2rem;
+            height: 100%;            
 
+            .exercise-box {
+                background-color: $clr-header-bg;  // VAR
+                border: 1px solid $clr-borders;  // VAR
+                border-radius: 1rem;
+                display: grid;
+                grid-template-rows: auto 1fr;
+
+                .exercise {
+                    padding: .5rem 0;
+                    text-align: center;
+                    font-weight: $fw-medium;  // VAR
+                    font-size: 1.75rem;
+                    color: $clr-subtitle-lvl2;   // VAR
+                }
+
+                .data-container {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    place-items: center;
+
+                    .total {
+                        color: $clr-subtitle-lvl2; // VAR
+                        font-weight: $fw-light;
+                        
+                        span {
+                            font-size: 4rem;
+                            font-weight: $fw-medium; // VAR
+                        }
+                    }
+
+                    .extradata-box {
+                        height: 100%;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-evenly;
+
+                        .extra-data {
+                            display: flex;
+                            align-items: center;
+                            gap: 1rem;
+    
+                            .subtitle {
+                                color: $clr-svg-lvl3;
+                                font-weight: $fw-light;
+                                font-size: .9rem;
+                            }
+
+                            .subtotal {
+                                color: $clr-subtitle-lvl2;
+                                font-weight: $fw-light;
+                                
+                                span {
+                                    font-size: 2rem;
+                                    font-weight: $fw-medium;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
-
 
 
 
