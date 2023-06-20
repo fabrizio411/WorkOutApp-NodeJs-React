@@ -12,6 +12,7 @@ main .container {
   width: 80%;
   height: 100%;
   max-width: 1080px;
+  max-height: 850px;
   margin: 0 auto;
 }
 main .container .profile-box {
@@ -149,6 +150,14 @@ main .container .exercises-data-box .exercise-box .data-container .extradata-box
 main .container .exercises-data-box .exercise-box .data-container .extradata-box .extra-data .subtotal span {
   font-size: 2rem;
   font-weight: 500;
+}
+@media (max-width: 1250px) {
+  main .container .exercises-data-box .exercise-box .data-container .total span {
+    font-size: 3rem;
+  }
+  main .container .exercises-data-box .exercise-box .data-container .extra-data .subtotal span {
+    font-size: 1.2rem;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,27 +1,11 @@
-$clr-main-bg: #191a1c;
-$clr-borders: #2b2d30;
-$clr-second-box-bg: #292b2f;
-$clr-second-box-border: #37393d;
-$clr-exp-bar: rgb(197, 189, 98);
-
-
-
-$clr-header-bg: #1f2022;
-$clr-title-lvl1: #ffffff;
-$clr-subtitle-lvl2: #cecece;
-$clr-svg-lvl3: #9DA4AE;
-$clr-hover: #292b2f;
-$fw-light: 300;
-$fw-regular: 400;
-$fw-medium: 500;
-$fw-bold: 700;
+@use "../../var";
 
 
 main {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    background-color: $clr-main-bg;   // VAR
+    background-color: var.$clr-main-bg;   // VAR
 
     color: white;
 
@@ -32,12 +16,13 @@ main {
         width: 80%;
         height: 100%;
         max-width: 1080px;
+        max-height: 850px;
         margin: 0 auto;
 
         
         .profile-box {
-            background-color: $clr-header-bg;  // VAR
-            border: 1px solid $clr-borders;  // VAR
+            background-color: var.$clr-header-bg;  // VAR
+            border: 1px solid var.$clr-borders;  // VAR
             border-radius: 1rem;
             padding: 2rem;
             display: flex;
@@ -60,15 +45,15 @@ main {
                     gap: .5rem;
 
                     .name {
-                        font-weight: $fw-bold;  // VAR
+                        font-weight: var.$fw-bold;  // VAR
                         font-size: 2rem;
                     }
 
                     .level-box {
-                        font-weight: $fw-light;  // VAR
+                        font-weight: var.$fw-light;  // VAR
 
                         .level {
-                            color: $clr-svg-lvl3;  // VAR
+                            color: var.$clr-svg-lvl3;  // VAR
                         }
 
                         .level-bar-box {
@@ -77,16 +62,16 @@ main {
                             gap: .5rem;
 
                             .level-bar {
-                                border: 2px solid $clr-hover;  // VAR
+                                border: 2px solid var.$clr-hover;  // VAR
                                 width: 100%;
                                 height: 10px;
                                 border-radius: 1rem;
-                                background-color: $clr-exp-bar;  // VAR
+                                background-color: var.$clr-exp-bar;  // VAR
                                 overflow: hidden;
                             }
 
                             .bar-status {
-                                color: $clr-svg-lvl3;  // VAR
+                                color: var.$clr-svg-lvl3;  // VAR
                                 width: 3rem;
                             }
                         }
@@ -101,8 +86,8 @@ main {
                 margin: 0 2rem;
                 display: grid;
                 grid-template-rows: auto 1fr;
-                background-color: $clr-second-box-bg;
-                border: 1px solid $clr-second-box-border;
+                background-color: var.$clr-second-box-bg;
+                border: 1px solid var.$clr-second-box-border;
                 border-radius: .5rem;
                 width: 200px;
 
@@ -114,15 +99,15 @@ main {
                 .title {
                     padding: .5rem 0;
                     text-align: center;
-                    font-weight: $fw-medium;  // VAR
+                    font-weight: var.$fw-medium;  // VAR
                     font-size: 1.5rem;
-                    color: $clr-subtitle-lvl2;   // VAR
+                    color: var.$clr-subtitle-lvl2;   // VAR
                 }
 
                 .total {
-                    color: $clr-subtitle-lvl2;
+                    color: var.$clr-subtitle-lvl2;
                     font-size: 4rem;
-                    font-weight: $fw-medium;
+                    font-weight: var.$fw-medium;
                     display: grid;
                     place-items: center;
                 }
@@ -141,8 +126,8 @@ main {
             height: 100%;            
 
             .exercise-box {
-                background-color: $clr-header-bg;  // VAR
-                border: 1px solid $clr-borders;  // VAR
+                background-color: var.$clr-header-bg;  // VAR
+                border: 1px solid var.$clr-borders;  // VAR
                 border-radius: 1rem;
                 display: grid;
                 grid-template-rows: auto 1fr;
@@ -150,9 +135,9 @@ main {
                 .exercise {
                     padding: .5rem 0;
                     text-align: center;
-                    font-weight: $fw-medium;  // VAR
+                    font-weight: var.$fw-medium;  // VAR
                     font-size: 1.75rem;
-                    color: $clr-subtitle-lvl2;   // VAR
+                    color: var.$clr-subtitle-lvl2;   // VAR
                 }
 
                 .data-container {
@@ -161,12 +146,12 @@ main {
                     place-items: center;
 
                     .total {
-                        color: $clr-subtitle-lvl2; // VAR
-                        font-weight: $fw-light;
+                        color: var.$clr-subtitle-lvl2; // VAR
+                        font-weight: var.$fw-light;
                         
                         span {
                             font-size: 4rem;
-                            font-weight: $fw-medium; // VAR
+                            font-weight: var.$fw-medium; // VAR
                         }
                     }
 
@@ -184,18 +169,37 @@ main {
                             gap: 1rem;
     
                             .subtitle {
-                                color: $clr-svg-lvl3;
-                                font-weight: $fw-light;
+                                color: var.$clr-svg-lvl3;
+                                font-weight: var.$fw-light;
                                 font-size: .9rem;
                             }
 
                             .subtotal {
-                                color: $clr-subtitle-lvl2;
-                                font-weight: $fw-light;
+                                color: var.$clr-subtitle-lvl2;
+                                font-weight: var.$fw-light;
                                 
                                 span {
                                     font-size: 2rem;
-                                    font-weight: $fw-medium;
+                                    font-weight: var.$fw-medium;
+                                }
+                            }
+
+
+                            
+                        }
+                    }
+
+                    @media (max-width: 1250px) {
+                        .total {
+                            span {
+                                font-size: 3rem;
+                            }
+                        }
+                        
+                        .extra-data {
+                            .subtotal {
+                                span {
+                                    font-size: 1.2rem;
                                 }
                             }
                         }
