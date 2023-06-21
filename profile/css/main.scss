@@ -1,6 +1,8 @@
 @use "../../var";
 
 main {
+    margin-left: var.$menu-width;
+
     display: flex;
     flex-direction: column;
     padding: 2rem;

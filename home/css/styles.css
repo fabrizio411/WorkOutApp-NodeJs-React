@@ -1,6 +1,6 @@
 main {
-  display: flex;
-  flex-direction: column;
+  margin-left: 250px;
+  height: 100%;
   padding: 2rem;
   background-color: #191a1c;
   color: rgb(228, 153, 153);
@@ -54,7 +54,6 @@ main .container .profile-box .profile-info-box .user-info .level-box .level {
 main .container .profile-box .profile-info-box .user-info .level-box .level-bar-box {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
 }
 main .container .profile-box .profile-info-box .user-info .level-box .level-bar-box .level-bar {
   border: 2px solid #292b2f;
