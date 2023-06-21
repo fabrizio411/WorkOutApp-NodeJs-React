@@ -1,0 +1,23 @@
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: #191a1c;
+  color: white;
+}
+main .container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 80%;
+  height: 100%;
+  max-width: 1080px;
+  max-height: 850px;
+  margin: 0 auto;
+}
+
+img {
+  width: 100px;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -15,7 +15,7 @@ body {
 }
 
 header {
-    background-color: var.$clr-header-bg;
+    background-color: var.$clr-bg-lvl2;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@ header {
         h1 {
             font-size: 2rem;
             font-weight: var.$fw-bold;
-            color: var.$clr-title-lvl1;
+            color: var.$clr-text-lvl1;
         }
 
         nav {
@@ -48,7 +48,7 @@ header {
                         text-decoration: none;
                         font-weight: var.$fw-medium;
                         font-size: 1.1rem;
-                        color: var.$clr-svg-lvl3;
+                        color: var.$clr-text-lvl3;
                         display: flex;
                         gap: .8rem;
                         align-items: center;
@@ -58,8 +58,8 @@ header {
                         }
     
                         .nav-svg {
-                            fill: var.$clr-svg-lvl3;
-                            stroke: var.$clr-svg-lvl3;
+                            fill: var.$clr-text-lvl3;
+                            stroke: var.$clr-text-lvl3;
                             
                         }
 
@@ -94,7 +94,7 @@ header {
                 }
 
                 h3 {
-                    color: var.$clr-subtitle-lvl2;
+                    color: var.$clr-text-lvl2;
                     font-weight: var.$fw-bold;
                 }
             }
@@ -117,7 +117,7 @@ header {
                 .tooltip {
                     display: none;
                     position: absolute;
-                    color: var.$clr-subtitle-lvl2;
+                    color: var.$clr-text-lvl2;
                     background-color: rgb(29, 29, 29);
                     opacity: .9;
                     padding: 1rem;
@@ -130,10 +130,10 @@ header {
                 svg {
                     width: 24px;
                     height: 24px;
-                    stroke: var.$clr-svg-lvl3;
+                    stroke: var.$clr-text-lvl3;
     
                     &:hover {
-                        stroke: var.$clr-subtitle-lvl2;
+                        stroke: var.$clr-text-lvl2;
                     }
                 }
 

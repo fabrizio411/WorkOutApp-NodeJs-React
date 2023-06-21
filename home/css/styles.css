@@ -38,6 +38,7 @@ main .container .profile-box .profile-info-box .user-info {
   gap: 0.5rem;
 }
 main .container .profile-box .profile-info-box .user-info .name {
+  color: #ffffff;
   font-weight: 700;
   font-size: 2rem;
 }

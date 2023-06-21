@@ -5,7 +5,7 @@ main {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    background-color: var.$clr-main-bg;   // VAR
+    background-color: var.$clr-bg-lvl1;   // VAR
 
     color: white;
 
@@ -21,8 +21,8 @@ main {
 
         
         .profile-box {
-            background-color: var.$clr-header-bg;  // VAR
-            border: 1px solid var.$clr-borders;  // VAR
+            background-color: var.$clr-bg-lvl2;  // VAR
+            border: 1px solid var.$clr-borders-lvl2;  // VAR
             border-radius: 1rem;
             padding: 2rem;
             display: flex;
@@ -45,6 +45,7 @@ main {
                     gap: .5rem;
 
                     .name {
+                        color: var.$clr-text-lvl1;
                         font-weight: var.$fw-bold;  // VAR
                         font-size: 2rem;
                     }
@@ -53,7 +54,7 @@ main {
                         font-weight: var.$fw-light;  // VAR
 
                         .level {
-                            color: var.$clr-svg-lvl3;  // VAR
+                            color: var.$clr-text-lvl3;  // VAR
                         }
 
                         .level-bar-box {
@@ -71,7 +72,7 @@ main {
                             }
 
                             .bar-status {
-                                color: var.$clr-svg-lvl3;  // VAR
+                                color: var.$clr-text-lvl3;  // VAR
                                 width: 3rem;
                             }
                         }
@@ -86,8 +87,8 @@ main {
                 margin: 0 2rem;
                 display: grid;
                 grid-template-rows: auto 1fr;
-                background-color: var.$clr-second-box-bg;
-                border: 1px solid var.$clr-second-box-border;
+                background-color: var.$clr-bg-lvl3;
+                border: 1px solid var.$clr-borders-lvl3;
                 border-radius: .5rem;
                 width: 200px;
 
@@ -101,11 +102,11 @@ main {
                     text-align: center;
                     font-weight: var.$fw-medium;  // VAR
                     font-size: 1.5rem;
-                    color: var.$clr-subtitle-lvl2;   // VAR
+                    color: var.$clr-text-lvl2;   // VAR
                 }
 
                 .total {
-                    color: var.$clr-subtitle-lvl2;
+                    color: var.$clr-text-lvl2;
                     font-size: 4rem;
                     font-weight: var.$fw-medium;
                     display: grid;
@@ -126,8 +127,8 @@ main {
             height: 100%;            
 
             .exercise-box {
-                background-color: var.$clr-header-bg;  // VAR
-                border: 1px solid var.$clr-borders;  // VAR
+                background-color: var.$clr-bg-lvl2;  // VAR
+                border: 1px solid var.$clr-borders-lvl2;  // VAR
                 border-radius: 1rem;
                 display: grid;
                 grid-template-rows: auto 1fr;
@@ -137,7 +138,7 @@ main {
                     text-align: center;
                     font-weight: var.$fw-medium;  // VAR
                     font-size: 1.75rem;
-                    color: var.$clr-subtitle-lvl2;   // VAR
+                    color: var.$clr-text-lvl2;   // VAR
                 }
 
                 .data-container {
@@ -146,7 +147,7 @@ main {
                     place-items: center;
 
                     .total {
-                        color: var.$clr-subtitle-lvl2; // VAR
+                        color: var.$clr-text-lvl2; // VAR
                         font-weight: var.$fw-light;
                         
                         span {
@@ -169,13 +170,13 @@ main {
                             gap: 1rem;
     
                             .subtitle {
-                                color: var.$clr-svg-lvl3;
+                                color: var.$clr-text-lvl3;
                                 font-weight: var.$fw-light;
                                 font-size: .9rem;
                             }
 
                             .subtotal {
-                                color: var.$clr-subtitle-lvl2;
+                                color: var.$clr-text-lvl2;
                                 font-weight: var.$fw-light;
                                 
                                 span {
