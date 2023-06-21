@@ -1,5 +1,6 @@
 main {
   margin-left: 250px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -63,8 +64,12 @@ main .container .profile-container .level-box .level-bar-box .level-bar {
   width: 100%;
   height: 10px;
   border-radius: 1rem;
-  background-color: rgb(197, 189, 98);
   overflow: hidden;
+}
+main .container .profile-container .level-box .level-bar-box .level-bar .fill {
+  width: 100%;
+  height: 10px;
+  background-color: rgb(197, 189, 98);
 }
 main .container .profile-container .level-box .level-bar-box .bar-status {
   color: #9DA4AE;
@@ -90,10 +95,10 @@ main .container .exercise-container .exercises-data-box {
   position: relative;
   height: 180px;
 }
-main .container .exercise-container .exercises-data-box div {
+main .container .exercise-container .exercises-data-box .name-box {
   grid-row: 1/2;
 }
-main .container .exercise-container .exercises-data-box div .exercise {
+main .container .exercise-container .exercises-data-box .name-box .exercise {
   font-weight: 500;
   font-size: 1.25rem;
   color: #cecece;
@@ -113,14 +118,50 @@ main .container .exercise-container .exercises-data-box .total span {
   font-weight: 500;
   font-size: 3rem;
 }
-main .container .exercise-container .exercises-data-box svg {
+main .container .exercise-container .exercises-data-box .svg-more-info svg {
   position: absolute;
   bottom: 0;
   right: 0;
   stroke: #9DA4AE;
 }
-main .container .exercise-container .exercises-data-box svg:hover {
+main .container .exercise-container .exercises-data-box .svg-more-info svg:hover {
   stroke: #ffffff;
+}
+main .container .exercise-container .exercises-data-box .svg-more-info .show-more {
+  grid-row: 2/3;
+  background-color: #1f2022;
+  border: 2px solid #2b2d30;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: none;
+  gap: 2rem;
+  position: absolute;
+  bottom: 35px;
+  right: -20px;
+}
+main .container .exercise-container .exercises-data-box .svg-more-info .show-more div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #9DA4AE;
+  text-align: center;
+}
+main .container .exercise-container .exercises-data-box .svg-more-info .show-more div .number {
+  color: #cecece;
+  font-size: 2rem;
+}
+main .container .exercise-container .exercises-data-box .svg-more-info:hover .show-more {
+  display: flex;
+  animation: moreInfoAnimation 0.5s;
+}
+@keyframes moreInfoAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 hr {

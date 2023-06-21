@@ -3,6 +3,7 @@
 main {
     margin-left: var.$menu-width;
 
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -73,8 +74,13 @@ main {
                         width: 100%;
                         height: 10px;
                         border-radius: 1rem;
-                        background-color: var.$clr-exp-bar;  // VAR
                         overflow: hidden;
+
+                        .fill {
+                            width: 100%;
+                            height: 10px;
+                            background-color: var.$clr-exp-bar;  // VAR
+                        }
                     }
 
                     .bar-status {
@@ -113,7 +119,7 @@ main {
                 position: relative;
                 height: 180px;
 
-                div {
+                .name-box {
                     grid-row: 1 / 2;
 
                     .exercise {
@@ -140,18 +146,58 @@ main {
                     }
                 }
 
+                .svg-more-info {
+                    svg {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        stroke: var.$clr-text-lvl3;
+    
+                        &:hover {
+                            stroke: var.$clr-text-lvl1;
+                        }
+                    }
 
-                svg {
-                    position: absolute;
-                    bottom: 0;
-                    right: 0;
-                    stroke: var.$clr-text-lvl3;
+                    .show-more {
+                        grid-row: 2 / 3;
+                        background-color: var.$clr-bg-lvl2;
+                        border: 2px solid var.$clr-borders-lvl2;
+                        border-radius: .5rem;
+                        padding: 1rem;
+                        display: none;
+                        gap: 2rem;
+                        position: absolute;
+                        bottom: 35px;
+                        right: -20px;
+                        
+                        div {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            gap: .5rem;
+                            color: var.$clr-text-lvl3;
+                            text-align: center;
+    
+                            .number {
+                                color: var.$clr-text-lvl2;
+                                font-size: 2rem;
+                            }
+                        }
+                    } 
 
                     &:hover {
-                        stroke: var.$clr-text-lvl1;
+                        .show-more {
+                            display: flex;    
+                            animation: moreInfoAnimation .5s;                        
+                        }
+
+                        
+                        @keyframes moreInfoAnimation {
+                            0% { opacity: 0; }
+                            100% { opacity: 1; }
+                        }
                     }
-                }
-                
+                }           
             }
         }
     }

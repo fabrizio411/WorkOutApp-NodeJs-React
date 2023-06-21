@@ -77,12 +77,12 @@
         <h2 class="name">fabrizio411</h2>
         <div class="level-box">
           <div class="level-display">
-            <p class="level">Lvl. 1<span></span></p> <!-- JS change -->
-            <p class="exp">exp: <span>1305</span></p>
+            <p class="level">Lvl. <span id="user-level"></span></p> <!-- JS change -->
+            <p class="exp">exp: <span id="user-exp"></span></p>
           </div>  
           <div class="level-bar-box">
-            <div class="level-bar"><div class="fill"></div><div class="empty"></div></div> <!-- level bar -->
-            <p class="bar-status"><span>99</span>%</p>   <!-- JS change -->
+            <div class="level-bar"><div class="fill" id="level-bar-fill"></div><div class="empty"></div></div> <!-- level bar -->
+            <p class="bar-status"><span id="level-bar-status"></span>%</p>   <!-- JS change -->
           </div>
         </div>
       </section>
@@ -92,57 +92,135 @@
 
       <section class="exercise-container">
         <section class="exercises-data-box">
-          <div>
+          <div class="name-box">
             <h3 class="exercise">PullUps</h3>
             <hr>
           </div>
-          <p class="total"><span>350</span>reps</p>
-          <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round"  stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+          <p class="total"><span id="pullups-total">350</span>reps</p>
+          <div class="svg-more-info" id="pullups-isData">
+            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+            <!-- MORE INFO (HOVER)-->
+            <div class="show-more">
+              <div>
+                <p>Max:</p>
+                <p class="number" id="pullups-max"></p>
+              </div>
+              <div id="pullups-isHeaviest">
+                <p>Heaviest:</p>
+                <p class="number" id="pullups-heaviest"></p>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="exercises-data-box">
-          <div>
-            <h3 class="exercise">PullUps</h3>
+          <div class="name-box">
+            <h3 class="exercise">Dips</h3>
             <hr>
           </div>
-          <p class="total"><span>350</span>reps</p>
-          <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+          <p class="total"><span id="dips-total">350</span>reps</p>
+          <div class="svg-more-info">
+            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+            <!-- MORE INFO (HOVER)-->
+            <div class="show-more">
+              <div>
+                <p>Max:</p>
+                <p class="number" id="dips-max"></p>
+              </div>
+              <div>
+                <p>Heaviest:</p>
+                <p class="number" id="dips-heaviest"></p>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="exercises-data-box">
-          <div>
-            <h3 class="exercise">PullUps</h3>
+          <div class="name-box">
+            <h3 class="exercise">PushUps</h3>
             <hr>
           </div>
-          <p class="total"><span>350</span>reps</p>
-          <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+          <p class="total"><span id="pushups-total"></span>reps</p>
+          <div class="svg-more-info" id="pushups-isData">
+            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+            <!-- MORE INFO (HOVER)-->
+            <div class="show-more">
+              <div>
+                <p>Max:</p>
+                <p class="number" id="pushups-max"></p>
+              </div>
+              <div id="pushups-isHeaviest">
+                <p>Heaviest:</p>
+                <p class="number" id="pushups-heaviest"></p>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="exercises-data-box">
-          <div>
-            <h3 class="exercise">PullUps</h3>
+          <div class="name-box">
+            <h3 class="exercise">Muscle Ups</h3>
             <hr>
           </div>
-          <p class="total"><span>350</span>reps</p>
-          <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+          <p class="total"><span id="muscleups-total"></span>reps</p>
+          <div class="svg-more-info" id="muscleups-isData">
+            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+            <!-- MORE INFO (HOVER)-->
+            <div class="show-more">
+              <div>
+                <p>Max:</p>
+                <p class="number" id="muscleups-max"></p>
+              </div>
+              <div id="muscleups-isHeaviest">
+                <p>Heaviest:</p>
+                <p class="number" id="muscleups-heaviest"></p>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="exercises-data-box">
-          <div>
-            <h3 class="exercise">PullUps</h3>
+          <div class="name-box">
+            <h3 class="exercise">Squats</h3>
             <hr>
           </div>
-          <p class="total"><span>350</span>reps</p>
-          <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+          <p class="total"><span id="squats-total"></span>reps</p>
+          <div class="svg-more-info" id="squats-isData">
+            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+            <!-- MORE INFO (HOVER)-->
+            <div class="show-more">
+              <div>
+                <p>Max:</p>
+                <p class="number" id="squats-max"></p>
+              </div>
+              <div id="squats-isHeaviest">
+                <p>Heaviest:</p>
+                <p class="number" id="squats-heaviest"></p>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section class="exercises-data-box">
-          <div>
-            <h3 class="exercise">PullUps</h3>
+          <div class="name-box">
+            <h3 class="exercise">Pistols</h3>
             <hr>
           </div>
-          <p class="total"><span>350</span>reps</p>
-          <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+          <p class="total"><span id="pistols-total"></span>reps</p>
+          <div class="svg-more-info" id="pistols-isData">
+            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+            <!-- MORE INFO (HOVER)-->
+            <div class="show-more">
+              <div>
+                <p>Max:</p>
+                <p class="number" id="pistols-max"></p>
+              </div>
+              <div id="pistols-isHeaviest">
+                <p>Heaviest:</p>
+                <p class="number" id="pistols-heaviest"></p>
+              </div>
+            </div>
+          </div>
         </section>
       </section>
 
@@ -151,4 +229,8 @@
   </main>
   
 </body>
+
+<script src="../0-general/js/data-base.js"></script>
+<script src="../0-general/js/data-display.js"></script>
+
 </html>

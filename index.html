@@ -77,10 +77,10 @@
           <div class="user-info">
             <h2 class="name">fabrizio411</h2>
             <div class="level-box">
-              <p class="level">Lvl. 1<span></span></p>   <!-- JS change -->
+              <p class="level">Lvl. <span id="user-level"></span></p>   <!-- JS change -->
               <div class="level-bar-box">
-                <div class="level-bar"><div class="fill"></div><div class="empty"></div></div> <!-- level bar -->
-                <p class="bar-status"><span>50</span>%</p>   <!-- JS change -->
+                <div class="level-bar"><div class="fill" id="level-bar-fill"></div><div class="empty"></div></div> <!-- level bar -->
+                <p class="bar-status"><span id="level-bar-status"></span>%</p>   <!-- JS change -->
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@
             <h3 class="title">Workouts</h3>  
             <hr>
           </div> 
-          <p class="total">15</p>   <!-- JS change -->
+          <p class="total" id="workouts-total"></p>   <!-- JS change -->
         </div>
       </section>
 
@@ -152,15 +152,15 @@
             <hr>
           </div>
           <div class="data-container">
-            <p class="total"><span>4650</span> reps</p> 
-            <div class="extradata-box">
+            <p class="total"><span id="pullups-total"></span> reps</p> 
+            <div class="extradata-box" id="pullups-isData">
               <div class="extra-data">
                 <p class="subtitle">Max:</p>
-                <p class="subtotal"><span>10</span> reps</p> 
+                <p class="subtotal"><span id="pullups-max"></span> reps</p> 
               </div>
-              <div class="extra-data">
+              <div class="extra-data" id="pullups-isHeaviest">
                 <p class="subtitle">Heaviest:</p>
-                <p class="subtotal"><span>5</span> kg</p> 
+                <p class="subtotal"><span id="pullups-heaviest"></span> kg</p> 
               </div>
             </div>
           </div>
@@ -172,15 +172,15 @@
             <hr>
           </div>
           <div class="data-container">
-            <p class="total"><span>120</span> reps</p> 
-            <div class="extradata-box">
+            <p class="total"><span id="dips-total"></span> reps</p> 
+            <div class="extradata-box" id="dips-isData">
               <div class="extra-data">
                 <p class="subtitle">Max:</p>
-                <p class="subtotal"><span>50</span> reps</p> 
+                <p class="subtotal"><span id="dips-max"></span> reps</p> 
               </div>
-              <div class="extra-data">
+              <div class="extra-data" id="dips-isHeaviest">
                 <p class="subtitle">Heaviest:</p>
-                <p class="subtotal"><span>8</span> kg</p> 
+                <p class="subtotal"><span id="dips-heaviest"></span> kg</p> 
               </div>
             </div>
           </div>
@@ -190,92 +190,9 @@
   </main>
       
 
-      
-      <!-- <section class="exercises-data-box">      
-        <div class="exercise-box">
-          <div>
-            <h3 class="exercise">PullUps</h3>
-            <hr>
-          </div>
-          <div class="data-container">
-            <p class="total"><span>120</span> reps</p> 
-            <div class="extradata-box">
-              <div class="extra-data">
-                <p class="subtitle">Max:</p>
-                <p class="subtotal"><span>10</span> reps</p> 
-              </div>
-              <div class="extra-data">
-                <p class="subtitle">Heaviest:</p>
-                <p class="subtotal"><span>5</span> kg</p> 
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="exercise-box">
-          <div>
-            <h3 class="exercise">Dips</h3>
-            <hr>
-          </div>
-          <div class="data-container">
-            <p class="total"><span>1000</span> reps</p> 
-            <div class="extradata-box">
-              <div class="extra-data">
-                <p class="subtitle">Max:</p>
-                <p class="subtotal"><span></span> reps</p> 
-              </div>
-              <div class="extra-data">
-                <p class="subtitle">Heaviest:</p>
-                <p class="subtotal"><span></span> kg</p> 
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="exercise-box">
-          <div>
-            <h3 class="exercise">Muscle Ups</h3>
-            <hr>
-          </div>
-          <div class="data-container">
-            <p class="total"><span>10</span> reps</p> 
-            <div class="extradata-box">
-              <div class="extra-data">
-                <p class="subtitle">Max:</p>
-                <p class="subtotal"><span></span> reps</p> 
-              </div>
-              <div class="extra-data">
-                <p class="subtitle">Heaviest:</p>
-                <p class="subtotal"><span></span> kg</p> 
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="exercise-box">
-          <div>
-            <h3 class="exercise">Pistol Squats</h3>
-            <hr>
-          </div>
-          <div class="data-container">
-            <p class="total"><span>6</span> reps</p>
-            <div class="extradata-box">
-              <div class="extra-data">
-                <p class="subtitle">Max:</p>
-                <p class="subtotal"><span></span> reps</p> 
-              </div>
-              <div class="extra-data">
-                <p class="subtitle">Heaviest:</p>
-                <p class="subtotal"><span></span> kg</p> 
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
-
-      
- 
- 
-  
 </body>
+
+<script src="./0-general/js/data-base.js"></script>
+<script src="./0-general/js/data-display.js"></script>
+
 </html>
