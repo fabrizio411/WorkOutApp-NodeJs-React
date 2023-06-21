@@ -4,7 +4,7 @@ body {
 }
 
 #current-page {
-  background-color: #203b56;
+  background-color: rgba(75, 255, 126, 0.3647058824);
 }
 
 #current-page-svg {
