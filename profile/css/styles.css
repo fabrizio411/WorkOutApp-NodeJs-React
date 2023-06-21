@@ -78,13 +78,56 @@ main .container .profile-container .level-box .level-bar-box .bar-status {
 main .container .data-container {
   grid-column: 2/3;
   grid-row: 1/2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+main .container .data-container .data-box {
+  background-color: rgba(112, 78, 78, 0.233);
+  border: 1px solid #2b2d30;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: #cecece;
+  font-weight: 500;
+}
+main .container .data-container .data-box .title {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 0.5rem;
+}
+main .container .data-container .data-box .number {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+  font-weight: 300;
+}
+main .container .data-container .data-box .number span {
+  font-size: 4rem;
+  font-weight: 500;
+}
+main .container .data-container .data-box.bottom {
+  grid-column: 1/3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+main .container .data-container .data-box.bottom .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main .container .data-container .data-box.bottom .number {
+  height: auto;
 }
 main .container .exercise-container {
   grid-column: 1/3;
   grid-row: 2/3;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
 }
 main .container .exercise-container .exercises-data-box {
   background-color: #1f2022;
