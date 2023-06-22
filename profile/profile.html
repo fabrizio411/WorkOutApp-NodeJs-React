@@ -75,7 +75,7 @@
       <section class="profile-container"> <!-- perfil -->
         <img src="../home/img/profilepic.png" alt="profile-pic">
         <h2 class="name">fabrizio411</h2>
-        <p class="joined-date">Joined: 22/6/2023</p>  <!-- JS change -->
+        <p class="joined-date">Joined: <span id="join-date"></span></p>  <!-- JS change -->
         <div class="level-box">
           <div class="level-display">
             <p class="level">Lvl. <span id="user-level"></span></p> 
@@ -118,6 +118,10 @@
             <div class="column c6"></div>
             <div class="column c7"></div>
             <div class="column c8"></div>
+            <div class="column c9"></div>
+            <div class="column c10"></div>
+            <div class="column c11"></div>
+            <div class="column c12"></div>
           </div>
         </div>
       </section>
@@ -128,7 +132,7 @@
           <h3 class="title">Workouts</h3>
           <div class="data-box">
             <?xml version="1.0" ?><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><g id="Biceps"><path d="M376.7809,287.8908a105.6316,105.6316,0,0,1,4.9307,9.7747,12.6156,12.6156,0,0,1-7.9916,17.085,12.8146,12.8146,0,0,1-15.4685-7.14c-26.3737-59.7889-108.8917-73.8287-153.2552-25.4984a92.6432,92.6432,0,0,0-24.8194,52.6135,12.8591,12.8591,0,0,1-12.667,11.4747,12.685,12.685,0,0,1-12.6649-14.0252,119.248,119.248,0,0,1,50.1513-83.47V193.2006h68a34,34,0,0,0,34-34V96.2159a29.84,29.84,0,0,0-14.875-25.7553l-22.186-12.8351A42.19,42.19,0,0,0,219.02,64.3409l-88.9947,88.9947a76.2219,76.2219,0,0,0-17.6807,27.54l-56.8645,153.34a55.2822,55.2822,0,0,0,33.5746,71.4c44.4548,15.47,125.375,34.085,183.9412,34.085,28.9116-1.9486,56.9309-13.2579,85.7636-3.7374a324.569,324.569,0,0,0,34.6807,7.1377l-4.59-13.8551a12.8111,12.8111,0,0,1,8.5544-16.3886c6.6538-2,13.6216,2.3474,15.8231,8.9373l12.7685,38.2213h21.2913a12.7087,12.7087,0,0,0,12.7087-12.7087V291.1383a12.7871,12.7871,0,0,0-13.3519-12.7047A342.1659,342.1659,0,0,0,376.7809,287.8908Zm-58.0556,75.5651a226.9552,226.9552,0,0,1-85.34,7.48c-16.5185-2.0669-14.0553-26.82,2.6355-25.33a203.5,203.5,0,0,0,75.6492-6.63C327.9018,334.6,334.8,358.5527,318.7253,363.4559Z"/></g></svg>
-            <p class="data"><span>20</span>total</p>
+            <p class="data"><span id="workouts"></span>total</p>
           </div>
         </div>
 
@@ -136,7 +140,7 @@
           <h3 class="title">Week Streak</h3>
           <div class="data-box">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.5 8c0 1.5-.5 3.5-2.9 4.3.7-1.7.8-3.4.3-5-.7-2.1-3-3.7-4.6-4.6-.4-.3-1.1.1-1 .7 0 1.1-.3 2.7-2 4.4C4.1 10 3 12.3 3 14.5 3 17.4 5 21 9 21c-4-4-1-7.5-1-7.5.8 5.9 5 7.5 7 7.5 1.7 0 5-1.2 5-6.4 0-3.1-1.3-5.5-2.4-6.9-.3-.5-1-.2-1.1.3"></path></svg>
-            <p class="data"><span>3</span>weeks</p>
+            <p class="data"><span id="week-streak"></span>weeks</p>
           </div>
         </div>
           
@@ -145,8 +149,8 @@
           <div class="data-box">
             <?xml version="1.0" ?><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M510.28 445.86l-73.03-292.13c-3.8-15.19-16.44-25.72-30.87-25.72h-60.25c3.57-10.05 5.88-20.72 5.88-32 0-53.02-42.98-96-96-96s-96 42.98-96 96c0 11.28 2.3 21.95 5.88 32h-60.25c-14.43 0-27.08 10.54-30.87 25.72L1.72 445.86C-6.61 479.17 16.38 512 48.03 512h415.95c31.64 0 54.63-32.83 46.3-66.14zM256 128c-17.64 0-32-14.36-32-32s14.36-32 32-32 32 14.36 32 32-14.36 32-32 32z"/></svg>
             <div class="data">
-              <p class="number"><span>75</span>kg</p>
-              <p class="clasification">Highest</p>
+              <p class="number"><span id="best-weight"></span>kg</p>
+              <p class="clasification" id="weight-context">Highest</p>
             </div>
           </div>
         </div>
@@ -156,8 +160,8 @@
           <div class="data-box">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24""><path d="M6 5v14h3v-6h6v6h3V5h-3v6H9V5zM3 15a1 1 0 0 0 1 1h1V8H4a1 1 0 0 0-1 1v2H2v2h1v2zm18-6a1 1 0 0 0-1-1h-1v8h1a1 1 0 0 0 1-1v-2h1v-2h-1V9z"></path></svg>
             <div class="data">
-              <p class="name">PullUps</p>
-              <p class="number"><span>35</span>reps</p>
+              <p class="name" id="exercise-name"></p>
+              <p class="number"><span id="exercise-total"></span>reps</p>
             </div>
           </div>
         </div>
@@ -170,6 +174,5 @@
 </body>
 
 <script src="../0-general/js/data-base.js"></script>
-<script src="../0-general/js/data-display.js"></script>
-
+<script src="./js/main.js"></script>
 </html>
