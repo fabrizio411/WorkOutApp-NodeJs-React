@@ -1,3 +1,7 @@
+
+
+
+
 const user = {
     name: "fabrizio411",
     level: 0,
@@ -6,35 +10,85 @@ const user = {
 
     // WORKOUTS
     workouts: 20,
+    // WEEK STREAK
+    week_streak: 3,
+
+
+    //WEIGHT
+    best_weight: 75,
+    weight_goal: "GAIN",
+
 
     // EXERCISES
-    // Pullups
-    pullups: 350,
-    pullups_max: 15,
-    pullups_heaviest: 0,
+    best_exercise: undefined, 
 
-    // Dips
-    dips: 425,
-    dips_max: 30,
-    dips_heaviest: 15,
-
-    // Pushups
-    pushups: 149,
-    pushups_max: 20,
-    pushups_heaviest: 20,
-
-    // Muscle Ups
-    muscleups: 0,
-    muscleups_max: 0,
-    muscleups_heaviest: 0,
-
-    //Squats
-    squats: 563,
-    squats_max: 50,
-    squats_heaviest: 80,
-
-    // Pistols
-    pistols: 48,
-    pistols_max: 8,
-    pistols_heaviest: 0
+    exercises: {
+        // PulUps
+        pullup: {
+            name: "PullUp",
+            "total": 350,
+            max: 15,
+            heaviest: 0
+        },
+    
+        // Dips
+        dip: {
+            name: "Dips",
+            "total": 425,
+            max: 30,
+            heaviest: 15
+        },
+    
+        // Pushups
+        pushup: {
+            name: "PushUp",
+            "total": 210,
+            max: 25,
+            heaviest: 0
+        },
+    
+        // Muscle Ups
+        muscleup: {
+            name: "MuscleUp",
+            "total": 0,
+            max: 0,
+            heaviest: 0
+        },
+    
+        //Squats
+        squat: {
+            name: "Squat",
+            "total": 563,
+            max: 50,
+            heaviest: 80
+        },
+    
+        // Pistols
+        pistol_squat: {
+            name: "Pistol Squat",
+            "total": 48,
+            max: 8,
+            heaviest: 0
+        }
+    }
 }   
+
+
+
+
+let exercises = user.exercises;
+let reference = 0;
+let best_ex;
+
+for (let element in exercises) {
+    let element_object = exercises[element]
+
+    if (element_object["total"] > reference) {
+        reference = element_object["total"];
+        best_ex = element_object
+    }
+}
+
+user.best_exercise = best_ex
+
+console.log(user.best_exercise)
