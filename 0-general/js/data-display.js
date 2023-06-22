@@ -67,18 +67,18 @@ function totalNumberDisplay(total_num, who) {
     if (total_num === 0) who.innerHTML = 0;
     else {
         let num = 0;
-        let increment_num = 1;
+        let increment_num = total_num / 200;  // Se termina en 3 segundos
         let timeoutID;
     
-        if (total_num < 100) increment_num = 0.3
-        else if (250 < total_num && total_num <= 500) increment_num = 2;
-        else if (500 < total_num && total_num <= 750) increment_num = 3;
-        else if (750 < total_num && total_num <= 1000) increment_num = 4;
-        else if (1000 < total_num && total_num <= 1500) increment_num = 6;
-        else if (1500 < total_num && total_num <= 2500) increment_num = 8;
-        else if (2500 < total_num && total_num <= 4000) increment_num = 10;
-        else if (4000 < total_num && total_num <= 15000) increment_num = 20;
-        else if ( 15000 < total_num) increment_num = 50;
+        // if (total_num < 100) increment_num = 0.3
+        // else if (250 < total_num && total_num <= 500) increment_num = 2;
+        // else if (500 < total_num && total_num <= 750) increment_num = 3;
+        // else if (750 < total_num && total_num <= 1000) increment_num = 4;
+        // else if (1000 < total_num && total_num <= 1500) increment_num = 6;
+        // else if (1500 < total_num && total_num <= 2500) increment_num = 8;
+        // else if (2500 < total_num && total_num <= 4000) increment_num = 10;
+        // else if (4000 < total_num && total_num <= 15000) increment_num = 20;
+        // else if ( 15000 < total_num) increment_num = 50;
     
         function aumentarNumero() {
             num += increment_num;
@@ -97,55 +97,55 @@ function totalNumberDisplay(total_num, who) {
 }
 
 // WORKOUTS 
-if (userExp === null) totalNumberDisplay(user.workouts, workoutsTotal);
-
+if (userExp === null) workoutsTotal.innerHTML = user.workouts 
+// Temoral para ver si se esta en home page
 
 
 // EXERCISES STATS
 // Pullups
-if (userExp !== null)  pullupsTotal.innerHTML = user.pullups.toString();
-else totalNumberDisplay(user.pullups, pullupsTotal);
-pullupsMax.innerHTML = user.pullups_max.toString();
-pullupsHeaviest.innerHTML = user.pullups_heaviest.toString();
+pullupsTotal.innerHTML = user.pullups;
+pullupsMax.innerHTML = user.pullups_max;
+pullupsHeaviest.innerHTML = user.pullups_heaviest;
 if (user.pullups_heaviest === 0) pullupsIsHeaviest.innerHTML = '';
 if (user.pullups === 0) pullupsIsData.innerHTML = '';
 
 // Dips
-if (userExp !== null)  dipsTotal.innerHTML = user.dips.toString();
-else totalNumberDisplay(user.dips, dipsTotal);
-dipsMax.innerHTML = user.dips_max.toString();
-dipsHeaviest.innerHTML = user.dips_heaviest.toString();
+dipsTotal.innerHTML = user.dips;
+dipsMax.innerHTML = user.dips_max;
+dipsHeaviest.innerHTML = user.dips_heaviest;
 if (user.dips_heaviest === 0) dipsIsHeaviest.innerHTML = '';
 if (user.dips === 0) dipsIsData.innerHTML = '';
 
 
 
 if (userExp !== null) { // Indicator that we are in profile page, not home
-    // PushUps
-    pushupsTotal.innerHTML = user.pushups.toString();
-    pushupsMax.innerHTML = user.pushups_max.toString();
-    pushupsHeaviest.innerHTML = user.pushups_heaviest.toString();
-    if (user.pushups_heaviest === 0) pushupsIsHeaviest.innerHTML = '';
-    if (user.pushups === 0) pushupsIsData.innerHTML = '';
+    let exercisesArray = [
+        pushupsTotal, pushupsMax, pushupsHeaviest, pushupsIsHeaviest, pushupsIsData,
+        muscleupsTotal, muscleupsMax, muscleupsHeaviest, muscleupsIsHeaviest, muscleupsIsData,
+        squatsTotal, squatsMax, squatsHeaviest, squatsIsHeaviest, squatsIsData,
+        pistolsTotal, pistolsMax, pistolsHeaviest, pistolsIsHeaviest, pistolsIsData
+    ];
 
-    // Muscle Ups
-    muscleupsTotal.innerHTML = user.muscleups.toString();
-    muscleupsMax.innerHTML = user.muscleups_max.toString();
-    muscleupsHeaviest.innerHTML = user.muscleups_heaviest.toString();
-    if (user.muscleups_heaviest === 0) muscleupsIsHeaviest.innerHTML = '';
-    if (user.muscleups === 0) muscleupsIsData.innerHTML = '';
+    let dataArray = [
+        user.pushups, user.pushups_max, user.pushups_heaviest, null, null,
+        user.muscleups, user.muscleups_max, user.muscleups_heaviest, null, null,
+        user.squats, user.squats_max, user.squats_heaviest, null, null,
+        user.pistols, user.pistols_max, user.pistols_heaviest, null, null
+    ];
 
-    // Squats
-    squatsTotal.innerHTML = user.squats.toString();
-    squatsMax.innerHTML = user.squats_max.toString();
-    squatsHeaviest.innerHTML = user.squats_heaviest.toString();
-    if (user.squats_heaviest === 0) squatsIsHeaviest.innerHTML = '';
-    if (user.squats === 0) squatsIsData.innerHTML = '';
 
-    // Pistols
-    pistolsTotal.innerHTML = user.pistols.toString();
-    pistolsMax.innerHTML = user.pistols_max.toString();
-    pistolsHeaviest.innerHTML = user.pistols_heaviest.toString();
-    if (user.pistols_heaviest === 0) pistolsIsHeaviest.innerHTML = '';
-    if (user.pistols === 0) pistolsIsData.innerHTML = '';
+    for (let i = 0; i < exercisesArray.length; i += 5) {
+        exercisesArray[i].innerHTML = dataArray[i];
+
+        if (dataArray[i] === 0) {
+            exercisesArray[i + 4].innerHTML = '';
+        } else {
+            exercisesArray[i + 1].innerHTML = dataArray[i + 1];
+            if (dataArray[i + 2] === 0) {
+                exercisesArray[i + 3].innerHTML = '';
+            } else {
+                exercisesArray[i + 2].innerHTML = dataArray[i + 2];
+            }
+        }
+    }
 }

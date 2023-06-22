@@ -9,7 +9,7 @@ const user = {
 
     // EXERCISES
     // Pullups
-    pullups: 250,
+    pullups: 350,
     pullups_max: 15,
     pullups_heaviest: 0,
 
