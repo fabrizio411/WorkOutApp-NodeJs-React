@@ -149,7 +149,6 @@ main .container .data-container {
   border-radius: 1rem;
   padding: 1.5rem;
   height: fit-content;
-  animation: graphicEntrance 1.5s;
 }
 main .container .data-container .title-box {
   display: flex;
@@ -267,9 +266,6 @@ main .container .statistics-container .statistic-box .data-box {
   align-items: center;
   gap: 1rem;
 }
-main .container .statistics-container .statistic-box.workouts {
-  animation: workoutsEntrance 1.5s;
-}
 main .container .statistics-container .statistic-box.workouts .data-box .data {
   display: flex;
   flex-direction: column;
@@ -289,9 +285,6 @@ main .container .statistics-container .statistic-box.workouts:hover {
   padding: 1.5rem;
   border: 3px solid rgba(148, 167, 167, 0.863);
   background: linear-gradient(-45deg, #1f2022, rgba(148, 167, 167, 0.4));
-}
-main .container .statistics-container .statistic-box.streak {
-  animation: streakEntrance 1.5s;
 }
 main .container .statistics-container .statistic-box.streak .data-box .data {
   display: flex;
@@ -313,9 +306,6 @@ main .container .statistics-container .statistic-box.streak:hover {
   padding: 1.5rem;
   border: 3px solid rgba(216, 101, 24, 0.8);
   background: linear-gradient(-45deg, #1f2022, rgba(216, 101, 24, 0.281));
-}
-main .container .statistics-container .statistic-box.weight {
-  animation: weightEntrance 1.5s;
 }
 main .container .statistics-container .statistic-box.weight .data-box .data {
   display: flex;
@@ -342,9 +332,6 @@ main .container .statistics-container .statistic-box.weight:hover {
   padding: 1.5rem;
   border: 3px solid rgba(66, 97, 182, 0.671);
   background: linear-gradient(-45deg, #1f2022, rgba(66, 97, 182, 0.349));
-}
-main .container .statistics-container .statistic-box.exercise {
-  animation: exerciseEntrance 1.5s;
 }
 main .container .statistics-container .statistic-box.exercise .data-box .data {
   display: flex;

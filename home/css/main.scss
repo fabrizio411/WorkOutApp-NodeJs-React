@@ -51,9 +51,6 @@ main {
             display: flex;
             justify-content: space-between;
             
-            animation: profileEntrance 1.5s;
-
-
             .profile-info-box {
                 display: flex;
                 gap: 1.75rem;
@@ -158,8 +155,6 @@ main {
             grid-template-rows: auto 1fr;
             gap: 2rem;
 
-            animation: weekEntrance 1.5s;
-
             .week-display-box {
                 background-color: var.$clr-bg-lvl3;
                 border: 1px solid var.$clr-borders-lvl3;
@@ -251,8 +246,6 @@ main {
             gap: 2rem;
             height: 100%;    
             
-            animation: dataEntrance 1.5s;
-
             .exercise-box {
                 background-color: var.$clr-bg-lvl2;  // VAR
                 border: 1px solid var.$clr-borders-lvl2;  // VAR

@@ -51,15 +51,6 @@ const pistolsIsHeaviest = document.getElementById("pistols-isHeaviest");
 const pistolsIsData = document.getElementById("pistols-isData");
 
 
-// LEVEL MANAGEMENT
-userLevel.innerHTML = user.level.toString();
-if (userExp !== null) userExp.innerHTML = user.exp.toString();
-
-let expNeeded = 1000;
-let barStatus = Math.floor(user.exp * 100 / expNeeded);
-levelBarStatus.innerHTML = barStatus.toString();
-levelBarFill.style.width = `${barStatus}%`;
-
 
 
 
@@ -96,28 +87,14 @@ function totalNumberDisplay(total_num, who) {
     }
 }
 
-// WORKOUTS 
-if (userExp === null) workoutsTotal.innerHTML = user.workouts 
-// Temoral para ver si se esta en home page
-
-
-// EXERCISES STATS
-// Pullups
-pullupsTotal.innerHTML = user.pullups;
-pullupsMax.innerHTML = user.pullups_max;
-pullupsHeaviest.innerHTML = user.pullups_heaviest;
-if (user.pullups_heaviest === 0) pullupsIsHeaviest.innerHTML = '';
-if (user.pullups === 0) pullupsIsData.innerHTML = '';
-
-// Dips
-dipsTotal.innerHTML = user.dips;
-dipsMax.innerHTML = user.dips_max;
-dipsHeaviest.innerHTML = user.dips_heaviest;
-if (user.dips_heaviest === 0) dipsIsHeaviest.innerHTML = '';
-if (user.dips === 0) dipsIsData.innerHTML = '';
 
 
 
+
+
+
+
+// EJEMPLO PARA FUTURO
 if (userExp !== null) { // Indicator that we are in profile page, not home
     let exercisesArray = [
         pushupsTotal, pushupsMax, pushupsHeaviest, pushupsIsHeaviest, pushupsIsData,
