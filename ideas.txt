@@ -5,6 +5,7 @@
 
 - Nivel de atleta basado en experiencia por entrenamiento, baja si no entrenas
 
+- Ajustar para ejercicios isometricos, (profile page)
 
 // Futuro
 - CALENDAR: mostar un calendario y marcar los dias que se registraron datos
