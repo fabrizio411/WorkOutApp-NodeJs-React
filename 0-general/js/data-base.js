@@ -4,18 +4,19 @@
 
 const user = {
     name: "fabrizio411",
+    join_date: new Date(),
     level: 0,
     exp: 286,
 
 
     // WORKOUTS
-    workouts: 20,
+    workouts: 25,
     // WEEK STREAK
     week_streak: 3,
 
 
     //WEIGHT
-    weight: [76.5, 77.1, 77, 76.9, 77.2, 76.8, 76.2],
+    weight: [76.5, 77.1, 77, 76.9, 77.2, 76.8, 75],
     best_weight: undefined,
     weight_goal: "GAIN",
 
@@ -26,7 +27,7 @@ const user = {
     exercises: {
         // PulUps
         pullup: {
-            name: "PullUp",
+            "name": "PullUp",
             "total": 350,
             max: 15,
             heaviest: 0
@@ -34,7 +35,7 @@ const user = {
     
         // Dips
         dip: {
-            name: "Dips",
+            "name": "Dips",
             "total": 425,
             max: 30,
             heaviest: 15
@@ -42,7 +43,7 @@ const user = {
     
         // Pushups
         pushup: {
-            name: "PushUp",
+            "name": "PushUp",
             "total": 210,
             max: 25,
             heaviest: 0
@@ -50,7 +51,7 @@ const user = {
     
         // Muscle Ups
         muscleup: {
-            name: "MuscleUp",
+            "name": "MuscleUp",
             "total": 0,
             max: 0,
             heaviest: 0
@@ -58,7 +59,7 @@ const user = {
     
         //Squats
         squat: {
-            name: "Squat",
+            "name": "Squat",
             "total": 563,
             max: 50,
             heaviest: 80
@@ -66,7 +67,7 @@ const user = {
     
         // Pistols
         pistol_squat: {
-            name: "Pistol Squat",
+            "name": "Pistol Squat",
             "total": 48,
             max: 8,
             heaviest: 0
@@ -79,9 +80,18 @@ const user = {
 // SET BEST WEIGHT
 let weight_array = user.weight;
 let best_w = 0;
-weight_array.forEach(element => {
-    if (element > best_w) best_w = element;
-})
+if (user.weight_goal === "GAIN") {
+    weight_array.forEach(element => {
+        if (element > best_w) best_w = element;
+    })
+} else if(user.weight_goal === "LOOSE") {
+    best_w = weight_array[0]
+    weight_array.forEach(element => {
+        if (element < best_w) best_w = element;
+    })
+}
+
+
 user.best_weight = best_w;
 
 
