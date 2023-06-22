@@ -1,3 +1,33 @@
+@keyframes profileEntrance {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes weekEntrance {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}
+@keyframes dataEntrance {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 main {
   margin-left: 250px;
   height: 100%;
@@ -25,6 +55,7 @@ main .container .profile-box {
   padding: 2rem;
   display: flex;
   justify-content: space-between;
+  animation: profileEntrance 1.5s;
 }
 main .container .profile-box .profile-info-box {
   display: flex;
@@ -107,6 +138,7 @@ main .container .week-manage-container {
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 2rem;
+  animation: weekEntrance 1.5s;
 }
 main .container .week-manage-container .week-display-box {
   background-color: #292b2f;
@@ -176,6 +208,7 @@ main .container .exercises-data-box {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   height: 100%;
+  animation: dataEntrance 1.5s;
 }
 main .container .exercises-data-box .exercise-box {
   background-color: #1f2022;
