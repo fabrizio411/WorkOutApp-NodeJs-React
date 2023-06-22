@@ -15,7 +15,8 @@ const user = {
 
 
     //WEIGHT
-    best_weight: 75,
+    weight: [76.5, 77.1, 77, 76.9, 77.2, 76.8, 76.2],
+    best_weight: undefined,
     weight_goal: "GAIN",
 
 
@@ -75,20 +76,25 @@ const user = {
 
 
 
+// SET BEST WEIGHT
+let weight_array = user.weight;
+let best_w = 0;
+weight_array.forEach(element => {
+    if (element > best_w) best_w = element;
+})
+user.best_weight = best_w;
 
+
+// SET BEST EXERCISE
 let exercises = user.exercises;
 let reference = 0;
 let best_ex;
-
 for (let element in exercises) {
-    let element_object = exercises[element]
+    let element_object = exercises[element];
 
     if (element_object["total"] > reference) {
         reference = element_object["total"];
-        best_ex = element_object
+        best_ex = element_object;
     }
 }
-
-user.best_exercise = best_ex
-
-console.log(user.best_exercise)
+user.best_exercise = best_ex;
