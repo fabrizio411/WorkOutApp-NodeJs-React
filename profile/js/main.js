@@ -6,7 +6,7 @@ const levelBarFill = document.getElementById("level-bar-fill");
 
 
 userLevel.innerHTML = user.level.toString();
-if (userExp !== null) userExp.innerHTML = user.exp.toString();
+userExp.innerHTML = user.exp.toString();
 
 let expNeeded = 1000;
 let barStatus = Math.floor(user.exp * 100 / expNeeded);

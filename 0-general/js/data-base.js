@@ -18,7 +18,7 @@ const user = {
     //WEIGHT
     weight: [76.5, 77.1, 77, 76.9, 77.2, 76.8, 75],
     best_weight: undefined,
-    weight_goal: "GAIN",
+    weight_goal: "LOOSE",
 
 
     // EXERCISES
