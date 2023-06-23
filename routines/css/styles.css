@@ -13,6 +13,125 @@ main .container {
   max-width: 1080px;
   max-height: 850px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+}
+main .container .page-menu-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+main .container .page-menu-container .title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+main .container .page-menu-container .buttons-menu {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  gap: 0.75rem;
+}
+main .container .page-menu-container .buttons-menu .btn {
+  background-color: #1f2022;
+  border: 1px solid #2b2d30;
+  border-radius: 0.5rem;
+  color: #cecece;
+  font-weight: 500;
+  height: 2.5rem;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.25rem;
+  place-items: center;
+}
+main .container .page-menu-container .buttons-menu .btn span {
+  justify-self: flex-start;
+}
+main .container .page-menu-container .buttons-menu .btn svg {
+  stroke: #9DA4AE;
+}
+main .container .page-menu-container .buttons-menu .btn .svg-new-routine {
+  height: 1.4rem;
+}
+main .container .page-menu-container .buttons-menu .btn .svg-new-folder {
+  height: 2rem;
+}
+main .container .page-menu-container .buttons-menu .btn .svg-exercises {
+  height: 1.5rem;
+  stroke: green;
+}
+main .container .routines-container {
+  background-color: #1f2022;
+  border: 1px solid #2b2d30;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main .container .routines-container .folders-box {
+  background-color: #232425;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+main .container .routines-container .folders-box .folder-name {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+main .container .routines-container .folders-box .routine {
+  background-color: rgba(63, 94, 63, 0.322);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .container .routines-container .folders-box .routine .title {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+main .container .routines-container .folders-box .routine .title .name {
+  color: #cecece;
+}
+main .container .routines-container .folders-box .routine .title .info {
+  color: #9DA4AE;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+main .container .routines-container .folders-box .routine .extra-menu {
+  position: relative;
+}
+main .container .routines-container .folders-box .routine .extra-menu .svg-display-btn {
+  fill: rgb(99, 189, 99);
+  stroke: rgb(100, 170, 100);
+}
+main .container .routines-container .folders-box .routine .extra-menu .menu-display {
+  display: none;
+  position: absolute;
+  background-color: #292b2f;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  height: auto;
+  width: 210px;
+}
+main .container .routines-container .folders-box .routine .extra-menu .menu-display button {
+  background-color: #292b2f;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border: none;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 2.5rem 1fr;
+}
+main .container .routines-container .folders-box .routine .extra-menu .menu-display button p {
+  color: #cecece;
+}
+main .container .routines-container .folders-box .routine .extra-menu .menu-display button svg {
+  stroke: #9DA4AE;
 }
 
 /*# sourceMappingURL=styles.css.map */
