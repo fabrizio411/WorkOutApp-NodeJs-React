@@ -274,7 +274,7 @@ main .container .exercises-data-box .exercise-box .hover-data-display .title-box
 main .container .exercises-data-box .exercise-box .hover-data-display .data-box {
   padding: 0.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   place-items: center;
 }
 main .container .exercises-data-box .exercise-box .hover-data-display .data-box .total {

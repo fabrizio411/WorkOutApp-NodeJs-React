@@ -27,7 +27,7 @@ const user = {
         // PulUps
         pullup: {
             "name": "PullUp",
-            "total": 350,
+            "total": 0,
             max: 15,
             heaviest: 0
         },

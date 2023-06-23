@@ -325,7 +325,7 @@ main {
                     .data-box {
                         padding: .5rem;
                         display: grid;
-                        grid-template-columns: 1fr 1fr;
+                        grid-template-columns: repeat(2, 1fr);
                         place-items: center;
 
                         .total {
