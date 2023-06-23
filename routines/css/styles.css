@@ -75,40 +75,26 @@ main .container .routines-container .folders-box {
   border-radius: 0.5rem;
   padding: 1rem;
 }
-main .container .routines-container .folders-box .folder-name {
-  color: #ffffff;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-}
-main .container .routines-container .folders-box .routine {
-  background-color: rgba(63, 94, 63, 0.322);
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
+main .container .routines-container .folders-box .folder .folder-info-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-main .container .routines-container .folders-box .routine .title {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
+main .container .routines-container .folders-box .folder .folder-info-box .folder-name {
+  color: #ffffff;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
 }
-main .container .routines-container .folders-box .routine .title .name {
-  color: #cecece;
-}
-main .container .routines-container .folders-box .routine .title .info {
-  color: #9DA4AE;
-  font-weight: 300;
-  font-size: 0.9rem;
-}
-main .container .routines-container .folders-box .routine .extra-menu {
+main .container .routines-container .folders-box .folder .folder-info-box .extra-menu {
   position: relative;
 }
-main .container .routines-container .folders-box .routine .extra-menu .svg-display-btn {
+main .container .routines-container .folders-box .folder .folder-info-box .extra-menu .svg-display-btn {
   fill: rgb(99, 189, 99);
   stroke: rgb(100, 170, 100);
 }
-main .container .routines-container .folders-box .routine .extra-menu .menu-display {
+main .container .routines-container .folders-box .folder .folder-info-box .extra-menu .menu-display {
+  z-index: 1;
+  left: -2rem;
   display: none;
   position: absolute;
   background-color: #292b2f;
@@ -118,7 +104,7 @@ main .container .routines-container .folders-box .routine .extra-menu .menu-disp
   height: auto;
   width: 210px;
 }
-main .container .routines-container .folders-box .routine .extra-menu .menu-display button {
+main .container .routines-container .folders-box .folder .folder-info-box .extra-menu .menu-display button {
   background-color: #292b2f;
   font-size: 0.9rem;
   padding: 0.5rem;
@@ -127,11 +113,87 @@ main .container .routines-container .folders-box .routine .extra-menu .menu-disp
   place-items: center;
   grid-template-columns: 2.5rem 1fr;
 }
-main .container .routines-container .folders-box .routine .extra-menu .menu-display button p {
+main .container .routines-container .folders-box .folder .folder-info-box .extra-menu .menu-display button p {
   color: #cecece;
 }
-main .container .routines-container .folders-box .routine .extra-menu .menu-display button svg {
+main .container .routines-container .folders-box .folder .folder-info-box .extra-menu .menu-display button svg {
   stroke: #9DA4AE;
+}
+main .container .routines-container .folders-box .folder .folder-info-box .routine-infolder-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+main .container .routines-container .routine {
+  background-color: rgba(63, 94, 63, 0.322);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main .container .routines-container .routine .title {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+main .container .routines-container .routine .title .name {
+  color: #cecece;
+}
+main .container .routines-container .routine .title .info {
+  color: #9DA4AE;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+main .container .routines-container .routine .extra-menu {
+  position: relative;
+}
+main .container .routines-container .routine .extra-menu .svg-display-btn {
+  fill: rgb(99, 189, 99);
+  stroke: rgb(100, 170, 100);
+}
+main .container .routines-container .routine .extra-menu .menu-display {
+  z-index: 1;
+  left: -2rem;
+  display: none;
+  position: absolute;
+  background-color: #292b2f;
+  border-radius: 0.25rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  height: auto;
+  width: 210px;
+}
+main .container .routines-container .routine .extra-menu .menu-display button {
+  background-color: #292b2f;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border: none;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 2.5rem 1fr;
+}
+main .container .routines-container .routine .extra-menu .menu-display button p {
+  color: #cecece;
+}
+main .container .routines-container .routine .extra-menu .menu-display button svg {
+  stroke: #9DA4AE;
+}
+main .container .routines-container .general-routines-box {
+  padding: 1rem;
+}
+main .container .routines-container .general-routines-box .section-title {
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+main .container .routines-container .general-routines-box .routines-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+main .container .routines-container .general-routines-box .routines-box .routine .title {
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=styles.css.map */

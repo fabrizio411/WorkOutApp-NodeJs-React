@@ -92,9 +92,30 @@
       </div>
 
       <div class="routines-container">
-        <div class="folders-box">
+        <section class="folders-box">
           <div class="folder">
-            <h3 class="folder-name">FolderName (<span id="routines-num"></span>)</h3>
+            <div class="folder-info-box">
+              <h3 class="folder-name">FolderName (<span id="routines-num"></span>)</h3>
+              <div class="extra-menu">
+                <svg class="svg-display-btn" width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g  fill-rule="nonzero"><path d="M21.5 15c0 .825.675 1.5 1.5 1.5s1.5-.675 1.5-1.5-.675-1.5-1.5-1.5-1.5.675-1.5 1.5zM16.5 15c0-.825-.675-1.5-1.5-1.5s-1.5.675-1.5 1.5.675 1.5 1.5 1.5 1.5-.675 1.5-1.5zM8.5 15c0-.825-.675-1.5-1.5-1.5s-1.5.675-1.5 1.5.675 1.5 1.5 1.5 1.5-.675 1.5-1.5z"></path></g></svg>
+                <!-- DISPLAY ON CLICK -->
+                <div class="menu-display">
+                  <button>
+                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round"  stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
+                    <p>Add new routine</p>
+                  </button>
+                  <button>                    
+                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path  stroke-width="1.5" d="M10 18.8V21h2.102L21 12.123 18.826 10z" fill="none" fill-rule="evenodd"></path></svg>
+                    <p>Rename Folder</p>
+                  </button>
+                  <button>
+                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round"  stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
+                    <p>Delete Folder</p>
+                  </button>
+                </div>
+              </div>
+            </div>
+
             <div class="routine-infolder-box">
               <div class="routine">
                 <div class="title">
@@ -122,9 +143,65 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      
 
+        <section class="general-routines-box">
+          <h3 class="section-title">My Routines (<span id="routines-num"></span>)</h3>
+          <div class="routines-box">
+
+            <div class="routine">
+              <div class="title">
+                <p class="name">Routine Name</p>
+                <p class="info">/Muscular Group</p>
+              </div>
+              <div class="extra-menu">
+                <svg class="svg-display-btn" width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g  fill-rule="nonzero"><path d="M21.5 15c0 .825.675 1.5 1.5 1.5s1.5-.675 1.5-1.5-.675-1.5-1.5-1.5-1.5.675-1.5 1.5zM16.5 15c0-.825-.675-1.5-1.5-1.5s-1.5.675-1.5 1.5.675 1.5 1.5 1.5 1.5-.675 1.5-1.5zM8.5 15c0-.825-.675-1.5-1.5-1.5s-1.5.675-1.5 1.5.675 1.5 1.5 1.5 1.5-.675 1.5-1.5z"></path></g></svg>
+                <!-- DISPLAY ON CLICK -->
+                <div class="menu-display">
+                  <button>
+                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path  stroke-width="1.5" d="M10 18.8V21h2.102L21 12.123 18.826 10z" fill="none" fill-rule="evenodd"></path></svg>
+                    <p>Edit Routine</p>
+                  </button>
+                  <button>                    
+                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"  stroke-width="1.5"><rect x="9" y="11.076" width="8.4" height="10.8" rx="1.2"></rect><path d="M12.115 8.943c0-.52.422-.943.943-.943H19a1.2 1.2 0 011.2 1.2v9.071a.528.528 0 01-.528.529h0" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                    <p>Duplicate Routine</p>
+                  </button>
+                  <button>
+                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round"  stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
+                    <p>Delete Routine</p>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="routine">
+              <div class="title">
+                <p class="name">Routine Name</p>
+                <p class="info">/Muscular Group</p>
+              </div>
+              <div class="extra-menu">
+                <svg class="svg-display-btn" width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g  fill-rule="nonzero"><path d="M21.5 15c0 .825.675 1.5 1.5 1.5s1.5-.675 1.5-1.5-.675-1.5-1.5-1.5-1.5.675-1.5 1.5zM16.5 15c0-.825-.675-1.5-1.5-1.5s-1.5.675-1.5 1.5.675 1.5 1.5 1.5 1.5-.675 1.5-1.5zM8.5 15c0-.825-.675-1.5-1.5-1.5s-1.5.675-1.5 1.5.675 1.5 1.5 1.5 1.5-.675 1.5-1.5z"></path></g></svg>
+                <!-- DISPLAY ON CLICK -->
+                <div class="menu-display">
+                  <button>
+                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path  stroke-width="1.5" d="M10 18.8V21h2.102L21 12.123 18.826 10z" fill="none" fill-rule="evenodd"></path></svg>
+                    <p>Edit Routine</p>
+                  </button>
+                  <button>                    
+                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"  stroke-width="1.5"><rect x="9" y="11.076" width="8.4" height="10.8" rx="1.2"></rect><path d="M12.115 8.943c0-.52.422-.943.943-.943H19a1.2 1.2 0 011.2 1.2v9.071a.528.528 0 01-.528.529h0" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+                    <p>Duplicate Routine</p>
+                  </button>
+                  <button>
+                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round"  stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
+                    <p>Delete Routine</p>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   </main>
   

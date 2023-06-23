@@ -75,6 +75,14 @@ main {
             }
         }
 
+
+
+
+
+
+
+
+
         .routines-container {
             background-color: var.$clr-bg-lvl2;  
             border: 1px solid var.$clr-borders-lvl2;
@@ -89,80 +97,159 @@ main {
                 border-radius: .5rem;
                 padding: 1rem;
 
-                .folder-name {
-                    color: var.$clr-text-lvl1;
-                    font-size: 1.1rem;
-                    margin-bottom: .5rem;
-                }
-
-                .routine {
-                    background-color: rgba(63, 94, 63, 0.322);
-                    border-radius: .5rem;
-                    padding: .5rem 1rem;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-
-                    .title {
+                .folder {
+                    .folder-info-box {
                         display: flex;
+                        justify-content: space-between;
                         align-items: center;
-                        gap: 2rem;
 
-                        .name {
-                            color: var.$clr-text-lvl2
+                        .folder-name {
+                            color: var.$clr-text-lvl1;
+                            font-size: 1.1rem;
+                            margin-bottom: 1rem;
                         }
 
-                        .info {
-                            color: var.$clr-text-lvl3;
-                            font-weight: var.$fw-light;
-                            font-size: .9rem;
-                        }
-                    }
 
-                    .extra-menu {
-                        position: relative;
-
-                        .svg-display-btn {
-                            fill: rgb(99, 189, 99);
-                            stroke: rgb(100, 170, 100);
-                        }
-
-                        // DISPLAY ON CLICK
-                        .menu-display {
-                            display: none;  // Block
-                            position: absolute;
-                            background-color: var.$clr-bg-lvl3;
-                            border-radius: .25rem;
-                            height: 2.5rem;
-                            padding: .5rem;
-                            height: auto;
-                            width: 210px;
-
-                            button {
+                        .extra-menu {
+                            position: relative;
+    
+                            .svg-display-btn {
+                                fill: rgb(99, 189, 99);
+                                stroke: rgb(100, 170, 100);
+                            }
+    
+                            // DISPLAY ON CLICK
+                            .menu-display {
+                                z-index: 1;
+                                left: -2rem;
+                                display: none;  // Block
+                                position: absolute;
                                 background-color: var.$clr-bg-lvl3;
-                                font-size: .9rem;
+                                border-radius: .25rem;
+                                height: 2.5rem;
                                 padding: .5rem;
-                                border: none;
-                                display: grid;
-                                place-items: center;
-                                grid-template-columns: 2.5rem 1fr;
-
-                                p {
-                                    color: var.$clr-text-lvl2;
-                                }
-
-                                svg {
-                                    stroke: var.$clr-text-lvl3;
+                                height: auto;
+                                width: 210px;
+    
+                                button {
+                                    background-color: var.$clr-bg-lvl3;
+                                    font-size: .9rem;
+                                    padding: .5rem;
+                                    border: none;
+                                    display: grid;
+                                    place-items: center;
+                                    grid-template-columns: 2.5rem 1fr;
+    
+                                    p {
+                                        color: var.$clr-text-lvl2;
+                                    }
+    
+                                    svg {
+                                        stroke: var.$clr-text-lvl3;
+                                    }
                                 }
                             }
                         }
+
+                        .routine-infolder-box {
+                            display: flex;
+                            flex-direction: column;
+                            gap: .75rem;
+                        }
                     }
-
-
-
-                }   
+                }
             }
 
+            // Routines styles for everywere
+            .routine {
+                background-color: rgba(63, 94, 63, 0.322);
+                border-radius: .5rem;
+                padding: .5rem 1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .title {
+                    display: flex;
+                    align-items: center;
+                    gap: 2rem;
+
+                    .name {
+                        color: var.$clr-text-lvl2
+                    }
+
+                    .info {
+                        color: var.$clr-text-lvl3;
+                        font-weight: var.$fw-light;
+                        font-size: .9rem;
+                    }
+                }
+
+                .extra-menu {
+                    position: relative;
+
+                    .svg-display-btn {
+                        fill: rgb(99, 189, 99);
+                        stroke: rgb(100, 170, 100);
+                    }
+
+                    // DISPLAY ON CLICK
+                    .menu-display {
+                        z-index: 1;
+                        left: -2rem;
+                        display: none;  // Block
+                        position: absolute;
+                        background-color: var.$clr-bg-lvl3;
+                        border-radius: .25rem;
+                        height: 2.5rem;
+                        padding: .5rem;
+                        height: auto;
+                        width: 210px;
+
+                        button {
+                            background-color: var.$clr-bg-lvl3;
+                            font-size: .9rem;
+                            padding: .5rem;
+                            border: none;
+                            display: grid;
+                            place-items: center;
+                            grid-template-columns: 2.5rem 1fr;
+
+                            p {
+                                color: var.$clr-text-lvl2;
+                            }
+
+                            svg {
+                                stroke: var.$clr-text-lvl3;
+                            }
+                        }
+                    }
+                }
+            }  
+
+
+
+            .general-routines-box {
+                padding: 1rem;
+
+                .section-title {
+                    color: var.$clr-text-lvl1;
+                    margin-bottom: 1rem;
+                }
+
+                .routines-box {
+                    display: flex;
+                    flex-direction: column;
+                    gap: .75rem;
+
+                    .routine {
+                        .title {
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
         }
     }
 }
