@@ -1,34 +1,6 @@
 @use "../../var";
 
 
-// Animation for entrance
-@keyframes graphicEntrance {
-    0% { opacity: 0; }
-    30% { opacity: 1; }
-}   
-
-@keyframes workoutsEntrance {
-    0% { opacity: 0; }
-    30% { opacity: 0; }
-    35% { opacity: 1; }
-}
-@keyframes streakEntrance {
-    0% { opacity: 0; }
-    35% { opacity: 0; }
-    40% { opacity: 1; }
-}
-@keyframes weightEntrance {
-    0% { opacity: 0; }
-    40% { opacity: 0; }
-    45% { opacity: 1; }
-}
-@keyframes exerciseEntrance {
-    0% { opacity: 0; }
-    45% { opacity: 0; }
-    50% { opacity: 1; }
-}
-
-
 main {
     margin-left: var.$menu-width;
 

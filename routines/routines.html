@@ -7,6 +7,7 @@
 
   <link rel="stylesheet" href="../0-general/css/reset.css">
   <link rel="stylesheet" href="../0-general/css/header.css">
+  <link rel="stylesheet" href="./css/styles.css">
 
 </head>
 <body>
@@ -65,8 +66,67 @@
         </div>
       </div>
     </div>
-    
   </header>
+
+
+  <main>
+    <div class="container">
+      <div class="page-menu-container">
+        <h2 class="title">My Routines</h2>
+        <div class="buttons-menu">
+          <button class="btn">
+            <?xml version="1.0" ?><svg fill="none" height="28" viewBox="0 0 22 28" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M5 6H15" stroke="black" stroke-linecap="round" stroke-width="2"/><path d="M5 11H15" stroke="black" stroke-linecap="round" stroke-width="2"/><path d="M5 16H12" stroke="black" stroke-linecap="round" stroke-width="2"/><path d="M17 26V18" stroke="black" stroke-linecap="round" stroke-width="2"/><path d="M21 22H13" stroke="black" stroke-linecap="round" stroke-width="2"/><path d="M12 27H5C2.79086 27 1 25.2091 1 23V5C1 2.79086 2.79086 1 5 1H15C17.2091 1 19 2.79086 19 5V14.5" stroke="black" stroke-linecap="round" stroke-width="2"/></svg>
+            <span>New Routine</span>
+          </button>
+
+          <button class="btn">
+            <svg width="30px" height="30px" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" tint="#1780EA" type="new-folder" dark="#1780EA" light="#1780EA" style="margin-left: 8px; margin-right: 8px;"><g stroke="#1780EA" stroke-width="1.5" fill="none" fill-rule="evenodd"><path d="M21.167 15.117a1.246 1.246 0 011.25 1.25h0v7.666a1.246 1.246 0 01-1.25 1.25h0H6.833a1.246 1.246 0 01-1.25-1.25h0v-8.916zM10.058 11.367a1.248 1.248 0 011.186.854h0l.882 2.646H5.583v-2.25a1.246 1.246 0 011.25-1.25h0z"></path><g stroke-linecap="round"><path d="M21 4.61v6.667M24.334 7.943h-6.667"></path></g></g></svg>
+            <span>New Folder</span>
+          </button>
+
+          <button class="btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" tint="#9DA4AE" type="exercises-navbar" dark="#9DA4AE" light="#9DA4AE" style="width: 24px; height: 24px;"><path d="M11.5668 3.46056L10.1456 4.88174C9.88397 5.14337 9.89271 5.5763 10.1651 5.84871L18.057 13.7406C18.3294 14.013 18.7623 14.0217 19.0239 13.7601L20.4451 12.3389C20.7067 12.0773 20.698 11.6443 20.4256 11.3719L12.5337 3.48008C12.2613 3.20767 11.8284 3.19893 11.5668 3.46056Z" stroke="#9DA4AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12.3387 20.4437L13.7599 19.0226C14.0215 18.7609 14.0128 18.328 13.7404 18.0556L5.84856 10.1637C5.57615 9.89133 5.14322 9.8826 4.88159 10.1442L3.46041 11.5654C3.19878 11.827 3.20752 12.26 3.47993 12.5324L11.3718 20.4242C11.6442 20.6966 12.0771 20.7054 12.3387 20.4437Z" stroke="#9DA4AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M13.6172 4.36865L15.3937 2.59218C15.5507 2.43513 15.7533 2.33648 15.9568 2.31793C16.1604 2.29938 16.3482 2.36245 16.4791 2.49326L21.4115 7.42566C21.5423 7.55648 21.6053 7.74433 21.5868 7.94788C21.5682 8.15143 21.4696 8.35401 21.3125 8.51106L19.5361 10.2875" stroke="#9DA4AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10.2883 19.5356L8.51186 21.3121C8.35481 21.4692 8.15222 21.5678 7.94867 21.5864C7.74512 21.6049 7.55727 21.5418 7.42646 21.411L2.49406 16.4786C2.36324 16.3478 2.30017 16.16 2.31872 15.9564C2.33727 15.7529 2.43593 15.5503 2.59298 15.3932L4.36945 13.6168" stroke="#9DA4AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10 14L14 10" stroke="#9DA4AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span>My Exercises</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="routines-container">
+        <div class="folders-box">
+          <div class="folder">
+            <h3>FolderName (<span id="routines-num"></span>)</h3>
+            <div class="routine-infolder-box">
+              <div class="routine">
+                <div class="title">
+                  <p class="name">Routine Name</p>
+                  <p class="info">/Muscular Group</p>
+                </div>
+                <div class="extra-menu">
+                  <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="#1D83EA" fill-rule="nonzero"><path d="M21.5 15c0 .825.675 1.5 1.5 1.5s1.5-.675 1.5-1.5-.675-1.5-1.5-1.5-1.5.675-1.5 1.5zM16.5 15c0-.825-.675-1.5-1.5-1.5s-1.5.675-1.5 1.5.675 1.5 1.5 1.5 1.5-.675 1.5-1.5zM8.5 15c0-.825-.675-1.5-1.5-1.5s-1.5.675-1.5 1.5.675 1.5 1.5 1.5 1.5-.675 1.5-1.5z"></path></g></svg>
+                  <!-- DISPLAY ON CLICK -->
+                  <div class="menu-display">
+                    <div>
+                      <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path stroke="#6D727F" stroke-width="1.5" d="M10 18.8V21h2.102L21 12.123 18.826 10z" fill="none" fill-rule="evenodd"></path></svg>
+                      <p>Edit Routine</p>
+                    </div>
+                    <div>                    
+                      <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path stroke="#6D727F" stroke-width="1.5" d="M10 18.8V21h2.102L21 12.123 18.826 10z" fill="none" fill-rule="evenodd"></path></svg>
+                      <p>Duplicate Routine</p>
+                    </div>
+                    <div>
+                      <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke="#6D727F" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
+                      <p>Delete Routine</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
   
 </body>
 </html>

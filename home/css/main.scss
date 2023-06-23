@@ -1,25 +1,6 @@
 @use "../../var";
 
 
-// Animation for entrance
-@keyframes profileEntrance {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-}   
-
-@keyframes weekEntrance {
-    0% { opacity: 0; }
-    50% { opacity: 0; }
-    75% { opacity: 1; }
-}
-
-@keyframes dataEntrance {
-    0% { opacity: 0; }
-    75% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-
 main {
     margin-left: var.$menu-width;
     height: 100%;
