@@ -12,6 +12,18 @@
 </head>
 <body>
 
+  <!-- New Folder PopUp Window -->
+  <div class="new-folder-window" id="new-folder-window">
+    <h2 class="title">Create New Folder</h2>
+    <form action="/" method="post" id="formulario">
+      <input placeholder="Folder Name" name="folder-name" type="text">
+      <div class="buttons">
+        <button id="cancel-btn" type="reset" class="cancel-btn">Cancel</button>
+        <button id="submit-btn" type="submit" class="submit-btn">Create Folder</button>
+      </div>
+    </form>
+  </div>
+
   <header>
     <div class="nav-menu">
       <h1>WorkOutApp</h1>
@@ -79,7 +91,7 @@
             <span>New Routine</span>
           </button>
 
-          <button class="btn">
+          <button class="btn" id="new-folder-btn">
             <svg class="svg-new-folder" width="30px" height="30px" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" tint="#1780EA" type="new-folder" dark="#1780EA" light="#1780EA" style="margin-left: 8px; margin-right: 8px;"><g stroke-width="1.5" fill="none" fill-rule="evenodd"><path d="M21.167 15.117a1.246 1.246 0 011.25 1.25h0v7.666a1.246 1.246 0 01-1.25 1.25h0H6.833a1.246 1.246 0 01-1.25-1.25h0v-8.916zM10.058 11.367a1.248 1.248 0 011.186.854h0l.882 2.646H5.583v-2.25a1.246 1.246 0 011.25-1.25h0z"></path><g stroke-linecap="round"><path d="M21 4.61v6.667M24.334 7.943h-6.667"></path></g></g></svg>
             <span>New Folder</span>
           </button>
@@ -92,7 +104,7 @@
       </div>
 
       <div class="routines-container">
-        <section class="folders-box">
+        <section class="folders-box" id="folders-box">
           <div class="folder">
             <div class="folder-info-box">
               <h3 class="folder-name">FolderName (<span id="routines-num"></span>)</h3>
@@ -104,7 +116,7 @@
                     <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round"  stroke-width="1.5"><path d="M14.89 9.39v10.999M9.39 14.889h10.999"></path></g></svg>
                     <p>Add new routine</p>
                   </button>
-                  <button>                    
+                  <button id="new-folder-btn">                    
                     <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path  stroke-width="1.5" d="M10 18.8V21h2.102L21 12.123 18.826 10z" fill="none" fill-rule="evenodd"></path></svg>
                     <p>Rename Folder</p>
                   </button>
@@ -206,4 +218,8 @@
   </main>
   
 </body>
+
+<script src="../0-general/js/data-base.js"></script>
+<script src="./js/main.js"></script>
+
 </html>

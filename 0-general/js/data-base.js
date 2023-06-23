@@ -89,8 +89,6 @@ if (user.weight_goal === "GAIN") {
         if (element < best_w) best_w = element;
     })
 }
-
-
 user.best_weight = best_w;
 
 
