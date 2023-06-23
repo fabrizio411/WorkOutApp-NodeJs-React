@@ -84,6 +84,7 @@ main {
 
 
         .routines-container {
+            min-height: 250px;
             background-color: var.$clr-bg-lvl2;  
             border: 1px solid var.$clr-borders-lvl2;
             border-radius: .5rem;

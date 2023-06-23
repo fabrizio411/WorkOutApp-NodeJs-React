@@ -62,6 +62,7 @@ main .container .page-menu-container .buttons-menu .btn .svg-exercises {
   stroke: green;
 }
 main .container .routines-container {
+  min-height: 250px;
   background-color: #1f2022;
   border: 1px solid #2b2d30;
   border-radius: 0.5rem;
