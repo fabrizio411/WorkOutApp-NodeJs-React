@@ -23,7 +23,6 @@ const user = {
 
     // EXERCISES
     best_exercise: undefined, 
-
     exercises: {
         // PulUps
         pullup: {
