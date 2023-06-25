@@ -1,0 +1,117 @@
+#current-page {
+  background-color: rgba(75, 255, 126, 0.3647058824);
+}
+
+#current-page-svg {
+  stroke: #407bb6;
+}
+
+header {
+  background-color: #1f2022;
+  width: 250px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 100vh;
+  position: fixed;
+}
+header .nav-menu {
+  padding: 1rem;
+}
+header .nav-menu h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+header .nav-menu nav {
+  margin-top: 0.75rem;
+  padding: 1rem 0.5rem;
+}
+header .nav-menu nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+header .nav-menu nav ul li a {
+  height: 50px;
+  padding: 0.75rem 0.75rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #9DA4AE;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+header .nav-menu nav ul li a svg {
+  width: 24px;
+}
+header .nav-menu nav ul li a .nav-svg {
+  fill: #9DA4AE;
+  stroke: #9DA4AE;
+}
+header .nav-menu nav ul li a:hover {
+  background-color: #292b2f;
+}
+header .bottom-menu hr {
+  color: #46484d;
+}
+header .bottom-menu .user-info-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+}
+header .bottom-menu .user-info-box .user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+header .bottom-menu .user-info-box .user-info img {
+  border-radius: 100%;
+  width: 45px;
+}
+header .bottom-menu .user-info-box .user-info h3 {
+  color: #cecece;
+  font-weight: 700;
+}
+header .bottom-menu .user-info-box .menu-settings {
+  position: relative;
+}
+header .bottom-menu .user-info-box .menu-settings:hover .tooltip {
+  display: block;
+  animation: tooltipAnimation 0.5s;
+}
+@keyframes tooltipAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+header .bottom-menu .user-info-box .menu-settings .tooltip {
+  display: none;
+  position: absolute;
+  color: #cecece;
+  background-color: rgb(29, 29, 29);
+  opacity: 0.9;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  top: -70%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+}
+header .bottom-menu .user-info-box .menu-settings svg {
+  width: 24px;
+  height: 24px;
+  stroke: #9DA4AE;
+}
+header .bottom-menu .user-info-box .menu-settings svg:hover {
+  stroke: #cecece;
+}
+
+/*# sourceMappingURL=header.css.map */
