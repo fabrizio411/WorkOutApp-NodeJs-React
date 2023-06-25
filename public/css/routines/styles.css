@@ -187,9 +187,29 @@ main .container .routines-container .routine .extra-menu .menu-display button {
 }
 main .container .routines-container .routine .extra-menu .menu-display button p {
   color: #cecece;
+  cursor: pointer;
 }
 main .container .routines-container .routine .extra-menu .menu-display button svg {
   stroke: #9DA4AE;
+  cursor: pointer;
+}
+main .container .routines-container .routine .extra-menu .menu-display button:hover p {
+  color: #ffffff;
+}
+main .container .routines-container .routine .extra-menu .menu-display button:hover svg {
+  stroke: #cecece;
+}
+main .container .routines-container .routine .extra-menu:hover .menu-display {
+  display: block;
+  animation: menuAnimation 0.5s;
+}
+@keyframes menuAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 main .container .routines-container .general-routines-box {
   padding: 1rem;
