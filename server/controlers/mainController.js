@@ -1,6 +1,7 @@
 const Routine = require('../models/Routines')
 const mongoose = require('mongoose')
 
+
 // GET Profile
 exports.profile = async (req, res) => {
     const locals = {
@@ -16,8 +17,6 @@ exports.profile = async (req, res) => {
 
 // GET Routines
 exports.routines = async (req, res) => {
-
-
     try {
         const routineData = await Routine.find({})
 
@@ -49,6 +48,22 @@ exports.routineView = async(req, res) => {
         })
     } else {
         res.send("Somenthig went wrong")
+    }
+}
+
+// ADD Routine
+exports.routineCreate = async(req, res) => {
+    res.render('routine-create')
+}
+
+// DELETE Routine
+exports.routineDelete = async(req, res) => {
+    try {
+        await Routine.deleteOne({ _id: req.params.id })
+        // .where({user: req.user.id})  Para que solo el usuario pueda acceder a la nota
+        res.redirect('/routines')
+    } catch (error) {
+        console.log(error)
     }
 }
 

@@ -9,8 +9,11 @@
     <h2 class="title">Delete "<%= routine.title %>" Routine</h2>
     <p class="text">Are you sure you want to delete this routine?</p>
     <div class="buttons">
-      <button onclick="togglePopup()" id="cancel-btn" class="cancel-btn">Cancel</button>
-      <button id="delete-btn" class="delete-btn">Delete</button>
+      <button onclick="togglePopup()" id="cancel-btn" class="cancel-btn btn">Cancel</button>
+      <form action="/routines/routine-delete/<%= routine._id %>?_method=DELETE" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button id="delete-btn" class="delete-btn btn" type="submit">Delete</button>
+      </form>
     </div>
   </div>
 </div>

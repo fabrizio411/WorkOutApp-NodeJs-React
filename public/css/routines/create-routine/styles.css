@@ -1,0 +1,17 @@
+main {
+  margin-left: 250px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: #191a1c;
+  color: rgb(221, 183, 183);
+}
+main .container {
+  width: 80%;
+  height: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/*# sourceMappingURL=styles.css.map */

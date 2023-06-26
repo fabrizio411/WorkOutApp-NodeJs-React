@@ -146,13 +146,16 @@ main .container .buttons-menu .btn.delete:hover {
   width: 100%;
   gap: 1rem;
 }
-.delete-window .content .buttons button {
+.delete-window .content .buttons .btn {
   cursor: pointer;
   border: none;
   border-radius: 0.25rem;
   padding: 0.5rem;
   font-weight: 500;
   color: #cecece;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
 }
 .delete-window .content .buttons .cancel-btn {
   background-color: #424346;

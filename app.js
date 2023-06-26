@@ -5,6 +5,7 @@ const connectDB = require('./server/config/db')
 const session = require('express-session')
 const passport = require('passport')
 const MongoStore = require('connect-mongo')
+const methodsOverride = require('method-override')
 
 const app = express()
 const port = 5000 || process.env.PORT
@@ -19,6 +20,7 @@ app.use(express.json())
 // Connect to DataBase
 connectDB()
 
+
 //Static Files
 app.use(express.static('public'))
 
@@ -27,9 +29,12 @@ app.use(expressLayouts)
 app.set('layout', './layouts/main')
 app.set('view engine', 'ejs')
 
+// Method Override
+app.use(methodsOverride("_method"));
+
 // Routes 
-app.use('/', require('./server/routes/home'))
 app.use('/', require('./server/routes/index'))
+app.use('/', require('./server/routes/home'))
 
 // Handle 404 
 app.get('*', (req, res) => {

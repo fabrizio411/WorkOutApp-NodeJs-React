@@ -178,14 +178,19 @@ main {
             grid-template-columns: 1fr 1fr;
             width: 100%;
             gap: 1rem;
+
+         
     
-            button {
+            .btn {
                 cursor: pointer;
                 border: none;
                 border-radius: .25rem;
                 padding: .5rem;
                 font-weight: var.$fw-medium;
                 color: var.$clr-text-lvl2;
+                text-decoration: none;
+                text-align: center;
+                width: 100%;
             }
     
             .cancel-btn {
