@@ -102,4 +102,77 @@ main .container .buttons-menu .btn.delete:hover {
   background-color: rgba(107, 59, 59, 0.315);
 }
 
+.delete-window .overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  display: none;
+}
+.delete-window .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  padding: 1.5rem;
+  max-width: 400px;
+  background-color: #1f2022;
+  border: 3px solid #37393d;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  z-index: 2;
+}
+.delete-window .content .title {
+  padding: 0 2rem;
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: 500;
+  text-align: center;
+  margin: 1rem 0;
+}
+.delete-window .content .text {
+  color: #cecece;
+  font-size: 1.2rem;
+}
+.delete-window .content .buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 1rem;
+}
+.delete-window .content .buttons button {
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-weight: 500;
+  color: #cecece;
+}
+.delete-window .content .buttons .cancel-btn {
+  background-color: #424346;
+}
+.delete-window .content .buttons .cancel-btn:hover {
+  background-color: #545558;
+}
+.delete-window .content .buttons .delete-btn {
+  background-color: rgb(116, 30, 30);
+}
+.delete-window .content .buttons .delete-btn:hover {
+  background-color: rgb(136, 76, 76);
+}
+
+.delete-window.active .overlay {
+  display: block;
+}
+.delete-window.active .content {
+  transition: all 0.2s ease-in-out;
+  transform: translate(-50%, -50%) scale(1);
+}
+
 /*# sourceMappingURL=styles.css.map */
