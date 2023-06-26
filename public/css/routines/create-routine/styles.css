@@ -12,6 +12,157 @@ main .container {
   height: 100%;
   max-width: 1080px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+}
+main .container .exercises-table-container {
+  background-color: #1f2022;
+  border: 1px solid #2b2d30;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+main .container .exercises-table-container ul {
+  list-style: none;
+}
+main .container .exercises-table-container ul li {
+  padding: 1rem;
+  cursor: pointer;
+}
+main .container .exercises-table-container ul li:hover {
+  background-color: #292b2f;
+}
+main .container .exercises-table-container ul li .btn {
+  border: none;
+  background-color: transparent;
+  color: #cecece;
+}
+main .container .create-formulay-container {
+  position: relative;
+}
+main .container .create-formulay-container .save-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: green;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+main .container .create-formulay-container .save-btn:hover {
+  background-color: red;
+}
+main .container .create-formulay-container .title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+main .container .create-formulay-container .title svg {
+  stroke: #ffffff;
+}
+main .container .create-formulay-container .formulary {
+  margin-top: 2rem;
+}
+main .container .create-formulay-container .formulary .routine-title-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+main .container .create-formulay-container .formulary .routine-title-box label {
+  color: #cecece;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+main .container .create-formulay-container .formulary .routine-title-box input {
+  background-color: #1f2022;
+  border: 1px solid #2b2d30;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  color: #cecece;
+}
+main .container .create-formulay-container .formulary .routine-title-box input::placeholder {
+  color: #9DA4AE;
+}
+main .container .create-formulay-container .formulary .exercises-display-box {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display {
+  background-color: #1f2022;
+  border: 1px solid #2b2d30;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-name svg {
+  stroke: #ffffff;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .pinned-note {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #cecece;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .pinned-note textarea {
+  background-color: transparent;
+  border: 2px solid #2b2d30;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  color: #cecece;
+  resize: vertical;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .pinned-note textarea::placeholder {
+  color: #9DA4AE;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .exercise-data {
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .exercise-data .input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .exercise-data .input-box label {
+  color: #cecece;
+  text-align: center;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .exercise-data .input-box input {
+  width: 75px;
+  padding: 0.3rem;
+  background-color: #1f2022;
+  border: 2px solid #37393d;
+  border-radius: 0.25rem;
+  outline: none;
+  color: #cecece;
+  appearance: textfield;
+  text-align: center;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .exercise-data .input-box input:hover, main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .exercise-data .input-box input:focus {
+  background-color: #292b2f;
+  border: 2px solid #9DA4AE;
 }
 
 /*# sourceMappingURL=styles.css.map */
