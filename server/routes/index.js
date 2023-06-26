@@ -6,7 +6,8 @@ const mainController = require('../controlers/mainController')
 router.get('/profile', mainController.profile);
 
 router.get('/routines', mainController.routines);
-router.get('/routines/item/:id', mainController.routineView);
+router.get('/routines/:id', mainController.routineView);
+router.get('/routines/edit-routine/:id', mainController.routineEdit);
 
 
 

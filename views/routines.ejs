@@ -29,7 +29,7 @@
             <% if (routineData.length > 0) {
               for (let i = 0; i < routineData.length; i++) { %>
                 <div class="routine">
-                  <a href="/routines/item/<%= routineData[i]._id %>" class="routine-body">
+                  <a href="/routines/<%= routineData[i]._id %>" class="routine-body">
                     <div class="title">
                       <p class="name"><%= routineData[i].title %></p>
                       <p class="info">/Muscular Group</p>

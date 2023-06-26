@@ -51,3 +51,18 @@ exports.routineView = async(req, res) => {
         res.send("Somenthig went wrong")
     }
 }
+
+// EDIT Routine
+exports.routineEdit = async(req, res) => {
+    const routine = await Routine.findById({ _id: req.params.id })
+
+    if (routine) {
+        res.render('routine-edit', {
+            noteID: req.params.id,
+            routine,
+            layout: '../views/layouts/main'
+        })
+    } else {
+        res.send("Somenthig went wrong")
+    }
+}
