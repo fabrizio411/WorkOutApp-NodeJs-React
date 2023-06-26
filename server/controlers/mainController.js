@@ -12,13 +12,14 @@ exports.profile = async (req, res) => {
 }
 
 
+
+
 // GET Routines
 exports.routines = async (req, res) => {
 
 
     try {
         const routineData = await Routine.find({})
-        console.log(routineData)
 
         const locals = {
             title: 'Routines | WorkOutApp',
@@ -31,5 +32,22 @@ exports.routines = async (req, res) => {
 
     } catch (error) {
         console.log(error)
+    }
+}
+
+// VIEW Routines
+exports.routineView = async(req, res) => {
+    const routine = await Routine.findById({ _id: req.params.id })
+    console.log(req.params.id)
+    // .where({user: req.user.id})  Para que solo el usuario pueda acceder a la nota
+
+    if (routine) {
+        res.render('routine-view', {
+            noteID: req.params.id,
+            routine,
+            layout: '../views/layouts/main'
+        })
+    } else {
+        res.send("Somenthig went wrong")
     }
 }
