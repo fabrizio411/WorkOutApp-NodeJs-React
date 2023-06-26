@@ -4,6 +4,38 @@
 
 <main>
   <div class="container">
-    <p>hola</p>
+    <div class="routine-display-box">
+      <h2 class="routine-name"><%= routine.title %></h2>
+      <div class="exercises-container">
+        <% for (let i = 0; i < routine.exercises.length; i++) { %>
+          <div class="exercise-box">
+            <h4 class="exercise-name"><%= routine.exercises[i] %></h4>
+            <div class="info-box">
+              <div class="info-display">
+                <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M10 10.5h3M10 14.5h7M10 18.5h10"></path></g></svg>
+                <p><span>5</span> sets</p>
+              </div>
+              <div class="info-display">
+                <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M12.317 19.858c.874.69 2.109 1.071 3.703 1.142a6 6 0 10-6-6"></path><path stroke-linejoin="round" d="M8.143 14.06L10.02 16l2.14-1.678"></path></g></svg>
+                <p><span>12</span> reps</p>
+              </div>
+            </div>
+          </div>
+          <% if (i + 1 < routine.exercises.length) { %> <hr> <% } %>
+        <% } %>
+      </div>
+    </div>
+
+    <div class="buttons-menu">
+      <button class="btn">
+        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><path  stroke-width="1.5" d="M10 18.8V21h2.102L21 12.123 18.826 10z" fill="none" fill-rule="evenodd"></path></svg>
+        <span>Edit Routine</span>
+      </button>
+
+      <button class="btn delete">
+        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round"  stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
+        <span>Delete Routine</span>
+      </button>
+    </div>
   </div>
 </main>

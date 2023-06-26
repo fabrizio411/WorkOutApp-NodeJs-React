@@ -15,9 +15,112 @@ main {
     .container {
         width: 80%;
         height: 100%;
-        max-width: 1080px;
-        max-height: 850px;
+        max-width: 800px;
         margin: 0 auto;
-    }
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        gap: 2rem;
+        
+        .routine-display-box {
+            background-color: var.$clr-bg-lvl2;
+            border: 1px solid var.$clr-borders-lvl2;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            padding-bottom: 2.5rem;
 
+            .routine-name {
+                color: var.$clr-text-lvl1;
+                font-weight: var.$fw-bold;
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+
+            .exercises-container {
+                display: flex;
+                flex-direction: column;
+                gap: 1.75rem;
+
+                hr {
+                    color: var.$clr-borders-lvl3;
+                }
+
+                .exercise-box {
+                    display: flex;
+                    flex-direction: column;
+                    gap: .5rem;
+
+                    .exercise-name {
+                        color: var.$clr-text-lvl2;
+                        font-weight: var.$fw-medium;
+                        font-size: 1.25rem;
+                    }
+
+                    .info-box {
+                        display: flex;
+                        gap: .5rem;
+
+                        .info-display {
+                            display: flex;
+                            align-items: center;
+                            padding-right: .5rem;
+                            border-radius: .5rem;
+                            background-color: var.$clr-bg-lvl5;
+
+                            svg {
+                                stroke: var.$clr-text-lvl3;
+                            }
+
+                            p {
+                                color: var.$clr-text-lvl3;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        .buttons-menu {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            gap: 1rem;
+
+            .btn {
+                cursor: pointer;
+                background-color: var.$clr-bg-lvl2;  
+                border: 1px solid var.$clr-borders-lvl2;
+                border-radius: .5rem;
+                color: var.$clr-text-lvl2;
+                font-weight: var.$fw-medium;
+                height: 2.5rem;
+                display: grid;
+                grid-template-columns: 2.5rem 1fr;
+                gap: .25rem;
+                place-items: center;
+
+                &:hover {
+                    background-color: #303236;
+                }
+
+                span {
+                    justify-self: flex-start;
+                }
+
+                svg {
+                    stroke: var.$clr-text-lvl3;
+                }
+            }
+
+            .btn.delete {
+                color: rgb(202, 74, 74);
+                svg {stroke: rgb(202, 74, 74);}
+
+                &:hover {
+                    background-color: rgba(107, 59, 59, 0.315);
+                }
+            }
+        }
+    }
 }

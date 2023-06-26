@@ -10,9 +10,96 @@ main {
 main .container {
   width: 80%;
   height: 100%;
-  max-width: 1080px;
-  max-height: 850px;
+  max-width: 800px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 2rem;
+}
+main .container .routine-display-box {
+  background-color: #1f2022;
+  border: 1px solid #2b2d30;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  padding-bottom: 2.5rem;
+}
+main .container .routine-display-box .routine-name {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+main .container .routine-display-box .exercises-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+main .container .routine-display-box .exercises-container hr {
+  color: #37393d;
+}
+main .container .routine-display-box .exercises-container .exercise-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+main .container .routine-display-box .exercises-container .exercise-box .exercise-name {
+  color: #cecece;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+main .container .routine-display-box .exercises-container .exercise-box .info-box {
+  display: flex;
+  gap: 0.5rem;
+}
+main .container .routine-display-box .exercises-container .exercise-box .info-box .info-display {
+  display: flex;
+  align-items: center;
+  padding-right: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #4a4a4a;
+}
+main .container .routine-display-box .exercises-container .exercise-box .info-box .info-display svg {
+  stroke: #9DA4AE;
+}
+main .container .routine-display-box .exercises-container .exercise-box .info-box .info-display p {
+  color: #9DA4AE;
+}
+main .container .buttons-menu {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  gap: 1rem;
+}
+main .container .buttons-menu .btn {
+  cursor: pointer;
+  background-color: #1f2022;
+  border: 1px solid #2b2d30;
+  border-radius: 0.5rem;
+  color: #cecece;
+  font-weight: 500;
+  height: 2.5rem;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.25rem;
+  place-items: center;
+}
+main .container .buttons-menu .btn:hover {
+  background-color: #303236;
+}
+main .container .buttons-menu .btn span {
+  justify-self: flex-start;
+}
+main .container .buttons-menu .btn svg {
+  stroke: #9DA4AE;
+}
+main .container .buttons-menu .btn.delete {
+  color: rgb(202, 74, 74);
+}
+main .container .buttons-menu .btn.delete svg {
+  stroke: rgb(202, 74, 74);
+}
+main .container .buttons-menu .btn.delete:hover {
+  background-color: rgba(107, 59, 59, 0.315);
 }
 
 /*# sourceMappingURL=styles.css.map */
