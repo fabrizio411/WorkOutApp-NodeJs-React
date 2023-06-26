@@ -40,6 +40,7 @@ main {
                 gap: .75rem;
 
                 .btn {
+                    text-decoration: none;
                     cursor: pointer;
                     background-color: var.$clr-bg-lvl2;  
                     border: 1px solid var.$clr-borders-lvl2;

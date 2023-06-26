@@ -71,6 +71,7 @@ main .container .buttons-menu {
   gap: 1rem;
 }
 main .container .buttons-menu .btn {
+  text-decoration: none;
   cursor: pointer;
   background-color: #1f2022;
   border: 1px solid #2b2d30;
