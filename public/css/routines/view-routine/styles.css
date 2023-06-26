@@ -171,7 +171,6 @@ main .container .buttons-menu .btn.delete:hover {
   display: block;
 }
 .delete-window.active .content {
-  transition: all 0.2s ease-in-out;
   transform: translate(-50%, -50%) scale(1);
 }
 

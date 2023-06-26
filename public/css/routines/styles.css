@@ -76,81 +76,30 @@ main .container .routines-container {
   gap: 1rem;
 }
 main .container .routines-container .routine {
+  position: relative;
+}
+main .container .routines-container .routine .routine-body {
   background-color: rgba(63, 94, 63, 0.322);
   border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
+  z-index: 2;
 }
-main .container .routines-container .routine .title {
+main .container .routines-container .routine .routine-body .title {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
-main .container .routines-container .routine .title .name {
+main .container .routines-container .routine .routine-body .title .name {
   color: #cecece;
 }
-main .container .routines-container .routine .title .info {
+main .container .routines-container .routine .routine-body .title .info {
   color: #9DA4AE;
   font-weight: 300;
   font-size: 0.9rem;
-}
-main .container .routines-container .routine .extra-menu {
-  position: relative;
-}
-main .container .routines-container .routine .extra-menu .svg-display-btn {
-  cursor: pointer;
-  fill: rgb(99, 189, 99);
-  stroke: rgb(100, 170, 100);
-}
-main .container .routines-container .routine .extra-menu .menu-display {
-  z-index: 1;
-  left: -2rem;
-  display: none;
-  position: absolute;
-  background-color: #292b2f;
-  border-radius: 0.25rem;
-  height: 2.5rem;
-  padding: 0.5rem;
-  height: auto;
-  width: 210px;
-}
-main .container .routines-container .routine .extra-menu .menu-display button {
-  background-color: #292b2f;
-  font-size: 0.9rem;
-  padding: 0.5rem;
-  border: none;
-  display: grid;
-  place-items: center;
-  grid-template-columns: 2.5rem 1fr;
-}
-main .container .routines-container .routine .extra-menu .menu-display button p {
-  color: #cecece;
-  cursor: pointer;
-}
-main .container .routines-container .routine .extra-menu .menu-display button svg {
-  stroke: #9DA4AE;
-  cursor: pointer;
-}
-main .container .routines-container .routine .extra-menu .menu-display button:hover p {
-  color: #ffffff;
-}
-main .container .routines-container .routine .extra-menu .menu-display button:hover svg {
-  stroke: #cecece;
-}
-main .container .routines-container .routine .extra-menu:hover .menu-display {
-  display: block;
-  animation: menuAnimation 0.5s;
-}
-@keyframes menuAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 main .container .routines-container .general-routines-box {
   padding: 1rem;
@@ -164,60 +113,56 @@ main .container .routines-container .general-routines-box .routines-box {
   flex-direction: column;
   gap: 0.75rem;
 }
-main .container .routines-container .general-routines-box .routines-box .routine .title {
+main .container .routines-container .general-routines-box .routines-box .routine-body .title {
   display: flex;
   align-items: center;
 }
 
-body {
-  position: relative;
+.delete-window .overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  display: none;
 }
-
-.new-folder-window {
+.delete-window .content {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0);
   padding: 1.5rem;
+  max-width: 400px;
   background-color: #1f2022;
   border: 3px solid #37393d;
   border-radius: 1rem;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
+  z-index: 2;
 }
-.new-folder-window .title {
+.delete-window .content .title {
   padding: 0 2rem;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   color: #ffffff;
   font-weight: 500;
+  text-align: center;
+  margin: 1rem 0;
 }
-.new-folder-window form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.delete-window .content .text {
+  color: #cecece;
+  font-size: 1.2rem;
 }
-.new-folder-window input {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #1f2022;
-  border: 1px solid #37393d;
-  border-radius: 0.25rem;
-  color: #9DA4AE;
-}
-.new-folder-window input:focus {
-  outline: none;
-  border-color: #296131;
-}
-.new-folder-window .buttons {
+.delete-window .content .buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
   gap: 1rem;
 }
-.new-folder-window .buttons button {
+.delete-window .content .buttons button {
   cursor: pointer;
   border: none;
   border-radius: 0.25rem;
@@ -225,17 +170,17 @@ body {
   font-weight: 500;
   color: #cecece;
 }
-.new-folder-window .buttons .cancel-btn {
+.delete-window .content .buttons .cancel-btn {
   background-color: #424346;
 }
-.new-folder-window .buttons .cancel-btn:hover {
+.delete-window .content .buttons .cancel-btn:hover {
   background-color: #545558;
 }
-.new-folder-window .buttons .submit-btn {
-  background-color: rgb(39, 73, 39);
+.delete-window .content .buttons .delete-btn {
+  background-color: rgb(116, 30, 30);
 }
-.new-folder-window .buttons .submit-btn:hover {
-  background-color: rgb(54, 102, 54);
+.delete-window .content .buttons .delete-btn:hover {
+  background-color: rgb(136, 76, 76);
 }
 
 /*# sourceMappingURL=styles.css.map */
