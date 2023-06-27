@@ -55,6 +55,11 @@ main {
                         font-size: 1.25rem;
                     }
 
+                    .exercise-note {
+                        color: var.$clr-text-lvl3;
+                        font-size: .9rem;
+                    }
+
                     .info-box {
                         display: flex;
                         gap: .5rem;

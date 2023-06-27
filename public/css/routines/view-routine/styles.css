@@ -47,6 +47,10 @@ main .container .routine-display-box .exercises-container .exercise-box .exercis
   font-weight: 500;
   font-size: 1.25rem;
 }
+main .container .routine-display-box .exercises-container .exercise-box .exercise-note {
+  color: #9DA4AE;
+  font-size: 0.9rem;
+}
 main .container .routine-display-box .exercises-container .exercise-box .info-box {
   display: flex;
   gap: 0.5rem;
