@@ -65,11 +65,10 @@ exports.routineCreate = async(req, res) => {
 exports.routineCreateAdd = async(req, res) => {
     try {
         await Routine.create(req.body)
+        res.redirect('/routines')  // Not Functioning
     } catch (error) {
         console.log(error)
     }
-
-    res.redirect('/routines')
 
 }
 

@@ -91,9 +91,8 @@ const form = document.getElementById("routine-form")
 const nameExr = document.getElementsByClassName("name-text")
 
 // Capture form submit values and prosses them in the structure needed
-form.addEventListener("submit", event => {
+form.addEventListener("submit", async(event) => {
     event.preventDefault()
-    console.log(form.elements["sets"].length)
 
     let exrArray = []
     if (form.elements["sets"].length) {
@@ -123,8 +122,6 @@ form.addEventListener("submit", event => {
       })  
     }
 
-
-    console.log(exrArray)
     routTitle = form.elements["routine-title"].value
   
     const routineInfo = {
@@ -134,7 +131,6 @@ form.addEventListener("submit", event => {
 
     console.log(JSON.stringify(routineInfo))
     sendData(routineInfo)
-
     form.reset()
   })
   
@@ -151,6 +147,7 @@ function sendData(data) {
     .then(response => {
         if (response.ok) {
             console.log('Datos enviados correctamente');
+            window.location.href = "/routines";
         } else {
             console.error('Error al enviar los datos');
         }

@@ -24,6 +24,7 @@ main .container .exercises-table-container {
   overflow: hidden;
   position: sticky;
   top: 2rem;
+  height: fit-content;
 }
 main .container .exercises-table-container ul {
   list-style: none;
