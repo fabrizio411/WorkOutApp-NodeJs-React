@@ -2,15 +2,14 @@
 const exerciseDisplay = document.getElementById("exercises-display")
 const listBtn = document.getElementsByClassName("list-btn")
 
-let count = 0
 for (let i = 0; i < listBtn.length; i++) {
     listBtn[i].addEventListener("click", () => {
         let exercise_name = listBtn[i].innerHTML
         exerciseDisplay.innerHTML += `
-        <div class="exercise-display" id="display${i}">
+        <div class="exercise-display">
         <div class="exercise-name">
           <h3 class="name-text">${exercise_name}</h3>
-          <div class="remove-btn" id="remove-btn${i}">
+          <div class="remove-btn">
             <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
             <div class="tooltip"><p>Remove Exercise</p></div>
           </div>
@@ -39,7 +38,6 @@ for (let i = 0; i < listBtn.length; i++) {
         </div>
       </div>
         `
-      count += 1
     })
 }
     
