@@ -41,7 +41,6 @@ exports.routines = async (req, res) => {
 exports.routineView = async(req, res) => {
     const routine = await Routine.findById({ _id: req.params.id })
     // .where({user: req.user.id})  Para que solo el usuario pueda acceder a la nota
-    console.log(routine)
 
     if (routine) {
         res.render('routine-view', {

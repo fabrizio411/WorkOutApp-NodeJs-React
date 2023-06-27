@@ -26,15 +26,19 @@
       <div class="exercises-container">
         <% for (let i = 0; i < routine.exercises.length; i++) { %>
           <div class="exercise-box">
-            <h4 class="exercise-name"><%= routine.exercises[i] %></h4>
+            <h4 class="exercise-name"><%= routine.exercises[i].name %></h4>
             <div class="info-box">
               <div class="info-display">
                 <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M10 10.5h3M10 14.5h7M10 18.5h10"></path></g></svg>
-                <p><span>5</span> sets</p>
+                <p><span><%= routine.exercises[i].sets %></span> sets</p>
               </div>
               <div class="info-display">
                 <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M12.317 19.858c.874.69 2.109 1.071 3.703 1.142a6 6 0 10-6-6"></path><path stroke-linejoin="round" d="M8.143 14.06L10.02 16l2.14-1.678"></path></g></svg>
-                <p><span>12</span> reps</p>
+                <p><span><%= routine.exercises[i].reps %></span> reps</p>
+              </div>
+              <div class="info-display">
+                <svg class="time-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" ><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path><path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path></svg>
+                <p><span><%= routine.exercises[i].rest %>'</span> rest</p>
               </div>
             </div>
           </div>

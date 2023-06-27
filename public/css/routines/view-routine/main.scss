@@ -47,7 +47,7 @@ main {
                 .exercise-box {
                     display: flex;
                     flex-direction: column;
-                    gap: .5rem;
+                    gap: .75rem;
 
                     .exercise-name {
                         color: var.$clr-text-lvl2;
@@ -68,6 +68,13 @@ main {
 
                             svg {
                                 stroke: var.$clr-text-lvl3;
+                            }
+
+                            .time-svg {
+                                fill: var.$clr-text-lvl3;
+                                stroke: none;
+                                width: 20px;
+                                margin: 0 6px;
                             }
 
                             p {

@@ -62,6 +62,7 @@ for (let i = 0; i < listBtn.length; i++) {
 const form = document.getElementById("routine-form")
 const nameExr = document.getElementsByClassName("name-text")
 
+// Capture form submit values and prosses them in the structure needed
 form.addEventListener("submit", event => {
     event.preventDefault()
 
@@ -94,7 +95,7 @@ form.addEventListener("submit", event => {
   })
   
   
-
+// Resend those values estructured 
 function sendData(data) {
     fetch('/create-routine', {
         method: 'POST',
