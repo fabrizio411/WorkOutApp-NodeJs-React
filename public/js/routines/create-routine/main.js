@@ -10,10 +10,10 @@ for (let i = 0; i < listBtn.length; i++) {
         <div class="exercise-display" id="display${i}">
         <div class="exercise-name">
           <h3 class="name-text">${exercise_name}</h3>
-          <button class="remove-btn" id="remove-btn${i}">
+          <div class="remove-btn" id="remove-btn${i}">
             <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
             <div class="tooltip"><p>Remove Exercise</p></div>
-          </button>
+          </div>
         </div>
         <div class="exercise-form">
           <div class="exercise-form-info">
@@ -44,14 +44,34 @@ for (let i = 0; i < listBtn.length; i++) {
 }
     
 
-for (let i = 0; i < count; i++) {
-    const removeBtn = document.getElementById(`remove-btn${i}`)
-    const display = document.getElementById(`display${i}`)
 
-    removeBtn.addEventListener("click", () => {
-        display.innerHTML= ''
-    })
+
+const oberver = new MutationObserver((mutationList) => {
+  
+  const containers = document.getElementsByClassName("exercise-display");
+
+  for (let i = 0; i < containers.length; i++) {
+    const container = containers[i];
+    const removeBtn = container.getElementsByClassName("remove-btn")[0];
+
+    if (removeBtn) {
+      removeBtn.addEventListener("click", () => {
+        container.style.display = "none";
+      });
+    }
+  }
+
+
+})
+
+const observerOptions = {
+  childList: true,
+  subtree: true
 }
+
+const toObserve = document.getElementById("exercises-display")
+oberver.observe(toObserve, observerOptions)
+
 
 
 // for (lt i = 0; i < )
