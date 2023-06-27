@@ -20,6 +20,7 @@ main .container .exercises-table-container {
   background-color: #1f2022;
   border: 1px solid #2b2d30;
   border-radius: 1rem;
+  width: 200px;
   overflow: hidden;
 }
 main .container .exercises-table-container ul {
@@ -32,10 +33,14 @@ main .container .exercises-table-container ul li {
 main .container .exercises-table-container ul li:hover {
   background-color: #292b2f;
 }
-main .container .exercises-table-container ul li .btn {
+main .container .exercises-table-container ul li .list-btn {
   border: none;
   background-color: transparent;
   color: #cecece;
+}
+main .container .exercises-table-container ul li .main-muscle {
+  color: #9DA4AE;
+  font-size: 0.9rem;
 }
 main .container .create-formulay-container {
   position: relative;
@@ -82,9 +87,13 @@ main .container .create-formulay-container .formulary .routine-title-box input {
   border-radius: 0.5rem;
   padding: 0.75rem;
   color: #cecece;
+  outline: none;
 }
 main .container .create-formulay-container .formulary .routine-title-box input::placeholder {
   color: #9DA4AE;
+}
+main .container .create-formulay-container .formulary .routine-title-box input:focus {
+  border: 1px solid #9DA4AE;
 }
 main .container .create-formulay-container .formulary .exercises-display-box {
   margin-top: 1.5rem;
@@ -109,8 +118,39 @@ main .container .create-formulay-container .formulary .exercises-display-box .ex
   font-weight: 500;
   font-size: 1.25rem;
 }
-main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-name svg {
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-name .remove-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-name .remove-btn svg {
   stroke: #ffffff;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-name .remove-btn .tooltip {
+  position: absolute;
+  top: -170%;
+  right: 50%;
+  transform: translateX(50%);
+  display: none;
+  place-items: center;
+  padding: 0.75rem;
+  color: #9DA4AE;
+  font-size: 0.9rem;
+  background-color: #191a1c;
+  border-radius: 0.5rem;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-name .remove-btn:hover .tooltip {
+  display: grid;
+  animation: tooltipAnimation 0.5s;
+}
+@keyframes tooltipAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.9;
+  }
 }
 main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info {
   display: flex;
@@ -130,9 +170,13 @@ main .container .create-formulay-container .formulary .exercises-display-box .ex
   padding: 0.75rem;
   color: #cecece;
   resize: vertical;
+  outline: none;
 }
 main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .pinned-note textarea::placeholder {
   color: #9DA4AE;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .pinned-note textarea:focus {
+  border: 1px solid #9DA4AE;
 }
 main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .exercise-data {
   padding: 2rem 0;
@@ -159,6 +203,7 @@ main .container .create-formulay-container .formulary .exercises-display-box .ex
   color: #cecece;
   appearance: textfield;
   text-align: center;
+  outline: none;
 }
 main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .exercise-data .input-box input:hover, main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-form-info .exercise-data .input-box input:focus {
   background-color: #292b2f;

@@ -25,6 +25,7 @@ main {
             background-color: var.$clr-bg-lvl2;
             border: 1px solid var.$clr-borders-lvl2;
             border-radius: 1rem;
+            width: 200px;
             overflow: hidden;
 
             ul {
@@ -38,10 +39,15 @@ main {
                         background-color: var.$clr-bg-lvl3;
                     }
 
-                    .btn {
+                    .list-btn {
                         border: none;
                         background-color: transparent;
                         color: var.$clr-text-lvl2
+                    }
+
+                    .main-muscle {
+                        color: var.$clr-text-lvl3;
+                        font-size: .9rem;
                     }
                 }
             }
@@ -99,9 +105,14 @@ main {
                         border-radius: .5rem;
                         padding: .75rem;
                         color: var.$clr-text-lvl2;
+                        outline: none;
 
                         &::placeholder {
                             color: var.$clr-text-lvl3;
+                        }
+
+                        &:focus {                                      
+                            border: 1px solid var.$clr-text-lvl3;
                         }
                     }
                 }
@@ -129,8 +140,41 @@ main {
                             font-weight: var.$fw-medium;
                             font-size: 1.25rem;
 
-                            svg {
-                                stroke: var.$clr-text-lvl1
+                            .remove-btn {
+                                border: none;
+                                background-color: transparent;
+                                cursor: pointer;
+                                position: relative;
+
+                                svg {
+                                    stroke: var.$clr-text-lvl1
+                                }
+
+                                .tooltip {
+                                    position: absolute;
+                                    top: -170%;
+                                    right: 50%;
+                                    transform: translateX(50%);
+                                    display: none;
+                                    place-items: center;
+                                    padding: .75rem;
+                                    color: var.$clr-text-lvl3;
+                                    font-size: .9rem;
+                                    background-color: var.$clr-bg-lvl1;
+                                    border-radius: .5rem;
+                                }
+
+                                &:hover {
+                                    .tooltip {
+                                        display: grid;
+                                        animation: tooltipAnimation .5s;
+                                    }
+
+                                    @keyframes tooltipAnimation {
+                                        0% { opacity: 0; }
+                                        100% { opacity: .9; }
+                                    }
+                                }
                             }
                         }
 
@@ -152,9 +196,14 @@ main {
                                     padding: .75rem;
                                     color: var.$clr-text-lvl2;
                                     resize: vertical;
+                                    outline: none;
 
                                     &::placeholder {
                                         color: var.$clr-text-lvl3;
+                                    }
+
+                                    &:focus {                                      
+                                        border: 1px solid var.$clr-text-lvl3;
                                     }
                                 }
 
@@ -186,6 +235,7 @@ main {
                                         color: var.$clr-text-lvl2;
                                         appearance: textfield;
                                         text-align: center;
+                                        outline: none;
 
                                         &:hover, &:focus {
                                             background-color: var.$clr-bg-lvl3;

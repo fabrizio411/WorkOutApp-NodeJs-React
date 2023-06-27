@@ -1,3 +1,4 @@
+const Exercises = require('../models/Exercises')
 const Routine = require('../models/Routines')
 const mongoose = require('mongoose')
 
@@ -53,7 +54,11 @@ exports.routineView = async(req, res) => {
 
 // ADD Routine
 exports.routineCreate = async(req, res) => {
-    res.render('routine-create')
+    const exercises = await Exercises.find({})
+    
+    res.render('routine-create', {
+        exercises
+    })
 }
 
 // DELETE Routine

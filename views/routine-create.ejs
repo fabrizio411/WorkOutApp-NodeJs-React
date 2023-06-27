@@ -23,7 +23,12 @@
           <div class="exercise-display">
             <div class="exercise-name">
               <h3>Dominadas</h3>
-              <svg width="4" height="16" viewBox="0 0 4 16" fill="none" xmlns="http://www.w3.org/2000/svg" tint="#FFFFFF" type="options" style="align-items: center;"><path d="M2.00016 7.16675C1.53993 7.16675 1.16683 7.53984 1.16683 8.00008C1.16683 8.46032 1.53993 8.83341 2.00016 8.83341C2.4604 8.83341 2.8335 8.46032 2.8335 8.00008C2.8335 7.53984 2.4604 7.16675 2.00016 7.16675Z"  stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.00016 13.0001C1.53993 13.0001 1.16683 13.3732 1.16683 13.8334C1.16683 14.2937 1.53993 14.6667 2.00016 14.6667C2.4604 14.6667 2.8335 14.2937 2.8335 13.8334C2.8335 13.3732 2.4604 13.0001 2.00016 13.0001Z"  stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M2.00016 1.33341C1.53993 1.33341 1.16683 1.70651 1.16683 2.16675C1.16683 2.62699 1.53993 3.00008 2.00016 3.00008C2.4604 3.00008 2.8335 2.62699 2.8335 2.16675C2.8335 1.70651 2.4604 1.33341 2.00016 1.33341Z"  stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <button class="remove-btn">
+                <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
+                <div class="tooltip"><p>Remove Exercise</p></div>
+              </button>
+              <!-- ToolTip -->
+
             </div>
             <div class="exercise-form-info">
               <div class="pinned-note">
@@ -54,12 +59,12 @@
 
     <div class="exercises-table-container">
       <ul>
-        <li><button class="btn">PullUp</button></li>
-        <li><button class="btn">Dip</button></li>
-        <li><button class="btn">Australian PullUp</button></li>
-        <li><button class="btn">PushUp</button></li>
-        <li><button class="btn">Squat</button></li>
-        <li><button class="btn">Pistol Squat</button></li>
+        <% for (let i = 0; i < exercises.length; i++) { %>
+          <li>
+            <button class="list-btn"><%= exercises[i].name %></button>
+            <p class="main-muscle"><%= exercises[i].mainMuscle %></p>
+          </li>
+        <% } %>
       </ul>
     </div>
   </div>
