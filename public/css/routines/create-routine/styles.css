@@ -49,6 +49,7 @@ main .container .create-formulay-container {
   position: relative;
 }
 main .container .create-formulay-container .save-btn {
+  border: none;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -74,17 +75,17 @@ main .container .create-formulay-container .title svg {
 main .container .create-formulay-container .formulary {
   margin-top: 2rem;
 }
-main .container .create-formulay-container .formulary .routine-title-box form {
+main .container .create-formulay-container .formulary .routine-title-box {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-main .container .create-formulay-container .formulary .routine-title-box form label {
+main .container .create-formulay-container .formulary .routine-title-box label {
   color: #cecece;
   font-weight: 500;
   font-size: 1.1rem;
 }
-main .container .create-formulay-container .formulary .routine-title-box form input {
+main .container .create-formulay-container .formulary .routine-title-box input {
   background-color: #1f2022;
   border: 1px solid #2b2d30;
   border-radius: 0.5rem;
@@ -92,10 +93,10 @@ main .container .create-formulay-container .formulary .routine-title-box form in
   color: #cecece;
   outline: none;
 }
-main .container .create-formulay-container .formulary .routine-title-box form input::placeholder {
+main .container .create-formulay-container .formulary .routine-title-box input::placeholder {
   color: #9DA4AE;
 }
-main .container .create-formulay-container .formulary .routine-title-box form input:focus {
+main .container .create-formulay-container .formulary .routine-title-box input:focus {
   border: 1px solid #9DA4AE;
 }
 main .container .create-formulay-container .formulary .exercises-display-box {
@@ -121,7 +122,12 @@ main .container .create-formulay-container .formulary .exercises-display-box .ex
   font-weight: 500;
   font-size: 1.25rem;
 }
-main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-name h3 p {
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-name .name-text {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display .exercise-name .name-text p {
   color: #9DA4AE;
   font-size: 0.9rem;
 }

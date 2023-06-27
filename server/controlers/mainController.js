@@ -1,6 +1,8 @@
 const Exercises = require('../models/Exercises')
 const Routine = require('../models/Routines')
+
 const mongoose = require('mongoose')
+
 
 
 // GET Profile
@@ -55,10 +57,19 @@ exports.routineView = async(req, res) => {
 // ADD Routine
 exports.routineCreate = async(req, res) => {
     const exercises = await Exercises.find({})
-    
+
     res.render('routine-create', {
-        exercises
+        exercises,
     })
+}
+
+exports.routineCreateAdd = async(req, res) => {
+    try {
+        await Routine.create(req.body)
+        res.redirect('/routines')
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 // DELETE Routine

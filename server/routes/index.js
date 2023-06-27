@@ -11,6 +11,7 @@ router.get('/routines/:id', mainController.routineView);
 router.get('/routines/edit-routine/:id', mainController.routineEdit);
 router.delete('/routines/routine-delete/:id', mainController.routineDelete);
 router.get('/create-routine', mainController.routineCreate);
+router.post('/create-routine', mainController.routineCreateAdd);
 
 
 
