@@ -66,13 +66,14 @@ main {
                 position: absolute;
                 top: 0px;
                 right: 0px;
-                background-color: green;   // CHANGE
-                color: var.$clr-text-lvl1;
+                background-color: rgba(77, 206, 77, 0.288);   // CHANGE
+                color: var.$clr-text-lvl2;
                 padding: .5rem 1rem;
                 border-radius: .5rem;
-
+                
                 &:hover {
-                    background-color: red;
+                    color: var.$clr-text-lvl1;
+                    background-color: rgba(77, 206, 77, 0.897);
                 }
             }
 

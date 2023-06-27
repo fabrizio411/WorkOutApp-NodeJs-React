@@ -53,13 +53,14 @@ main .container .create-formulay-container .save-btn {
   position: absolute;
   top: 0px;
   right: 0px;
-  background-color: green;
-  color: #ffffff;
+  background-color: rgba(77, 206, 77, 0.288);
+  color: #cecece;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }
 main .container .create-formulay-container .save-btn:hover {
-  background-color: red;
+  color: #ffffff;
+  background-color: rgba(77, 206, 77, 0.897);
 }
 main .container .create-formulay-container .title {
   display: flex;
