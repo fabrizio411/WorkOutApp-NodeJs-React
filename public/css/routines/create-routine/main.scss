@@ -42,7 +42,10 @@ main {
                     .list-btn {
                         border: none;
                         background-color: transparent;
-                        color: var.$clr-text-lvl2
+                        color: var.$clr-text-lvl2;
+                        text-align: left;
+                        width: 100%;
+                        height: 100%;
                     }
 
                     .main-muscle {
@@ -89,30 +92,32 @@ main {
                 margin-top: 2rem;
 
                 .routine-title-box {
-                    display: flex;
-                    flex-direction: column;
-                    gap: .5rem;
-                    
-                    label {
-                        color: var.$clr-text-lvl2;
-                        font-weight: var.$fw-medium;
-                        font-size: 1.1rem;
-                    }
-
-                    input {
-                        background-color: var.$clr-bg-lvl2;
-                        border: 1px solid var.$clr-borders-lvl2;
-                        border-radius: .5rem;
-                        padding: .75rem;
-                        color: var.$clr-text-lvl2;
-                        outline: none;
-
-                        &::placeholder {
-                            color: var.$clr-text-lvl3;
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                        gap: .5rem;
+                        
+                        label {
+                            color: var.$clr-text-lvl2;
+                            font-weight: var.$fw-medium;
+                            font-size: 1.1rem;
                         }
-
-                        &:focus {                                      
-                            border: 1px solid var.$clr-text-lvl3;
+    
+                        input {
+                            background-color: var.$clr-bg-lvl2;
+                            border: 1px solid var.$clr-borders-lvl2;
+                            border-radius: .5rem;
+                            padding: .75rem;
+                            color: var.$clr-text-lvl2;
+                            outline: none;
+    
+                            &::placeholder {
+                                color: var.$clr-text-lvl3;
+                            }
+    
+                            &:focus {                                      
+                                border: 1px solid var.$clr-text-lvl3;
+                            }
                         }
                     }
                 }
@@ -132,6 +137,7 @@ main {
                         flex-direction: column;
                         gap: 2rem;
 
+
                         .exercise-name {
                             display: flex;
                             align-items: center;
@@ -139,6 +145,13 @@ main {
                             color: var.$clr-text-lvl1;
                             font-weight: var.$fw-medium;
                             font-size: 1.25rem;
+
+                            h3 {
+                                p {
+                                    color: var.$clr-text-lvl3;
+                                    font-size: .9rem;
+                                }
+                            }
 
                             .remove-btn {
                                 border: none;

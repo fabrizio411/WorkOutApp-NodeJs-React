@@ -7,52 +7,24 @@
     <div class="create-formulay-container">
       <a class="save-btn">Save Routine</a>
       <div class="title">
-        <a>
+        <a href="/routines">
           <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg" tint="#FFFFFF" type="back-button"><path d="M17 8H1M1 8L7 14M1 8L7 2"  stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path></svg>
         </a>
         <h2>Create Routine</h2>
       </div>
 
-      <form class="formulary" action="/" method="POST" id="create-routine-form">
+      <div class="formulary">
         <div class="routine-title-box">
-          <label for="routine-title">Routine Title</label>
-          <input required id="routine-title" name="routine-title" type="text" placeholder="Workout Routine Title">
+          <form action="/" method="POST" id="title-form">
+            <label for="routine-title">Routine Title</label>
+            <input required id="routine-title" name="routine-title" type="text" placeholder="Workout Routine Title">
+          </form>
         </div>
 
-        <div class="exercises-display-box">
-          <div class="exercise-display">
-            <div class="exercise-name">
-              <h3>Dominadas</h3>
-              <button class="remove-btn">
-                <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
-                <div class="tooltip"><p>Remove Exercise</p></div>
-              </button>
-              <!-- ToolTip -->
-
-            </div>
-            <div class="exercise-form-info">
-              <div class="pinned-note">
-                <label for="note">Note</label>
-                <textarea id="note" name="note" placeholder="Add Pinned Note"></textarea>
-              </div>
-              <div class="exercise-data">
-                <div class="input-box">
-                  <label for="sets">Sets:</label>
-                  <input id="sets" name="sets" type="number" min="0">
-                </div>
-                <div class="input-box">
-                  <label for="sets">Reps goal:</label>
-                  <input id="sets" name="sets" type="number" min="0">
-                </div>
-                <div class="input-box">
-                  <label for="sets">Rest:</label>
-                  <input id="sets" name="sets" type="number" min="0">
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="exercises-display-box" id="exercises-display">
+          <!-- JavaScript handeled -->
         </div>
-      </form>
+      </div>
 
 
     </div>
@@ -61,8 +33,9 @@
       <ul>
         <% for (let i = 0; i < exercises.length; i++) { %>
           <li>
-            <button class="list-btn"><%= exercises[i].name %></button>
-            <p class="main-muscle"><%= exercises[i].mainMuscle %></p>
+            <button class="list-btn"><%= exercises[i].name %>
+              <p class="main-muscle"><%= exercises[i].mainMuscle %></p>
+            </button>
           </li>
         <% } %>
       </ul>
