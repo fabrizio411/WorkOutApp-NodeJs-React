@@ -2,15 +2,15 @@
 const exerciseDisplay = document.getElementById("exercises-display")
 const listBtn = document.getElementsByClassName("list-btn")
 
-
+let count = 0
 for (let i = 0; i < listBtn.length; i++) {
     listBtn[i].addEventListener("click", () => {
         let exercise_name = listBtn[i].innerHTML
         exerciseDisplay.innerHTML += `
-        <div class="exercise-display">
+        <div class="exercise-display" id="display${i}">
         <div class="exercise-name">
           <h3 class="name-text">${exercise_name}</h3>
-          <button class="remove-btn">
+          <button class="remove-btn" id="remove-btn${i}">
             <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
             <div class="tooltip"><p>Remove Exercise</p></div>
           </button>
@@ -39,12 +39,22 @@ for (let i = 0; i < listBtn.length; i++) {
         </div>
       </div>
         `
+      count += 1
     })
 }
     
 
+for (let i = 0; i < count; i++) {
+    const removeBtn = document.getElementById(`remove-btn${i}`)
+    const display = document.getElementById(`display${i}`)
+
+    removeBtn.addEventListener("click", () => {
+        display.innerHTML= ''
+    })
+}
 
 
+// for (lt i = 0; i < )
 
 // const exerciseHTML = document.getElementsByClassName("exercise-display")
 // const removeBtn = document.getElementsByClassName("remove-btn")
@@ -65,9 +75,11 @@ const nameExr = document.getElementsByClassName("name-text")
 // Capture form submit values and prosses them in the structure needed
 form.addEventListener("submit", event => {
     event.preventDefault()
+    console.log(form.elements["sets"].length)
 
     let exrArray = []
-    for (let i = 0; i < form.elements["sets"].length; i++) {
+    if (form.elements["sets"].length) {
+      for (let i = 0; i < form.elements["sets"].length; i++) {
 
         let exrNameFullHTML = nameExr[i].innerHTML
         let exrName = exrNameFullHTML.substring(0, exrNameFullHTML.indexOf('\n'))
@@ -78,9 +90,23 @@ form.addEventListener("submit", event => {
           sets: form.elements["sets"][i].value,
           reps: form.elements["reps"][i].value,
           rest: form.elements["rest"][i].value,
-        }) 
+        })        
+      }
+    } else {
+      let exrNameFullHTML = nameExr[0].innerHTML
+      let exrName = exrNameFullHTML.substring(0, exrNameFullHTML.indexOf('\n'))
+
+      exrArray.push({
+        name: exrName,
+        note: form.elements["note"].value,
+        sets: form.elements["sets"].value,
+        reps: form.elements["reps"].value,
+        rest: form.elements["rest"].value,
+      })  
     }
 
+
+    console.log(exrArray)
     routTitle = form.elements["routine-title"].value
   
     const routineInfo = {
