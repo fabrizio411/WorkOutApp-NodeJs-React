@@ -27,12 +27,15 @@ main {
             border-radius: 1rem;
             width: 200px;
             overflow: hidden;
+            position: sticky;
+            top: 2rem;
 
             ul {
                 list-style: none;
 
                 li {
                     padding: 1rem;
+                    height: 4.5rem;
                     cursor: pointer;
 
                     &:hover {

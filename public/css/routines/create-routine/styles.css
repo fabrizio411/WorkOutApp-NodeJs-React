@@ -22,12 +22,15 @@ main .container .exercises-table-container {
   border-radius: 1rem;
   width: 200px;
   overflow: hidden;
+  position: sticky;
+  top: 2rem;
 }
 main .container .exercises-table-container ul {
   list-style: none;
 }
 main .container .exercises-table-container ul li {
   padding: 1rem;
+  height: 4.5rem;
   cursor: pointer;
 }
 main .container .exercises-table-container ul li:hover {
