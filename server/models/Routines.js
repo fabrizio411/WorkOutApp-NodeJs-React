@@ -8,9 +8,6 @@ const RoutineSchema = new Schema({
         type: String,
         required: true,
     },
-    note: {
-        type: String
-    },
     exercises: {
         type: Array,
         required: true

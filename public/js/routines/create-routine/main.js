@@ -73,6 +73,7 @@ form.addEventListener("submit", event => {
 
         exrArray.push({
           name: exrName,
+          note: form.elements["note"][i].value,
           sets: form.elements["sets"][i].value,
           reps: form.elements["reps"][i].value,
           rest: form.elements["rest"][i].value,
@@ -80,13 +81,9 @@ form.addEventListener("submit", event => {
     }
 
     routTitle = form.elements["routine-title"].value
-    routNote = form.elements["note"].value
-
-
   
     const routineInfo = {
       title: routTitle,
-      note: routNote,
       exercises: exrArray
     }
 
