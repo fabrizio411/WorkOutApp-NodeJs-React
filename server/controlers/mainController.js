@@ -5,11 +5,12 @@ const mongoose = require('mongoose')
 
 
 
+//////////////////////////////
+////////// PROFILE //////////
+//////////////////////////////
 // GET Profile
 exports.profile = async (req, res) => {
-    const locals = {
-        title: 'Profile | WorkOutApp'
-    }
+    const locals = {title: 'Profile | WorkOutApp'}
     res.render('profile', {
         locals
     })
@@ -18,15 +19,16 @@ exports.profile = async (req, res) => {
 
 
 
+
+//////////////////////////////
+////////// ROUTINES //////////
+//////////////////////////////
 // GET Routines
 exports.routines = async (req, res) => {
+    const locals = {title: 'Routines | WorkOutApp',}
+
     try {
         const routineData = await Routine.find({})
-
-        const locals = {
-            title: 'Routines | WorkOutApp',
-            description: 'View and create routines'
-        }
         res.render('routines', {
             locals,
             routineData
@@ -39,33 +41,37 @@ exports.routines = async (req, res) => {
 
 // VIEW Routines
 exports.routineView = async(req, res) => {
-    const routine = await Routine.findById({ _id: req.params.id })
-    // .where({user: req.user.id})  Para que solo el usuario pueda acceder a la nota
 
-    if (routine) {
+
+    try {
+        const routine = await Routine.findById({ _id: req.params.id })
+        const locals = {title: `${routine.title} | WorkOutApp`,}
         res.render('routine-view', {
             noteID: req.params.id,
             routine,
-            layout: '../views/layouts/main'
+            locals
         })
-    } else {
-        res.send("Somenthig went wrong")
+    } catch (error) {
+        console.log(error)
     }
 }
 
 // ADD Routine
 exports.routineCreate = async(req, res) => {
+    const locals = {title: 'Create Routine | WorkOutApp',}
+
     const exercises = await Exercises.find({})
 
     res.render('routine-create', {
         exercises,
+        locals
     })
 }
 
 exports.routineCreateAdd = async(req, res) => {
     try {
         await Routine.create(req.body)
-        res.redirect('/routines')  // Not Functioning
+        res.redirect('/routines')  // Not working, Redirect in js file
     } catch (error) {
         console.log(error)
     }
@@ -85,15 +91,53 @@ exports.routineDelete = async(req, res) => {
 
 // EDIT Routine
 exports.routineEdit = async(req, res) => {
+    const locals = {title: 'Edit Routine | WorkOutApp',}
     const routine = await Routine.findById({ _id: req.params.id })
+    const exercises = await Exercises.find({})
 
     if (routine) {
         res.render('routine-edit', {
-            noteID: req.params.id,
             routine,
-            layout: '../views/layouts/main'
+            exercises,
+            locals
         })
     } else {
         res.send("Somenthig went wrong")
+    }
+}
+
+exports.routineEditUpdate = async(req, res) => {
+    try {
+        await Routine.findOneAndUpdate(
+            {
+                _id: req.params.id
+            },
+            {
+                title: req.body.title,
+                exercises: req.body.exercises
+            }
+        )
+        res.redirect('/routines')  // Not working, Redirect in js file
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+
+
+///////////////////////////////
+////////// EXERCISES //////////
+///////////////////////////////
+exports.exercises = async(req, res) => {
+    try {
+        const exercises = await Exercises.find({})
+        res.render('exercises-view', {
+            exercises
+        })
+    } catch (error) {
+        console.log(error);
     }
 }
