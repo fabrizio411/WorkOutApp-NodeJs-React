@@ -102,17 +102,6 @@ function isNumber(event) {
 
 
 
-function keepExistignFormValues() {
-  let note = document.getElementsByClassName('note').value;
-  let sets = document.getElementsByClassName('sets').value;
-  let reps = document.getElementsByClassName('reps').value;
-  let rest = document.getElementsByClassName('sets').value;
-
-  document.getElementById('nombre').value = nombre;
-  document.getElementById('email').value = email;
-}
-
-
 
 
 // Handle form data
