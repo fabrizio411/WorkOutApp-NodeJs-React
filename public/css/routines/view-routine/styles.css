@@ -23,11 +23,19 @@ main .container .routine-display-box {
   padding: 1.5rem;
   padding-bottom: 2.5rem;
 }
-main .container .routine-display-box .routine-name {
+main .container .routine-display-box .title-box {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+main .container .routine-display-box .title-box .routine-name {
   color: #ffffff;
   font-weight: 700;
   font-size: 1.75rem;
   margin-bottom: 2rem;
+}
+main .container .routine-display-box .title-box svg {
+  stroke: #ffffff;
 }
 main .container .routine-display-box .exercises-container {
   display: flex;

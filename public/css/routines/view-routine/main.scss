@@ -28,12 +28,23 @@ main {
             padding: 1.5rem;
             padding-bottom: 2.5rem;
 
-            .routine-name {
-                color: var.$clr-text-lvl1;
-                font-weight: var.$fw-bold;
-                font-size: 1.75rem;
-                margin-bottom: 2rem;
+            .title-box {
+                display: flex;
+                align-items: baseline;
+                gap: .75rem;
+
+                .routine-name {
+                    color: var.$clr-text-lvl1;
+                    font-weight: var.$fw-bold;
+                    font-size: 1.75rem;
+                    margin-bottom: 2rem;
+                }
+
+                svg {
+                    stroke: var.$clr-text-lvl1;
+                }
             }
+
 
             .exercises-container {
                 display: flex;
