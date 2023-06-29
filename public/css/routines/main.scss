@@ -101,14 +101,16 @@ main {
 
             .routine {
                 position: relative;
+                background-color: rgba(63, 94, 63, 0.322);
+                border-radius: .5rem;
+                display: grid;
+                grid-template-columns: 1fr auto;
+
 
                 .routine-body {
-                    background-color: rgba(63, 94, 63, 0.322);
-                    border-radius: .5rem;
-                    padding: 1rem 1rem;
+                    padding: 1.5rem 1rem;
                     display: flex;
-                    justify-content: space-between;
-                    align-items: center;
+                    flex-direction: row;
                     text-decoration: none;
                     z-index: 2;
     
@@ -126,6 +128,23 @@ main {
                             font-weight: var.$fw-light;
                             font-size: .9rem;
                         }
+                    }
+                }
+
+                .start-routine {
+                    align-self: center;
+                    display: block;
+                    margin-right: 1rem;
+                    text-decoration: none;
+                    padding: .4rem .75rem;
+                    border-radius: .25rem;
+                    background-color: rgba(39, 172, 39, 0.322);
+                    color: var.$clr-text-lvl1;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: rgba(39, 172, 39, 0.555);
+                        box-shadow: 0 0 1rem rgba(255, 255, 255, 0.116);
                     }
                 }
             }

@@ -78,14 +78,15 @@ main .container .routines-container {
 }
 main .container .routines-container .routine {
   position: relative;
-}
-main .container .routines-container .routine .routine-body {
   background-color: rgba(63, 94, 63, 0.322);
   border-radius: 0.5rem;
-  padding: 1rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+main .container .routines-container .routine .routine-body {
+  padding: 1.5rem 1rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
   text-decoration: none;
   z-index: 2;
 }
@@ -101,6 +102,21 @@ main .container .routines-container .routine .routine-body .title .info {
   color: #9DA4AE;
   font-weight: 300;
   font-size: 0.9rem;
+}
+main .container .routines-container .routine .start-routine {
+  align-self: center;
+  display: block;
+  margin-right: 1rem;
+  text-decoration: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.25rem;
+  background-color: rgba(39, 172, 39, 0.322);
+  color: #ffffff;
+  cursor: pointer;
+}
+main .container .routines-container .routine .start-routine:hover {
+  background-color: rgba(39, 172, 39, 0.555);
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.116);
 }
 main .container .routines-container .general-routines-box {
   padding: 1rem;
