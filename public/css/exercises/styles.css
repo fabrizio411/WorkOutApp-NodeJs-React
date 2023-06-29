@@ -145,8 +145,11 @@ main .container .exercise-container .title-box svg {
   padding: 0.5rem;
   border: 1px solid #37393d;
   border-radius: 0.25rem;
-  background-color: transparent;
+  background-color: #1f2022;
   color: #9DA4AE;
+}
+.create-form-container .content form .exr-data .select-box select .option-hidden {
+  display: none;
 }
 .create-form-container .content form .buttons {
   margin-top: 3rem;

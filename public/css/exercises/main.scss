@@ -173,8 +173,13 @@ main {
                         padding: .5rem;
                         border: 1px solid var.$clr-borders-lvl3;
                         border-radius: .25rem;
-                        background-color: transparent;
+                        background-color: var.$clr-bg-lvl2;
                         color: var.$clr-text-lvl3;
+
+                        .option-hidden {
+                            display: none;
+                        }
+
                     }
                 }
             }

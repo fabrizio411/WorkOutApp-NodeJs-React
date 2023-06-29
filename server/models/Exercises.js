@@ -14,6 +14,9 @@ const ExercisesSchema = new Schema({
     class: {
         type: String,
         required: true
+    },
+    isCustom: {
+        type: Boolean,
     }
 
 })

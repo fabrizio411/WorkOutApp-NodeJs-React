@@ -9,7 +9,7 @@
   <div class="overlay"></div>
   <div class="content">
     <h3 class="form-title">Create Exercise</h3>
-    <form action="/" method="POST">
+    <form action="/" method="POST" id="formulary">
       <div class="exr-name-box">
         <input required class="exr-name" type="text" name="name" placeholder="Exercise Name">
       </div>
@@ -19,7 +19,7 @@
         <div class="select-box">
           <label>Exercise Type</label>
           <select required class="exr-class" name="class">
-            <option value="" selected disabled>Select...</option>
+            <option class="option-hidden" value="" selected disabled>Select...</option>
             <option value="REPS/WEIGHT">Weight Reps</option>
             <option value="REPS">Reps Only</option>
             <option value="DUR">Duration</option>
@@ -32,7 +32,7 @@
         <div class="select-box">
           <label>Exercise Type</label>
           <select required class="exr-main-muscle" name="main-muscle">
-            <option value="" selected disabled>Select...</option>
+            <option class="option-hidden" value="" selected disabled>Select...</option>
             <option value="CARDIO">Cardio</option>
             <option value="ABDOMINALS">Abdominals</option>
             <option value="BACK">Back</option>
