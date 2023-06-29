@@ -15,6 +15,7 @@ router.get('/create-routine', mainController.routineCreate);
 router.post('/create-routine', mainController.routineCreateAdd);
 // EXERCISES ROUTES
 router.get('/exercises', mainController.exercises)
+router.post('/exercises', mainController.exercisesCreate)
 
 
 

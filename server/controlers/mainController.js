@@ -132,12 +132,25 @@ exports.routineEditUpdate = async(req, res) => {
 ////////// EXERCISES //////////
 ///////////////////////////////
 exports.exercises = async(req, res) => {
+    const locals = {title: 'Exercises | WorkOutApp',}
+
     try {
         const exercises = await Exercises.find({})
-        res.render('exercises-view', {
-            exercises
+        res.render('exercises', {
+            exercises,
+            locals
         })
     } catch (error) {
         console.log(error);
+    }
+}
+
+// ADD Exercise
+exports.exercisesCreate = async(req, res) => {
+    try {
+        await Exercises.create(req.body)
+        res.redirect('/routines')  // Not working, Redirect in js file
+    } catch (error) {
+        console.log(error)
     }
 }

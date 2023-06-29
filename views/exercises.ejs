@@ -1,0 +1,102 @@
+<head>
+  <link rel="stylesheet" href="/css/exercises/styles.css">
+  <link rel="stylesheet" href="/css/mobile-reset.css">
+</head>
+
+
+<!-- Create Exercise Form PupUp -->
+<div class="create-form-container" id="form-create">
+  <div class="overlay"></div>
+  <div class="content">
+    <h3 class="form-title">Create Exercise</h3>
+    <form action="/" method="POST">
+      <div class="exr-name-box">
+        <input required class="exr-name" type="text" name="name" placeholder="Exercise Name">
+      </div>
+      <div class="exr-data">
+
+        <hr>
+        <div class="select-box">
+          <label>Exercise Type</label>
+          <select required class="exr-class" name="class">
+            <option value="" selected disabled>Select...</option>
+            <option value="REPS/WEIGHT">Weight Reps</option>
+            <option value="REPS">Reps Only</option>
+            <option value="DUR">Duration</option>
+            <option value="DUR/WEIGHT">Weight Duration</option>
+            <option value="DIST/DUR">Distance Duration</option>
+          </select>
+        </div>
+
+        <hr>
+        <div class="select-box">
+          <label>Exercise Type</label>
+          <select required class="exr-main-muscle" name="main-muscle">
+            <option value="" selected disabled>Select...</option>
+            <option value="CARDIO">Cardio</option>
+            <option value="ABDOMINALS">Abdominals</option>
+            <option value="BACK">Back</option>
+            <option value="BICEPS">Biceps</option>
+            <option value="FOREARMS">Forearms</option>
+            <option value="CHEST">Chest</option>
+            <option value="SHOULDERS">Shoulders</option>
+            <option value="TRAPS">Traps</option>
+            <option value="TRICEPS">Triceps</option>
+            <option value="QUADRICEPS">Quadriceps</option>
+            <option value="HAMSTRINGS">Hamstrings</option>
+            <option value="GLUTES">Glutes</option>
+            <option value="CALVES">Calves</option>
+            <option value="ABDUCTORS">Abductors</option>
+            <option value="ADDUCTORS">Adductors</option>
+            <option value="UPPER BODY">Upper Body</option>
+            <option value="LOWER BODY">Lower Body</option>
+            <option value="FULL BODY">Full Body</option>
+          </select>
+        </div>
+      </div>
+      <div class="buttons">
+        <button type="reset" class="cancel-btn" onclick="toggleCreateForm()">Cancel</button>
+        <button class="save-btn">Save Exercise</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<main>
+  <div class="container">
+    <div class="exercise-container">
+      <button onclick="toggleCreateForm()" class="new-exercise-btn">+ Custom Exercise</button>
+
+      <div class="title-box">
+        <a href="/routines">
+          <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg" tint="#FFFFFF" type="back-button"><path d="M17 8H1M1 8L7 14M1 8L7 2"  stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path></svg>
+        </a>
+        <h2>Exercises</h2>
+      </div>
+
+      <div class="exercise-box">
+        <!-- JavaScript Handeled -->
+      </div>
+      
+
+    </div>
+
+    <div class="exercises-table-container">
+      <ul>
+        <% for (let i = 0; i < exercises.length; i++) { %>
+          <li>
+            <button class="list-btn"><%= exercises[i].name %>
+              <p class="main-muscle"><%= exercises[i].mainMuscle %></p>
+            </button>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</main>
+
+
+
+<script src="/js/exercises/create-exercise.js"></script>
+<script src="/js/routines/current-page.js"></script>
