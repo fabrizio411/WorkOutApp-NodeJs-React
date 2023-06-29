@@ -1,0 +1,11 @@
+<div class="exercises-table-container">
+  <ul>
+    <% for (let i = 0; i < exercises.length; i++) { %>
+      <li>
+        <button class="list-btn"><%= exercises[i].name %>
+          <p class="main-muscle"><%= exercises[i].mainMuscle %></p>
+        </button>
+      </li>
+    <% } %>
+  </ul>
+</div>
