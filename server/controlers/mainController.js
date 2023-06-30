@@ -154,3 +154,14 @@ exports.exercisesCreate = async(req, res) => {
         console.log(error)
     }
 }
+
+// DELETE Exercise
+exports.exerciseDelete = async(req, res) => {
+    try {
+        await Exercises.deleteOne({ _id: req.params.id })
+        // .where({user: req.user.id})  Para que solo el usuario pueda acceder a la nota
+        res.redirect('/exercises')
+    } catch (error) {
+        console.log(error)
+    }
+}

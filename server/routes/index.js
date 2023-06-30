@@ -16,7 +16,7 @@ router.post('/create-routine', mainController.routineCreateAdd);
 // EXERCISES ROUTES
 router.get('/exercises', mainController.exercises)
 router.post('/exercises', mainController.exercisesCreate)
-
+router.delete('/exercise/delete/:id', mainController.exerciseDelete);
 
 
 
