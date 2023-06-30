@@ -54,7 +54,6 @@ const toObserve = document.getElementById("exercises-display")
 oberver.observe(toObserve, observerOptions)
 
 
-// If not exergices
 
 
 

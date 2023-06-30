@@ -77,7 +77,68 @@
       </div>
 
       <div class="exercise-box">
-        <!-- JavaScript Handeled -->
+
+        <!-- <div class="if-empty" id="if-empty">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24""><path d="M6 5v14h3v-6h6v6h3V5h-3v6H9V5zM3 15a1 1 0 0 0 1 1h1V8H4a1 1 0 0 0-1 1v2H2v2h1v2zm18-6a1 1 0 0 0-1-1h-1v8h1a1 1 0 0 0 1-1v-2h1v-2h-1V9z"></path></svg>
+          <p class="main-text">Select Exercise</p>
+          <p class="secondary-text">Click on an exercise to see statistics about it.</p>
+        </div> -->
+
+
+        
+          <div class="exercise-display">
+            <div class="info-box">
+              <% if (exercises[10].isCustom === true) { %>
+                <div class="custom-box">
+                  <h2 class="title"><%= exercises[10].name %></h2>
+                  <div class="remove-btn">
+                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
+                    <div class="tooltip"><p>Remove Exercise</p></div>
+                  </div>
+                </div>
+              <% } else { %> <h2><%= exercises[10].name %></h2> <% } %>
+              <p class="muscle-info">Muscle Group: <span><%= exercises[10].mainMuscle %></span></p>
+            </div>
+
+            <hr>
+
+            <div class="statistics-box">
+              <div class="title-select-box">
+                <h3>Statistics</h3>
+                <form>
+                  <select name="data-time-view">
+                    <option value="WEEK">Las 12 weeks</option>
+                    <option value="YEAR">Year</option>
+                    <option value="ALL">All Time</option>
+                  </select>
+                </form>
+              </div>
+
+              <div class="statistics-display">
+                <div class="stats">
+                  <div class="stats-data">
+                    <% let unit = '' %>
+                    <% if (exercises[10].class === "REPS/WEIGHT" || exercises[10].class === "REPS") { %>       
+                      <p class="title">Reps</p>
+                      <% unit = 'reps' %>
+                    <% } else if (exercises[10].class === "DUR/WEIGHT" || exercises[10].class === "DUR") {%>
+                      <p class="title">Duration</p>
+                      <% unit = 'seg' %>
+                    <% } else {%>
+                      <p class="title">Distance</p>
+                      <% unit = 'm' %>
+                    <% } %>
+                      <p class="time-specific" id="time-specific"></p>
+                      <p class="details">Total: <span class="result"></span><span class="unit"><%= unit %></span></p>
+                      <p class="details">Max: <span class="result"></span><span class="unit"><%= unit %></span></p>
+                      <p class="details">Average: <span class="result"></span><span class="unit"><%= unit %></span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
       </div>
     </div>
 
@@ -89,5 +150,5 @@
 
 
 
-<script src="/js/exercises/create-exercise.js"></script>
+<script src="/js/exercises/main.js"></script>
 <script src="/js/routines/current-page.js"></script>
