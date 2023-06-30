@@ -77,6 +77,32 @@ main .container .create-formulay-container .formulary .exercises-display-box {
   flex-direction: column;
   gap: 1.5rem;
 }
+main .container .create-formulay-container .formulary .exercises-display-box .if-empty {
+  background-color: #1f2022;
+  border: 1px solid #2b2d30;
+  border-radius: 0.5rem;
+  padding: 3rem;
+  padding-top: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .if-empty svg {
+  height: 100px;
+  width: 100px;
+  fill: rgb(62, 202, 62);
+}
+main .container .create-formulay-container .formulary .exercises-display-box .if-empty .main-text {
+  color: #cecece;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+main .container .create-formulay-container .formulary .exercises-display-box .if-empty .secondary-text {
+  color: #9DA4AE;
+  font-weight: 300;
+  margin-top: 0.25rem;
+}
 main .container .create-formulay-container .formulary .exercises-display-box .exercise-display {
   background-color: #1f2022;
   border: 1px solid #2b2d30;

@@ -91,6 +91,36 @@ main {
                     flex-direction: column;
                     gap: 1.5rem;
 
+                    .if-empty {
+                        background-color: var.$clr-bg-lvl2;
+                        border: 1px solid var.$clr-borders-lvl2;
+                        border-radius: .5rem;
+                        padding: 3rem;
+                        padding-top: 1.5rem;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        svg {
+                            height: 100px;
+                            width: 100px;
+                            fill: rgb(62, 202, 62);
+                        }
+
+                        .main-text {
+                            color: var.$clr-text-lvl2;
+                            font-size: 1.25rem;
+                            font-weight: var.$fw-medium;
+                        }
+
+                        .secondary-text {
+                            color: var.$clr-text-lvl3;
+                            font-weight: var.$fw-light;
+                            margin-top: .25rem;
+                        }
+                    }
+
                     .exercise-display {
                         background-color: var.$clr-bg-lvl2;
                         border: 1px solid var.$clr-borders-lvl2;

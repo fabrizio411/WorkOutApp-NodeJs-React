@@ -8,7 +8,7 @@
   <div class="container">
     <form action="/routines/edit-routine/<%= routine._id %>?_method=PUT" method="POST" class="form" id="routine-form">
       <div class="create-formulay-container">
-        <button type="submit" class="save-btn">Save Routine</button>
+        <button type="submit" class="save-btn">Update Routine</button>
         <div class="title">
           <a href="/routines">
             <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg" tint="#FFFFFF" type="back-button"><path d="M17 8H1M1 8L7 14M1 8L7 2"  stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path></svg>
@@ -23,8 +23,15 @@
           </div>
 
           <div class="exercises-display-box" id="exercises-display">
+
+            <div class="if-empty" id="if-empty">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24""><path d="M6 5v14h3v-6h6v6h3V5h-3v6H9V5zM3 15a1 1 0 0 0 1 1h1V8H4a1 1 0 0 0-1 1v2H2v2h1v2zm18-6a1 1 0 0 0-1-1h-1v8h1a1 1 0 0 0 1-1v-2h1v-2h-1V9z"></path></svg>
+              <p class="main-text">No Exercises</p>
+              <p class="secondary-text">You haven't added any exercises to this routine.</p>
+            </div>
+
             <% for (let i = 0; i < routine.exercises.length; i++) { %>
-              <div class="exercise-display">
+              <div class="exercise-display active">
                 <div class="exercise-name">
                   <h3 class="name-text"><%= routine.exercises[i].name %></h3>
                   <div class="remove-btn">
