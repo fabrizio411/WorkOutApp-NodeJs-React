@@ -22,8 +22,49 @@
             <input required id="routine-title" name="routine-title" type="text" placeholder="Workout Routine Title">
           </div>
 
-          <div class="exercises-display-box" id="exercises-display">
-            <!-- JavaScript handeled -->
+          <div class="exercises-display-box">
+            <% for(let i = 0; i < exercises.length; i++) { %>
+              <div class="exercise-display" id="exercises-display">
+                <div class="exercise-name">
+                  <h3 class="name-text"><%= exercises[i].name %></h3>
+                  <div class="remove-btn">
+                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
+                    <div class="tooltip"><p>Remove Exercise</p></div>
+                  </div>
+                </div>
+                <div class="exercise-form">
+                  <div class="exercise-form-info">
+                    <input hidden name="name" value="<%= exercises[i].name %>">
+                    <input hidden name="class" value="<%= exercises[i].class %>">
+                    <div class="pinned-note">
+                      <label for="note">Note</label>
+                      <textarea id="note" class="note" name="note" placeholder="Add Pinned Note"></textarea>
+                    </div>
+                    <div class="exercise-data">
+                      <div class="input-box">
+                        <label for="sets">Sets:</label>
+                        <input id="sets" name="sets" type="number" class="sets" onkeypress="isNumber(event)" min="0">
+                      </div>
+                      <div class="input-box">
+                        <label for="reps">Reps goal:</label>
+                        <input id="reps" name="reps" type="number" class="reps" onkeypress="isNumber(event)" min="0">
+                      </div>
+                      <div class="input-box">
+                        <label for="rest">Rest:</label>
+                        <input id="rest" name="rest" type="number" class="rest" onkeypress="isNumber(event)" min="0">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+            <% } %>
+
+
+
+
           </div>
         </div>
 
