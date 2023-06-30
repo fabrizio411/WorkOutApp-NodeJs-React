@@ -38,6 +38,7 @@ function sendData(data) {
     .then(response => {
         if (response.ok) {
             console.log('Datos enviados correctamente');
+            window.location.href = "/exercises";
         } else {
             console.error('Error al enviar los datos');
         }

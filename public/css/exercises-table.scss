@@ -9,6 +9,8 @@
     position: sticky;
     top: 2rem;
     height: fit-content;
+    max-height: 90vh;
+    overflow: scroll;
 
     ul {
         list-style: none;
@@ -17,6 +19,7 @@
             padding: 1rem;
             height: 4.5rem;
             cursor: pointer;
+            position: relative;
 
             &:hover {
                 background-color: var.$clr-bg-lvl3;
@@ -34,6 +37,23 @@
             .main-muscle {
                 color: var.$clr-text-lvl3;
                 font-size: .9rem;
+                text-transform: lowercase;
+
+                &::first-letter {
+                    text-transform: uppercase;
+                }
+            }
+
+            .custom-show {
+                position: absolute;
+                padding: .25rem .35rem;
+                border-radius: 1rem;
+                font-size: .8rem;
+                color: var.$clr-text-lvl2;
+                background-color: var.$clr-bg-lvl5;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 1rem;
             }
         }
     }

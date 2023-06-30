@@ -17,6 +17,7 @@ const ExercisesSchema = new Schema({
     },
     isCustom: {
         type: Boolean,
+        required: true
     }
 
 })

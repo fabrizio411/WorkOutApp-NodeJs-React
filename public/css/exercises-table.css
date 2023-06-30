@@ -7,6 +7,8 @@
   position: sticky;
   top: 2rem;
   height: fit-content;
+  max-height: 90vh;
+  overflow: scroll;
 }
 .exercises-table-container ul {
   list-style: none;
@@ -15,6 +17,7 @@
   padding: 1rem;
   height: 4.5rem;
   cursor: pointer;
+  position: relative;
 }
 .exercises-table-container ul li:hover {
   background-color: #292b2f;
@@ -30,6 +33,21 @@
 .exercises-table-container ul li .main-muscle {
   color: #9DA4AE;
   font-size: 0.9rem;
+  text-transform: lowercase;
+}
+.exercises-table-container ul li .main-muscle::first-letter {
+  text-transform: uppercase;
+}
+.exercises-table-container ul li .custom-show {
+  position: absolute;
+  padding: 0.25rem 0.35rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  color: #cecece;
+  background-color: #4a4a4a;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1rem;
 }
 
 /*# sourceMappingURL=exercises-table.css.map */
