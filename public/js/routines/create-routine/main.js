@@ -5,8 +5,11 @@ console.log(exerciseDisplay)
 
 let count = 1
 for (let i = 0; i < listBtn.length; i++) {
+    let exercise_html = exerciseDisplay[i].innerHTML
+    exerciseDisplay[i].innerHTML = ''
     listBtn[i].addEventListener('click', () => {
         exerciseDisplay[i].style.display = 'flex'
+        exerciseDisplay[i].innerHTML = exercise_html
         exerciseDisplay[i].style.order = `${count}`
         count++
     })
@@ -14,14 +17,44 @@ for (let i = 0; i < listBtn.length; i++) {
 
 
 // Remove exercise button
-const removeBtn = document.getElementsByClassName('remove-btn')
-console.log(removeBtn)
+const oberver = new MutationObserver((mutationList) => {
+  
+  const containers = document.getElementsByClassName("exercise-display");
 
-for (let i = 0; i < listBtn.length; i++) {
-    removeBtn[i].addEventListener('click', () => {
-        exerciseDisplay[i].style.display = 'none'
-    })
+  for (let i = 0; i < containers.length; i++) {
+    const container = containers[i];
+    const removeBtn = container.getElementsByClassName("remove-btn")[0];
+
+    if (removeBtn) {
+      removeBtn.addEventListener("click", () => {
+        container.innerHTML = ''
+        container.style.display = "none";
+      });
+    }
+  }
+
+
+})
+
+const observerOptions = {
+  childList: true,
+  subtree: true
 }
+
+const toObserve = document.getElementById("exercises-display")
+oberver.observe(toObserve, observerOptions)
+
+
+
+// const removeBtn = document.getElementsByClassName('remove-btn')
+// console.log(removeBtn)
+
+// for (let i = 0; i < listBtn.length; i++) {
+//     removeBtn[i].addEventListener('click', () => {
+//         exerciseDisplay[i].style.display = 'none'
+//         exerciseDisplay[i].innerHTML = ''
+//     })
+// }
 
 
 
@@ -51,12 +84,9 @@ form.addEventListener("submit", async(event) => {
     let exrArray = []
     if (form.elements["sets"].length) {
         for (let i = 0; i < form.elements["sets"].length; i++) {
-
-            let exrNameFullHTML = nameExr[i].innerHTML
-            let exrName = exrNameFullHTML.substring(0, exrNameFullHTML.indexOf('\n'))
-
             exrArray.push({
-                name: exrName,
+                name: form.elements["name"][i].value,
+                class: form.elements["class"][i].value,
                 note: form.elements["note"][i].value,
                 sets: form.elements["sets"][i].value,
                 reps: form.elements["reps"][i].value,
@@ -64,11 +94,9 @@ form.addEventListener("submit", async(event) => {
             })        
         }
     } else {
-        let exrNameFullHTML = nameExr[0].innerHTML
-        let exrName = exrNameFullHTML.substring(0, exrNameFullHTML.indexOf('\n'))
-
         exrArray.push({
-            name: exrName,
+            name: form.elements["name"].value,
+            class: form.elements["class"].value,
             note: form.elements["note"].value,
             sets: form.elements["sets"].value,
             reps: form.elements["reps"].value,

@@ -225,6 +225,10 @@ main {
                             }
                         }
                     }
+
+                    .exercise-display.inactive {
+                        display: none;
+                    }
                 }
             }
         }

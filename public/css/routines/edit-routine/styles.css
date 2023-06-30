@@ -194,5 +194,8 @@ main .container .create-formulay-container .formulary .exercises-display-box .ex
   background-color: #292b2f;
   border: 2px solid #9DA4AE;
 }
+main .container .create-formulay-container .formulary .exercises-display-box .exercise-display.inactive {
+  display: none;
+}
 
 /*# sourceMappingURL=styles.css.map */

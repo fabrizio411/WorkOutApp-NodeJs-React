@@ -22,9 +22,9 @@
             <input required id="routine-title" name="routine-title" type="text" placeholder="Workout Routine Title">
           </div>
 
-          <div class="exercises-display-box">
+          <div class="exercises-display-box" id="exercises-display">
             <% for(let i = 0; i < exercises.length; i++) { %>
-              <div class="exercise-display" id="exercises-display">
+              <div class="exercise-display">
                 <div class="exercise-name">
                   <h3 class="name-text"><%= exercises[i].name %></h3>
                   <div class="remove-btn">
@@ -57,14 +57,7 @@
                   </div>
                 </div>
               </div>
-
-
-
             <% } %>
-
-
-
-
           </div>
         </div>
 

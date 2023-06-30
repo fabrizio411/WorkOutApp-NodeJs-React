@@ -1,46 +1,18 @@
-// Add exercise from menu
-const exerciseDisplay = document.getElementById("exercises-display")
-const listBtn = document.getElementsByClassName("list-btn")
+const exerciseDisplay = document.getElementsByClassName('inactive')
+const listBtn = document.getElementsByClassName('list-btn')
+console.log(exerciseDisplay)
 
+let count = 1
 for (let i = 0; i < listBtn.length; i++) {
-    listBtn[i].addEventListener("click", () => {
-        let exercise_name = listBtn[i].innerHTML
-        exerciseDisplay.innerHTML += `
-        <div class="exercise-display">
-        <div class="exercise-name">
-          <h3 class="name-text">${exercise_name}</h3>
-          <div class="remove-btn">
-            <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
-            <div class="tooltip"><p>Remove Exercise</p></div>
-          </div>
-        </div>
-        <div class="exercise-form">
-          <div class="exercise-form-info">
-            <div class="pinned-note">
-              <label for="note">Note</label>
-              <textarea id="note" name="note" placeholder="Add Pinned Note"></textarea>
-            </div>
-            <div class="exercise-data">
-              <div class="input-box">
-                <label for="sets">Sets:</label>
-                <input id="sets" name="sets" type="number" min="0">
-              </div>
-              <div class="input-box">
-                <label for="reps">Reps goal:</label>
-                <input id="reps" name="reps" type="number" min="0">
-              </div>
-              <div class="input-box">
-                <label for="rest">Rest:</label>
-                <input id="rest" name="rest" type="number" min="0">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-        `
+    let exercise_html = exerciseDisplay[i].innerHTML
+    exerciseDisplay[i].innerHTML = ''
+    listBtn[i].addEventListener('click', () => {
+        exerciseDisplay[i].style.display = 'flex'
+        exerciseDisplay[i].innerHTML = exercise_html
+        exerciseDisplay[i].style.order = `${count}`
+        count++
     })
 }
-
 
 
 // Remove exercise button
@@ -109,50 +81,42 @@ console.log(nameExr[0].innerHTML)
 
 // Capture form submit values and prosses them in the structure needed
 form.addEventListener("submit", async(event) => {
-    event.preventDefault()
+  event.preventDefault()
 
-    let exrArray = []
-    if (form.elements["sets"].length) {
+  let exrArray = []
+  if (form.elements["sets"].length) {
       for (let i = 0; i < form.elements["sets"].length; i++) {
-
-        let exrNameFullHTML = nameExr[i].innerHTML
-        let exrName = exrNameFullHTML.substring(0, exrNameFullHTML.indexOf('\n'))
-
-        if (!exrName) exrName = exrNameFullHTML
-
-        exrArray.push({
-          name: exrName,
-          note: form.elements["note"][i].value,
-          sets: form.elements["sets"][i].value,
-          reps: form.elements["reps"][i].value,
-          rest: form.elements["rest"][i].value,
-        })        
+          exrArray.push({
+              name: form.elements["name"][i].value,
+              class: form.elements["class"][i].value,
+              note: form.elements["note"][i].value,
+              sets: form.elements["sets"][i].value,
+              reps: form.elements["reps"][i].value,
+              rest: form.elements["rest"][i].value,
+          })        
       }
-    } else {
-      let exrNameFullHTML = nameExr[0].innerHTML
-      let exrName = exrNameFullHTML.substring(0, exrNameFullHTML.indexOf('\n'))
-
+  } else {
       exrArray.push({
-        name: exrNameFullHTML,
-        note: form.elements["note"].value,
-        sets: form.elements["sets"].value,
-        reps: form.elements["reps"].value,
-        rest: form.elements["rest"].value,
-      })  
-    }
+          name: form.elements["name"].value,
+          class: form.elements["class"].value,
+          note: form.elements["note"].value,
+          sets: form.elements["sets"].value,
+          reps: form.elements["reps"].value,
+          rest: form.elements["rest"].value,
+    })  
+  }
 
+  routTitle = form.elements["routine-title"].value
 
-    routTitle = form.elements["routine-title"].value
-  
-    const routineInfo = {
+  const routineInfo = {
       title: routTitle,
       exercises: exrArray
-    }
+  }
 
-    console.log(JSON.stringify(routineInfo))
-    sendData(routineInfo)
-    form.reset()
-  })
+  console.log(JSON.stringify(routineInfo))
+  sendData(routineInfo)
+  form.reset()
+})
   
   
 // Resend those values estructured 
