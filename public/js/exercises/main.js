@@ -4,6 +4,36 @@ function toggleCreateForm() {
 
 
 
+// Stats exercise display 
+const statsDisplay = document.getElementsByClassName('exercise-display')
+const listBtn = document.getElementsByClassName('list-btn')
+const ifEmpty = document.getElementById('if-empty')
+
+for (let i = 0; i < listBtn.length; i++) {
+    listBtn[i].addEventListener('click', () => {
+        ifEmpty.style.display = 'none'
+        for (let x = 0; x < statsDisplay.length; x++) {
+            if (statsDisplay[x].style.display === 'flex') statsDisplay[x].style.display = 'none'
+        }
+        statsDisplay[i].style.display = 'flex'
+    })
+}
+
+
+
+// const exerciseDisplayAll = document.getElementById('exercise-box')
+// if (exerciseDisplayAll.offsetHeight === 0) {
+//     ifEmpty.style.display = 'flex'
+// } else {
+//     ifEmpty.style.display = 'none'
+// }
+
+
+
+
+
+
+
 // Handle form Infomration
 const form = document.getElementById('formulary')
 

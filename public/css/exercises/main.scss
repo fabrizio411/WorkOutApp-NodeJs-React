@@ -96,7 +96,7 @@ main {
                     background-color: var.$clr-bg-lvl2;
                     border: 1px solid var.$clr-borders-lvl2;
                     border-radius: .5rem;
-                    display: flex;
+                    display: none;
                     flex-direction: column;
                     gap: .5rem;
 
@@ -105,6 +105,12 @@ main {
                         display: flex;
                         flex-direction: column;
                         gap: .5rem;
+
+                        .exercise-name {
+                            color: var.$clr-text-lvl1;
+                            font-weight: var.$fw-bold;
+                            font-size: 2rem;
+                        }
 
                         .custom-box {
                             display: flex;
@@ -172,7 +178,7 @@ main {
                         padding: 2rem;
 
                         .title-select-box {
-                            margin-bottom: 1.5rem;
+                            margin-bottom: 3rem;
                             display: flex;
                             justify-content: space-between;
                             align-items: center;
@@ -194,7 +200,14 @@ main {
                         }
 
                         .statistics-display {
+                            height: 100%;
+
                             .stats {
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 3rem;
+
                                 .title {
                                     padding-bottom: .5rem;
                                     color: var.$clr-text-lvl1;
@@ -203,7 +216,7 @@ main {
                                 }
 
                                 .time-sepcific {
-                                    
+                                    color: red;
                                 }
 
                                 .details {
@@ -217,6 +230,7 @@ main {
                                     }
 
                                     .unit {
+                                        color: var.$clr-text-lvl2;
                                         font-size: 1rem;
                                     }
                                 }
