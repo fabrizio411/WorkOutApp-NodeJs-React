@@ -1,3 +1,4 @@
+// New exercise form display
 function toggleCreateForm() {
     document.getElementById('form-create').classList.toggle('active')
 }
