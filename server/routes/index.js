@@ -1,27 +1,31 @@
 const express = require('express')
 const router = express.Router()
 const mainController = require('../controlers/mainController')
+const {isAuthenticated } = require('../helpers/auth')
 
 // App Routes
 
 // HOME ROUTES
-router.get('/home', mainController.home)
+router.get('/home', isAuthenticated, mainController.home);
 
 // PROFILE ROUTES
-router.get('/profile', mainController.profile);
+router.get('/profile', isAuthenticated, mainController.profile);
+
+// SETTINGS ROUTES
+router.get('/settings', isAuthenticated, mainController.settings);
 
 // ROUTINES ROUTES
-router.get('/routines', mainController.routines); 
-router.get('/routines/:id', mainController.routineView);
-router.get('/routines/edit-routine/:id', mainController.routineEdit);
-router.put('/routines/edit-routine/:id', mainController.routineEditUpdate);
-router.delete('/routines/routine-delete/:id', mainController.routineDelete);
-router.get('/create-routine', mainController.routineCreate);
-router.post('/create-routine', mainController.routineCreateAdd);
+router.get('/routines', isAuthenticated, mainController.routines); 
+router.get('/routines/:id', isAuthenticated, mainController.routineView);
+router.get('/routines/edit-routine/:id', isAuthenticated, mainController.routineEdit);
+router.put('/routines/edit-routine/:id', isAuthenticated, mainController.routineEditUpdate);
+router.delete('/routines/routine-delete/:id', isAuthenticated, mainController.routineDelete);
+router.get('/create-routine', isAuthenticated, mainController.routineCreate);
+router.post('/create-routine', isAuthenticated, mainController.routineCreateAdd);
 // EXERCISES ROUTES
-router.get('/exercises', mainController.exercises)
-router.post('/exercises', mainController.exercisesCreate)
-router.delete('/exercise/delete/:id', mainController.exerciseDelete);
+router.get('/exercises', isAuthenticated, mainController.exercises);
+router.post('/exercises', isAuthenticated, mainController.exercisesCreate);
+router.delete('/exercise/delete/:id', isAuthenticated, mainController.exerciseDelete);
 
 
 
