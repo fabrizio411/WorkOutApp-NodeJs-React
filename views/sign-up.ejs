@@ -1,35 +1,43 @@
+<link rel="stylesheet" href="/css/home/sign-up.css">
+<link rel="stylesheet" href="/css/reset.css">
+
 <main>
-  <h1>SIGN UP</h1>
+  <div class="container">
+    <div class="title-box">
+      <h1 class="title">WorkOutApp</h1>
+      <hr>
+    </div>
 
- 
-  <% let name_ = ''; let email_ = ''; let password_ = ''; let confirm_password_ = ''; %>
-  <% if (errors.length > 0) { %>
-    <div class="errors-display-box">
-      <% for (let i = 0; i < errors.length; i++) { %>
-        <% name_ = name; email_ = email; password_ = password; confirm_password_ = confirm_password; %>
-        <div class="error-box">
-          <p class="error"><%= errors[i].text %></p>
+    <% let name_ = ''; let email_ = ''; let password_ = ''; let confirm_password_ = ''; %>
+    <% if (errors.length > 0) { %>
+      <div class="errors-display-box">
+        <% for (let i = 0; i < errors.length; i++) { %>
+          <% name_ = name; email_ = email; password_ = password; confirm_password_ = confirm_password; %>
+          <div class="error-box">
+            <p class="error"><%= errors[i].text %></p>
+          </div>
+        <% } %>
+      </div>
+    <% } else %> 
+
+    <div class="form-container">
+      <form class="sign-up-form" action="/sign-up" method="POST">
+        <div class="input-box">
+          <input type="text" name="name" placeholder="Name" class="input" value="<%= name_ %>" required>
         </div>
-      <% } %>
+        <div class="input-box">
+          <input type="email" name="email" placeholder="email" class="input" value="<%= email_ %>" required>
+        </div>
+        <div class="input-box">
+          <input type="password" name="password" placeholder="Password" class="input" value="<%= password_ %>" required>
+        </div>
+        <div class="input-box">
+          <input type="password" name="confirm_password" placeholder="Confirm Password" class="input" value="<%= confirm_password_ %>" required>
+        </div>
+        <div class="buttons">
+          <button type="submit">Sign Up</button>
+        </div>
+      </form>
     </div>
-  <% } else %> 
-
-  <form class="sign-up-form" action="/sign-up" method="POST">
-    <div class="input-box">
-      <input type="text" name="name" placeholder="Name" class="input" value="<%= name_ %>" required>
-    </div>
-    <div class="input-box">
-      <input type="email" name="email" placeholder="email" class="input" value="<%= email_ %>" required>
-    </div>
-    <div class="input-box">
-      <input type="password" name="password" placeholder="Password" class="input" value="<%= password_ %>" required>
-    </div>
-    <div class="input-box">
-      <input type="password" name="confirm_password" placeholder="Confirm Password" class="input" value="<%= confirm_password_ %>" required>
-    </div>
-    <div class="buttons">
-      <button type="submit">Sign Up</button>
-    </div>
-
-  </form>
+  </div>
 </main>
