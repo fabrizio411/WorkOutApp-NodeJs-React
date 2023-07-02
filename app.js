@@ -35,8 +35,11 @@ app.use(methodsOverride("_method"));
 // Session and Passport
 app.use(session({
     secret: 'mysecretapp',
-    resave: true,
-    saveUninitialized: true
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGODB_URI
+    })
 }))
 app.use(passport.initialize())
 app.use(passport.session())
