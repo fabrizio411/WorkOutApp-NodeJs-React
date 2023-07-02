@@ -28,9 +28,12 @@ exports.home = (req, res) => {
 // GET Profile
 exports.profile = async (req, res) => {
     const locals = {title: 'Profile | WorkOutApp'}
+    console.log(req.user.id)
     res.render('profile', {
+        userName: req.user.name,
         locals
     })
+
 }
 
 
@@ -44,6 +47,7 @@ exports.profile = async (req, res) => {
 exports.settings = async (req, res) => {
     const locals = {title: 'Settings | WorkOutApp'}
     res.render('settings', {
+        userName: req.user.name,
         locals
     })
 }
@@ -62,8 +66,9 @@ exports.routines = async (req, res) => {
     const locals = {title: 'Routines | WorkOutApp',}
 
     try {
-        const routineData = await Routine.find({})
+        const routineData = await Routine.find({user: req.user.id})
         res.render('routines', {
+            userName: req.user.name,
             locals,
             routineData
         })
@@ -81,6 +86,7 @@ exports.routineView = async(req, res) => {
         const routine = await Routine.findById({ _id: req.params.id })
         const locals = {title: `${routine.title} | WorkOutApp`,}
         res.render('routine-view', {
+            userName: req.user.name,
             noteID: req.params.id,
             routine,
             locals
@@ -97,6 +103,7 @@ exports.routineCreate = async(req, res) => {
     const exercises = await Exercises.find({})
 
     res.render('routine-create', {
+        userName: req.user.name,
         exercises,
         locals
     })
@@ -104,8 +111,27 @@ exports.routineCreate = async(req, res) => {
 
 exports.routineCreateAdd = async(req, res) => {
     try {
-        await Routine.create(req.body)
-        res.redirect('/routines')  // Not working, Redirect in js file
+        console.log(req.body)
+        const exercisesArray = []
+        for (let i = 0; i < req.body.name.length; i++) {
+            let eachExercise = {
+                name: req.body.name[i],
+                class: req.body.class[i],
+                note: req.body.note[i],
+                sets: req.body.sets[i],
+                reps: req.body.reps[i],
+                rest: req.body.rest[i]
+            }
+            exercisesArray.push(eachExercise)
+        }
+        const newRoutine = {
+            user: req.user.id,
+            title: req.body.routine_title,
+            exercises: exercisesArray
+        }
+
+        await Routine.create(newRoutine)
+        res.redirect('/routines')
     } catch (error) {
         console.log(error)
     }
@@ -131,6 +157,7 @@ exports.routineEdit = async(req, res) => {
 
     if (routine) {
         res.render('routine-edit', {
+            userName: req.user.name,
             routine,
             exercises,
             locals
@@ -171,6 +198,7 @@ exports.exercises = async(req, res) => {
     try {
         const exercises = await Exercises.find({})
         res.render('exercises', {
+            userName: req.user.name,
             exercises,
             locals
         })

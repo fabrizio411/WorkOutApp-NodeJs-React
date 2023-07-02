@@ -4,6 +4,10 @@ const Schema = mongoose.Schema
 const RoutineSchema = new Schema({
 
 
+    user: {
+        type: Schema.ObjectId,
+        ref: 'User'
+    },
     title: {
         type: String,
         required: true,
@@ -13,7 +17,6 @@ const RoutineSchema = new Schema({
         required: true
     }
 
-    
 
 })
 
