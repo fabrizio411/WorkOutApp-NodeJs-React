@@ -200,4 +200,49 @@ main .container .routines-container .general-routines-box .routines-box .routine
   background-color: rgb(136, 76, 76);
 }
 
+@media (max-width: 900px) {
+  main {
+    padding: 0;
+  }
+  main .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0 1rem;
+    padding-top: 0.5rem;
+  }
+  main .container .page-menu-container {
+    width: 100%;
+  }
+  main .container .page-menu-container .buttons-menu {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  main .container .page-menu-container .buttons-menu .btn {
+    display: flex;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+  main .container .routines-container .general-routines-box {
+    padding: 0.25rem;
+  }
+  main .container .routines-container .general-routines-box .section-title {
+    margin-bottom: 0.65rem;
+  }
+  main .container .routines-container .general-routines-box .routines-box .routine {
+    padding: 0;
+  }
+  main .container .routines-container .general-routines-box .routines-box .routine .title .name {
+    font-size: 0.9rem;
+  }
+  main .container .routines-container .general-routines-box .routines-box .routine .title .info {
+    display: none;
+  }
+  main .container .routines-container .general-routines-box .routines-box .routine .start-routine {
+    font-size: 0.8rem;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
