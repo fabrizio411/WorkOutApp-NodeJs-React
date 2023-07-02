@@ -3,6 +3,11 @@ const router = express.Router()
 const mainController = require('../controlers/mainController')
 
 // App Routes
+
+// HOME ROUTES
+router.get('/home', mainController.home)
+
+// PROFILE ROUTES
 router.get('/profile', mainController.profile);
 
 // ROUTINES ROUTES

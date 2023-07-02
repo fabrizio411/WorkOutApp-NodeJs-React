@@ -1,18 +1,18 @@
 require('dotenv').config();
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
-const connectDB = require('./server/config/db')
 const session = require('express-session')
 const passport = require('passport')
 const MongoStore = require('connect-mongo')
 const methodsOverride = require('method-override')
 
+const connectDB = require('./server/config/db')
+require('./server/config/passport')
+
+
 const app = express()
 const port = 5000 || process.env.PORT
 
-// initialise passport
-// app.use(passport.initialize())
-// app.use(passport.session())
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -31,6 +31,15 @@ app.set('view engine', 'ejs')
 
 // Method Override
 app.use(methodsOverride("_method"));
+
+// Session and Passport
+app.use(session({
+    secret: 'mysecretapp',
+    resave: true,
+    saveUninitialized: true
+}))
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Routes 
 app.use('/', require('./server/routes/index'))

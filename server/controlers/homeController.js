@@ -30,6 +30,7 @@ exports.signIn = async(req, res) => {
 
 
 
+
 // GET Sign up
 exports.signUp = async(req, res) => {
     const locals = {title:'Sign In | WorkOutApp'}
@@ -42,7 +43,7 @@ exports.signUp = async(req, res) => {
     })
 }
 
-// POST Sign Up
+// POST Sign Up (create user)
 exports.signUpUserCreate = async(req, res) => {
     const { name, email, password, confirm_password } = req.body
     const errors = []

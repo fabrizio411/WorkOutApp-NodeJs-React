@@ -6,7 +6,22 @@ const mongoose = require('mongoose')
 
 
 //////////////////////////////
-////////// PROFILE //////////
+/////////// HOME /////////////
+//////////////////////////////
+// GET Home
+exports.home = (req, res) => {
+    const locals = {title: 'Home | WorkOutApp'}
+    res.render('home')
+}
+
+
+
+
+
+
+
+//////////////////////////////
+////////// PROFILE ///////////
 //////////////////////////////
 // GET Profile
 exports.profile = async (req, res) => {
