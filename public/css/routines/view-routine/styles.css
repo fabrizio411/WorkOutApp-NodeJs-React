@@ -196,4 +196,27 @@ main .container .buttons-menu .btn.delete:hover {
   transform: translate(-50%, -50%) scale(1);
 }
 
+@media (max-width: 900px) {
+  main {
+    padding: 0;
+  }
+  main .container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    margin: 0;
+    padding: 0 1rem;
+    padding-top: 1rem;
+  }
+  main .container .buttons-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  .delete-window .content {
+    width: 80%;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */
