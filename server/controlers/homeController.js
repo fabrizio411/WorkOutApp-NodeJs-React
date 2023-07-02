@@ -75,8 +75,7 @@ exports.signUpUserCreate = async(req, res) => {
                 confirm_password,
                 layout: '../views/layouts/home'
             })
-        }
-        if (nameUser) {
+        } else if (nameUser) {
             errors.push({text: 'The username is not available'})
             res.render('sign-up', {
                 errors,
