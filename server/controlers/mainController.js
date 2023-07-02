@@ -83,7 +83,7 @@ exports.routineView = async(req, res) => {
 
 
     try {
-        const routine = await Routine.findById({ _id: req.params.id })
+        const routine = await Routine.findById({ _id: req.params.id }).where({ user: req.user.id }).lean()
         const locals = {title: `${routine.title} | WorkOutApp`,}
         res.render('routine-view', {
             userName: req.user.name,
@@ -111,19 +111,30 @@ exports.routineCreate = async(req, res) => {
 
 exports.routineCreateAdd = async(req, res) => {
     try {
-        console.log(req.body)
         const exercisesArray = []
-        for (let i = 0; i < req.body.name.length; i++) {
-            let eachExercise = {
-                name: req.body.name[i],
-                class: req.body.class[i],
-                note: req.body.note[i],
-                sets: req.body.sets[i],
-                reps: req.body.reps[i],
-                rest: req.body.rest[i]
+        if (Array.isArray(req.body.name)) {
+            for (let i = 0; i < req.body.name.length; i++) {
+                let eachExercise = {
+                    name: req.body.name[i],
+                    class: req.body.class[i],
+                    note: req.body.note[i],
+                    sets: req.body.sets[i],
+                    reps: req.body.reps[i],
+                    rest: req.body.rest[i]
+                }
+                exercisesArray.push(eachExercise)
             }
-            exercisesArray.push(eachExercise)
+        } else {
+            exercisesArray.push({
+                name: req.body.name,
+                class: req.body.class,
+                note: req.body.note,
+                sets: req.body.sets,
+                reps: req.body.reps,
+                rest: req.body.rest
+            })
         }
+
         const newRoutine = {
             user: req.user.id,
             title: req.body.routine_title,
@@ -152,7 +163,7 @@ exports.routineDelete = async(req, res) => {
 // EDIT Routine
 exports.routineEdit = async(req, res) => {
     const locals = {title: 'Edit Routine | WorkOutApp',}
-    const routine = await Routine.findById({ _id: req.params.id })
+    const routine = await Routine.findById({ _id: req.params.id }).where({ user: req.user.id }).lean()
     const exercises = await Exercises.find({})
 
     if (routine) {
@@ -169,16 +180,39 @@ exports.routineEdit = async(req, res) => {
 
 exports.routineEditUpdate = async(req, res) => {
     try {
+        const exercisesArray = []
+        if (Array.isArray(req.body.name)) {
+            for (let i = 0; i < req.body.name.length; i++) {
+                let eachExercise = {
+                    name: req.body.name[i],
+                    class: req.body.class[i],
+                    note: req.body.note[i],
+                    sets: req.body.sets[i],
+                    reps: req.body.reps[i],
+                    rest: req.body.rest[i]
+                }
+                exercisesArray.push(eachExercise)
+            }
+        } else {
+            exercisesArray.push({
+                name: req.body.name,
+                class: req.body.class,
+                note: req.body.note,
+                sets: req.body.sets,
+                reps: req.body.reps,
+                rest: req.body.rest
+            })
+        }
+
+
         await Routine.findOneAndUpdate(
+            { _id: req.params.id },
             {
-                _id: req.params.id
-            },
-            {
-                title: req.body.title,
-                exercises: req.body.exercises
+                title: req.body.routine_title,
+                exercises: exercisesArray
             }
         )
-        res.redirect('/routines')  // Not working, Redirect in js file
+        res.redirect('/routines')
 
     } catch (error) {
         console.log(error)
