@@ -63,8 +63,20 @@ exports.signUpUserCreate = async(req, res) => {
         })
     } else {
         const emailUser = await User.findOne({ email: email})
+        const nameUser = await User.findOne({ name: name})
         if (emailUser) {
             errors.push({text: 'The email is already registered'})
+            res.render('sign-up', {
+                errors,
+                name, 
+                email, 
+                password, 
+                confirm_password,
+                layout: '../views/layouts/home'
+            })
+        }
+        if (nameUser) {
+            errors.push({text: 'The username is not available'})
             res.render('sign-up', {
                 errors,
                 name, 
