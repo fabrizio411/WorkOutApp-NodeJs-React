@@ -28,18 +28,19 @@ main .container .errors-display-box {
   font-size: 0.9rem;
 }
 main .container .form-container {
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
 }
-main .container .form-container .sign-up-form {
+main .container .form-container .sign-in-form {
   display: flex;
   flex-direction: column;
   align-items: end;
   gap: 0.5rem;
 }
-main .container .form-container .sign-up-form .input {
+main .container .form-container .sign-in-form .input {
   padding: 0.75rem;
   border-radius: 0.35rem;
   border: 2px solid #37393d;
@@ -47,16 +48,20 @@ main .container .form-container .sign-up-form .input {
   background-color: transparent;
   color: #cecece;
 }
-main .container .form-container .sign-up-form .input:focus, main .container .form-container .sign-up-form .input:hover {
+main .container .form-container .sign-in-form .input:focus, main .container .form-container .sign-in-form .input:hover {
   border: 2px solid #505255;
 }
-main .container .form-container .sign-up-form .input::placeholder {
+main .container .form-container .sign-in-form .input::placeholder {
   color: #9DA4AE;
 }
-main .container .form-container .sign-up-form .buttons {
+main .container .form-container .sign-in-form .buttons {
   margin-top: 1rem;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 1rem;
 }
-main .container .form-container .sign-up-form .buttons button {
+main .container .form-container .sign-in-form .buttons button {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.25rem;
@@ -64,8 +69,16 @@ main .container .form-container .sign-up-form .buttons button {
   color: #cecece;
   font-weight: 500;
 }
-main .container .form-container .sign-up-form .buttons button:hover {
+main .container .form-container .sign-in-form .buttons button:hover {
   background-color: rgba(77, 206, 77, 0.897);
 }
+main .container .form-container .sign-in-form .buttons a {
+  text-decoration: none;
+  color: #9DA4AE;
+  font-size: 0.9rem;
+}
+main .container .form-container .sign-in-form .buttons a:hover {
+  color: #cecece;
+}
 
-/*# sourceMappingURL=sign-up.css.map */
+/*# sourceMappingURL=sign-in.css.map */
