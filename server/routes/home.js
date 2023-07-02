@@ -15,5 +15,14 @@ router.post('/sign-in', passport.authenticate('local', {
 router.get('/sign-up', homeController.signUp)
 router.post('/sign-up', homeController.signUpUserCreate)
 
+router.get('/log-out', (req, res) => {
+    req.logout(function(err) {
+      if (err) {
+        console.log(err)
+        return next(err);
+      }
+      res.redirect('/');
+    });
+  });
 
 module.exports = router
