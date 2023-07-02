@@ -13,7 +13,10 @@ exports.home = (req, res) => {
     const locals = {
         title: 'Home | WorkOutApp'
     }
-    res.render('home')
+    res.render('home', {
+        userName: req.user.name,
+        locals
+    })
 }
 
 
@@ -152,8 +155,7 @@ exports.routineCreateAdd = async(req, res) => {
 // DELETE Routine
 exports.routineDelete = async(req, res) => {
     try {
-        await Routine.deleteOne({ _id: req.params.id })
-        // .where({user: req.user.id})  Para que solo el usuario pueda acceder a la nota
+        await Routine.deleteOne({ _id: req.params.id }).where({ user: req.user.id })
         res.redirect('/routines')
     } catch (error) {
         console.log(error)
@@ -230,7 +232,9 @@ exports.exercises = async(req, res) => {
     const locals = {title: 'Exercises | WorkOutApp',}
 
     try {
-        const exercises = await Exercises.find({})
+        const exercises = await Exercises.find({ isCustom: false })
+        const exercisesCustom = await Exercises.find({ isCustom: true }).where({ user: req.user.id }).lean()
+        exercisesCustom.forEach(element => { exercises.push(element) })
         res.render('exercises', {
             userName: req.user.name,
             exercises,
@@ -244,8 +248,16 @@ exports.exercises = async(req, res) => {
 // ADD Exercise
 exports.exercisesCreate = async(req, res) => {
     try {
-        await Exercises.create(req.body)
-        res.redirect('/routines')  // Not working, Redirect in js file
+        const newExercise = {
+            user: req.user.id,
+            name: req.body.name,
+            mainMuscle: req.body.main_muscle,
+            class: req.body.class,
+            isCustom: true
+        }
+
+        await Exercises.create(newExercise)
+        res.redirect('/exercises') 
     } catch (error) {
         console.log(error)
     }
@@ -254,9 +266,25 @@ exports.exercisesCreate = async(req, res) => {
 // DELETE Exercise
 exports.exerciseDelete = async(req, res) => {
     try {
-        await Exercises.deleteOne({ _id: req.params.id })
-        // .where({user: req.user.id})  Para que solo el usuario pueda acceder a la nota
+        await Exercises.deleteOne({ _id: req.params.id }).where({user: req.user.id})
         res.redirect('/exercises')
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+// POST - CREATE DEFAUL EXERCISES (DEV)
+exports.exerciseDefaultCreate = async(req, res) => {
+    try {
+        const newExercise = {
+            name: req.body.name,
+            mainMuscle: req.body.main_muscle,
+            class: req.body.class,
+            isCustom: false
+        }
+
+        await Exercises.create(newExercise)
+        res.redirect('/exercises') 
     } catch (error) {
         console.log(error)
     }

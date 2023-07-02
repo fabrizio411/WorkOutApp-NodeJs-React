@@ -107,16 +107,16 @@ main .container .exercise-container .exercise-box .exercise-display .info-box .c
   font-weight: 700;
   font-size: 2rem;
 }
-main .container .exercise-container .exercise-box .exercise-display .info-box .custom-box .remove-btn {
+main .container .exercise-container .exercise-box .exercise-display .info-box .custom-box .remove-form .remove-btn {
   border: none;
   background-color: transparent;
   cursor: pointer;
   position: relative;
 }
-main .container .exercise-container .exercise-box .exercise-display .info-box .custom-box .remove-btn svg {
+main .container .exercise-container .exercise-box .exercise-display .info-box .custom-box .remove-form .remove-btn svg {
   stroke: #ffffff;
 }
-main .container .exercise-container .exercise-box .exercise-display .info-box .custom-box .remove-btn .tooltip {
+main .container .exercise-container .exercise-box .exercise-display .info-box .custom-box .remove-form .remove-btn .tooltip {
   position: absolute;
   top: -170%;
   right: 50%;
@@ -129,7 +129,7 @@ main .container .exercise-container .exercise-box .exercise-display .info-box .c
   background-color: #191a1c;
   border-radius: 0.5rem;
 }
-main .container .exercise-container .exercise-box .exercise-display .info-box .custom-box .remove-btn:hover .tooltip {
+main .container .exercise-container .exercise-box .exercise-display .info-box .custom-box .remove-form .remove-btn:hover .tooltip {
   display: grid;
   animation: tooltipAnimation 0.5s;
 }

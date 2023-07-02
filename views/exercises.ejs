@@ -10,7 +10,7 @@
   <div class="overlay"></div>
   <div class="content">
     <h3 class="form-title">Create Exercise</h3>
-    <form action="/" method="POST" id="formulary">
+    <form action="/exercises" method="POST" id="formulary">
       <div class="exr-name-box">
         <input required class="exr-name" type="text" name="name" placeholder="Exercise Name">
       </div>
@@ -31,27 +31,27 @@
 
         <hr>
         <div class="select-box">
-          <label>Exercise Type</label>
-          <select required class="exr-main-muscle" name="main-muscle">
+          <label>Muslce Group</label>
+          <select required class="exr-main-muscle" name="main_muscle">
             <option class="option-hidden" value="" selected disabled>Select...</option>
-            <option value="CARDIO">Cardio</option>
-            <option value="ABDOMINALS">Abdominals</option>
-            <option value="BACK">Back</option>
-            <option value="BICEPS">Biceps</option>
-            <option value="FOREARMS">Forearms</option>
-            <option value="CHEST">Chest</option>
-            <option value="SHOULDERS">Shoulders</option>
-            <option value="TRAPS">Traps</option>
-            <option value="TRICEPS">Triceps</option>
-            <option value="QUADRICEPS">Quadriceps</option>
-            <option value="HAMSTRINGS">Hamstrings</option>
-            <option value="GLUTES">Glutes</option>
-            <option value="CALVES">Calves</option>
-            <option value="ABDUCTORS">Abductors</option>
-            <option value="ADDUCTORS">Adductors</option>
-            <option value="UPPER BODY">Upper Body</option>
-            <option value="LOWER BODY">Lower Body</option>
-            <option value="FULL BODY">Full Body</option>
+            <option value="Cardio">Cardio</option>
+            <option value="Abdominals">Abdominals</option>
+            <option value="Back">Back</option>
+            <option value="Biceps">Biceps</option>
+            <option value="Forearms">Forearms</option>
+            <option value="Chest">Chest</option>
+            <option value="Shoulders">Shoulders</option>
+            <option value="Traps">Traps</option>
+            <option value="Triceps">Triceps</option>
+            <option value="Queadirceps">Quadriceps</option>
+            <option value="Hamstrings">Hamstrings</option>
+            <option value="Glutes">Glutes</option>
+            <option value="Calver">Calves</option>
+            <option value="Abductors">Abductors</option>
+            <option value="Adductors">Adductors</option>
+            <option value="upper Body">Upper Body</option>
+            <option value="Lower Body">Lower Body</option>
+            <option value="Full Body">Full Body</option>
           </select>
         </div>
       </div>
@@ -91,10 +91,13 @@
               <% if (exercises[i].isCustom === true) { %>
                 <div class="custom-box">
                   <h2 class="title"><%= exercises[i].name %></h2>
-                  <div class="remove-btn">
-                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
-                    <div class="tooltip"><p>Remove Exercise</p></div>
-                  </div>
+                  <form action="/exercises/delete/<%= exercises[i]._id %>?_method=DELETE" method="POST" class="remove-form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="remove-btn">
+                      <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
+                      <div class="tooltip"><p>Remove Exercise</p></div>
+                    </button>
+                  </form>
                 </div>
               <% } else { %> <h2 class="exercise-name"><%= exercises[i].name %></h2> <% } %>
               <p class="muscle-info">Muscle Group: <span><%= exercises[i].mainMuscle %></span></p>

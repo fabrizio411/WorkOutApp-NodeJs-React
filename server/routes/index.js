@@ -22,11 +22,13 @@ router.put('/routines/edit-routine/:id', isAuthenticated, mainController.routine
 router.delete('/routines/routine-delete/:id', isAuthenticated, mainController.routineDelete);
 router.get('/create-routine', isAuthenticated, mainController.routineCreate);
 router.post('/create-routine', isAuthenticated, mainController.routineCreateAdd);
+
 // EXERCISES ROUTES
 router.get('/exercises', isAuthenticated, mainController.exercises);
 router.post('/exercises', isAuthenticated, mainController.exercisesCreate);
-router.delete('/exercise/delete/:id', isAuthenticated, mainController.exerciseDelete);
-
+router.delete('/exercises/delete/:id', isAuthenticated, mainController.exerciseDelete);
+// CREATE REGULAR EXERCISES ROUTE (DEV)
+router.post('/exercises-default', isAuthenticated, mainController.exerciseDefaultCreate)
 
 
 module.exports = router

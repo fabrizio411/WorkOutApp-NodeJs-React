@@ -123,39 +123,42 @@ main {
                                 font-size: 2rem;
                             }
 
-                            .remove-btn {
-                                border: none;
-                                background-color: transparent;
-                                cursor: pointer;
-                                position: relative;
+                            .remove-form {
 
-                                svg {
-                                    stroke: var.$clr-text-lvl1
-                                }
-
-                                .tooltip {
-                                    position: absolute;
-                                    top: -170%;
-                                    right: 50%;
-                                    transform: translateX(50%);
-                                    display: none;
-                                    place-items: center;
-                                    padding: .75rem;
-                                    color: var.$clr-text-lvl3;
-                                    font-size: .9rem;
-                                    background-color: var.$clr-bg-lvl1;
-                                    border-radius: .5rem;
-                                }
-
-                                &:hover {
-                                    .tooltip {
-                                        display: grid;
-                                        animation: tooltipAnimation .5s;
+                                .remove-btn {
+                                    border: none;
+                                    background-color: transparent;
+                                    cursor: pointer;
+                                    position: relative;
+    
+                                    svg {
+                                        stroke: var.$clr-text-lvl1
                                     }
-
-                                    @keyframes tooltipAnimation {
-                                        0% { opacity: 0; }
-                                        100% { opacity: .9; }
+    
+                                    .tooltip {
+                                        position: absolute;
+                                        top: -170%;
+                                        right: 50%;
+                                        transform: translateX(50%);
+                                        display: none;
+                                        place-items: center;
+                                        padding: .75rem;
+                                        color: var.$clr-text-lvl3;
+                                        font-size: .9rem;
+                                        background-color: var.$clr-bg-lvl1;
+                                        border-radius: .5rem;
+                                    }
+    
+                                    &:hover {
+                                        .tooltip {
+                                            display: grid;
+                                            animation: tooltipAnimation .5s;
+                                        }
+    
+                                        @keyframes tooltipAnimation {
+                                            0% { opacity: 0; }
+                                            100% { opacity: .9; }
+                                        }
                                     }
                                 }
                             }

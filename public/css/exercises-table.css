@@ -9,6 +9,7 @@
   max-height: 90vh;
   display: grid;
   grid-template-rows: auto 1fr;
+  overflow: hidden;
 }
 .exercises-table-container .search-form {
   grid-row: 1/2;
