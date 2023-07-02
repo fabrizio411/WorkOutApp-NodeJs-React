@@ -47,14 +47,23 @@
                       <label for="note">Note</label>
                       <textarea id="note" class="note" name="note" placeholder="Add Pinned Note"></textarea>
                     </div>
+
+                    <% let unit = '' %>
+                    <% if (exercises[i].class === "REPS/WEIGHT" || exercises[i].class === "REPS") { %>       
+                      <% unit = 'Reps' %>
+                    <% } else if (exercises[i].class === "DUR/WEIGHT" || exercises[i].class === "DUR") {%>
+                      <% unit = 'Segs' %>
+                    <% } else {%>
+                      <% unit = 'Dist' %>
+                    <% } %>
                     <div class="exercise-data">
                       <div class="input-box">
                         <label for="sets">Sets:</label>
-                        <input id="sets" name="sets" type="number" class="sets" onkeypress="isNumber(event)" min="0">
+                        <input required id="sets" name="sets" type="number" class="sets" onkeypress="isNumber(event)" min="0">
                       </div>
                       <div class="input-box">
-                        <label for="reps">Reps goal:</label>
-                        <input id="reps" name="reps" type="number" class="reps" onkeypress="isNumber(event)" min="0">
+                        <label for="reps"><%= unit %> goal:</label>
+                        <input required id="reps" name="reps" type="number" class="reps" onkeypress="isNumber(event)" min="0">
                       </div>
                       <div class="input-box">
                         <label for="rest">Rest:</label>

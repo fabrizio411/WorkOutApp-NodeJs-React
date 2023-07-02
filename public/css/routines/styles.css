@@ -83,6 +83,9 @@ main .container .routines-container .routine {
   display: grid;
   grid-template-columns: 1fr auto;
 }
+main .container .routines-container .routine:hover {
+  background-color: rgba(63, 94, 63, 0.418);
+}
 main .container .routines-container .routine .routine-body {
   padding: 1.5rem 1rem;
   display: flex;

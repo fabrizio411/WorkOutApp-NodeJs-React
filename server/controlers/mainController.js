@@ -103,13 +103,18 @@ exports.routineView = async(req, res) => {
 exports.routineCreate = async(req, res) => {
     const locals = {title: 'Create Routine | WorkOutApp',}
 
-    const exercises = await Exercises.find({})
-
-    res.render('routine-create', {
-        userName: req.user.name,
-        exercises,
-        locals
-    })
+    try {
+        const exercises = await Exercises.find({ isCustom: false })
+        const exercisesCustom = await Exercises.find({ isCustom: true }).where({ user: req.user.id }).lean()
+        exercisesCustom.forEach(element => { exercises.push(element) })
+        res.render('routine-create', {
+            userName: req.user.name,
+            exercises,
+            locals
+        })
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 exports.routineCreateAdd = async(req, res) => {
@@ -166,7 +171,9 @@ exports.routineDelete = async(req, res) => {
 exports.routineEdit = async(req, res) => {
     const locals = {title: 'Edit Routine | WorkOutApp',}
     const routine = await Routine.findById({ _id: req.params.id }).where({ user: req.user.id }).lean()
-    const exercises = await Exercises.find({})
+    const exercises = await Exercises.find({ isCustom: false })
+    const exercisesCustom = await Exercises.find({ isCustom: true }).where({ user: req.user.id }).lean()
+    exercisesCustom.forEach(element => { exercises.push(element) })
 
     if (routine) {
         res.render('routine-edit', {
@@ -177,6 +184,7 @@ exports.routineEdit = async(req, res) => {
         })
     } else {
         res.send("Somenthig went wrong")
+
     }
 }
 

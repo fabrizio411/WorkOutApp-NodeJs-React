@@ -34,6 +34,15 @@
           <div class="exercise-box">
             <h4 class="exercise-name"><%= routine.exercises[i].name %></h4>
             <p class="exercise-note"><%= routine.exercises[i].note %></p>
+
+            <% let unit = '' %>
+            <% if (routine.exercises[i].class === "REPS/WEIGHT" || routine.exercises[i].class === "REPS") { %>       
+              <% unit = 'reps' %>
+            <% } else if (routine.exercises[i].class === "DUR/WEIGHT" || routine.exercises[i].class === "DUR") {%>
+              <% unit = 'segs' %>
+            <% } else {%>
+              <% unit = 'dist' %>
+            <% } %>
             <div class="info-box">
               <div class="info-display">
                 <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M10 10.5h3M10 14.5h7M10 18.5h10"></path></g></svg>
@@ -41,7 +50,7 @@
               </div>
               <div class="info-display">
                 <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M12.317 19.858c.874.69 2.109 1.071 3.703 1.142a6 6 0 10-6-6"></path><path stroke-linejoin="round" d="M8.143 14.06L10.02 16l2.14-1.678"></path></g></svg>
-                <p><span><%= routine.exercises[i].reps %></span> reps</p>
+                <p><span><%= routine.exercises[i].reps %></span> <%= unit %></p>
               </div>
               <% if (routine.exercises[i].rest !== '') { %> 
                 <div class="info-display" id="rest-info">

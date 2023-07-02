@@ -106,6 +106,10 @@ main {
                 display: grid;
                 grid-template-columns: 1fr auto;
 
+                &:hover {
+                    background-color: rgba(63, 94, 63, 0.418);
+                }
+
 
                 .routine-body {
                     padding: 1.5rem 1rem;
