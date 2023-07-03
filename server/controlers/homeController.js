@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const User = require('../models/User')
+const Record = require('../models/Record')
 
 
 
@@ -89,6 +90,16 @@ exports.signUpUserCreate = async(req, res) => {
             const newUser = new User({name, email, password})
             newUser.password = await newUser.encryptPassword(password)
             await newUser.save()
+
+            const newRecord = {
+                user: newUser._id,
+                workouts: {
+                    total: 0,
+                    dates: []
+                },
+                exercises: []
+            }
+            await Record.create(newRecord)
             res.redirect('/sign-in')
         }
     }

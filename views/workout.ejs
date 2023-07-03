@@ -7,7 +7,7 @@
         <h2 class="title"><%= routine.title %></h2>
         <div class="buttons">
           <button class="btn submit" type="submit">Finish Workout</button>
-          <button class="btn cancel">Cancel Workout</button>
+          <button class="btn cancel" type="reset">Cancel Workout</button>
         </div>
       </div>
 
@@ -16,10 +16,6 @@
           <div class="exercise-box">
             <div class="intro-section">
               <h3 class="section-title"><%= routine.exercises[i].name %></h3>
-              <div class="remove-btn">
-                <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
-                <div class="tooltip"><p>Remove Exercise</p></div>
-              </div>
             </div>
 
             <div class="exercise-info">

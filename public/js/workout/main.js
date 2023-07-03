@@ -29,3 +29,7 @@ for (let i = 0; i < setRow.length; i++) {
         sibiling.lastElementChild.style.gridColumn = '4 / 5'
     }
 }
+
+
+
+
