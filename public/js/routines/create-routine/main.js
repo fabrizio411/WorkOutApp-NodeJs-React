@@ -58,10 +58,6 @@ oberver.observe(toObserve, observerOptions)
 
 
 
-
-
-
-
 // Check if the form input is a number
 function isNumber(event) {
     let charCode = event.which ? event.which : event.keyCode;
