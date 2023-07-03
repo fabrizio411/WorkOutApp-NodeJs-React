@@ -84,7 +84,6 @@ exports.routines = async (req, res) => {
 // VIEW Routines
 exports.routineView = async(req, res) => {
 
-
     try {
         const routine = await Routine.findById({ _id: req.params.id }).where({ user: req.user.id }).lean()
         const locals = {title: `${routine.title} | WorkOutApp`,}
@@ -296,4 +295,24 @@ exports.exerciseDefaultCreate = async(req, res) => {
     } catch (error) {
         console.log(error)
     }
+}
+
+
+
+
+
+
+///////////////////////////////
+/////////// WORKOUT ///////////
+///////////////////////////////
+exports.workout = async(req, res) => {
+    const routine = await Routine.findById({ _id: req.params.id }).where({ user: req.user.id }).lean()
+    const locals = {title: `${routine.title} | WorkOutApp`,}
+
+    res.render('workout', {
+        userName: req.user.name,
+        routine,
+        locals
+    })
+
 }

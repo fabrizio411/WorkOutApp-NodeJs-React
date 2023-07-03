@@ -30,5 +30,8 @@ router.delete('/exercises/delete/:id', isAuthenticated, mainController.exerciseD
 // CREATE REGULAR EXERCISES ROUTE (DEV)
 router.post('/exercises-default', isAuthenticated, mainController.exerciseDefaultCreate)
 
+// WORKOUT REGISTER ROUTES
+router.get('/workout/:id', isAuthenticated, mainController.workout)
+
 
 module.exports = router
