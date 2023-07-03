@@ -125,6 +125,7 @@ exports.routineCreateAdd = async(req, res) => {
                 let eachExercise = {
                     name: req.body.name[i],
                     class: req.body.class[i],
+                    mainMuscle: req.body.main_muscle[i],
                     note: req.body.note[i],
                     sets: req.body.sets[i],
                     reps: req.body.reps[i],
@@ -136,6 +137,7 @@ exports.routineCreateAdd = async(req, res) => {
             exercisesArray.push({
                 name: req.body.name,
                 class: req.body.class,
+                mainMuscle: req.body.main_muscle[i],
                 note: req.body.note,
                 sets: req.body.sets,
                 reps: req.body.reps,
@@ -326,6 +328,98 @@ exports.workout = async(req, res) => {
 exports.workoutRecord = async(req, res) => {
     try {
         console.log(req.body)
+        const record = await Record.findOne({}).where({ user: req.user.id })
+
+        // Workouts Data 
+        const workoutsDates = record.workouts.dates
+        workoutsDates.push(new Date(req.body.workout_date))
+
+        // Procces sets into array indexes to send correct data
+        exrSets = req.body.exercises_sets.map(element => parseInt(element))
+        exrSetsIndex = []
+        let x = 0
+        exrSets.forEach(element => {
+            const accumulatedValue = element + x
+            exrSetsIndex.push(accumulatedValue)
+            x = accumulatedValue
+        })
+        exrSetsIndex.unshift(0)
+
+        // Main Data Process = Array[Array,,, Array] with correc data divition
+        let mainDataArray = []
+        reqBodyMainData = req.body.mainData.map(element => {
+            if (element === '') return 0
+            else return parseInt(element)
+        })
+        for (let i = 0; i < exrSetsIndex.length - 1; i++) {
+            mainDataArray.push(reqBodyMainData.slice(exrSetsIndex[i], exrSetsIndex[i + 1]))
+        }
+        console.log(mainDataArray)
+
+        // Second Data Process
+        let secondDataArray = []
+        reqBodysecondData = req.body.secondData.map(element => {
+            if (element === '') return 0
+            else return parseInt(element)
+        })
+        for (let i = 0; i < exrSetsIndex.length - 1; i++) {
+            secondDataArray.push(reqBodysecondData.slice(exrSetsIndex[i], exrSetsIndex[i + 1]))
+        }
+        console.log(secondDataArray)
+
+
+
+        // Exercises Data
+        const exercisesGeneral = record.exercises
+        if (exercisesGeneral.length === 0) {
+            for (let i = 0; i < req.body.name.length; i++) {
+                exercisesGeneral.push({
+                    name: req.body.name[i],
+                    class: req.body.class[i],
+                    mainMuscle: req.body.main_muscle[i],
+                    mainData: mainDataArray[i],
+                    secondData: secondDataArray[i]
+                })
+            }
+        } else {
+            exercisesGeneral.forEach(element => {
+                for (let i = 0; i < req.body.name.length; i++) {
+                    if (element.name === req.body.name[i]) {
+                        // If the exercise has data
+    
+                        // Update note
+                        element.note.push(req.body.note[i])
+                        
+                        // Update mainData
+                        mainDataArray[i].forEach(item => {
+                            element.mainData.push(item)
+                        })
+    
+                        //Update secondData
+                        secondDataArray[i].forEach(item => {
+                            element.secondData.push(item)
+                        })
+    
+                    } else {
+                        exercisesGeneral.push({
+                            name: req.body.name[i],
+                            class: req.body.class[i],
+                            mainMuscle: req.body.main_muscle[i],
+                            mainData: mainDataArray[i],
+                            secondData: secondDataArray[i]
+                        })
+                    }
+                }
+            })
+        }
+
+
+
+
+
+        console.log(exercisesGeneral)
+
+
 
         res.redirect('/routines')
     } catch (error) {

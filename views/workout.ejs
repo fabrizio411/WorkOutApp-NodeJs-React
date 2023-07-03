@@ -14,13 +14,18 @@
         </div>
       </div>
 
+      <!-- Inputs para mandar datos de record -->
+      <input hidden name="workouts" value="<%= record.workouts.total + 1 %>">
+      <input hidden name="workout_date" value="<%= new Date() %>">
+
       <div class="exercises-container">
+        <!-- Cada ejercicio con sus formularios de registro -->
         <% for (let i = 0; i < routine.exercises.length; i++) { %> 
           <div class="exercise-box">
             <div class="intro-section">
               <h3 class="section-title"><%= routine.exercises[i].name %></h3>
             </div>
-
+            <!-- Informaicon del ejercicio -->
             <div class="exercise-info">
               <div class="note-info" >
                 <p class="note"><%= routine.exercises[i].note %></p>
@@ -33,11 +38,19 @@
               <% } %>
             </div>
 
+            <!-- Inputs hidden para pasar datos de la rutuna -->
             <input hidden name="name" value="<%= routine.exercises[i].name %>">
             <input hidden name="class" value="<%= routine.exercises[i].class %>">
-            <input hidden name="main_muscle" value="<%= routine.exercises[i].main_muscle %>">
+            <input hidden name="main_muscle" value="<%= routine.exercises[i].mainMuscle %>">
             <input hidden name="exercises_sets" value="<%= routine.exercises[i].sets %>">
 
+            <!-- Input para crear una nota -->
+            <div class="note-input-box">
+              <input autocomplete="off" class="note-input" type="text" name="note" placeholder="Add notes here...">
+            </div>
+
+
+            <!-- Definir la unidad del ejercicio correspondiente -->
             <% let unit = '' %>
             <% if (routine.exercises[i].class === "REPS/WEIGHT" || routine.exercises[i].class === "REPS") { %>       
               <% unit = 'Reps' %>
@@ -48,6 +61,7 @@
               <div class="table-title">
                 <p class="table-label">Set</p>
                 <p class="table-label">Previous</p>
+                <!-- Definir si es ejericio de un dato o de dos, y cual es el segundo dato -->
                 <% let isSecondData = false %>
                 <% if (routine.exercises[i].class === "REPS/WEIGHT" || routine.exercises[i].class === "DUR/WEIGHT") { %>  
                   <p class="table-label">Kg</p>
@@ -58,13 +72,17 @@
                 <% } %>
                 <p class="table-label main-label"><%= unit %></p>
               </div>
+
+              <!-- Display de la tabla de registro segun el numero de sets del ejercicio -->
               <% let setsNum = routine.exercises[i].sets %>
               <% for (let y = 0; y < setsNum; y++) { %> 
+                <!-- Definir si la fila es par para añadirle un color -->
                 <% let isRowOdd = 'even' %>
                 <% if (y % 2 === 0) isRowOdd = 'odd' %>
                 <div class="set-row <%=isRowOdd%>">
                   <p class="set-number"><%= y + 1 %></p>
 
+                  <!-- Manejo del dato previo (still testing) -->
                   <% if (record.exercises.length > 0) { %>
                     <% for (let x = 0; x < record.exercises.length; i++) { %>
                       <% if (record.exercises[x].name === routine.exercises[i].name) {  %>
@@ -80,12 +98,14 @@
                   <% } else { %>
                     <p class="previous-data">0</p>
                   <% } %>
+
+                  <!-- Inputs de registro -->
                   <% if (isSecondData) { %> 
-                    <input placeholder="-" type="text" name="secondData" class="input input-conditional" onkeypress="isNumber(event)" min="0">
+                    <input autocomplete="off" placeholder="-" type="text" name="secondData" class="input input-conditional" onkeypress="isNumber(event)" min="0">
                   <% } else { %>
-                    <input style="display: none;" placeholder="-" type="text" name="secondData" class="input input-conditional" onkeypress="isNumber(event)" min="0">
+                    <input autocomplete="off" value="0" style="display: none;" placeholder="-" type="text" name="secondData" class="input input-conditional" onkeypress="isNumber(event)" min="0">
                   <% } %>
-                  <input placeholder="-" type="text" name="mainData" class="input main-input" onkeypress="isNumber(event)" min="0">
+                  <input autocomplete="off" placeholder="-" type="text" name="mainData" class="input main-input" onkeypress="isNumber(event)" min="0">
                 </div>
               <% } %>
             </div>

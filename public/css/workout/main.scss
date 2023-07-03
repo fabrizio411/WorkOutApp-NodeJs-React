@@ -165,6 +165,27 @@ main {
                         }
                     }
 
+                    .note-input-box {
+                        margin-top: 1.5rem;
+
+                        .note-input {
+                            outline: none;
+                            padding: .5rem;
+                            background-color: transparent;
+                            border: 2px solid var.$clr-borders-lvl3;
+                            border-top: none;
+                            border-right: none;
+                            border-left: none;
+                            color: var.$clr-text-lvl2;
+    
+                            &::placeholder {
+                                color: var.$clr-text-lvl3;
+                            }
+                        }
+                    }
+
+
+
                     .register-box {
                         margin-top: 2rem;
                         display: grid;
