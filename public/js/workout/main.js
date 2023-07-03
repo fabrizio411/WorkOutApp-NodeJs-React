@@ -24,7 +24,9 @@ for (let i = 0; i < setRow.length; i++) {
     let sibiling = setRow[i].previousElementSibling
     let lastChild = setRow[i].lastElementChild
 
-    if (setRow[i].getElementsByClassName('input-conditional').length === 0) {
+    let secondInput = setRow[i].getElementsByClassName('input-conditional')
+
+    if (secondInput[0].style.display === 'none') {
         lastChild.style.gridColumn = '4 / 5'
         sibiling.lastElementChild.style.gridColumn = '4 / 5'
     }

@@ -1,5 +1,6 @@
 const Exercises = require('../models/Exercises')
 const Routine = require('../models/Routines')
+const Record = require('../models/Record')
 
 const mongoose = require('mongoose')
 
@@ -309,10 +310,25 @@ exports.workout = async(req, res) => {
     const routine = await Routine.findById({ _id: req.params.id }).where({ user: req.user.id }).lean()
     const locals = {title: `${routine.title} | WorkOutApp`,}
 
+    const record = await Record.findOne({}).where({ user: req.user.id }).lean()
+
     res.render('workout', {
         userName: req.user.name,
         routine,
+        record,
         locals
     })
 
 }
+
+
+// PUT Add Workout Record
+exports.workoutRecord = async(req, res) => {
+    try {
+        console.log(req.body)
+
+        res.redirect('/routines')
+    } catch (error) {
+        
+    }
+}   
