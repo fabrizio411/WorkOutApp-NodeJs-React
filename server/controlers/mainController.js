@@ -258,15 +258,32 @@ exports.exercises = async(req, res) => {
 // ADD Exercise
 exports.exercisesCreate = async(req, res) => {
     try {
-        const newExercise = {
+        const newExercise = new Exercises ({
             user: req.user.id,
             name: req.body.name,
             mainMuscle: req.body.main_muscle,
             class: req.body.class,
             isCustom: true
-        }
+        })
+        await newExercise.save()
 
-        await Exercises.create(newExercise)
+        const record = await Record.findOne({ user: req.user.id })
+        record.exercises.push({
+            id: newExercise.id,
+            name: newExercise.name,
+            class: newExercise.class,
+            mainMuscle: newExercise.mainMuscle,
+            setsIndex: [0],
+            note: [],
+            mainData: [],
+            secondData: [],
+        })
+        await Record.findOneAndUpdate(
+            { user: req.user.id },
+            { exercises: record.exercises }
+        )
+
+
         res.redirect('/exercises') 
     } catch (error) {
         console.log(error)
@@ -327,8 +344,8 @@ exports.workout = async(req, res) => {
 // PUT Add Workout Record
 exports.workoutRecord = async(req, res) => {
     try {
-        console.log(req.body)
         const record = await Record.findOne({}).where({ user: req.user.id })
+        console.log(req.body)
 
         // Workouts Data 
         const workoutsDates = record.workouts.dates
@@ -354,7 +371,6 @@ exports.workoutRecord = async(req, res) => {
         for (let i = 0; i < exrSetsIndex.length - 1; i++) {
             mainDataArray.push(reqBodyMainData.slice(exrSetsIndex[i], exrSetsIndex[i + 1]))
         }
-        console.log(mainDataArray)
 
         // Second Data Process
         let secondDataArray = []
@@ -365,64 +381,62 @@ exports.workoutRecord = async(req, res) => {
         for (let i = 0; i < exrSetsIndex.length - 1; i++) {
             secondDataArray.push(reqBodysecondData.slice(exrSetsIndex[i], exrSetsIndex[i + 1]))
         }
-        console.log(secondDataArray)
 
 
-
+        
+        
         // Exercises Data
         const exercisesGeneral = record.exercises
-        if (exercisesGeneral.length === 0) {
+        exercisesGeneral.forEach(element => {
             for (let i = 0; i < req.body.name.length; i++) {
-                exercisesGeneral.push({
-                    name: req.body.name[i],
-                    class: req.body.class[i],
-                    mainMuscle: req.body.main_muscle[i],
-                    mainData: mainDataArray[i],
-                    secondData: secondDataArray[i]
-                })
-            }
-        } else {
-            exercisesGeneral.forEach(element => {
-                for (let i = 0; i < req.body.name.length; i++) {
-                    if (element.name === req.body.name[i]) {
-                        // If the exercise has data
-    
-                        // Update note
-                        element.note.push(req.body.note[i])
-                        
-                        // Update mainData
-                        mainDataArray[i].forEach(item => {
-                            element.mainData.push(item)
-                        })
-    
-                        //Update secondData
-                        secondDataArray[i].forEach(item => {
-                            element.secondData.push(item)
-                        })
-    
-                    } else {
-                        exercisesGeneral.push({
-                            name: req.body.name[i],
-                            class: req.body.class[i],
-                            mainMuscle: req.body.main_muscle[i],
-                            mainData: mainDataArray[i],
-                            secondData: secondDataArray[i]
-                        })
-                    }
-                }
-            })
-        }
+                if (element.name === req.body.name[i]) {
+                    // If the exercise has data
 
-        await Record.findOneAndUpdate(
-            { user: req.user.id },
-            {
-                workouts: {
-                    total: record.workouts.total + 1,
-                    dates: workoutsDates
-                },
-                exercises: exercisesGeneral
+                    // Update note
+                    const newNoteArr = element.note
+                    newNoteArr.push(req.body.note[i])
+
+                    // Update sets index
+                    const newSetsArr = element.setsIndex
+                    let setValue = 0
+                    if (newSetsArr.length > 1) setValue = newSetsArr[newSetsArr.length - 1] + parseInt(req.body.exercises_sets[i])
+                    else setValue = parseInt(req.body.exercises_sets[i])
+                    newSetsArr.push(setValue)
+                    
+                    // Update mainData
+                    const newMainDataArr = element.mainData
+                    mainDataArray[i].forEach(item => {
+                        newMainDataArr.push(item)
+                    })
+
+                    //Update secondData
+                    const newSecondDataArr = element.secondData
+                    secondDataArray[i].forEach(item => {
+                        newSecondDataArr.push(item)
+                    })
+
+                    element.note = newNoteArr
+                    element.mainData = newMainDataArr
+                    element.secondData = newSecondDataArr
+
+
+
+                } 
             }
-        )
+        })
+        
+        console.log(exercisesGeneral)
+
+        // await Record.findOneAndUpdate(
+        //     { user: req.user.id },
+        //     {
+        //         workouts: {
+        //             total: record.workouts.total + 1,
+        //             dates: workoutsDates
+        //         },
+        //         exercises: exercisesGeneral
+        //     }
+        // )
         res.redirect('/routines')
     } catch (error) {
         console.log(error)

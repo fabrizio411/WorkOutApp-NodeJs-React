@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const User = require('../models/User')
 const Record = require('../models/Record')
+const Exercises = require('../models/Exercises')
 
 
 
@@ -91,13 +92,28 @@ exports.signUpUserCreate = async(req, res) => {
             newUser.password = await newUser.encryptPassword(password)
             await newUser.save()
 
+            const exercises = await Exercises.find({ isCustom: false })
+            const exercisesArray = []
+            exercises.forEach(element => {
+                exercisesArray.push({
+                    id: element.id,
+                    name: element.name,
+                    class: element.class,
+                    mainMuscle: element.mainMuscle,
+                    setsIndex: [0],
+                    note: [],
+                    mainData: [],
+                    secondData: [],
+                })
+            })
+
             const newRecord = {
                 user: newUser._id,
                 workouts: {
                     total: 0,
                     dates: []
                 },
-                exercises: []
+                exercises: exercisesArray
             }
             await Record.create(newRecord)
             res.redirect('/sign-in')
