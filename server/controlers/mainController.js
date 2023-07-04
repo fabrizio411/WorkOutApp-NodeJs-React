@@ -413,16 +413,18 @@ exports.workoutRecord = async(req, res) => {
             })
         }
 
-
-
-
-
-        console.log(exercisesGeneral)
-
-
-
+        await Record.findOneAndUpdate(
+            { user: req.user.id },
+            {
+                workouts: {
+                    total: record.workouts.total + 1,
+                    dates: workoutsDates
+                },
+                exercises: exercisesGeneral
+            }
+        )
         res.redirect('/routines')
     } catch (error) {
-        
+        console.log(error)
     }
 }   
