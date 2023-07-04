@@ -148,6 +148,7 @@ exports.routineCreateAdd = async(req, res) => {
         const newRoutine = {
             user: req.user.id,
             title: req.body.routine_title,
+            total: 0,
             exercises: exercisesArray
         }
 
@@ -339,21 +340,29 @@ exports.workout = async(req, res) => {
     })
 
 }
-
+ 
 
 // PUT Add Workout Record
 exports.workoutRecord = async(req, res) => {
     try {
-        const record = await Record.findOne({}).where({ user: req.user.id })
-        console.log(req.body)
-
-        // Workouts Data 
-        const workoutsDates = record.workouts.dates
-        workoutsDates.push(new Date(req.body.workout_date))
+        // Proces from data
+        req.body.workouts = parseInt(req.body.workouts)
+        req.body.workout_date = new Date(req.body.workout_date)
+        if (!Array.isArray(req.body.name)) {
+            req.body.name = [req.body.name]
+            req.body.class = [req.body.class]
+            req.body.main_muscle = [req.body.main_muscle]
+            req.body.exercises_sets = [req.body.exercises_sets]
+            req.body.note = [req.body.note]
+        }
+        if (!Array.isArray(req.body.mainData)) {
+            req.body.mainData = [req.body.mainData]
+            req.body.secondData = [req.body.secondData]
+        }
 
         // Procces sets into array indexes to send correct data
-        exrSets = req.body.exercises_sets.map(element => parseInt(element))
-        exrSetsIndex = []
+        let exrSets = req.body.exercises_sets.map(element => parseInt(element))
+        const exrSetsIndex = []
         let x = 0
         exrSets.forEach(element => {
             const accumulatedValue = element + x
@@ -383,67 +392,62 @@ exports.workoutRecord = async(req, res) => {
         }
 
 
-        
-        
-        // Exercises Data
+
+
+        // Put Form data in record data
+        const record = await Record.findOne({}).where({ user: req.user.id })
+        const workoutDates = record.workouts.dates
+        workoutDates.push(req.body.workout_date)
+
         const exercisesGeneral = record.exercises
+
         exercisesGeneral.forEach(element => {
             for (let i = 0; i < req.body.name.length; i++) {
                 if (element.name === req.body.name[i]) {
-                    // If the exercise has data
+                    // Update Note
+                    element.note.push(req.body.note[i])
 
-                    // Update note
-                    const newNoteArr = element.note
-                    newNoteArr.push(req.body.note[i])
-
-                    // Update sets index
-                    const newSetsArr = element.setsIndex
+                    // Update Sets Index
                     let setValue = 0
-                    if (newSetsArr.length > 1) setValue = newSetsArr[newSetsArr.length - 1] + parseInt(req.body.exercises_sets[i])
-                    else setValue = parseInt(req.body.exercises_sets[i])
-                    newSetsArr.push(setValue)
-                    
+                    if (element.setsIndex.length > 1) {
+                        setValue = element.setsIndex[element.setsIndex.length - 1] + parseInt(req.body.exercises_sets[i])
+                    } else {
+                        setValue = parseInt(req.body.exercises_sets[i])
+                    }
+                    element.setsIndex.push(setValue)
+
                     // Update mainData
-                    const newMainDataArr = element.mainData
                     mainDataArray[i].forEach(item => {
-                        newMainDataArr.push(item)
+                        element.mainData.push(item)
                     })
 
-                    //Update secondData
-                    const newSecondDataArr = element.secondData
+                    // Update secondData
                     secondDataArray[i].forEach(item => {
-                        newSecondDataArr.push(item)
+                        element.secondData.push(item)
                     })
-
-                    element.note = newNoteArr
-                    element.mainData = newMainDataArr
-                    element.secondData = newSecondDataArr
-
-
-
-                } 
+                }
             }
         })
-        
-        // console.log(exercisesGeneral)
 
-        // await Routine.findOneAndUpdate(
-        //     { user: req.user.id, _id: req.params.id },
-        //     {
-        //         $inc: { total: 1 }
-        //     }
-        // )
+        console.log(exercisesGeneral)
 
-        // await Record.findOneAndUpdate(
-        //     { user: req.user.id },
-        //     {
-        //         workouts: {
-        //             total: record.workouts.total + 1,
-        //             dates: workoutsDates
-        //         },
-        //         exercises: exercisesGeneral
-        //     }
-        // )
+        await Routine.findOneAndUpdate(
+            { user: req.user.id, _id: req.params.id },
+            {
+                $inc: { total: 1 }
+            }
+        )
+
+        await Record.findOneAndUpdate(
+            { user: req.user.id },
+            {
+                workouts: {
+                    total: record.workouts.total + 1,
+                    dates: workoutDates
+                },
+                exercises: exercisesGeneral
+            }
+        )
         res.redirect('/routines')
     } catch (error) {
         console.log(error)
