@@ -137,7 +137,7 @@ exports.routineCreateAdd = async(req, res) => {
             exercisesArray.push({
                 name: req.body.name,
                 class: req.body.class,
-                mainMuscle: req.body.main_muscle[i],
+                mainMuscle: req.body.main_muscle,
                 note: req.body.note,
                 sets: req.body.sets,
                 reps: req.body.reps,
@@ -427,16 +427,16 @@ exports.workoutRecord = async(req, res) => {
         
         console.log(exercisesGeneral)
 
-        // await Record.findOneAndUpdate(
-        //     { user: req.user.id },
-        //     {
-        //         workouts: {
-        //             total: record.workouts.total + 1,
-        //             dates: workoutsDates
-        //         },
-        //         exercises: exercisesGeneral
-        //     }
-        // )
+        await Record.findOneAndUpdate(
+            { user: req.user.id },
+            {
+                workouts: {
+                    total: record.workouts.total + 1,
+                    dates: workoutsDates
+                },
+                exercises: exercisesGeneral
+            }
+        )
         res.redirect('/routines')
     } catch (error) {
         console.log(error)

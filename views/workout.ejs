@@ -10,7 +10,7 @@
         <h2 class="title"><%= routine.title %></h2>
         <div class="buttons">
           <button class="btn submit" type="submit">Finish Workout</button>
-          <button class="btn cancel" type="reset">Cancel Workout</button>
+          <button class="btn cancel" type="reset" onclick="window.location.href = '/routines'">Cancel Workout</button>
         </div>
       </div>
 
@@ -57,6 +57,13 @@
             <% } else { %>
               <% unit = 'Segs' %>
             <% } %>
+
+            <% let secondUnit = '' %>
+            <% if (routine.exercises[i].class === "REPS/WEIGHT" || routine.exercises[i].class === "DUR/WEIGHT") { %>       
+              <% secondUnit = 'kg' %>
+            <% } else { %>
+              <% secondUnit = 'm' %>
+            <% } %>
             <div class="register-box">
               <div class="table-title">
                 <p class="table-label">Set</p>
@@ -83,23 +90,23 @@
                   <p class="set-number"><%= y + 1 %></p>
 
                   <!-- Manejo del dato previo (still testing) -->
-                  <% if (record.exercises.length > 0) { %>
-                    <% if (record.exercises.find(v => v.name === routine.exercises[i].name)) {  %>
-
-                      <% let exerciseObject = record.exercises.filter(v => v.name === routine.exercises[i].name) %>
+                  <% if (record.exercises.find(v => v.name === routine.exercises[i].name)) {  %>
+                    
+                    <% let exerciseObject = record.exercises.filter(v => v.name === routine.exercises[i].name) %>
+                    <% let prevDataSets = exerciseObject[0].setsIndex[exerciseObject[0].setsIndex.length - 1] - exerciseObject[0].setsIndex[exerciseObject[0].setsIndex.length - 2] %>
+                    <% if (y < prevDataSets) { %>
                       <% if (isSecondData) { %> 
-                        <p class="previous-data"><%= exerciseObject[0].secondData[exerciseObject[0].secondData.length - 1 - y] %> x <%= exerciseObject[0].mainData[exerciseObject[0].mainData.length - 1 - y] %></p>
+                        <p class="previous-data"><%= exerciseObject[0].secondData[exerciseObject[0].secondData.length - 1 - y] %><%= secondUnit %> x <%= exerciseObject[0].mainData[exerciseObject[0].mainData.length - 1 - y] %></p>
                       <% } else { %>
                         <p class="previous-data"><%= exerciseObject[0].mainData[exerciseObject[0].mainData.length - 1 - y] %></p>
                       <% } %>
-
-
-                    <% } else { %>
-                      <p class="previous-data">y</p>
+                    <% } else { %> 
+                      <p class="previous-data">0</p>
                     <% } %>
                   <% } else { %>
                     <p class="previous-data">0</p>
                   <% } %>
+          
 
 
 
