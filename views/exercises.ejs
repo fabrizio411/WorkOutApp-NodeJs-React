@@ -132,9 +132,18 @@
                       <% unit = 'm' %>
                     <% } %>
                       <p class="time-specific" id="time-specific"></p>
-                      <p class="details">Total: <span class="result"></span><span class="unit"><%= unit %></span></p>
-                      <p class="details">Max: <span class="result"></span><span class="unit"><%= unit %></span></p>
-                      <p class="details">Average: <span class="result"></span><span class="unit"><%= unit %></span></p>
+
+                      <% let total = 0 %>
+                      <% if (record[0].exercises[i].mainData.length > 0) total = record[0].exercises[i].mainData.reduce((acc, curr) => acc + curr)%>
+                      <p class="details">Total: <span class="result"><%= total %></span><span class="unit"><%= unit %></span></p>
+
+                      <% let max = 0 %>
+                      <% if (record[0].exercises[i].mainData.length > 0) max = Math.max(...record[0].exercises[i].mainData) %>
+                      <p class="details">Max: <span class="result"><%= max %></span><span class="unit"><%= unit %></span></p>
+
+                      <% let average = 0 %>
+                      <% if (record[0].exercises[i].mainData.length > 0) average = (total / record[0].exercises[i].mainData.length).toFixed(0) %>
+                      <p class="details">Average: <span class="result"><%= average %></span><span class="unit"><%= unit %></span></p>
                   </div>
 
                   <% let unit2 = '' %>
@@ -148,9 +157,18 @@
                         <% unit2 = 'seg' %>
                       <% } %>
                         <p class="time-specific" id="time-specific"></p>
-                        <p class="details">Total: <span class="result"></span><span class="unit"><%= unit2 %></span></p>
-                        <p class="details">Max: <span class="result"></span><span class="unit"><%= unit2 %></span></p>
-                        <p class="details">Average: <span class="result"></span><span class="unit"><%= unit2 %></span></p>
+
+                        <% let total2 = 0 %>
+                        <% if (record[0].exercises[i].secondData.length > 0) total2 = record[0].exercises[i].secondData.reduce((acc, curr) => acc + curr)%>
+                        <p class="details">Total: <span class="result"><%= total2 %></span><span class="unit"><%= unit2 %></span></p>
+  
+                        <% let max2 = 0 %>
+                        <% if (record[0].exercises[i].secondData.length > 0) max2 = Math.max(...record[0].exercises[i].secondData) %>
+                        <p class="details">Max: <span class="result"><%= max2 %></span><span class="unit"><%= unit2 %></span></p>
+  
+                        <% let average2 = 0 %>
+                        <% if (record[0].exercises[i].secondData.length > 0) average2 = (total2 / record[0].exercises[i].secondData.length).toFixed(0) %>
+                        <p class="details">Average: <span class="result"><%= average2 %></span><span class="unit"><%= unit2 %></span></p>
                     </div>
                   <% } %>
                 </div>

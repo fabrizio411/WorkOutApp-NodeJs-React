@@ -32,10 +32,22 @@ main .container .routine-display-box .title-box .routine-name {
   color: #ffffff;
   font-weight: 700;
   font-size: 1.75rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 main .container .routine-display-box .title-box svg {
   stroke: #ffffff;
+}
+main .container .routine-display-box .routine-record-info {
+  margin-bottom: 2rem;
+}
+main .container .routine-display-box .routine-record-info .record-text {
+  color: #cecece;
+}
+main .container .routine-display-box .routine-record-info .record-text span {
+  color: rgb(61, 179, 61);
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+  font-weight: 700;
 }
 main .container .routine-display-box .exercises-container {
   display: flex;

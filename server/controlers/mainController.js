@@ -246,8 +246,11 @@ exports.exercises = async(req, res) => {
         const exercises = await Exercises.find({ isCustom: false })
         const exercisesCustom = await Exercises.find({ isCustom: true }).where({ user: req.user.id }).lean()
         exercisesCustom.forEach(element => { exercises.push(element) })
+        const record = await Record.find({}).where({ user: req.user.id }).lean()
+        console.log(record)
         res.render('exercises', {
             userName: req.user.name,
+            record,
             exercises,
             locals
         })
@@ -429,7 +432,6 @@ exports.workoutRecord = async(req, res) => {
             }
         })
 
-        console.log(exercisesGeneral)
 
         await Routine.findOneAndUpdate(
             { user: req.user.id, _id: req.params.id },

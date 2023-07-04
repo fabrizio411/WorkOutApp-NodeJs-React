@@ -37,11 +37,26 @@ main {
                     color: var.$clr-text-lvl1;
                     font-weight: var.$fw-bold;
                     font-size: 1.75rem;
-                    margin-bottom: 2rem;
+                    margin-bottom: 1rem;
                 }
 
                 svg {
                     stroke: var.$clr-text-lvl1;
+                }
+            }
+
+            .routine-record-info {
+                margin-bottom: 2rem;
+
+                .record-text {
+                    color: var.$clr-text-lvl2;
+
+                    span {
+                        color: rgb(61, 179, 61);
+                        font-size: 1.2rem;
+                        padding-left: .5rem;
+                        font-weight: var.$fw-bold
+                    }
                 }
             }
 

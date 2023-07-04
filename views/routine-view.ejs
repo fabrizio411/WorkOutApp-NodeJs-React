@@ -29,6 +29,9 @@
         </a>
         <h2 class="routine-name"><%= routine.title %></h2>
       </div>
+      <div class="routine-record-info">
+        <p class="record-text">Times done: <span><%= routine.total %></span></p>
+      </div>
       <div class="exercises-container">
         <% for (let i = 0; i < routine.exercises.length; i++) { %>
           <div class="exercise-box">

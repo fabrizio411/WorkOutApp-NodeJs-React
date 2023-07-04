@@ -192,11 +192,13 @@ main .container .exercise-container .exercise-box .exercise-display .statistics-
 main .container .exercise-container .exercise-box .exercise-display .statistics-box .statistics-display .stats .details {
   padding-left: 0.5rem;
   color: #9DA4AE;
+  padding-bottom: 0.25rem;
 }
 main .container .exercise-container .exercise-box .exercise-display .statistics-box .statistics-display .stats .details .result {
   color: #cecece;
   font-weight: 500;
   font-size: 1.25rem;
+  padding-left: 0.25rem;
 }
 main .container .exercise-container .exercise-box .exercise-display .statistics-box .statistics-display .stats .details .unit {
   color: #cecece;
