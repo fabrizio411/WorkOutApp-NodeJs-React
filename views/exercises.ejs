@@ -1,8 +1,8 @@
-<head>
+
   <link rel="stylesheet" href="/css/exercises/styles.css">
   <link rel="stylesheet" href="/css/exercises-table.css">
   <link rel="stylesheet" href="/css/mobile-reset.css">
-</head>
+
 
 
 <!-- Create Exercise Form PupUp -->
@@ -91,13 +91,27 @@
               <% if (exercises[i].isCustom === true) { %>
                 <div class="custom-box">
                   <h2 class="title"><%= exercises[i].name %></h2>
-                  <form action="/exercises/delete/<%= exercises[i]._id %>?_method=DELETE" method="POST" class="remove-form">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="remove-btn">
-                      <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
-                      <div class="tooltip"><p>Remove Exercise</p></div>
-                    </button>
-                  </form>
+                  <button onclick="togglePopup()" class="remove-btn">
+                    <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-width="1.5"><path d="M11 10.5l9 9M11 19.5l9-9"></path></g></svg>
+                    <div class="tooltip"><p>Remove Exercise</p></div>
+                  </button>
+
+                  <!-- Delete routine warning popup -->
+                  <div class="delete-window" id="delete-window">
+                    <div class="overlay"></div>
+                    <div class="content">
+                      <h2 class="title">Delete Exercise</h2>
+                      <p class="text">If you delete this exercise you will loose all data related to it.<br> Are you shure?</p>
+                      <div class="buttons">
+                        <button onclick="togglePopup()" id="cancel-btn" class="cancel-btn btn">Cancel</button>
+                        <form action="/exercises/delete/<%= exercises[i]._id %>?_method=DELETE" method="POST">
+                          <input type="hidden" name="_method" value="DELETE">
+                          <button id="delete-btn" class="delete-btn btn" type="submit">Delete</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               <% } else { %> <h2 class="exercise-name"><%= exercises[i].name %></h2> <% } %>
               <p class="muscle-info">Muscle Group: <span><%= exercises[i].mainMuscle %></span></p>

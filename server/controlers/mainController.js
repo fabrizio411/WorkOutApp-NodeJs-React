@@ -298,6 +298,24 @@ exports.exercisesCreate = async(req, res) => {
 exports.exerciseDelete = async(req, res) => {
     try {
         await Exercises.deleteOne({ _id: req.params.id }).where({user: req.user.id})
+
+        const record = await Record.findOne({ user: req.user.id })
+        const exercisesGeneral = record.exercises
+        let indexOfExrc
+        exercisesGeneral.forEach((element, index) => {
+            if (element.id === req.params.id) {
+                indexOfExrc = index
+            }
+        })
+        exercisesGeneral.splice(indexOfExrc, 1)
+
+        await Record.findOneAndUpdate(
+            { user: req.user.id },
+            {
+                exercises: exercisesGeneral
+            }
+        )
+
         res.redirect('/exercises')
     } catch (error) {
         console.log(error)

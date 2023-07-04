@@ -132,6 +132,13 @@ main .container .buttons-menu .btn.delete svg {
 main .container .buttons-menu .btn.delete:hover {
   background-color: rgba(107, 59, 59, 0.315);
 }
+main .container .buttons-menu .btn.start {
+  color: rgb(89, 185, 89);
+}
+main .container .buttons-menu .btn.start svg {
+  fill: rgb(57, 141, 57);
+  stroke: none;
+}
 
 .delete-window .overlay {
   position: fixed;
