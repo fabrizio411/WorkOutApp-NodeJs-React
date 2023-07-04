@@ -12,6 +12,10 @@ const RoutineSchema = new Schema({
         type: String,
         required: true,
     },
+    total: {
+        type: Number,
+        required: true,
+    },
     exercises: {
         type: Array,
         required: true
