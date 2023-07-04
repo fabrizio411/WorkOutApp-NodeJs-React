@@ -84,20 +84,24 @@
 
                   <!-- Manejo del dato previo (still testing) -->
                   <% if (record.exercises.length > 0) { %>
-                    <% for (let x = 0; x < record.exercises.length; i++) { %>
-                      <% if (record.exercises[x].name === routine.exercises[i].name) {  %>
-                        <% if (isSecondData) { %> 
-                          <p class="previous-data"><%= record.exercises[x].secondData[record.exercises[x].secondData.length - 1 - y] %> x <%= record.exercises[x].mainData[record.exercises[x].mainData.length - 1 - y] %></p>
-                        <% } else { %>
-                          <p class="previous-data"><%= record.exercises[x].mainData[record.exercises[x].mainData.length - 1 - y] %></p>
-                        <% } %>
+                    <% if (record.exercises.find(v => v.name === routine.exercises[i].name)) {  %>
+
+                      <% let exerciseObject = record.exercises.filter(v => v.name === routine.exercises[i].name) %>
+                      <% if (isSecondData) { %> 
+                        <p class="previous-data"><%= exerciseObject[0].secondData[exerciseObject[0].secondData.length - 1 - y] %> x <%= exerciseObject[0].mainData[exerciseObject[0].mainData.length - 1 - y] %></p>
                       <% } else { %>
-                        <p class="previous-data">0</p>
+                        <p class="previous-data"><%= exerciseObject[0].mainData[exerciseObject[0].mainData.length - 1 - y] %></p>
                       <% } %>
+
+
+                    <% } else { %>
+                      <p class="previous-data">y</p>
                     <% } %>
                   <% } else { %>
                     <p class="previous-data">0</p>
                   <% } %>
+
+
 
                   <!-- Inputs de registro -->
                   <% if (isSecondData) { %> 
