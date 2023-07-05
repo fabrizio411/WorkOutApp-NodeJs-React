@@ -8,11 +8,20 @@ const {isAuthenticated } = require('../helpers/auth')
 // HOME ROUTES
 router.get('/home', isAuthenticated, mainController.home);
 
+// PROGRAM ROUTES
+router.get('/program', isAuthenticated, mainController.program)
+
+
+
 // PROFILE ROUTES
 router.get('/profile', isAuthenticated, mainController.profile);
 
+
+
 // SETTINGS ROUTES
 router.get('/settings', isAuthenticated, mainController.settings);
+
+
 
 // ROUTINES ROUTES
 router.get('/routines', isAuthenticated, mainController.routines); 
@@ -34,9 +43,13 @@ router.post('/exercises-default', isAuthenticated, mainController.exerciseDefaul
 router.get('/workout/:id', isAuthenticated, mainController.workout)
 router.put('/workout/:id', isAuthenticated, mainController.workoutRecord)
 
+
+
 // MEASURES ROUTES
 router.get('/measures', isAuthenticated, mainController.measures)
 router.put('/measures', isAuthenticated, mainController.measuresCreate)
+
+
 
 
 

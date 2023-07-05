@@ -3,6 +3,7 @@ const User = require('../models/User')
 const Record = require('../models/Record')
 const Exercises = require('../models/Exercises')
 const Measures = require('../models/Measures')
+const Program = require('../models/Program')
 
 
 
@@ -119,7 +120,7 @@ exports.signUpUserCreate = async(req, res) => {
             }
             await Record.create(newRecord)
 
-            // Create a measure Save
+            // Create a Measure Save
             const newMeasures = {
                 user: newUser._id,
                 goal: 'null',
@@ -128,6 +129,18 @@ exports.signUpUserCreate = async(req, res) => {
             }
             await Measures.create(newMeasures)
 
+            // Create a Program save
+            const newProgram = {
+                user: newUser._id,
+                mon: [],
+                tue: [],
+                wed: [],
+                thu: [],
+                fri: [],
+                sat: [],
+                sun: [],
+            }
+            await Program.create(newProgram)
 
             res.redirect('/sign-in')
         }

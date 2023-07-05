@@ -12,9 +12,7 @@ const mongoose = require('mongoose')
 //////////////////////////////
 // GET Home
 exports.home = async(req, res) => {
-    const locals = {
-        title: 'Home | WorkOutApp'
-    }
+    const locals = {title: 'Home | WorkOutApp'}
     const record = await Record.findOne({ user: req.user.id })
 
     //Workouts data
@@ -66,6 +64,18 @@ exports.home = async(req, res) => {
         userName: req.user.name,
         data,
         workouts,
+        locals
+    })
+}
+
+
+// Program Manage
+exports.program = async(req, res) => {
+    const locals = {title: 'Home | WorkOutApp'}
+
+
+    res.render('program', {
+        userName: req.user.name,
         locals
     })
 }
