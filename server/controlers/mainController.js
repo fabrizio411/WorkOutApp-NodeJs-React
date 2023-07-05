@@ -11,12 +11,61 @@ const mongoose = require('mongoose')
 /////////// HOME /////////////
 //////////////////////////////
 // GET Home
-exports.home = (req, res) => {
+exports.home = async(req, res) => {
     const locals = {
         title: 'Home | WorkOutApp'
     }
+    const record = await Record.findOne({ user: req.user.id })
+
+    //Workouts data
+    const workouts = record.workouts.total
+
+
+    // Exercise 1 Data
+    let ex1 = record.exercises.filter(v => v.name.toLowerCase() === 'PullUp'.toLowerCase())
+    ex1 = ex1[0]
+    // Data process ex1
+    let ex1Total = 0
+    let ex1Max = 0
+    let ex1Heaviest = 0
+    if (ex1.mainData.length > 0) {
+        ex1Total = ex1.mainData.reduce((acc, curr) => acc + curr)
+        ex1Max = Math.max(ex1.mainData)
+        ex1Heaviest = Math.max(ex1.secondData)
+    }
+
+    // Exercise 2 Data
+    let ex2 = record.exercises.filter(v => v.name.toLowerCase() === 'Muscle Up'.toLowerCase())
+    ex2 = ex2[0]
+    // Data process ex2
+    let ex2Total = 0
+    let ex2Max = 0
+    let ex2Heaviest = 0
+    if (ex2.mainData.length > 0) {
+        ex2Total = ex2.mainData.reduce((acc, curr) => acc + curr)
+        ex2Max = Math.max(ex2.mainData)
+        ex2Heaviest = Math.max(ex2.secondData)
+    }
+
+    const data = [
+        {
+            total: ex1Total,
+            max: ex1Max,
+            heaviest: ex1Heaviest
+        },
+        {
+            total: ex2Total,
+            max: ex2Max,
+            heaviest: ex2Heaviest
+        }
+    ]
+
+
+
     res.render('home', {
         userName: req.user.name,
+        data,
+        workouts,
         locals
     })
 }
