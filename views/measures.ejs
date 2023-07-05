@@ -1,6 +1,36 @@
 <link rel="stylesheet" href="/css/measures/styles.css">
 
 
+
+
+<!-- Create Exercise Form PupUp -->
+<div class="create-form-container" id="form-create">
+  <div class="overlay"></div>
+  <div class="content">
+    <h3 class="form-title">Log Measure</h3>
+    <form action="/measures?_method=PUT" method="POST" id="formulary">
+      <div class="inputs-box">
+        <div class="date-input-box">
+          <label for="date">Date: </label>
+          <input class="date-input" id="date" name="date" id="date" type="date">
+        </div>
+        <div class="measure-input-box">
+          <label for="measure">kg</label>
+          <input type="text" id="measure" name="measure" required autocomplete="off" placeholder="-" onkeypress="isNumber(event)" min="0">
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button type="reset" class="cancel-btn" onclick="toggleCreateForm()">Cancel</button>
+        <button class="save-btn" type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
 <main>
   <div class="container">
     <div class="graphic-container">
@@ -9,10 +39,15 @@
 
     <div class="data-display-container">
       <div class="add-btn">
-        <a class="btn" href="">+ Log Measure</a>
+        <button class="btn" onclick="toggleCreateForm()">+ Log Measure</button>
         <hr>
       </div>
-      <!-- Data from databse disply -->
+      <% for (let i = 0; i < measures.measures.length; i++) { %>
+        <div>
+          <p><%= measures.dates[i].getDate() %>/<%= measures.dates[i].getDate() + 1 %></p>
+          <p><%= measures.measures[i] %>kg</p>
+        </div>
+      <% } %>
     </div>
 
     <div class="side-menu-container">
@@ -33,3 +68,4 @@
 
 
 <script src="/js/measures/current-page.js"></script>
+<script src="/js/measures/main.js"></script>

@@ -36,6 +36,7 @@ router.put('/workout/:id', isAuthenticated, mainController.workoutRecord)
 
 // MEASURES ROUTES
 router.get('/measures', isAuthenticated, mainController.measures)
+router.put('/measures', isAuthenticated, mainController.measuresCreate)
 
 
 

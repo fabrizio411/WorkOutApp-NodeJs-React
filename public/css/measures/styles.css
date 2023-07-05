@@ -40,6 +40,8 @@ main .container .data-display-container .add-btn {
   align-items: center;
 }
 main .container .data-display-container .add-btn .btn {
+  background-color: transparent;
+  border: none;
   display: block;
   width: 100%;
   padding: 1rem 0;
@@ -54,6 +56,121 @@ main .container .data-display-container .add-btn .btn:hover {
 }
 main .container .data-display-container .add-btn hr {
   width: 100%;
+}
+
+.create-form-container .overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  display: none;
+}
+.create-form-container .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  padding: 1.5rem;
+  max-width: 400px;
+  background-color: #1f2022;
+  border: 3px solid #37393d;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  z-index: 2;
+}
+.create-form-container .content .form-title {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.create-form-container .content form .inputs-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.create-form-container .content form .inputs-box .date-input-box {
+  width: 40%;
+  align-self: end;
+}
+.create-form-container .content form .inputs-box .date-input-box label {
+  display: block;
+  color: #9DA4AE;
+  margin-bottom: 0.25rem;
+}
+.create-form-container .content form .inputs-box .date-input-box input {
+  background-color: transparent;
+  color: #cecece;
+  border: none;
+}
+.create-form-container .content form .inputs-box .measure-input-box {
+  width: 40%;
+  align-self: end;
+  justify-self: center;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: end;
+  gap: 0.35rem;
+}
+.create-form-container .content form .inputs-box .measure-input-box label {
+  color: #9DA4AE;
+}
+.create-form-container .content form .inputs-box .measure-input-box input {
+  background-color: transparent;
+  border: 2px solid #37393d;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 100%;
+  text-align: center;
+  outline: none;
+  color: #cecece;
+}
+.create-form-container .content form .inputs-box .measure-input-box input:hover, .create-form-container .content form .inputs-box .measure-input-box input:focus {
+  border-bottom: 2px solid #9DA4AE;
+}
+.create-form-container .content form .inputs-box .measure-input-box input::placeholder {
+  color: #9DA4AE;
+}
+.create-form-container .content form .buttons {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+.create-form-container .content form .buttons button {
+  padding: 0.4rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  color: #cecece;
+  text-decoration: none;
+  text-align: center;
+}
+.create-form-container .content form .buttons .cancel-btn {
+  background-color: #424346;
+}
+.create-form-container .content form .buttons .cancel-btn:hover {
+  background-color: #545558;
+}
+.create-form-container .content form .buttons .save-btn {
+  background-color: rgba(77, 206, 77, 0.288);
+}
+.create-form-container .content form .buttons .save-btn:hover {
+  background-color: rgba(77, 206, 77, 0.507);
+}
+
+.create-form-container.active .overlay {
+  display: block;
+}
+.create-form-container.active .content {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 /*# sourceMappingURL=styles.css.map */

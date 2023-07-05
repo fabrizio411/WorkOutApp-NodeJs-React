@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const User = require('../models/User')
 const Record = require('../models/Record')
 const Exercises = require('../models/Exercises')
+const Measures = require('../models/Measures')
 
 
 
@@ -107,6 +108,7 @@ exports.signUpUserCreate = async(req, res) => {
                 })
             })
 
+            // Create a Record save
             const newRecord = {
                 user: newUser._id,
                 workouts: {
@@ -116,6 +118,17 @@ exports.signUpUserCreate = async(req, res) => {
                 exercises: exercisesArray
             }
             await Record.create(newRecord)
+
+            // Create a measure Save
+            const newMeasures = {
+                user: newUser._id,
+                goal: 'null',
+                measures: [],
+                date: []
+            }
+            await Measures.create(newMeasures)
+
+
             res.redirect('/sign-in')
         }
     }

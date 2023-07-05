@@ -1,6 +1,7 @@
 const Exercises = require('../models/Exercises')
 const Routine = require('../models/Routines')
 const Record = require('../models/Record')
+const Measures = require('../models/Measures')
 
 const mongoose = require('mongoose')
 
@@ -247,7 +248,6 @@ exports.exercises = async(req, res) => {
         const exercisesCustom = await Exercises.find({ isCustom: true }).where({ user: req.user.id }).lean()
         exercisesCustom.forEach(element => { exercises.push(element) })
         const record = await Record.find({}).where({ user: req.user.id }).lean()
-        console.log(record)
         res.render('exercises', {
             userName: req.user.name,
             record,
@@ -450,7 +450,7 @@ exports.workoutRecord = async(req, res) => {
             }
         })
 
-
+        // Se puede hacer mas simple usando el operador $push (en anidados tambien)
         await Routine.findOneAndUpdate(
             { user: req.user.id, _id: req.params.id },
             {
@@ -486,10 +486,31 @@ exports.workoutRecord = async(req, res) => {
 //////////////////////////////
 exports.measures = async(req, res) => {
     const locals = {title: 'Measures | WorkOutApp',}
+    const measures = await Measures.findOne({ user: req.user.id })
 
 
     res.render('measures', {
         userName: req.user.name,
+        measures,
         locals
     })
+}
+
+exports.measuresCreate = async(req, res) => {
+    try {
+        req.body.date = new Date(req.body.date)
+        req.body.measure = parseInt(req.body.measure)
+
+        await Measures.findOneAndUpdate({ user: req.user.id },
+            {
+                $push: {
+                    measures: req.body.measure,
+                    dates: req.body.date
+                }
+            })
+
+        res.redirect('/measures')
+    } catch (error) {
+        console.log(error)
+    }
 }
