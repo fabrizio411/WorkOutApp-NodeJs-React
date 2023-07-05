@@ -1,0 +1,175 @@
+<link rel="stylesheet" href="/css/home/styles.css">
+
+
+
+<main>
+  <div class="container"> <!-- contenedor general -->
+    <section class="profile-box"> <!-- perfil -->
+      <div class="profile-info-box">
+        <img src="/img/profilepic.png" alt="profile-pic">
+        <div class="user-info">
+          <h2 class="name">fabrizio411</h2>
+          <div class="level-box">
+            <p class="level">Lvl. <span id="user-level"></span></p>   <!-- JS change -->
+            <div class="level-bar-box">
+              <div class="level-bar"><div class="fill" id="level-bar-fill"></div><div class="empty"></div></div> <!-- level bar -->
+              <p class="bar-status"><span id="level-bar-status"></span>%</p>   <!-- JS change -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="workouts-box">
+        <div>
+          <h3 class="title">Workouts</h3>  
+        </div> 
+        <p class="total"><span id="workouts-total"></span>total</p>   <!-- JS change -->
+      </div>
+    </section>
+
+
+
+    <section class="week-manage-container">       
+      <div class="week-display-box">
+        <div class="title">
+          <h3>My Week</h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m16 2.012 3 3L16.713 7.3l-3-3zM4 14v3h3l8.299-8.287-3-3zm0 6h16v2H4z"></path></svg>
+        </div>
+        <div class="week-display">
+          <div>
+            <div class="circle"></div>
+            <span>M</span>
+          </div>
+          <div>
+            <div class="circle"></div>
+            <span>T</span>
+          </div>
+          <div>
+            <div class="circle"></div>
+            <span>W</span>
+          </div>
+          <div>
+            <div class="circle"></div>
+            <span>T</span>
+          </div>
+          <div>
+            <div class="circle"></div>
+            <span>F</span>
+          </div>
+          <div>
+            <div class="circle"></div>
+            <span>S</span>
+          </div>
+          <div>
+            <div class="circle"></div>
+            <span>S</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="for-today-info">
+        <h3 class="title">Today</h3>
+        <div class="for-today-box">
+          completar
+        </div>
+      </div>
+
+
+    </section>
+
+    <section class="exercises-data-box">
+      <div class="exercise-box">
+        <div class="data-display">
+          <div class="title-box">
+            <h3 class="title">PullUps</h3>
+            <hr>
+          </div>
+          <div class="data-box">
+            <p class="total"><span id="pullups-total"></span>reps</p> 
+          </div>
+        </div>
+        <!-- HOVER -->
+        <div class="hover-data-display">
+          <div class="title-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24""><path d="M6 5v14h3v-6h6v6h3V5h-3v6H9V5zM3 15a1 1 0 0 0 1 1h1V8H4a1 1 0 0 0-1 1v2H2v2h1v2zm18-6a1 1 0 0 0-1-1h-1v8h1a1 1 0 0 0 1-1v-2h1v-2h-1V9z"></path></svg>
+            <h3 class="title">PullUps</h3>
+          </div>
+          <div class="data-box" id="pullups-data-box">
+            <div class="total">
+              <span class="number" id="pullups-total-2"></span>
+              <span>reps</span>
+            </div>
+            <div class="extra-data-box" id="pullups-isData">
+              <div>
+                <p class="subtitle">Max:</p>
+                <span class="num-display"><span class="number" id="pullups-max"></span>reps</span>
+              </div>
+              <div id="pullups-isHeaviest">
+                <p class="subtitle">Heaviest:</p>
+                <span class="num-display"><span class="number" id="pullups-heaviest"></span>kg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <div class="data-display">
+          <div class="title-box">
+            <h3 class="title">Dips</h3>
+            <hr>
+          </div>
+          <div class="data-box">
+            <p class="total"><span id="dips-total"></span>reps</p> 
+          </div>
+        </div>
+        <!-- HOVER -->
+        <div class="hover-data-display">
+          <div class="title-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24""><path d="M6 5v14h3v-6h6v6h3V5h-3v6H9V5zM3 15a1 1 0 0 0 1 1h1V8H4a1 1 0 0 0-1 1v2H2v2h1v2zm18-6a1 1 0 0 0-1-1h-1v8h1a1 1 0 0 0 1-1v-2h1v-2h-1V9z"></path></svg>
+            <h3 class="title">Dips</h3>
+          </div>
+          <div class="data-box" id="dips-data-box">
+            <div class="total">
+              <span class="number" id="dips-total-2"></span>
+              <span>reps</span>
+            </div>
+            <div class="extra-data-box">
+              <div>
+                <p class="subtitle">Max:</p>
+                <span class="num-display"><span class="number" id="dips-max"></span>reps</span>
+              </div>
+              <div id="dips-isHeaviest">
+                <p class="subtitle">Heaviest:</p>
+                <span class="num-display"><span class="number" id="dips-heaviest"></span>kg</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="to-do-container">
+      <h3 class="title">To Do's</h3>
+      <div class="to-do-box">
+        <div class="to-do">
+          <p class="text">To Do number one</p>
+          <div class="check-bg">
+            <button class="checkbox">
+              <?xml version="1.0" ?><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="to-do">
+          <p class="text">To Do number two</p>
+          <div class="check-bg">
+            <button class="checkbox">
+              <?xml version="1.0" ?><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
