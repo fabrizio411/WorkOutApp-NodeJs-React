@@ -473,3 +473,23 @@ exports.workoutRecord = async(req, res) => {
         console.log(error)
     }
 }   
+
+
+
+
+
+
+
+
+//////////////////////////////
+////////// MEASURES //////////
+//////////////////////////////
+exports.measures = async(req, res) => {
+    const locals = {title: 'Measures | WorkOutApp',}
+
+
+    res.render('measures', {
+        userName: req.user.name,
+        locals
+    })
+}

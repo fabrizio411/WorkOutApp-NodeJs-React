@@ -34,4 +34,11 @@ router.post('/exercises-default', isAuthenticated, mainController.exerciseDefaul
 router.get('/workout/:id', isAuthenticated, mainController.workout)
 router.put('/workout/:id', isAuthenticated, mainController.workoutRecord)
 
+// MEASURES ROUTES
+router.get('/measures', isAuthenticated, mainController.measures)
+
+
+
+
+
 module.exports = router
