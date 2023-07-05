@@ -33,7 +33,6 @@ exports.home = (req, res) => {
 // GET Profile
 exports.profile = async (req, res) => {
     const locals = {title: 'Profile | WorkOutApp'}
-    console.log(req.user.id)
     res.render('profile', {
         userName: req.user.name,
         locals

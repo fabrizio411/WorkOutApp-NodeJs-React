@@ -57,6 +57,25 @@ main .container .data-display-container .add-btn .btn:hover {
 main .container .data-display-container .add-btn hr {
   width: 100%;
 }
+main .container .data-display-container .data-display {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+main .container .data-display-container .data-display .data-box .info-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
+main .container .data-display-container .data-display .data-box .info-box .info-date {
+  color: #cecece;
+}
+main .container .data-display-container .data-display .data-box .info-box .info-weight {
+  color: #cecece;
+}
+main .container .data-display-container .data-display .data-box hr {
+  color: #4a4a4a;
+}
 
 .create-form-container .overlay {
   position: fixed;

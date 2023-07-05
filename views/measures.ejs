@@ -42,12 +42,20 @@
         <button class="btn" onclick="toggleCreateForm()">+ Log Measure</button>
         <hr>
       </div>
-      <% for (let i = 0; i < measures.measures.length; i++) { %>
-        <div>
-          <p><%= measures.dates[i].getDate() %>/<%= measures.dates[i].getDate() + 1 %></p>
-          <p><%= measures.measures[i] %>kg</p>
-        </div>
-      <% } %>
+      <div class="data-display">
+        <% for (let i = 0; i < measures.measures.length; i++) { %>
+          <div class="data-box">
+            <div class="info-box">
+              <p class="info-date"><%= measures.dates[i].getDate() %>/<%= measures.dates[i].getDate() + 1 %></p>
+              <p class="info-weight"><%= measures.measures[i] %>kg</p>
+            </div>
+            <% if (i !== measures.measures.length - 1) { %>
+              <hr>
+            <% } %>
+          </div>
+        <% } %>
+      </div>
+
     </div>
 
     <div class="side-menu-container">

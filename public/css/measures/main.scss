@@ -67,6 +67,34 @@ main {
                     width: 100%;
                 }
             }
+
+            .data-display {
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+
+                .data-box {
+
+                    .info-box {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 1rem 1.5rem;
+
+                        .info-date {
+                            color: var.$clr-text-lvl2;
+                        }
+    
+                        .info-weight {
+                            color: var.$clr-text-lvl2;
+                        }
+                    }
+
+                    hr {
+                        color: var.$clr-bg-lvl5;
+                    }
+
+                }
+            }
         }
     }
 }
