@@ -1,0 +1,4 @@
+fabrizio
+h24kj327UySJhClk
+
+MONGO_URI = mongodb+srv://fabrizio:h24kj327UySJhClk@workoutapp.ywivijj.mongodb.net/
