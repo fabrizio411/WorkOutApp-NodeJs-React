@@ -8,7 +8,7 @@ export const getRoutines = async (req, res) => {
 }
 
 export const getOneRoutine = async (req, res) => {
-    const routine = await Routine.findById(req.params.id)
+    const routine = await Routine.findById(req.params.id).where({ user: req.user.id })
 
     if (!routine) return res.status(404).json({message: 'Routine not found'})
     res.json(routine)
@@ -33,14 +33,14 @@ export const updateRoutine = async (req, res) => {
             name: req.body.name,
             exercises: req.body.exercises
         },
-        {new: true})
+        {new: true}).where({ user: req.user.id })
 
     if (!routine) return res.status(404).json({message: 'Routine not found'})
     res.json(routine)
 }
 
 export const deleteRoutine = async (req, res) => {
-    const routine = await Routine.findByIdAndDelete(req.params.id, {new: true})
+    const routine = await Routine.findByIdAndDelete(req.params.id, {new: true}).where({ user: req.user.id })
 
     if (!routine) return res.status(404).json({message: 'Routine not found'})
     res.json(routine)
