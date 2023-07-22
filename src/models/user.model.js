@@ -16,6 +16,14 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
+    },
+    workouts: {
+        type: Number,
+        required: true,
+    },
+    weightGoal: {
+        type: String,
+        required: true,
     }
 }, {
     timestamps: true

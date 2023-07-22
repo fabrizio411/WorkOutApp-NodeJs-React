@@ -5,18 +5,22 @@ const routineScheema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        unique: true
     },
-    email: {
-        type: String,
+    total: {
+        type: Number,
         required: true,
-        trim: true,
-        unique: true
     },
-    password: {
-        type: String,
+    exercises: {
+        type: Array,
         required: true,
+    },
+    user: {
+        type: mongoose.Schema.ObjectId,
+        required: true,
+        ref: 'User'
     }
+}, {
+    timestamps: true
 })
 
 export default mongoose.model('Routine', routineScheema)
