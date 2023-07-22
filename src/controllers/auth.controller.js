@@ -11,12 +11,16 @@ export const register = async (req, res) => {
         const newUser = new User({
             username, 
             email, 
-            password: passwordHash
+            password: passwordHash,
+            workouts: 0,
+            weightGoal: 'GAIN'
         })
         const userSaved = await newUser.save()
 
         const token = await createAccesToken({id: userSaved._id})
         res.cookie('token', token)
+
+        
   
         res.json({
             id: userSaved._id,
