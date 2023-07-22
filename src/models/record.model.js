@@ -11,7 +11,7 @@ const recordScheema = new mongoose.Schema({
         type: Object,
         required: true
     },
-    secodaryData: {
+    secondaryData: {
         type: Object,
         required: true
     },

@@ -1,6 +1,9 @@
-import User from '../models/user.model.js'
 import bcrypt from 'bcryptjs'
 import {createAccesToken} from '../libs/jwt.js'
+import User from '../models/user.model.js'
+import Exercise from '../models/exercise.model.js'
+import Record from '../models/record.model.js'
+import Program from '../models/program.model.js'
 
 export const register = async (req, res) => {
     const {username, email, password} = req.body
@@ -17,10 +20,28 @@ export const register = async (req, res) => {
         })
         const userSaved = await newUser.save()
 
-        const token = await createAccesToken({id: userSaved._id})
+        const token = await createAccesToken({ id: userSaved._id })
         res.cookie('token', token)
 
-        
+        const exercises = await Exercise.find({ isCustom: false })
+        exercises.forEach(async (item) => {
+            const newRecord = new Record({
+                exercise: item._id,
+                mainData: {
+                    total: 0,
+                    average: 0,
+                    max: 0
+                },
+                secondaryData: {
+                    total: 0,
+                    average: 0,
+                    max: 0
+                },
+                user: userSaved._id
+            })
+
+            await newRecord.save()
+        })
   
         res.json({
             id: userSaved._id,
