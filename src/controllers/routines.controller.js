@@ -1,11 +1,47 @@
-import second from '../models/user.model.js'
+import User from '../models/user.model.js'
+import Routine from '../models/routine.model.js'
 
-export const getRoutines = async (req, res) => {}
+export const getRoutines = async (req, res) => {
+    const routines = await Routine.find({ user: req.user.id })
 
-export const getOneRoutine = async (req, res) => {}
+    res.json(routines)
+}
 
-export const createRoutine = async (req, res) => {}
+export const getOneRoutine = async (req, res) => {
+    const routine = await Routine.findById(req.params.id)
 
-export const updateRoutine = async (req, res) => {}
+    if (!routine) return res.status(404).json({message: 'Routine not found'})
+    res.json(routine)
+}
 
-export const deleteRoutine = async (req, res) => {}
+export const createRoutine = async (req, res) => {
+    const newRoutine = new Routine({
+        name: req.body.name,
+        total: 0,
+        exercises: req.body.exercises,
+        user: req.user.id
+    })
+    const savedRoutine = await newRoutine.save()
+
+    res.json(savedRoutine)
+}
+
+export const updateRoutine = async (req, res) => {
+    const routine = await Routine.findByIdAndUpdate(
+        req.params.id,
+        {
+            name: req.body.name,
+            exercises: req.body.exercises
+        },
+        {new: true})
+
+    if (!routine) return res.status(404).json({message: 'Routine not found'})
+    res.json(routine)
+}
+
+export const deleteRoutine = async (req, res) => {
+    const routine = await Routine.findByIdAndDelete(req.params.id, {new: true})
+
+    if (!routine) return res.status(404).json({message: 'Routine not found'})
+    res.json(routine)
+}

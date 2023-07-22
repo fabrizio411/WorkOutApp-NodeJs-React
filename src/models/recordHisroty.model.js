@@ -2,7 +2,7 @@ import mongoose, { mongo } from 'mongoose'
 
 const recordScheema = new mongoose.Schema({
     exercise: {
-        type: mongoose.Schema.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'Exercise'
     },
@@ -15,7 +15,7 @@ const recordScheema = new mongoose.Schema({
         required: true
     },
     user: {
-        type: mongoose.Schema.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
     }

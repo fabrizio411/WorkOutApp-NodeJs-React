@@ -5,7 +5,6 @@ const exerciseScheema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        unique: true
     },
     type: {
         type: String,
@@ -20,7 +19,7 @@ const exerciseScheema = new mongoose.Schema({
         required: true
     },
     user: {
-        type: mongoose.Schema.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
 })
