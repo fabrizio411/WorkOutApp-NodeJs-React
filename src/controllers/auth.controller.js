@@ -39,9 +39,21 @@ export const register = async (req, res) => {
                 },
                 user: userSaved._id
             })
-
             await newRecord.save()
         })
+
+        const newProgram = new Program({
+            mon: [],
+            tue: [],
+            wed: [],
+            thu: [],
+            fri: [],
+            sat: [],
+            sun: [],
+            user: userSaved._id
+        })
+        await newProgram.save()
+
   
         res.json({
             id: userSaved._id,
