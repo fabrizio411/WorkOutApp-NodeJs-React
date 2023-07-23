@@ -56,7 +56,7 @@ export const updateRoutine = async (req, res) => {
 
 export const deleteRoutine = async (req, res) => {
     try {
-        const routine = await Routine.findByIdAndDelete(req.params.id, {new: true}).where({ user: req.user.id })
+        const routine = await Routine.findByIdAndDelete(req.params.id).where({ user: req.user.id })
 
         if (!routine) return res.status(404).json({message: 'Routine not found'})
         res.sendStatus(204)

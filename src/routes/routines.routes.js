@@ -1,12 +1,6 @@
 import { Router } from "express"
 import { authRequired } from '../middlewares/validateToken.middleware.js'
-import {
-    getRoutines,
-    getOneRoutine,
-    createRoutine,
-    updateRoutine,
-    deleteRoutine
-} from '../controllers/routines.controller.js';
+import {getRoutines, getOneRoutine, createRoutine, updateRoutine, deleteRoutine } from '../controllers/routines.controller.js';
 
 const router = Router()
 
