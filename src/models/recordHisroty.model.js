@@ -1,6 +1,6 @@
 import mongoose, { mongo } from 'mongoose'
 
-const recordScheema = new mongoose.Schema({
+const recordHistoryScheema = new mongoose.Schema({
     exercise: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -23,4 +23,4 @@ const recordScheema = new mongoose.Schema({
     timestamps: true
 })
 
-export default mongoose.model('Record', recordScheema)
+export default mongoose.model('RecordHistory', recordHistoryScheema)

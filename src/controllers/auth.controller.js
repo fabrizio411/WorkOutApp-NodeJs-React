@@ -29,13 +29,15 @@ export const register = async (req, res) => {
                 exercise: item._id,
                 mainData: {
                     total: 0,
+                    max: 0,
                     average: 0,
-                    max: 0
+                    averageCounter: 0
                 },
                 secondaryData: {
                     total: 0,
+                    max: 0,
                     average: 0,
-                    max: 0
+                    averageCounter: 0
                 },
                 user: userSaved._id
             })
