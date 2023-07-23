@@ -1,29 +1,14 @@
 import { Router } from "express"
 import { authRequired } from '../middlewares/validateToken.js'
+import { createExerciseDEV, getExercise, createExercise, deleteExercise } from "../controllers/exercises.controller.js"
 
-import Exercise from "../models/exercise.model.js";
 
 const router = Router()
 
-router.post('/exercise', authRequired, async (req, res) => {
-    try {
-        const { name, type, muscle, isCustom } = req.body
+router.post('/exercisesDEV', authRequired, createExerciseDEV)
 
-        const newExercise = new Exercise({
-            name,
-            type,
-            muscle,
-            isCustom,
-        })
-    
-        const exerciseSaved = await newExercise.save()
-    
-        res.send('ok')
-    } catch (error) {
-        res.status(500).json({message: error.message})
-    }
-   
-
-})
+router.get('/exercises', authRequired, getExercise)
+router.post('/exercises', authRequired, createExercise)
+router.delete('/exercises', authRequired, deleteExercise)
 
 export default router
