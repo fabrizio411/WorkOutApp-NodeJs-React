@@ -36,7 +36,7 @@ export const updateRoutine = async (req, res) => {
         {new: true}).where({ user: req.user.id })
 
     if (!routine) return res.status(404).json({message: 'Routine not found'})
-    res.json(routine)
+    res.sendStatus(204)
 }
 
 export const deleteRoutine = async (req, res) => {

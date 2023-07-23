@@ -1,5 +1,7 @@
 import { Router } from "express"
-import {authRequired } from '../middlewares/validateToken.js'
+import { authRequired } from '../middlewares/validateToken.middleware.js'
+import { validateSchema } from '../middlewares/validatator.middleware.js'
+import { registerSchema, loginSchema } from '../validations/auth.schema.js'
 import {
     login, 
     register, 
@@ -9,8 +11,8 @@ import {
 
 const router = Router()
 
-router.post('/register', register)
-router.post('/login', login)
+router.post('/register', validateSchema(registerSchema), register)
+router.post('/login', validateSchema(loginSchema), login)
 router.post('/logout', logout)
 
 router.get('/home',authRequired, home)
