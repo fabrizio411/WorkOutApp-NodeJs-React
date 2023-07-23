@@ -1,4 +1,4 @@
-import Measure from "../models/measure.model"
+import Measure from "../models/measure.model.js"
 
 export const getMeasures = async (req, res) => {
     try {
@@ -15,7 +15,8 @@ export const createMeasure = async (req, res) => {
 
     try {
         const newMeasure = new Measure({
-            data
+            data,
+            user: req.user.id
         })
         const savedMeasure = await newMeasure.save()
 
@@ -45,9 +46,10 @@ export const updateMeasure = async (req, res) => {
 
 export const deleteMeasure = async (req, res) => {
     try {
-        const measure = await Measure.findByIdAndDelete(req.params.id).where({ user: req.params.id })
+        const measure = await Measure.findByIdAndDelete(req.params.id).where({ user: req.user.id })
 
         if (!measure) return res.status(404).json({message: 'Measure not found'})
+        res.sendStatus(204)
     } catch (error) {
         res.status(500).json({message: error.message})
     }
