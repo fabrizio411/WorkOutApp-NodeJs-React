@@ -1,7 +1,8 @@
 import Record from '../models/record.model.js'
 import History from '../models/recordHisroty.model.js'
+import Workout from '../models/workout.model.js'
 
-import { newRecordMax, newRecordAverage, updateRecordMax, updateRecordAverage } from '../libs/recordManagement.js'
+import { newRecordMax, newRecordAverage, updateTotal, updateRecordAverage, updateRecordMax, updateRecordMaxIfChanged, updateRecordAverageIfChanged } from '../libs/recordManagement.js'
 import { record } from 'zod'
 
 export const getRecord = async (req, res) => {
@@ -44,6 +45,7 @@ export const createRecord = async (req, res) => {
     }
 
     try {
+        let workoutRecords = []
         for (let i = 0; i < exercise.length; i++) {
             const newHistory = new History({
                 exercise: exercise[i],
@@ -53,6 +55,7 @@ export const createRecord = async (req, res) => {
                 user: req.user.id
             })
             const savedHistory = await newHistory.save()
+            workoutRecords.push(savedHistory._id)
 
             const recordData = await Record.findOne({ user: req.user.id, exercise: savedHistory.exercise })
             const record = await Record.findOneAndUpdate(
@@ -62,20 +65,26 @@ export const createRecord = async (req, res) => {
                 },
                 {
                     mainData: {
-                        total: recordData.mainData.total + mainData[i].reduce((acc, val) => acc + val),
-                        max: newRecordMax(recordData.mainData.max, mainData[i]),
-                        average: newRecordAverage(recordData.mainData.average, mainData[i], recordData.mainData.averageCounter),
-                        averageCounter: recordData.mainData.averageCounter + mainData[i].length
+                        total: recordData.mainData.total + savedHistory.mainData.reduce((acc, val) => acc + val),
+                        max: newRecordMax(recordData.mainData.max, savedHistory.mainData, savedHistory._id),
+                        average: newRecordAverage(recordData.mainData.average, savedHistory.mainData, recordData.mainData.averageCounter),
+                        averageCounter: recordData.mainData.averageCounter + savedHistory.mainData.length
                     },
                     secondaryData: {
-                        total: recordData.secondaryData.total + secondaryData[i].reduce((acc, val) => acc + val),
-                        max: newRecordMax(recordData.secondaryData.max, secondaryData[i]),
-                        average: newRecordAverage(recordData.secondaryData.average, secondaryData[i], recordData.secondaryData.averageCounter),
-                        averageCounter: recordData.secondaryData.averageCounter + secondaryData[i].length
+                        total: recordData.secondaryData.total + savedHistory.secondaryData.reduce((acc, val) => acc + val),
+                        max: newRecordMax(recordData.secondaryData.max, savedHistory.secondaryData, savedHistory._id),
+                        average: newRecordAverage(recordData.secondaryData.average, savedHistory.secondaryData, recordData.secondaryData.averageCounter),
+                        averageCounter: recordData.secondaryData.averageCounter + savedHistory.secondaryData.length
                     }
                 }
             ).where({ user: req.user.id })
         }
+
+        const newWorkout = new Workout({
+            records: workoutRecords,
+            user: req.user.id
+        })
+        await newWorkout.save()
 
         res.sendStatus(204)
     } catch (error) {

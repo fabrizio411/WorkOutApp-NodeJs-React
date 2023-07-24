@@ -23,8 +23,6 @@ const recordHistoryScheema = new mongoose.Schema({
         required: true,
         ref: 'User'
     }
-}, {
-    timestamps: true
 })
 
 export default mongoose.model('RecordHistory', recordHistoryScheema)
