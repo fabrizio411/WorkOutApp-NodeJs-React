@@ -2,6 +2,7 @@ import Record from '../models/record.model.js'
 import History from '../models/recordHisroty.model.js'
 import Workout from '../models/workout.model.js'
 import User from '../models/user.model.js'
+import Exercise from '../models/exercise.model.js'
 
 import { newRecordMax, newRecordAverage, updateTotal, updateRecordAverage, updateRecordMax, updateRecordMaxIfChanged, updateRecordAverageIfChanged } from '../libs/recordManagement.js'
 
@@ -16,7 +17,7 @@ export const getRecord = async (req, res) => {
 }
 
 export const createRecord = async (req, res) => {
-    let {exercise, mainData, secondaryData } = req.body
+    let { exercise, mainData, secondaryData } = req.body
 
     /* TODO: CUANDO MANDE LOS DATOS VER QUE SIGAN LA ESTRUCTURA
         funcion se va a ecribir en carpeta libs
@@ -37,7 +38,7 @@ export const createRecord = async (req, res) => {
     }
 
     try {
-        User.findByIdAndUpdate(
+        await User.findByIdAndUpdate(
             req.user.id,
             {
                 $inc: { "workouts": 1 }
@@ -75,11 +76,13 @@ export const createRecord = async (req, res) => {
                         average: newRecordAverage(recordData.secondaryData.average, savedHistory.secondaryData, recordData.secondaryData.averageCounter),
                         averageCounter: recordData.secondaryData.averageCounter + savedHistory.secondaryData.length
                     }
-                }
+                },
+                {new: true}
             ).where({ user: req.user.id })
         }
 
         const newWorkout = new Workout({
+            title: req.body.title,
             records: workoutRecords,
             user: req.user.id
         })
@@ -105,7 +108,7 @@ export const updateRecord = async (req, res) => {
 
         for (let index = 0; index < historysToUpdate.length; index++) {
             const history = await History.findById(records[index])
-            let exerciseChange = history.exercise !== exercise[index]
+            let exerciseChange = history.exercise.toString() !== exercise[index]
             
             const updatedHistory = await History.findByIdAndUpdate(
                 records[index],
@@ -140,6 +143,8 @@ export const updateRecord = async (req, res) => {
                 }
             )
 
+            console.log(exerciseChange)
+
             if (!record) return res.status(404).json({message: 'Record not found'})
 
             if (exerciseChange) {
@@ -149,13 +154,13 @@ export const updateRecord = async (req, res) => {
                     { user: req.user.id, exercise: history.exercise },
                     {
                         mainData: {
-                            total: oldRecordData.mainData.total - mainData[index].reduce((acc, val) => acc + val),
+                            total: oldRecordData.mainData.total - history.mainData.reduce((acc, val) => acc + val),
                             max: updateRecordMaxIfChanged(oldRecordData.mainData.max, history.id),
                             average: updateRecordAverageIfChanged(oldRecordData.mainData.average, history.mainData, oldRecordData.mainData.averageCounter),
                             averageCounter: oldRecordData.mainData.averageCounter - history.mainData.length
                         },
                         secondaryData: {
-                            total: oldRecordData.secondaryData.total - secondaryData[index].reduce((acc, val) => acc + val),
+                            total: oldRecordData.secondaryData.total - history.secondaryData.reduce((acc, val) => acc + val),
                             max: updateRecordMaxIfChanged(oldRecordData.secondaryData.max, history.id),
                             average: updateRecordAverageIfChanged(oldRecordData.secondaryData.average, history.secondaryData, oldRecordData.secondaryData.averageCounter),
                             averageCounter: oldRecordData.secondaryData.averageCounter - history.secondaryData.length
@@ -171,7 +176,10 @@ export const updateRecord = async (req, res) => {
 
         await Workout.findByIdAndUpdate(
             req.params.id,
-            { records: records }
+            { 
+                title: req.body.title,
+                records: records 
+            }
         )
 
         res.sendStatus(204)
@@ -232,7 +240,32 @@ export const deleteRecord = async (req, res) => {
 
 export const getHistory = async (req, res) => {
     try {
-        
+        const workouts = await Workout.find({ user: req.user.id })
+        const sortedWorkouts = workouts.sort((x, y) => y.createdAt.getTime() - x.createdAt.getTime())
+
+        for (let i = 0; i < sortedWorkouts.length; i++) {
+            const exercisesArray = []
+
+            for (let x = 0; x < sortedWorkouts[i].records.length; x++) {
+                const history = await History.findById(sortedWorkouts[i].records[x])
+                const exercise = await Exercise.findById(history.exercise)
+                const exerciseObject = {
+                    name: exercise.name,
+                    type: exercise.type,
+                    muscle: exercise.muscle,
+                    isCustom: exercise.isCustom,
+                    mainData: history.mainData,
+                    secondaryData: history.secondaryData,
+                    order: history.order
+                }
+                exercisesArray.push(exerciseObject)
+            }
+
+            const sortedExercises = exercisesArray.sort((x, y) => x.order - y.order)
+            sortedWorkouts[i].records = sortedExercises
+        }
+
+        res.json(sortedWorkouts)
     } catch (error) {
         res.status(500).json({message: error.message})
     }

@@ -1,6 +1,10 @@
 import mongoose from 'mongoose'
 
 const workoutScheema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true,
+    },
     records: {
         type: Array,
         required: true,

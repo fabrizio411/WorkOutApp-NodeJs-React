@@ -5,13 +5,13 @@ import Exercise from "../models/exercise.model.js";
 */
 export const createExerciseDEV = async (req, res) => {
     try {
-        const { name, type, muscle, isCustom } = req.body
+        const { name, type, muscle } = req.body
 
         const newExercise = new Exercise({
             name,
             type,
             muscle,
-            isCustom,
+            isCustom: false
         })
     
         const exerciseSaved = await newExercise.save()

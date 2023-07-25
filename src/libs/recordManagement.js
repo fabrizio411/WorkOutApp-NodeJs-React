@@ -26,7 +26,7 @@ export const newRecordAverage = (actualData, newDataArray, counter) => {
 }
 
 export const updateTotal = (actualData, oldDataArray, newDataArray, exerciseChange) => {
-    const newTotal = actualData + newDataArray.reduce((acc, val) => acc + val)
+    let newTotal = actualData + newDataArray.reduce((acc, val) => acc + val)
     if (!exerciseChange) newTotal -= oldDataArray.reduce((acc, val) => acc + val)
     return newTotal
 }
