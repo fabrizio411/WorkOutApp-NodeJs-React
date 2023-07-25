@@ -4,7 +4,6 @@ import Workout from '../models/workout.model.js'
 import User from '../models/user.model.js'
 
 import { newRecordMax, newRecordAverage, updateTotal, updateRecordAverage, updateRecordMax, updateRecordMaxIfChanged, updateRecordAverageIfChanged } from '../libs/recordManagement.js'
-import { record } from 'zod'
 
 export const getRecord = async (req, res) => {
     try {
@@ -15,14 +14,6 @@ export const getRecord = async (req, res) => {
         res.status(500).json({message: error.message})
     }
 }
-
-
-
-
-// TODO LO DE ABAJO ESTA HECHO PARA CUANDO SOLO HAY UN EJERCICIO
-//
-//     CUIDADO
-//
 
 export const createRecord = async (req, res) => {
     let {exercise, mainData, secondaryData } = req.body
@@ -149,6 +140,8 @@ export const updateRecord = async (req, res) => {
                 }
             )
 
+            if (!record) return res.status(404).json({message: 'Record not found'})
+
             if (exerciseChange) {
                 const oldRecordData = await Record.findOne({ user: req.user.id, exercise: history.exercise })
 
@@ -200,7 +193,38 @@ export const updateRecord = async (req, res) => {
 
 export const deleteRecord = async (req, res) => {
     try {
-        
+        const workout = await Workout.findByIdAndDelete(req.params.id)
+        if (!workout) return res.status(404).json({message: 'Workout not found'})
+
+
+        for (let i = 0; i < workout.records.length; i++) {
+            const wkHistory = await History.findById(workout.records[i])
+
+            const oldRecord = await Record.findOne({ user: req.user.id, exercise: wkHistory.exercise })
+            const newRecord = await Record.findOneAndUpdate(
+                { user: req.user.id, exercise: wkHistory.exercise },
+                {
+                    mainData: {
+                        total: oldRecord.mainData.total - wkHistory.mainData.reduce((acc, val) => acc + val),
+                        max: updateRecordMaxIfChanged(oldRecord.mainData.max, wkHistory.id),
+                        average: updateRecordAverageIfChanged(oldRecord.mainData.average, wkHistory.mainData, oldRecord.mainData.averageCounter),
+                        averageCounter: oldRecord.mainData.averageCounter - wkHistory.mainData.length
+                    },
+                    secondaryData: {
+                        total: oldRecord.secondaryData.total - wkHistory.secondaryData.reduce((acc, val) => acc + val),
+                        max: updateRecordMaxIfChanged(oldRecord.secondaryData.max, wkHistory.id),
+                        average: updateRecordAverageIfChanged(oldRecord.secondaryData.average, wkHistory.secondaryData, oldRecord.secondaryData.averageCounter),
+                        averageCounter: oldRecord.secondaryData.averageCounter - wkHistory.secondaryData.length
+                    }
+                },
+                {new: true}
+            )
+
+            const deletedHistory = await History.findByIdAndDelete(workout.records[i]).where({ user: req.user.id })
+            if (!deletedHistory) return res.status(404).json({message: 'Record History not found'})
+        }
+
+        res.sendStatus(204)
     } catch (error) {
         res.status(500).json({message: error.message})
     }

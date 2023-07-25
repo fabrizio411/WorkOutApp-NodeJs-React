@@ -1,3 +1,11 @@
+# TODOS
+- Poder borrar dentro de un workout un ejercicio en particular y que se borre el recordHistrory
+- Program routes y controller
+- Arreglar average cuando se hace update a otro ejericio y cuando se hace delete, y cuidar el contador negativo 
+
+
+
+
 # INSTALL
 Backend:
 - npm i
