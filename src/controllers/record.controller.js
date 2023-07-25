@@ -40,7 +40,7 @@ export const createRecord = async (req, res) => {
         User.findByIdAndUpdate(
             req.user.id,
             {
-                $inc: { "workouts": 1}
+                $inc: { "workouts": 1 }
             }
         )
 
@@ -151,14 +151,14 @@ export const updateRecord = async (req, res) => {
                         mainData: {
                             total: oldRecordData.mainData.total - mainData[index].reduce((acc, val) => acc + val),
                             max: updateRecordMaxIfChanged(oldRecordData.mainData.max, history.id),
-                            average: updateRecordAverageIfChanged(oldRecordData.average, history.mainData, oldRecordData.averageCounter),
-                            averageCounter: oldRecordData.averageCounter - history.mainData.length
+                            average: updateRecordAverageIfChanged(oldRecordData.mainData.average, history.mainData, oldRecordData.mainData.averageCounter),
+                            averageCounter: oldRecordData.mainData.averageCounter - history.mainData.length
                         },
                         secondaryData: {
                             total: oldRecordData.secondaryData.total - secondaryData[index].reduce((acc, val) => acc + val),
                             max: updateRecordMaxIfChanged(oldRecordData.secondaryData.max, history.id),
-                            average: updateRecordAverageIfChanged(oldRecordData.average, history.secondaryData, oldRecordData.averageCounter),
-                            averageCounter: oldRecordData.averageCounter - history.secondaryData.length
+                            average: updateRecordAverageIfChanged(oldRecordData.secondaryData.average, history.secondaryData, oldRecordData.secondaryData.averageCounter),
+                            averageCounter: oldRecordData.secondaryData.averageCounter - history.secondaryData.length
                         }
                     }
                 )
