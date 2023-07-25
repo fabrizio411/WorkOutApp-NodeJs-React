@@ -1,6 +1,7 @@
 import Record from '../models/record.model.js'
 import History from '../models/recordHisroty.model.js'
 import Workout from '../models/workout.model.js'
+import User from '../models/user.model.js'
 
 import { newRecordMax, newRecordAverage, updateTotal, updateRecordAverage, updateRecordMax, updateRecordMaxIfChanged, updateRecordAverageIfChanged } from '../libs/recordManagement.js'
 import { record } from 'zod'
@@ -45,6 +46,13 @@ export const createRecord = async (req, res) => {
     }
 
     try {
+        User.findByIdAndUpdate(
+            req.user.id,
+            {
+                $inc: { "workouts": 1}
+            }
+        )
+
         let workoutRecords = []
         for (let i = 0; i < exercise.length; i++) {
             const newHistory = new History({
@@ -124,7 +132,7 @@ export const updateRecord = async (req, res) => {
                 {
                     user: req.user.id,
                     exercise: updatedHistory.exercise
-                },      // TODO: FIX REPLACING MAX 
+                },
                 {
                     mainData: {
                         total: updateTotal(recordData.mainData.total, history.mainData, updatedHistory.mainData, exerciseChange),
