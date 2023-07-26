@@ -11,8 +11,8 @@ Backend:
 
 # DOCUMENTACION
 
-## Base de datos:
-### User:
+# Base de datos:
+## User:
 - Registro de usuarios
 - Validacion de datos enviados con libreria Zod
 - Cifrado de contraceña con bCrypt
@@ -22,28 +22,28 @@ Backend:
     - Un Program vacio del usuario
     - Un Record del usuario para cada ejercicio default
 
-### Program
+## Program
 - Registro unico por usuario
 - Se guardaran los datos del programa semanal de rutinas (refereiciadas con ObjectId) elejidas por el usuario
 
-### Routine
+## Routine
 - Rutinas de cada usuario.
 - Los ejercicios de la rutina seran referenciados como ObjectId
 - Se llevara un contador de las veces que la rutina fue realizada
 
-### Workout
+## Workout
 - Se registraran los entrenamientos
 - Contiene un array con ObjectId de los RecodHistory correspondientes a ese entrenamiento
 - Comodidad para luego mostrar el entrenamiento
 - Implementado de esta manera para realizar la edicion de un entrenamiento. La id del parametro sera la del mismo
 
-### RecordHistory
+## RecordHistory
 - Esta coleccion guardara los registros de cada ejercicio realizado en un entrenamiento de forma individual
 - Se hara referencia al ejercicio al que pertenecen con ObjectId
 - Se guardara un timestamp luego poder agrupar los datos de un mismo entrenamiento
 - Se guardara el orden en que se enviaron los ejercicios para mostrarlos correctamente
 s
-### Record
+## Record
 - Cada usuario tendra un Record por cada ejercicio existente
 - Al crear ejercicios se creara un Record correspondiente
 - Referencia al ejercicio con ObjectId
@@ -53,41 +53,41 @@ s
     - Average: promedio de todos los datos registrados
     - AverageCounter: llevara la cuenta de cuantos datos hay registrados para calculos de promedio
 
-### Measure
+## Measure
 - Registro de medidas de peso corporal
 - Se podra elejir el objetivo personal (ganar o perder peso)
 - Se guardara un timestamp para poder ordenar los datos al mostrarlos
 
 
 
-## Schemas
-### Validations
-#### registerSchema
+# Schemas
+## Validations
+### registerSchema
 - Validacion de datos recibidos con libreria Zod
 - Valida username, email y password. Que cumplan con las condiciones planteadas
 - Manda mensages de error en caso de haberlos
-#### loginSchema
+### loginSchema
 - Validacion de datos recibidos con libreria Zod
 - Valida username y password. Que cumplan con las condiciones planteadas
 - Manda mensages de error en caso de haberlos
 
 
 
-## Funciones
-### Config
-#### connectDB
+# Funciones
+## Config
+### connectDB
 - Coneccion con base de datos.
 
-### Middlewares
-#### authRequired
+## Middlewares
+### authRequired
 - Obtiene el valor del token de la cookie y la valida usando libreria JsonWebToken
 - Asigna el usuario asociado al token a req.user
-#### validateSchema
+### validateSchema
 - Funcion usada para comparar los datos recibidos con un schema de datos de Zod
 - Parametro: schema de zod a comparar
 
-### Controllers
-#### register
+## Controllers
+### register
 - Cifrar contraceña
 - Crear registro del usuario en DB
 - Crear token asociado al usuaio (libreria JsonWebToken) y mandarlo como cookie
@@ -95,10 +95,10 @@ s
 - Crear un docuemtno de Program asociado con el usuario
 [Estructura de datos](#register---estructura)
 
-#### login
+### login
 - 
 
-## Requests
-### Estructuras de datos
-#### register - Estructura
+# Requests
+## Estructuras de datos
+### register - Estructura
 
