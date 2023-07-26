@@ -12,5 +12,4 @@ router.delete('/record/:id', authRequired, deleteRecord)
 
 router.get('/history', authRequired, getHistory)
 
-
 export default router

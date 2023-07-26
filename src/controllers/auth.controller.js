@@ -45,13 +45,7 @@ export const register = async (req, res) => {
         })
 
         const newProgram = new Program({
-            mon: [],
-            tue: [],
-            wed: [],
-            thu: [],
-            fri: [],
-            sat: [],
-            sun: [],
+            week: [[], [], [], [], [], [], []],
             user: userSaved._id
         })
         await newProgram.save()

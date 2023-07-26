@@ -1,31 +1,7 @@
 import mongoose from 'mongoose'
 
 const programScheema = new mongoose.Schema({
-    mon: {
-        type: Array,
-        required: true
-    },
-    tue: {
-        type: Array,
-        required: true
-    },
-    wed: {
-        type: Array,
-        required: true
-    },
-    thu: {
-        type: Array,
-        required: true
-    },
-    fri: {
-        type: Array,
-        required: true
-    },
-    sat: {
-        type: Array,
-        required: true
-    },
-    sun: {
+    week: {
         type: Array,
         required: true
     },
