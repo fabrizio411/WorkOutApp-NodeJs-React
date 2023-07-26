@@ -5,6 +5,6 @@ import { getProgram, updateProgram } from "../controllers/prgram.conteoller.js"
 const router = Router()
 
 router.get('/program', authRequired, getProgram)
-router.put('/program', authRequired, updateProgram)
+router.put('/program/:id', authRequired, updateProgram)
 
 export default router
