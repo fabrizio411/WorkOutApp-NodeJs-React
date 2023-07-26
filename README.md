@@ -1,5 +1,6 @@
 # TODOS
-
+- Evaluar necesidad de un id en parametros de updateProgram
+- Al crear un ejercicio, crear un record del mismo
 
 
 # INSTALL
@@ -56,3 +57,48 @@ s
 - Registro de medidas de peso corporal
 - Se podra elejir el objetivo personal (ganar o perder peso)
 - Se guardara un timestamp para poder ordenar los datos al mostrarlos
+
+
+
+## Schemas
+### Validations
+#### registerSchema
+- Validacion de datos recibidos con libreria Zod
+- Valida username, email y password. Que cumplan con las condiciones planteadas
+- Manda mensages de error en caso de haberlos
+#### loginSchema
+- Validacion de datos recibidos con libreria Zod
+- Valida username y password. Que cumplan con las condiciones planteadas
+- Manda mensages de error en caso de haberlos
+
+
+
+## Funciones
+### Config
+#### connectDB
+- Coneccion con base de datos.
+
+### Middlewares
+#### authRequired
+- Obtiene el valor del token de la cookie y la valida usando libreria JsonWebToken
+- Asigna el usuario asociado al token a req.user
+#### validateSchema
+- Funcion usada para comparar los datos recibidos con un schema de datos de Zod
+- Parametro: schema de zod a comparar
+
+### Controllers
+#### register
+- Cifrar contraceña
+- Crear registro del usuario en DB
+- Crear token asociado al usuaio (libreria JsonWebToken) y mandarlo como cookie
+- Crear un documento de Record para cada ejercicio registrado en DB asociados con el usuario
+- Crear un docuemtno de Program asociado con el usuario
+[Estructura de datos](#register---estructura)
+
+#### login
+- 
+
+## Requests
+### Estructuras de datos
+#### register - Estructura
+
