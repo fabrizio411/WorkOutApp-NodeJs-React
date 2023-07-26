@@ -2,14 +2,8 @@
 - Evaluar necesidad de un id en parametros de updateProgram
 - Al crear un ejercicio, crear un record del mismo
 
-
-# INSTALL
-Backend:
-- npm i
-- npm run dev
-
-
-# DOCUMENTACION
+## Dev
+- [Crear ejercicios default](#createexercisedev)
 
 # Base de datos:
 ## User:
@@ -60,7 +54,7 @@ s
 
 
 
-# Schemas
+# Schemas:
 ## Validations
 ### registerSchema
 - Validacion de datos recibidos con libreria Zod
@@ -73,7 +67,7 @@ s
 
 
 
-# Funciones
+# Funciones:
 ## Config
 ### connectDB
 - Coneccion con base de datos.
@@ -93,12 +87,67 @@ s
 - Crear token asociado al usuaio (libreria JsonWebToken) y mandarlo como cookie
 - Crear un documento de Record para cada ejercicio registrado en DB asociados con el usuario
 - Crear un docuemtno de Program asociado con el usuario
-[Estructura de datos](#register---estructura)
+- [Estructura de datos](#register---estructura)
 
 ### login
-- 
+- Buscar el usuario en la base de datos con el usarname, ya que este es unico
+- Si el usuario existe, comaprar la contraceña encriptada (libreria BCrypt)
+- Crear el token asociado al usuario y mandarlo como cookie
+- [Estructura de datos](#login---estructura)
+
+### logout 
+- Borrar la cookie asociado con el usuario. Por lo que no cumplira la validacion
+
+### createExerciseDEV
+- Crear ejercicios default (atributo isCusto = false)
+- Facilita la creacion, no hay que hacerlo manualmente
+- [Estructura de datos](#createExerciseDEV---estructura)
+
+### getExercise
+- Junta en un array todos los ejercicios default y los ejercicios cusom del usuario
+
+### createExercise
+- Crear ejercicios custom del usuario
+- [Estructura de datos](#createExercise---estructura)
+
+
+
+
 
 # Requests
 ## Estructuras de datos
 ### register - Estructura
+`
+{
+    username: '',
+    email: '',
+    password: ''
+}
+`
+
+### login - Estructura
+`
+{
+    username: '',
+    password: ''
+}
+`
+
+### createExerciseDEV - Estructura
+`
+{
+    name: '',
+    type: '',
+    muscle: ''
+}
+`
+
+### createExercise - Estructura
+`
+{
+    name: '',
+    type: '',
+    muscle: ''
+}
+`
 
