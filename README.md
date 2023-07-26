@@ -1,11 +1,4 @@
 # TODOS
-- Terminar de arreglar update average
-- Testear el borrar datos
-
-
-- Poder borrar dentro de un workout un ejercicio en particular y que se borre el recordHistrory
-- Program routes y controller
-
 
 
 
