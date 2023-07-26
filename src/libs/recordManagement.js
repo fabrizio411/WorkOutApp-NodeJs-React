@@ -54,8 +54,9 @@ export const updateRecordMax = (actualDataArray, newDataArray, historyID) => {
     return sortedArray
 }
 
-export const updateRecordAverage = (actualData, oldDataArray, newDataArray, counter) => {
+export const updateRecordAverage = (actualData, oldDataArray, newDataArray, counter, exerciseChange) => {
     let inCounter = counter - oldDataArray.length
+    if (exerciseChange) inCounter = counter
     const oldTotal = (actualData * counter) - oldDataArray.reduce((acc, val) => acc + val)
 
 

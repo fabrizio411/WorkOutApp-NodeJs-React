@@ -110,6 +110,9 @@ export const updateRecord = async (req, res) => {
             const history = await History.findById(records[index])
             let exerciseChange = history.exercise.toString() !== exercise[index]
             
+            let substractCounter = history.secondaryData.length
+            if (exerciseChange) substractCounter = 0
+            
             const updatedHistory = await History.findByIdAndUpdate(
                 records[index],
                 {
@@ -132,13 +135,13 @@ export const updateRecord = async (req, res) => {
                         total: updateTotal(recordData.mainData.total, history.mainData, updatedHistory.mainData, exerciseChange),
                         max: updateRecordMax(recordData.mainData.max, updatedHistory.mainData, updatedHistory.id),
                         average: updateRecordAverage(recordData.mainData.average, history.mainData, updatedHistory.mainData, recordData.mainData.averageCounter),
-                        averageCounter: recordData.mainData.averageCounter - history.mainData.length + updatedHistory.mainData.length
+                        averageCounter: recordData.mainData.averageCounter - substractCounter + updatedHistory.mainData.length
                     },
                     secondaryData: {
                         total: updateTotal(recordData.secondaryData.total, history.secondaryData, updatedHistory.secondaryData, exerciseChange),
                         max: updateRecordMax(recordData.secondaryData.max, updatedHistory.secondaryData, updatedHistory.id),
                         average: updateRecordAverage(recordData.secondaryData.average, history.secondaryData, updatedHistory.secondaryData, recordData.secondaryData.averageCounter),
-                        averageCounter: recordData.secondaryData.averageCounter - history.secondaryData.length + updatedHistory.secondaryData.length
+                        averageCounter: recordData.secondaryData.averageCounter - substractCounter + updatedHistory.secondaryData.length
                     }
                 }
             )

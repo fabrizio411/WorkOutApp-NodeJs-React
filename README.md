@@ -1,6 +1,6 @@
 # TODOS
-- Comprobar bien la el update de Records con el total cuando se cambia de ejercicio y arreglar el de average
-' Testear el borrar datos
+- Terminar de arreglar update average
+- Testear el borrar datos
 
 
 - Poder borrar dentro de un workout un ejercicio en particular y que se borre el recordHistrory
