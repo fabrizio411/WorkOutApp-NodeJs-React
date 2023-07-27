@@ -1,6 +1,7 @@
 import express from 'express'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 
 import authRoutes from './routes/auth.routes.js'
 import routinesRoutes from './routes/routines.routes.js'
@@ -10,6 +11,11 @@ import recordRoutes from './routes/record.routes.js'
 import programRoutes from './routes/program.routes.js'
 
 const app = express()
+
+// Coneccion de frontend y backend
+app.use(cors({
+    origin: 'http://localhost:5173'
+}))
 
 // Ver request por consola
 app.use(morgan('dev'))
