@@ -10,6 +10,7 @@ router.post('/record', authRequired, createRecord)
 router.put('/record/:id', authRequired, updateRecord)
 router.delete('/record/:id', authRequired, deleteRecord)
 
+// Obtener datos del historial de entrenamientos
 router.get('/history', authRequired, getHistory)
 
 export default router

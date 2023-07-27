@@ -11,11 +11,15 @@ import programRoutes from './routes/program.routes.js'
 
 const app = express()
 
+// Ver request por consola
 app.use(morgan('dev'))
 
+// Trabajar con archivos .json
 app.use(express.json())
+// Leer datos de una cookie
 app.use(cookieParser())
 
+// Configuracion de rutas
 app.use('/api', authRoutes)
 app.use('/api', routinesRoutes)
 app.use('/api', exercisesRoutes)

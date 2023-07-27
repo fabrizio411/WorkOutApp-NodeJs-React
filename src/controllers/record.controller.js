@@ -19,17 +19,7 @@ export const getRecord = async (req, res) => {
 export const createRecord = async (req, res) => {
     let { exercise, mainData, secondaryData } = req.body
 
-    /* TODO: CUANDO MANDE LOS DATOS VER QUE SIGAN LA ESTRUCTURA
-        funcion se va a ecribir en carpeta libs
-        {
-            "exercise": ['', '', ''],
-            "mainData": [[], [], []],
-            "secondaryData": [[], [], []]
-        }
-
-        tambien redondear los valores en caso de que se igresen decimales
-    */
-
+    // En caso de que los datos numericos no sean numeros, se convierten en 0
     for (let i = 0; i < mainData.length; i++) {
         for (let x = 0; x < mainData[i].length; x++) {
             if (isNaN(mainData[i][x])) mainData[i][x] = 0
@@ -38,6 +28,7 @@ export const createRecord = async (req, res) => {
     }
 
     try {
+        // Update de contador de workouts
         await User.findByIdAndUpdate(
             req.user.id,
             {
@@ -46,6 +37,7 @@ export const createRecord = async (req, res) => {
         )
 
         let workoutRecords = []
+        // Por cada ejercicio registrado
         for (let i = 0; i < exercise.length; i++) {
             const newHistory = new History({
                 exercise: exercise[i],
@@ -58,6 +50,7 @@ export const createRecord = async (req, res) => {
             workoutRecords.push(savedHistory._id)
 
             const recordData = await Record.findOne({ user: req.user.id, exercise: savedHistory.exercise })
+            // Update de los datos del documento Record
             const record = await Record.findOneAndUpdate(
                 {
                     user: req.user.id,
@@ -100,16 +93,19 @@ export const updateRecord = async (req, res) => {
     try {
         const { records } = await Workout.findById(req.params.id)
 
+        // Del documento workouts sacamos los Histoys para actualizar
         let historysToUpdate = []
         for (const val of records) {
             const wkHistory = await History.findById(val)
             historysToUpdate.push(wkHistory)
         }
 
+        // Por cada history para actualizar 
         for (let index = 0; index < historysToUpdate.length; index++) {
             const history = await History.findById(records[index])
             let exerciseChange = history.exercise.toString() !== exercise[index]
             
+            // Manejo del contador para el promedio, segun si hay cambio de ejercicio
             let substractCounter = history.secondaryData.length
             if (exerciseChange) substractCounter = 0
             
@@ -146,10 +142,9 @@ export const updateRecord = async (req, res) => {
                 }
             )
 
-            console.log(exerciseChange)
-
             if (!record) return res.status(404).json({message: 'Record not found'})
 
+            // Manejo de los datos del Record asociado con el ejercicio anterior
             if (exerciseChange) {
                 const oldRecordData = await Record.findOne({ user: req.user.id, exercise: history.exercise })
 
@@ -173,6 +168,7 @@ export const updateRecord = async (req, res) => {
             }
         }
 
+        // Update de los ID de records
         records.forEach((val, index) => {
             if (val !== exercise[index]) val = exercise[index]
         })
@@ -189,25 +185,22 @@ export const updateRecord = async (req, res) => {
     } catch (error) {
         res.status(500).json({message: error.message})
     }
-
-    /* TODO: CUANDO MANDE LOS DATOS VER QUE SIGAN LA ESTRUCTURA
-        funcion se va a ecribir en carpeta libs
-        {
-            "exercise": ['', '', ''],
-            "mainData": [[], [], []],
-            "secondaryData": [[], [], []]
-
-            tambien redondear los valores en caso de que se igresen decimales
-        }
-    */
 }
 
 export const deleteRecord = async (req, res) => {
     try {
+        // Update de contador de workouts
+        await User.findByIdAndUpdate(
+            req.user.id,
+            {
+                $inc: { "workouts": -1 }
+            }
+        )
+
         const workout = await Workout.findByIdAndDelete(req.params.id)
         if (!workout) return res.status(404).json({message: 'Workout not found'})
 
-
+        // Por cada ejercicio en workout
         for (let i = 0; i < workout.records.length; i++) {
             const wkHistory = await History.findById(workout.records[i])
 
@@ -246,9 +239,11 @@ export const getHistory = async (req, res) => {
         const workouts = await Workout.find({ user: req.user.id })
         const sortedWorkouts = workouts.sort((x, y) => y.createdAt.getTime() - x.createdAt.getTime())
 
+        // Por cada workout registrado
         for (let i = 0; i < sortedWorkouts.length; i++) {
             const exercisesArray = []
 
+            // Por cada ejercicio del workout
             for (let x = 0; x < sortedWorkouts[i].records.length; x++) {
                 const history = await History.findById(sortedWorkouts[i].records[x])
                 const exercise = await Exercise.findById(history.exercise)

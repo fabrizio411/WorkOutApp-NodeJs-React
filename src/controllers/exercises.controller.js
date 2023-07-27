@@ -59,7 +59,7 @@ export const createExercise = async (req, res) => {
 
 export const deleteExercise = async (req, res) => {
     try {
-        const exercise = await Exercise.findByIdAndDelete(req.params.id).where({ user: req.user.id })
+        const exercise = await Exercise.findByIdAndDelete(req.params.id).where({ user: req.user.id, isCustom: true })
         res.sendStatus(204)
     } catch (error) {
         res.status(500).json({message: error.message})

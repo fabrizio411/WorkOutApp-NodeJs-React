@@ -5,6 +5,7 @@ import { createExerciseDEV, getExercise, createExercise, deleteExercise } from "
 
 const router = Router()
 
+// Ruta para crear ejercicios default
 router.post('/exercisesDEV', authRequired, createExerciseDEV)
 
 router.get('/exercises', authRequired, getExercise)

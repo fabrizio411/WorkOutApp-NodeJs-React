@@ -1,7 +1,6 @@
 export const newRecordMax = (actualDataArray, newDataArray, historyID) => {
     const newMax = Math.max(...newDataArray)
 
-
     for (let i = 0; i < actualDataArray.length; i++) {
         if (newMax > actualDataArray[i][0]) {
             actualDataArray.unshift([newMax, historyID])

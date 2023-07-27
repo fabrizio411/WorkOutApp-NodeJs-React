@@ -9,8 +9,10 @@ export const register = async (req, res) => {
     const {username, email, password} = req.body
 
     try {
+        // Cifrado de contraceña usando BCrypt
         const passwordHash = await bcrypt.hash(password, 10)
 
+        // Crear nuevo usuario
         const newUser = new User({
             username, 
             email, 
@@ -20,9 +22,11 @@ export const register = async (req, res) => {
         })
         const userSaved = await newUser.save()
 
+        // Crear token asociado con usuario y mandarlo como cookie
         const token = await createAccesToken({ id: userSaved._id })
         res.cookie('token', token)
 
+        // Crear un documento de Record por cada ejercicio de DB
         const exercises = await Exercise.find({ isCustom: false })
         exercises.forEach(async (item) => {
             const newRecord = new Record({
@@ -44,6 +48,7 @@ export const register = async (req, res) => {
             await newRecord.save()
         })
 
+        // Crear un documento de Program
         const newProgram = new Program({
             week: [[], [], [], [], [], [], []],
             user: userSaved._id
@@ -91,23 +96,4 @@ export const logout = async (req, res) => {
         expires: new Date(0)
     })
     return res.sendStatus(200)
-}
-
-export const home = async (req, res) => {
-    try {
-        const userFound = await User.findById(req.user.id)
-
-        if (!userFound) return res.status(400).json({message: 'User not found'})
-    
-        return res.json({
-            id: userFound._id,
-            username: userFound.username,
-            email: userFound.email,
-            cratedAt: userFound.createdAt
-        })
-    } catch (error) {
-        res.status(500).json({message: error.message})
-    }
-
-
 }

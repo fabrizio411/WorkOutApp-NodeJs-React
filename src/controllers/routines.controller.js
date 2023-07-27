@@ -22,11 +22,13 @@ export const getOneRoutine = async (req, res) => {
 }
 
 export const createRoutine = async (req, res) => {
+    const { name, exercises } = req.body
+
     try {
         const newRoutine = new Routine({
-            name: req.body.name,
+            name: name,
             total: 0,
-            exercises: req.body.exercises,
+            exercises: exercises,
             user: req.user.id
         })
         const savedRoutine = await newRoutine.save()

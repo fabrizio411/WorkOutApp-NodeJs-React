@@ -3,6 +3,7 @@ import { TOKEN_SECRET } from '../config.js';
 
 
 export const authRequired = (req, res, next) => {
+    // Obtener token de las cookies y validarlo con libreria jsonwebtoken
     const {token} = req.cookies
 
     if (!token) return res.status(401).json({message: 'Unauthorized'})
@@ -10,6 +11,7 @@ export const authRequired = (req, res, next) => {
     jwt.verify(token, TOKEN_SECRET, (err, user) => {
         if (err) return res.status(403).json({message: 'Invalid token'})
 
+        // Asignar el usuario asociado al token a req.user
         req.user = user
 
         next()
