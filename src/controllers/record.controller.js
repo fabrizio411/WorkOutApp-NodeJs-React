@@ -4,8 +4,6 @@ import Workout from '../models/workout.model.js'
 import User from '../models/user.model.js'
 import Exercise from '../models/exercise.model.js'
 
-import { newRecordMax, newRecordAverage, updateTotal, updateRecordAverage, updateRecordMax, updateRecordMaxIfChanged, updateRecordAverageIfChanged } from '../libs/recordManagement.js'
-
 export const getRecord = async (req, res) => {
     try {
         const record = await Record.find({ user: req.user.id })

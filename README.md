@@ -40,16 +40,6 @@
 - Se hara referencia al ejercicio al que pertenecen con ObjectId
 - Se guardara un timestamp luego poder agrupar los datos de un mismo entrenamiento
 - Se guardara el orden en que se enviaron los ejercicios para mostrarlos correctamente
-s
-## Record
-- Cada usuario tendra un Record por cada ejercicio existente
-- Al crear ejercicios se creara un Record correspondiente
-- Referencia al ejercicio con ObjectId
-- Contendra los sigientes datos para los registros pricipales y secundarios del ejercicio:
-    - Total: suma de todos los datos registrados
-    - Max: maximo de todos los datos registrados. Se guardaran los primeros 3 para tener contingencia en caso de edicion del RecordHistory
-    - Average: promedio de todos los datos registrados
-    - AverageCounter: llevara la cuenta de cuantos datos hay registrados para calculos de promedio
 
 ## Measure
 - Registro de medidas de peso corporal
@@ -143,19 +133,15 @@ s
 - Checkear de que los datos numericos sean numeros, en caso contrario se transforman en 0
 - Actualizacion del contador de workouts en docuemnto User
 - Para cada ejercicio del regisstro se crea un RecordHistory del mismo, asociado asociado con el usuario, y con una variable que registra el orden de los ejercicios
-- Se actualiza los datos del documento Record asociado con el ejercicio.
 - Se crea un documento Workout con las Id de todos los RecordHystory del entrenamiento, tambien se guarda timestamp
 - [Estructura de datos](#createRecord---estructura)
 ### updateRecord
 - Actualizar los datos de un Workout
 - A partir del workout se busna los RecordHistory asociados y se actualizan
-- Se actualizan los datos en el documento record
-- En caso de que se cambie un ejercicio, los datos de Record se actualizaran de forma diferente
 - Actualiazr los Id de ejercicios guardados en Workout
 - [Estructura de datos](#createrecordupdaterecord---estructura)
 ### deleteRecord
 - Borrar un documento Workout y los History asociados
-- Actualizar los documentos Record asociados a los historys borrados
 - Actualizar el contador de workouts en User
 ### getHistory
 - Se obtiene un objeto workout ordenado por fecha
@@ -164,25 +150,6 @@ s
 ## Helpers
 ### createAccesToken
 - Crea un token con libreria JsonwebToken
-### newRecordMax
-- Compara el maximo de el history con los maximos registrados, en caso de ser mayor se agrega al array
-- El array se ordena y se elimina el ultimo item
-### newRecordAverage
-- Actualiza el valor del average del registro con los nuevos datos
-### updateTotal
-- Actualiza el valor total cuando se realiza un update en un workout
-- Considera si hay un cambio de ejercicio
-### updateRecordMax
-- Actualiza el valor del max cuando se realiza un upadte del workout
-### updateRecordAverage
-- Actualiza el valor del average cuando se realiza un update del workout
-- Conisdera si hay un cambio de ejercicio
-### updateRecodMaxIfChanged
-- Actualiza el valor del maximo cuando hay un cambio de ejercicio en el record del cual se eliminara el dato
-### updateAverageIfChanged
-- Actualiza el valor del average cuando hay un cambio de ejercicio en el record del cual se eliminara el dato
-
-
 
 # Requests
 ## Estructuras de datos
