@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function RegisterPage() {
-    const {register, handleSubmit} = useForm()
+    const {register, handleSubmit, formState: {errors}} = useForm()
     const {signUp, isAuthenticated} = useAuth()
     const navigate = useNavigate()
 
@@ -22,8 +22,14 @@ function RegisterPage() {
         <div className='page-container'>
             <form className='form-container' onSubmit={onSubmit}>
                 <input className='input' placeholder='Username' type='text' {...register('username', {required: true})}/>
+                { errors.username && <p>Username is required</p>}
+
                 <input className='input' placeholder='Email' type='email' {...register('email', {required: true})}/>
+                { errors.email && <p>Email is required</p>}
+
                 <input className='input' placeholder='Password' type='password' {...register('password', {required: true})}/>
+                { errors.password && <p>Password is required</p>}
+
                 <button className='submit-btn' type='submit'>Register</button>
             </form>
         </div>
