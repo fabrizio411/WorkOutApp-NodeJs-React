@@ -8,6 +8,11 @@ export const register = async (req, res) => {
     const {username, email, password} = req.body
 
     try {
+        const userFoundEmail = await User.findOne({ email: email })
+        if (userFoundEmail) return res.status(400).json( {error: ['The email is already in use']} )
+        const userFoundUsernmae = await User.findOne({ username: username })
+        if (userFoundUsernmae) return res.status(400).json( {error: ['The username is already in use']} )
+
         // Cifrado de contraceña usando BCrypt
         const passwordHash = await bcrypt.hash(password, 10)
 

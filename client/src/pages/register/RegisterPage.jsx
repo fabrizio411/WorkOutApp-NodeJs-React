@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 function RegisterPage() {
     const {register, handleSubmit, formState: {errors}} = useForm()
-    const {signUp, isAuthenticated} = useAuth()
+    const {signUp, isAuthenticated, errors: registerErrors} = useAuth()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -17,10 +17,15 @@ function RegisterPage() {
         signUp(values)
     })
 
+    console.log(registerErrors)
 
     return (
         <div className='page-container'>
             <form className='form-container' onSubmit={onSubmit}>
+                { registerErrors.map((error, i) => (
+                    <div key={i}>{error.error}</div>
+                ))}
+
                 <input className='input' placeholder='Username' type='text' {...register('username', {required: true})}/>
                 { errors.username && <p>Username is required</p>}
 
