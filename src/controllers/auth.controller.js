@@ -2,7 +2,6 @@ import bcrypt from 'bcryptjs'
 import {createAccesToken} from '../libs/jwt.js'
 import User from '../models/user.model.js'
 import Exercise from '../models/exercise.model.js'
-import Record from '../models/record.model.js'
 import Program from '../models/program.model.js'
 
 export const register = async (req, res) => {
@@ -25,28 +24,6 @@ export const register = async (req, res) => {
         // Crear token asociado con usuario y mandarlo como cookie
         const token = await createAccesToken({ id: userSaved._id })
         res.cookie('token', token)
-
-        // Crear un documento de Record por cada ejercicio de DB
-        const exercises = await Exercise.find({ isCustom: false })
-        exercises.forEach(async (item) => {
-            const newRecord = new Record({
-                exercise: item._id,
-                mainData: {
-                    total: 0,
-                    max: [[0, ''], [0, ''], [0, '']],
-                    average: 0,
-                    averageCounter: 0
-                },
-                secondaryData: {
-                    total: 0,
-                    max: [[0, ''], [0, ''], [0, '']],
-                    average: 0,
-                    averageCounter: 0
-                },
-                user: userSaved._id
-            })
-            await newRecord.save()
-        })
 
         // Crear un documento de Program
         const newProgram = new Program({

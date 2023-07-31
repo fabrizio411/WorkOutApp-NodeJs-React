@@ -95,6 +95,10 @@
 - [Estructura de datos](#createExerciseDEV---estructura)
 ### getExercise
 - Junta en un array todos los ejercicios default y los ejercicios cusom del usuario
+### getOneExercise
+- Obtiene los un ejercicio junto con todo el historial de registros del usuario del ejercicio
+- Calcula datos de total, maximo y promedio de los dos datos del ejercicio
+- Devuleve un objeto con todos los datos del ejercicio y los datos calculados
 ### createExercise
 - Crear ejercicios custom del usuario
 - [Estructura de datos](#createExercise---estructura)
@@ -126,8 +130,6 @@
 - [Estructura de datos](#createroutineupdateroutine---estructura)
 ### deleteRoutine
 - Eliminar un documento de Routine asociado con el usuario
-### getRecord
-- Obtener los docuemntos Record de todos los ejercicios asociados con el usuario
 ### createRecord
 - Crear un nuevo documento ReocrdHistory
 - Checkear de que los datos numericos sean numeros, en caso contrario se transforman en 0
@@ -150,6 +152,15 @@
 ## Helpers
 ### createAccesToken
 - Crea un token con libreria JsonwebToken
+### getTotal
+- Obtiene el total de los datos de los registros
+- Parametros: array de registros, 'MAIN' o 'SECUNDARY' indica que datos queremos obtener
+### getMax
+- Obtiene el maximo de los datos de los registros
+- Parametros: array de registros, 'MAIN' o 'SECUNDARY' indica que datos queremos obtener
+### getAverage
+- Obtiene el promedio de los datos de los registros
+- Parametros: array de registros, 'MAIN' o 'SECUNDARY' indica que datos queremos obtener
 
 # Requests
 ## Estructuras de datos

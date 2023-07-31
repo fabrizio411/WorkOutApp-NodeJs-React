@@ -1,4 +1,6 @@
-import Exercise from "../models/exercise.model.js";
+import { getAverage, getMax, getTotal } from '../libs/getExerciseData.js'
+import Exercise from '../models/exercise.model.js'
+import History from '../models/recordHisroty.model.js'
 
 /*
 -- DEV -- Create regular exercise
@@ -30,6 +32,33 @@ export const getExercise = async (req, res) => {
         const exercisesAll = [...exercises, ...exercisesCustom]
 
         res.json(exercisesAll)
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+}
+
+export const getOneExercise = async (req, res) => {
+    try {
+        const exercise = await Exercise.findById(req.params.id)
+        const exerciseData = await History.find({ user: req.user.id, exercise: req.params.id })
+
+        const data = {
+            name: exercise.name,
+            type: exercise.type,
+            muscle: exercise.muscle,
+            isCustom: exercise.isCustom,
+            mainData: {
+                total: getTotal(exerciseData, 'MAIN'),
+                max: getMax(exerciseData, 'MAIN'),
+                average: getAverage(exerciseData, 'MAIN')
+            },
+            secondaryData: {
+                total: getTotal(exerciseData, 'SECONDARY'),
+                max: getMax(exerciseData, 'SECONDARY'),
+                average: getAverage(exerciseData, 'SECONDARY')
+            }
+        }
+        res.json(data)
     } catch (error) {
         res.status(500).json({message: error.message})
     }

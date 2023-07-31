@@ -1,18 +1,7 @@
-import Record from '../models/record.model.js'
 import History from '../models/recordHisroty.model.js'
 import Workout from '../models/workout.model.js'
 import User from '../models/user.model.js'
 import Exercise from '../models/exercise.model.js'
-
-export const getRecord = async (req, res) => {
-    try {
-        const record = await Record.find({ user: req.user.id })
-
-        res.json(record)
-    } catch (error) {
-        res.status(500).json({message: error.message})
-    }
-}
 
 export const createRecord = async (req, res) => {
     let { exercise, mainData, secondaryData } = req.body
