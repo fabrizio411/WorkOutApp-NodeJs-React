@@ -23,17 +23,17 @@ function RegisterPage() {
         <div className='page-container'>
             <form className='form-container' onSubmit={onSubmit}>
                 { registerErrors.map((error, i) => (
-                    <div key={i}>{error.error}</div>
+                    <div key={i}>{error}</div>
                 ))}
 
                 <input className='input' placeholder='Username' type='text' {...register('username', {required: true})}/>
-                { errors.username && <p>Username is required</p>}
+                { errors.username && (<p>Username is required</p>)}
 
                 <input className='input' placeholder='Email' type='email' {...register('email', {required: true})}/>
-                { errors.email && <p>Email is required</p>}
+                { errors.email && (<p>Email is required</p>)}
 
                 <input className='input' placeholder='Password' type='password' {...register('password', {required: true})}/>
-                { errors.password && <p>Password is required</p>}
+                { errors.password && (<p>Password is required</p>)}
 
                 <button className='submit-btn' type='submit'>Register</button>
             </form>
