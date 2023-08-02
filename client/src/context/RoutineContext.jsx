@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { createRoutinesRequest, getRoutinesRequest } from '../api/routines'
 
 const RoutineContext = createContext()
 
@@ -14,13 +15,32 @@ export function RoutineProvider({ children }) {
 
     const [routines, setRoutines] = useState([])
 
-    const createRoutine = (routine) => {
-        console.log('task')
+    // Obtener rutinas del backend
+    const getRoutines = async () => {
+        try {
+            const res = await getRoutinesRequest()
+            console.log(res)
+            setRoutines(res.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    // Mandar datos de rutina nueva al backend
+    const createRoutine = async (routine) => {
+        try {
+            const res = await createRoutinesRequest(routine)
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 
     return (
         <RoutineContext.Provider value={{
             createRoutine,
+            getRoutines,
             routines
         }}>
 

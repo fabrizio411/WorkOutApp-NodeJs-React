@@ -1,12 +1,22 @@
-import { useAuth } from '../../context/AuthContext'
+import { useEffect } from 'react'
+import { useRoutine } from '../../context/RoutineContext'
 
 function RoutinesPage() {
 
-  const { user } = useAuth()
-  console.log(user)
+  const { getRoutines, routines } = useRoutine()
+
+  useEffect(() => {
+    getRoutines()
+  }, [])
+
+  if (task)
 
   return (
-    <div>RoutinesPage</div>
+    <div>
+      {routines.map(routine => (
+        <p key={routine._id}>{routine.name}</p>
+      ))}
+    </div>
   )
 }
 
