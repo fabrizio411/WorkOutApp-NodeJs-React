@@ -14,7 +14,8 @@ const app = express()
 
 // Coneccion de frontend y backend
 app.use(cors({
-    origin: 'http://localhost:5173'
+    origin: 'http://localhost:5173',
+    credentials: true
 }))
 
 // Ver request por consola

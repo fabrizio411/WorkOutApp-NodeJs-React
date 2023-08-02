@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { registerRequest, loginRequest } from '../api/auth.js'
+import { registerRequest, loginRequest, verifyTokenrequest } from '../api/auth.js'
+import Cookie from 'js-cookie'
 
 
 export const AuthContext = createContext()
@@ -17,6 +18,8 @@ export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [errors, setErrors] = useState([])
+    // Controlar la recarga una vez cargan los datos de las cookies
+    const [loading, setLoading] = useState(true)
 
     // Funcion sign up, conecta con el backend
     const signUp = async (user) => {
@@ -37,6 +40,8 @@ export const AuthProvider = ({children}) => {
         try {
             const res = await loginRequest(user)
             console.log(res)
+            setUser(res.data)
+            setIsAuthenticated(true)
             
         } catch (error) {
             let errorsArray = []
@@ -55,11 +60,55 @@ export const AuthProvider = ({children}) => {
         }
     }, [errors])
 
+    // Comprobar la validacion del token para acceder a rutas
+    useEffect(() => {
+        async function checkLogin () {
+            // Obtenemos las cookies del navegador
+            const cookies = Cookie.get()
+
+            // En caso de que no exista el token
+            if (!cookies.token) {
+                setIsAuthenticated(false)
+                setUser(null)
+                setLoading(false)
+                return
+            }
+
+            try {
+                // Verificar si el token es correcto en backend
+                const res = await verifyTokenrequest(cookies.token)
+                // Si el backend no responde
+                if (!res.data) {
+                    setIsAuthenticated(false)
+                    setLoading(false)
+                    setUser(null)
+                    return
+                }
+
+                // Si existe una respuesta
+                console.log(res.data)
+                setIsAuthenticated(true)
+                setUser(res.data)
+                setLoading(false)
+            } catch (error) {
+                // En caso de error
+                setIsAuthenticated(false)
+                setUser(null)
+                setLoading(false)
+                console.log(error)
+            }
+        }
+
+        checkLogin()
+
+    }, [])
+
     return (
         <AuthContext.Provider 
             value={{
                 signUp, 
                 signIn,
+                loading,
                 user, 
                 isAuthenticated, 
                 errors
