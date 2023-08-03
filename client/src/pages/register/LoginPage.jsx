@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
-import { useAuth } from '../../context/AuthContext'
-import '../../css/register/register.css'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/AuthContext'
 
 function LoginPage() {
 
@@ -22,7 +21,8 @@ function LoginPage() {
   })
 
   return (
-    <div className='page-container'>
+    <div className='register-container'>
+      <h1 className='page-title'>Log In</h1>
       <form className='form-container' onSubmit={onSubmit}>
         { signInErrors.map((error, i) => (
           <div key={i}>{error}</div>
@@ -36,9 +36,9 @@ function LoginPage() {
 
         <button className='submit-btn' type='submit'>Log in</button>
 
-        <p>
+        <p className='footer-txt'>
           Dont have an account?
-          <Link to='/register'>Sign Up</Link>
+          <Link to='/register' className='link'>Sign Up</Link>
         </p>
       </form>
 

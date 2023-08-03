@@ -1,0 +1,63 @@
+.register-container {
+  background-color: #191a1c;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+.register-container .page-title {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.register-container .form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  background-color: #1f2022;
+  border: 1px solid #2b2d30;
+  border-radius: 1rem;
+}
+.register-container .form-container .input {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid #37393d;
+  outline: none;
+  background-color: #292b2f;
+  color: #cecece;
+}
+.register-container .form-container .input::placeholder {
+  color: #9DA4AE;
+}
+.register-container .form-container .submit-btn {
+  padding: 0.4rem;
+  align-self: flex-start;
+  width: 50%;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: rgb(161, 74, 40);
+  color: #cecece;
+}
+.register-container .form-container .submit-btn:hover {
+  background-color: rgb(173, 90, 57);
+}
+.register-container .form-container .footer-txt {
+  color: #9DA4AE;
+}
+.register-container .form-container .footer-txt .link {
+  margin: 0.5rem;
+  color: #cecece;
+  font-weight: bold;
+  text-decoration: none;
+}
+.register-container .form-container .footer-txt .link:hover {
+  color: #ffffff;
+}
+
+.home-container {
+  background-color: rgb(189, 130, 130);
+}
+
+/*# sourceMappingURL=styles.css.map */

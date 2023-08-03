@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form'
-import '../../css/register/register.css'
 import { useAuth } from '../../context/AuthContext.jsx'
 import { useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
@@ -20,7 +19,8 @@ function RegisterPage() {
     console.log(registerErrors)
 
     return (
-        <div className='page-container'>
+        <div className='register-container'>
+            <h1 className='page-title'>Register</h1>
             <form className='form-container' onSubmit={onSubmit}>
                 { registerErrors.map((error, i) => (
                     <div key={i}>{error}</div>
@@ -37,9 +37,9 @@ function RegisterPage() {
 
                 <button className='submit-btn' type='submit'>Register</button>
 
-                <p>
+                <p className='footer-txt'>
                     Already have an account?
-                    <Link to='/login'>Log In</Link>
+                    <Link to='/login' className='link'>Log In</Link>
                 </p>
             </form>
         </div>

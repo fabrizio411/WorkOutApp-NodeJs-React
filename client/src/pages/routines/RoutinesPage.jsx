@@ -9,8 +9,6 @@ function RoutinesPage() {
     getRoutines()
   }, [])
 
-  if (task)
-
   return (
     <div>
       {routines.map(routine => (

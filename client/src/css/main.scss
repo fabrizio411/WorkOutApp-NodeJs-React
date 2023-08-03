@@ -1,0 +1,91 @@
+$clr-bg-lvl1: #191a1c;
+$clr-bg-lvl2: #1f2022;
+$clr-bg-lvl3: #292b2f;
+$clr-bg-lvl5: #4a4a4a;
+
+$clr-borders-lvl2: #2b2d30;
+$clr-borders-lvl3: #37393d;
+
+$clr-text-lvl1: #ffffff;
+$clr-text-lvl2: #cecece;
+$clr-text-lvl3: #9DA4AE;
+
+$color-1: rgb(161, 74, 40);
+$color-1-hover: rgb(173, 90, 57);
+
+// REGISTER AND LOGIN PAGES
+.register-container {
+    background-color: $clr-bg-lvl1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+
+    .page-title {
+        color: $clr-text-lvl1;
+        font-weight: bold;
+        font-size: 1.5rem;
+
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 2rem 1rem;
+        background-color: $clr-bg-lvl2;
+        border: 1px solid $clr-borders-lvl2;
+        border-radius: 1rem;
+
+        .input {
+            padding: .5rem;
+            border-radius: .5rem;
+            border: 2px solid $clr-borders-lvl3;
+            outline: none;
+            background-color: $clr-bg-lvl3;
+            color: $clr-text-lvl2;
+
+            &::placeholder {
+                color: $clr-text-lvl3;
+            }
+        }
+
+        .submit-btn {
+            padding: .4rem;
+            align-self: flex-start;
+            width: 50%;
+            border: none;
+            border-radius: .25rem;
+            background-color: $color-1;
+            color: $clr-text-lvl2;
+
+            &:hover {
+                background-color: $color-1-hover;
+            }
+        }
+
+        .footer-txt {
+            color: $clr-text-lvl3;
+            
+            .link {
+                margin: .5rem;
+                color: $clr-text-lvl2;
+                font-weight: bold;
+                text-decoration: none;
+
+                &:hover {
+                    color: $clr-text-lvl1;
+                }
+            }
+        }
+    }
+}
+
+
+
+// HOME PAGE
+.home-container {
+    background-color: rgb(189, 130, 130);
+    
+}
