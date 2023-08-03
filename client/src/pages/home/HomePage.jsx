@@ -1,12 +1,10 @@
+import Header from "../../components/Header"
 
 
 function HomePage() {
   return (
     <div className="home-container">
-        <div className="header-container">
-            <h1 className="header-title">WorkOutApp</h1>
-            <p className="btn">MENU</p>
-        </div>
+        <Header/>
 
         <section className="program-container">
             <h2 className="section-title">Program</h2>

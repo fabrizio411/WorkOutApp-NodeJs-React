@@ -18,11 +18,12 @@ function App() {
             <RoutineProvider>
                 <BrowserRouter>
                     <Routes>
-                        <Route path='/' element={<HomePage/>}/>
+                        <Route path='/' element={<h1>Landing page</h1>}/>
                         <Route path='/login' element={<LoginPage/>}/>
                         <Route path='/register' element={<RegisterPage/>}/>
 
-                        <Route element={<ProtecterRoute/>}>
+                            <Route path='/home' element={<HomePage/>}/>
+
                             <Route path='/routines' element={<RoutinesPage/>}/>
                             <Route path='/create-routine' element={<RoutineCreatePage/>}/>
                             <Route path='/routines/:id' element={<h1>view routine</h1>}/>
@@ -35,6 +36,7 @@ function App() {
                             <Route path='/exercises' element={<h1>exercises</h1>}/>
                             <Route path='/measures' element={<h1>measures</h1>}/>
                             <Route path='/history' element={<h1>history</h1>}/>
+                        <Route element={<ProtecterRoute/>}>
                         </Route>
 
                     </Routes>
