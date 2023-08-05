@@ -1,10 +1,8 @@
-import Header from "../../components/HeaderV1"
 
 
 function HomePage() {
   return (
     <div className="home-container">
-        <Header/>
 
         <section className="program-container">
             <h2 className="section-title">Program</h2>
