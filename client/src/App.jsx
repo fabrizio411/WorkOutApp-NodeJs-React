@@ -9,7 +9,7 @@ import RoutineCreatePage from './pages/routines/RoutineCreatePage'
 import ProtecterRoute from './ProtecterRoute'
 import HomePage from './pages/home/HomePage'
 
-import './css/styles.css'
+import '../public/css/styles.css'
 
 
 function App() {
