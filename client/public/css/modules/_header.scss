@@ -1,0 +1,38 @@
+$nav-height: 50px;
+
+$nav-media-break: 600px;
+
+// HEADER
+.header-component-container {
+    background-color: red;
+    height: $nav-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .menu-svg-btn {
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: $nav-height;
+        width: $nav-height;
+
+        .menu-svg {
+            fill: black;
+        }
+    }
+
+    @media (min-width: $nav-media-break) {
+        .menu-svg-btn {
+            display: none;
+        }
+    }
+
+    .title {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+}
+
