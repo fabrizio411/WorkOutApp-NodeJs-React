@@ -29,9 +29,14 @@ function Nav() {
                                 <h3 className='username'>Username</h3>
                                 <p className='date-p'>Joined: <span className='date'>16/6/2023</span></p>
                             </div>
-                            <button className='logout-btn'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path><path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path></svg>
-                            </button>
+                            <div className='logout-box'>
+                                <div className='tooltip'>
+                                    <p>Settings</p>
+                                </div>
+                                <button className='logout-btn'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path><path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path></svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -78,7 +83,6 @@ function Nav() {
                         </ul>
                     </nav>
                 </div>
-
             </div>
         </NavProvider>
     )

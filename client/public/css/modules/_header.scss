@@ -115,12 +115,30 @@ $nav-media-break: 600px;
                     }
                 }
 
-                .logout-btn {
-                    height: $nav-height;
-                    width: $nav-height;
-                    background-color: transparent;
-                    border: none;
-                    margin-right: 8px;
+                .logout-box {
+                    .logout-btn {
+                        height: $nav-height;
+                        width: $nav-height;
+                        background-color: transparent;
+                        border: none;
+                        margin-right: 8px;
+                    }
+
+                    .tooltip {
+                        display: none;
+                        padding: 15px;
+                        background-color: black;
+                        color: white;
+                        border-radius: 10px;
+                        position: absolute;
+                        transform: translate(-25%, -90%);
+                    }  
+
+                    &:hover {
+                        .tooltip {
+                            display: block;
+                        }
+                    }
                 }
             }
         }

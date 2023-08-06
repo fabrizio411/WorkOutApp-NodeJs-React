@@ -163,12 +163,24 @@
 .nav-component-container .nav-container .profile-info-box .info-box .user-info-box .date-p {
   font-size: 0.85rem;
 }
-.nav-component-container .nav-container .profile-info-box .info-box .logout-btn {
+.nav-component-container .nav-container .profile-info-box .info-box .logout-box .logout-btn {
   height: 50px;
   width: 50px;
   background-color: transparent;
   border: none;
   margin-right: 8px;
+}
+.nav-component-container .nav-container .profile-info-box .info-box .logout-box .tooltip {
+  display: none;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  position: absolute;
+  transform: translate(-25%, -90%);
+}
+.nav-component-container .nav-container .profile-info-box .info-box .logout-box:hover .tooltip {
+  display: block;
 }
 .nav-component-container .nav-container .nav-options-box {
   background-color: rgb(180, 180, 178);
