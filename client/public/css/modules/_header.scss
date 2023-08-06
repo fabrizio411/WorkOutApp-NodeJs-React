@@ -36,3 +36,92 @@ $nav-media-break: 600px;
     }
 }
 
+
+
+// NAV
+.nav-component-container.active {
+    display: block;
+}
+
+.nav-component-container.inactive {
+    display: none;
+}
+
+@media (min-width: $nav-media-break) {
+    .nav-component-container.inactive {
+        display: block;
+    }
+}
+
+.nav-component-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .nav-container {
+        height: 100%;
+        background-color: blue;
+        width: 250px;
+
+        .profile-info-box {
+            .accesibility {
+                display: flex;
+                justify-content: space-between;
+
+                .menu-svg-btn, .color-theme-btn {
+                    height: $nav-height;
+                    width: $nav-height;
+                    background-color: transparent;
+                    border: none;
+                    margin-right: 5px;
+
+                    svg {
+                        fill: black;
+                    }
+                }
+            }
+
+            @media (min-width: $nav-media-break) {
+                .accesibility {
+                    display: none;
+                }
+            }
+
+            .profile-img {
+                width: 80px;
+                height: 80px;
+                margin-left: 15px;
+                border-radius: 100%;
+            }
+
+            @media (min-width: $nav-media-break) {
+                .profile-img {
+                    margin-top: 15px;
+                }
+            }
+
+            .info-box {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .user-info-box {
+                    padding: 15px;
+                    padding-top: 8px;
+
+                    .date-p {
+                        font-size: .85rem;
+                    }
+                }
+
+                .logout-btn {
+                    height: $nav-height;
+                    width: $nav-height;
+                    background-color: transparent;
+                    border: none;
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+}

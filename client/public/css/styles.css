@@ -95,6 +95,79 @@
   font-weight: bold;
 }
 
+.nav-component-container.active {
+  display: block;
+}
+
+.nav-component-container.inactive {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .nav-component-container.inactive {
+    display: block;
+  }
+}
+.nav-component-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.nav-component-container .nav-container {
+  height: 100%;
+  background-color: blue;
+  width: 250px;
+}
+.nav-component-container .nav-container .profile-info-box .accesibility {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-component-container .nav-container .profile-info-box .accesibility .menu-svg-btn, .nav-component-container .nav-container .profile-info-box .accesibility .color-theme-btn {
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: none;
+  margin-right: 5px;
+}
+.nav-component-container .nav-container .profile-info-box .accesibility .menu-svg-btn svg, .nav-component-container .nav-container .profile-info-box .accesibility .color-theme-btn svg {
+  fill: black;
+}
+@media (min-width: 600px) {
+  .nav-component-container .nav-container .profile-info-box .accesibility {
+    display: none;
+  }
+}
+.nav-component-container .nav-container .profile-info-box .profile-img {
+  width: 80px;
+  height: 80px;
+  margin-left: 15px;
+  border-radius: 100%;
+}
+@media (min-width: 600px) {
+  .nav-component-container .nav-container .profile-info-box .profile-img {
+    margin-top: 15px;
+  }
+}
+.nav-component-container .nav-container .profile-info-box .info-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-component-container .nav-container .profile-info-box .info-box .user-info-box {
+  padding: 15px;
+  padding-top: 8px;
+}
+.nav-component-container .nav-container .profile-info-box .info-box .user-info-box .date-p {
+  font-size: 0.85rem;
+}
+.nav-component-container .nav-container .profile-info-box .info-box .logout-btn {
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: none;
+  margin-right: 8px;
+}
+
 .home-container {
   background-color: #E7E7E7;
   height: 100%;
