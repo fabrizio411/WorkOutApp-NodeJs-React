@@ -25,7 +25,6 @@ export const AuthProvider = ({children}) => {
     const signUp = async (user) => {
         try {
             const res = await registerRequest(user)
-            console.log(res.data)
             setUser(res.data)
             setIsAuthenticated(true)
         } catch (error) {
@@ -39,7 +38,6 @@ export const AuthProvider = ({children}) => {
     const signIn = async (user) => {
         try {
             const res = await loginRequest(user)
-            console.log(res)
             setUser(res.data)
             setIsAuthenticated(true)
             
@@ -86,7 +84,6 @@ export const AuthProvider = ({children}) => {
                 }
 
                 // Si existe una respuesta
-                console.log(res.data)
                 setIsAuthenticated(true)
                 setUser(res.data)
                 setLoading(false)

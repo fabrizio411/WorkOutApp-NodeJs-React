@@ -1,11 +1,12 @@
 import { createContext, useContext, useState } from "react";
+import { useAuth } from "./AuthContext";
 
 const NavContext = createContext()
 
 export const useNav = () => {
     const context = useContext(NavContext)
     if (!context) {
-        throw new Error('useHeader must be used within a TaskProvider')
+        throw new Error('useNav must be used within a NavProvider')
     }
     return context
 }
@@ -16,7 +17,7 @@ export function NavProvider({ children }) {
     return (
         <NavContext.Provider value={{
             isActive,
-            setIsActive
+            setIsActive,
         }}>
             {children}
         </NavContext.Provider>

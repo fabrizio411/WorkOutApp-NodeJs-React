@@ -12,7 +12,7 @@ function LoginPage() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (isAuthenticated) navigate('/')
+    if (isAuthenticated) navigate('/home')
   }, [isAuthenticated])
 
   const onSubmit = handleSubmit((data) => {

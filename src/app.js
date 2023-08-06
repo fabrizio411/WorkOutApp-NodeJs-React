@@ -14,7 +14,7 @@ const app = express()
 
 // Coneccion de frontend y backend
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173', 'http://192.168.1.5:5173'],
     credentials: true
 }))
 

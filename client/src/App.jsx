@@ -25,7 +25,8 @@ function App() {
                             <Route path='/' element={<h1>Landing page</h1>}/>
                             <Route path='/login' element={<LoginPage/>}/>
                             <Route path='/register' element={<RegisterPage/>}/>
-
+                                
+                            <Route element={<ProtecterRoute/>}>
                                 <Route path='/home' element={<HomePage/>}/>
                                 <Route path='/program' element={<h1>program</h1>}/>
                                 <Route path='/workout' element={<h1>workout</h1>}/>
@@ -45,10 +46,6 @@ function App() {
                                 <Route path='/calendar' element={<CalendarPage/>}/>
 
                                 <Route path='/settings' element={<SettingsPage/>}/>
-
-                                
-                                
-                            <Route element={<ProtecterRoute/>}>
                             </Route>
 
                         </Routes>

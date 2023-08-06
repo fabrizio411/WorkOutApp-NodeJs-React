@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from 'react'
+
 import { NavProvider, useNav } from '../context/NavContext'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 function Nav(props) {
+
+    const {user} = useAuth()
+    console.log(user)
+    const username = user.username
+    const JSDate = new Date(user.createdAt)
+    const createdAt = `${JSDate.getDate()}/${JSDate.getMonth() + 1}/${JSDate.getFullYear()}`
 
     const {isActive, setIsActive} = useNav()
 
@@ -15,6 +23,9 @@ function Nav(props) {
     const handleCloseNav = () => {
         setIsActive(false)
     }
+
+
+    
 
     return (
         <NavProvider>
@@ -32,8 +43,8 @@ function Nav(props) {
                         <img className='profile-img' src='/assets/img/profilepic.png' alt='profile-pic'/>
                         <div className='info-box'>
                             <div className='user-info-box'>
-                                <h3 className='username' id='this'>Username</h3>
-                                <p className='date-p'>Joined: <span className='date'>16/6/2023</span></p>
+                                <h3 className='username' id='this'>{username}</h3>
+                                <p className='date-p'>Joined: <span className='date'>{createdAt}</span></p>
                             </div>
                             <div className='logout-box'>
                                 <div className='tooltip'>

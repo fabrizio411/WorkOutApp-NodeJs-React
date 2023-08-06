@@ -44,7 +44,7 @@ export const register = async (req, res) => {
             id: userSaved._id,
             username: userSaved.username,
             email: userSaved.email,
-            cratedAt: userSaved.createdAt
+            createdAt: userSaved.createdAt
         })
     } catch (error) {
         res.status(500).json({message: error.message})
@@ -68,7 +68,7 @@ export const login = async (req, res) => {
             id: userFound._id,
             username: userFound.username,
             email: userFound.email,
-            cratedAt: userFound.createdAt
+            createdAt: userFound.createdAt
         })
     } catch (error) {
         res.status(500).json({message: error.message})
@@ -96,7 +96,8 @@ export const verifyToken = async (req, res) => {
         return res.json({
             id: userFound._id,
             username: userFound.username,
-            email: userFound.email
+            email: userFound.email,
+            createdAt: userFound.createdAt
         })
     })
 }
