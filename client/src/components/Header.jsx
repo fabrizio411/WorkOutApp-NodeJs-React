@@ -8,8 +8,6 @@ function Header() {
         setIsActive(true)
     }
 
-    console.log(isActive)
-
   return (
     <NavProvider>
         <div className='header-component-container'>

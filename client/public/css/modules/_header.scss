@@ -57,23 +57,23 @@ $nav-media-break: 600px;
     position: absolute;
     top: 0;
     left: 0;
+    height: 100%;
 
     .nav-container {
         height: 100%;
-        background-color: blue;
         width: 250px;
 
         .profile-info-box {
+            background-color: blue;
             .accesibility {
                 display: flex;
                 justify-content: space-between;
 
-                .menu-svg-btn, .color-theme-btn {
+                .menu-svg-btn {
                     height: $nav-height;
                     width: $nav-height;
                     background-color: transparent;
                     border: none;
-                    margin-right: 5px;
 
                     svg {
                         fill: black;
@@ -88,8 +88,8 @@ $nav-media-break: 600px;
             }
 
             .profile-img {
-                width: 80px;
-                height: 80px;
+                width: 100px;
+                height: 100px;
                 margin-left: 15px;
                 border-radius: 100%;
             }
@@ -122,6 +122,11 @@ $nav-media-break: 600px;
                     margin-right: 8px;
                 }
             }
+        }
+
+        .nav-options-box {
+            background-color: rgb(180, 180, 178);
+            height: 100%;
         }
     }
 }
