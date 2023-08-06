@@ -13,11 +13,8 @@ function RoutinesPage() {
 
   return (
     <div>
-      <Nav/>
+      <Nav current_page={'ROUTINES'}/>
       <Header/>
-      {routines.map(routine => (
-        <p key={routine._id}>{routine.name}</p>
-      ))}
     </div>
   )
 }

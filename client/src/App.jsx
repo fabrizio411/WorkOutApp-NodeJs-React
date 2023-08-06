@@ -9,6 +9,11 @@ import RoutineCreatePage from './pages/routines/RoutineCreatePage'
 import ProtecterRoute from './ProtecterRoute'
 import HomePage from './pages/home/HomePage'
 import { NavProvider } from './context/NavContext'
+import ProfilePage from './pages/profile/ProfilePage'
+import ExercisesPage from './pages/exercises/ExercisesPage'
+import MeasuresPage from './pages/measures/MeasuresPage'
+import CalendarPage from './pages/calendar/CalendarPage'
+import SettingsPage from './pages/settings/SettingsPage'
 
 function App() {
     return (
@@ -22,19 +27,26 @@ function App() {
                             <Route path='/register' element={<RegisterPage/>}/>
 
                                 <Route path='/home' element={<HomePage/>}/>
+                                <Route path='/program' element={<h1>program</h1>}/>
+                                <Route path='/workout' element={<h1>workout</h1>}/>
+
+                                <Route path='/profile' element={<ProfilePage/>}/>
+                                <Route path='/history' element={<h1>history</h1>}/>
 
                                 <Route path='/routines' element={<RoutinesPage/>}/>
                                 <Route path='/create-routine' element={<RoutineCreatePage/>}/>
                                 <Route path='/routines/:id' element={<h1>view routine</h1>}/>
                                 <Route path='/routines/edit-routine/:id' element={<h1>edit routine</h1>}/>
 
-                                <Route path='/program' element={<h1>program</h1>}/>
+                                <Route path='/exercises' element={<ExercisesPage/>}/>
 
-                                <Route path='/workout' element={<h1>workout</h1>}/>
+                                <Route path='/measures' element={<MeasuresPage/>}/>
+
+                                <Route path='/calendar' element={<CalendarPage/>}/>
+
+                                <Route path='/settings' element={<SettingsPage/>}/>
+
                                 
-                                <Route path='/exercises' element={<h1>exercises</h1>}/>
-                                <Route path='/measures' element={<h1>measures</h1>}/>
-                                <Route path='/history' element={<h1>history</h1>}/>
                                 
                             <Route element={<ProtecterRoute/>}>
                             </Route>

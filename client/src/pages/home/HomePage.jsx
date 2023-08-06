@@ -1,8 +1,12 @@
-
+import { useRoutine } from '../../context/RoutineContext'
+import Header from '../../components/Header'
+import Nav from '../../components/Nav'
 
 function HomePage() {
   return (
     <div className="home-container">
+        <Nav current_page={'HOME'}/>
+        <Header/>
 
         <section className="program-container">
             <h2 className="section-title">Program</h2>

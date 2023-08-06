@@ -38,6 +38,11 @@ $nav-media-break: 600px;
 
 
 
+// Current page
+#current-page {
+    background-color: rgb(95, 93, 93);
+}
+
 // NAV
 .nav-component-container.active {
     display: block;
