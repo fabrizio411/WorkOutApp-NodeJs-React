@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavProvider, useNav } from '../context/NavContext'
 import { Link } from 'react-router-dom'
 
@@ -7,6 +7,10 @@ function Nav(props) {
     const {isActive, setIsActive} = useNav()
 
     const [currentPage, setCurrentPage] = useState(props.current_page)
+
+    useEffect(() => {
+        setIsActive(false)
+    }, [currentPage])
 
     const handleCloseNav = () => {
         setIsActive(false)
@@ -33,7 +37,7 @@ function Nav(props) {
                             </div>
                             <div className='logout-box'>
                                 <div className='tooltip'>
-                                    <p>Settings</p>
+                                    <p>LogOut</p>
                                 </div>
                                 <button className='logout-btn'>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path><path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path></svg>
