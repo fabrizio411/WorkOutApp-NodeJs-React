@@ -12,7 +12,9 @@ function Nav() {
 
     return (
         <NavProvider>
-            <div className={`nav-component-container overlay ${isActive ? 'active' : 'inactive'}`}>
+            <div className={`nav-component-container ${isActive ? 'active' : 'inactive'}`}>
+                <button className='overlay' onClick={handleCloseNav}></button>
+
                 <div className='nav-container'>
                     
                     <div className='profile-info-box'>
@@ -35,50 +37,48 @@ function Nav() {
 
                     <div className='hr-div'></div>
 
-                    <div className='nav-options-box'>
-                        <nav>
-                            <ul>
-                                <li>
-                                    <Link to='/home' className='nav-item'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.74 2.32a1 1 0 0 0-1.48 0l-9 10A1 1 0 0 0 3 14h2v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7h2a1 1 0 0 0 1-1 1 1 0 0 0-.26-.68z"></path></svg>
-                                        Home
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to='/profile' className='nav-item'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"></path></svg>
-                                        Profile
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to='/routines' className='nav-item'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 12v6a1 1 0 0 1-2 0V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v14c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3v-6h-2zm-6-1v2H6v-2h8zM6 9V7h8v2H6zm8 6v2h-3v-2h3z"></path></svg>
-                                        Routines
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to='/calendar' className='nav-item'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 5v14h3v-6h6v6h3V5h-3v6H9V5zM3 15a1 1 0 0 0 1 1h1V8H4a1 1 0 0 0-1 1v2H2v2h1v2zm18-6a1 1 0 0 0-1-1h-1v8h1a1 1 0 0 0 1-1v-2h1v-2h-1V9z"></path></svg>
-                                        Exercises
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to='/measures' className='nav-item'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"></circle><path d="M15 22V9h5V7H4v2h5v13h2v-7h2v7z"></path></svg>
-                                        Measures
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to='/calendar' className='nav-item'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 20V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2zM9 18H7v-2h2v2zm0-4H7v-2h2v2zm4 4h-2v-2h2v2zm0-4h-2v-2h2v2zm4 4h-2v-2h2v2zm0-4h-2v-2h2v2zm2-5H5V7h14v2z"></path></svg>
-                                        Calendar
-                                    </Link>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-
+                    <nav className='nav-options-box'>
+                        <ul>
+                            <li>
+                                <Link to='/home' className='nav-item'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.74 2.32a1 1 0 0 0-1.48 0l-9 10A1 1 0 0 0 3 14h2v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7h2a1 1 0 0 0 1-1 1 1 0 0 0-.26-.68z"></path></svg>
+                                    Home
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/profile' className='nav-item'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"></path></svg>
+                                    Profile
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/routines' className='nav-item'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 12v6a1 1 0 0 1-2 0V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v14c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3v-6h-2zm-6-1v2H6v-2h8zM6 9V7h8v2H6zm8 6v2h-3v-2h3z"></path></svg>
+                                    Routines
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/calendar' className='nav-item'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M6 5v14h3v-6h6v6h3V5h-3v6H9V5zM3 15a1 1 0 0 0 1 1h1V8H4a1 1 0 0 0-1 1v2H2v2h1v2zm18-6a1 1 0 0 0-1-1h-1v8h1a1 1 0 0 0 1-1v-2h1v-2h-1V9z"></path></svg>
+                                    Exercises
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/measures' className='nav-item'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="4" r="2"></circle><path d="M15 22V9h5V7H4v2h5v13h2v-7h2v7z"></path></svg>
+                                    Measures
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/calendar' className='nav-item'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 20V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2zM9 18H7v-2h2v2zm0-4H7v-2h2v2zm4 4h-2v-2h2v2zm0-4h-2v-2h2v2zm4 4h-2v-2h2v2zm0-4h-2v-2h2v2zm2-5H5V7h14v2z"></path></svg>
+                                    Calendar
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
+
             </div>
         </NavProvider>
     )
