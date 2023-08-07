@@ -25,8 +25,6 @@ function Nav(props) {
     }
 
 
-    
-
     return (
         <NavProvider>
             <div className={`nav-component-container ${isActive ? 'active' : 'inactive'}`}>

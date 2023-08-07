@@ -43,26 +43,62 @@ $nav-media-break: 600px;
     background-color: rgb(95, 93, 93);
 }
 
+// Overlay opacity animation
+@keyframes openOverlay{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes closeOverlay{
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
 // NAV
 .nav-component-container.active {
-    display: block;
+    .nav-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transition: all .3s ease-out;
+    }
+
+    .overlay {
+        left: 0;
+        transition: all 0s;
+        animation: openOverlay .3s;
+    }
 }
 
 .nav-component-container.inactive {
-    display: none;
+    .nav-container {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        transition: all .3s ease-out;
+    }
+
+    .overlay {
+        left: -100vw;
+        transition: all 0s .3s;
+        animation: closeOverlay .3s linear forwards;
+    }
 }
 
 @media (min-width: $nav-media-break) {
     .nav-component-container.inactive {
-        display: block;
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
     }
 }
 
 .nav-component-container {
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
 
     .nav-container {
         height: 100%;
@@ -71,6 +107,7 @@ $nav-media-break: 600px;
 
         .profile-info-box {
             background-color: blue;
+
             .accesibility {
                 display: flex;
                 justify-content: space-between;
@@ -137,7 +174,13 @@ $nav-media-break: 600px;
                         border-radius: 10px;
                         position: absolute;
                         transform: translate(-25%, -90%);
+                        animation: tooltipAnimation .5s;
                     }  
+
+                    @keyframes tooltipAnimation {
+                        0% { opacity: 0; }
+                        100% { opacity: .9; }
+                    }
 
                     &:hover {
                         .tooltip {
@@ -194,8 +237,8 @@ $nav-media-break: 600px;
         background-color: rgba(0, 0, 0, 0.432);
         height: 100vh;
         width: 100vw;
-        position: absolute;
         border: none;
+        position: absolute;
     }
 
     @media (min-width: $nav-media-break) {

@@ -99,24 +99,58 @@
   background-color: rgb(95, 93, 93);
 }
 
-.nav-component-container.active {
-  display: block;
-}
-
-.nav-component-container.inactive {
-  display: none;
-}
-
-@media (min-width: 600px) {
-  .nav-component-container.inactive {
-    display: block;
+@keyframes openOverlay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
-.nav-component-container {
+@keyframes closeOverlay {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.nav-component-container.active .nav-container {
   position: fixed;
   top: 0;
   left: 0;
+  transition: all 0.3s ease-out;
+}
+.nav-component-container.active .overlay {
+  left: 0;
+  transition: all 0s;
+  animation: openOverlay 0.3s;
+}
+
+.nav-component-container.inactive .nav-container {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  transition: all 0.3s ease-out;
+}
+.nav-component-container.inactive .overlay {
+  left: -100vw;
+  transition: all 0s 0.3s;
+  animation: closeOverlay 0.3s linear forwards;
+}
+
+@media (min-width: 600px) {
+  .nav-component-container.inactive .nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+.nav-component-container {
   height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .nav-component-container .nav-container {
   height: 100%;
@@ -182,6 +216,15 @@
   border-radius: 10px;
   position: absolute;
   transform: translate(-25%, -90%);
+  animation: tooltipAnimation 0.5s;
+}
+@keyframes tooltipAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.9;
+  }
 }
 .nav-component-container .nav-container .profile-info-box .info-box .logout-box:hover .tooltip {
   display: block;
@@ -224,8 +267,8 @@
   background-color: rgba(0, 0, 0, 0.432);
   height: 100vh;
   width: 100vw;
-  position: absolute;
   border: none;
+  position: absolute;
 }
 @media (min-width: 600px) {
   .nav-component-container .overlay {
