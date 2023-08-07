@@ -1,32 +1,50 @@
 import React, { useEffect, useState } from 'react'
 
-import { NavProvider, useNav } from '../context/NavContext'
+import { NavProvider, useNav } from '../../context/NavContext'
 import { Link } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../../context/AuthContext'
 
 function Nav(props) {
 
+    // User info display
     const {user} = useAuth()
     console.log(user)
     const username = user.username
     const JSDate = new Date(user.createdAt)
     const createdAt = `${JSDate.getDate()}/${JSDate.getMonth() + 1}/${JSDate.getFullYear()}`
 
+    // Nav state
     const {isActive, setIsActive} = useNav()
+    const handleCloseNav = () => {
+        setIsActive(false)
+    }
 
+    // Current page display
     const [currentPage, setCurrentPage] = useState(props.current_page)
 
     useEffect(() => {
         setIsActive(false)
     }, [currentPage])
 
-    const handleCloseNav = () => {
-        setIsActive(false)
+    // logout popup
+    const [activePopUp, setActivePopUp] = useState(false)
+
+    const handleOpenPopUp = () => {
+        setActivePopUp(true)
     }
 
+    const handleClosePopUp = () => {
+        setActivePopUp(false)
+    }
 
     return (
         <NavProvider>
+            {/* LogOut popUp */}
+            <div className={`logout-popup-component ${activePopUp ? 'active' : 'inactive'}`}>
+                <button className="overlay" onClick={handleClosePopUp}></button>
+                <div className="content"></div>
+            </div>
+
             <div className={`nav-component-container ${isActive ? 'active' : 'inactive'}`}>
                 <button className='overlay' onClick={handleCloseNav}></button>
 
@@ -48,7 +66,7 @@ function Nav(props) {
                                 <div className='tooltip'>
                                     <p>LogOut</p>
                                 </div>
-                                <button className='logout-btn'>
+                                <button className='logout-btn' onClick={handleOpenPopUp}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path><path d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z"></path></svg>
                                 </button>
                             </div>

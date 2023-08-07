@@ -12,6 +12,7 @@ export const useNav = () => {
 }
 
 export function NavProvider({ children }) {
+
     const [isActive, setIsActive] = useState(false)
 
     return (

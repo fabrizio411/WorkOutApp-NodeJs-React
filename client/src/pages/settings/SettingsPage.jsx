@@ -1,11 +1,11 @@
-import Header from '../../components/Header'
-import Nav from '../../components/Nav'
+import Header from '../../components/header/Header'
+import Nav from '../../components/header/Nav'
 
 function SettingsPage() {
   return (
     <div>
-      <Nav current_page={'SETTINGS'}/>
       <Header/>
+      <Nav current_page={'SETTINGS'}/>
     </div>
   )
 }

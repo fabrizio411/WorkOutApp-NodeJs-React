@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useRoutine } from '../../context/RoutineContext'
-import Header from '../../components/Header'
-import Nav from '../../components/Nav'
+import Header from '../../components/header/Header'
+import Nav from '../../components/header/Nav'
 
 function RoutinesPage() {
 
@@ -13,8 +13,8 @@ function RoutinesPage() {
 
   return (
     <div>
-      <Nav current_page={'ROUTINES'}/>
       <Header/>
+      <Nav current_page={'ROUTINES'}/>
     </div>
   )
 }

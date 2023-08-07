@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { NavProvider, useNav } from "../context/NavContext"
+import { NavProvider, useNav } from "../../context/NavContext"
 
 function Header() {
 

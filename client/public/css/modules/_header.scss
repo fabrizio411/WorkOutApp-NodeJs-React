@@ -4,7 +4,10 @@ $nav-media-break: 600px;
 
 // HEADER
 .header-component-container {
+    z-index: 0;
+    position: fixed;
     background-color: red;
+    width: 100%;
     height: $nav-height;
     display: flex;
     align-items: center;
@@ -95,6 +98,7 @@ $nav-media-break: 600px;
 }
 
 .nav-component-container {
+    z-index: 1;
     height: 100%;
     position: fixed;
     top: 0;
@@ -168,13 +172,13 @@ $nav-media-break: 600px;
 
                     .tooltip {
                         display: none;
-                        padding: 15px;
+                        padding: 10px 15px;
                         background-color: black;
                         color: white;
                         border-radius: 10px;
                         position: absolute;
                         transform: translate(-25%, -90%);
-                        animation: tooltipAnimation .5s;
+                        animation: tooltipAnimation .5s ease-out;
                     }  
 
                     @keyframes tooltipAnimation {
@@ -245,5 +249,64 @@ $nav-media-break: 600px;
         .overlay {
             display: none;
         }
+    }
+}
+
+
+
+// LogOut PopUp
+.logout-popup-component.active {
+
+    .content {
+        transform: scale(1);
+        transition: all .3s;
+    }
+    .overlay {
+        transform: scale(1);
+        transition: all 0s;
+        animation: openOverlay .3s;
+    }
+}
+
+.logout-popup-component.inactive {
+    width: 0;
+    height: 0;
+
+    .content {
+        transform: scale(0);
+        transition: all .3s;
+    }
+    .overlay {
+        transform: scale(0);
+        transition: all 0s .3s;
+        animation: closeOverlay .3s;
+
+    }
+}
+
+.logout-popup-component {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content {
+        height: 200px;
+        width: 200px;
+        background-color: rgb(51, 51, 51);
+        z-index: 3;
+    }
+
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.432);
+        border: none;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        transform: scale(0);
     }
 }
