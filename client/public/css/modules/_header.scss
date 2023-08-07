@@ -25,15 +25,15 @@
         }
     }
 
-    @media (min-width: var.$media-break) {
-        .menu-svg-btn {
-            display: none;
-        }
-    }
-
     .title {
         font-size: 1.25rem;
         font-weight: bold;
+    }
+}
+
+@media (min-width: var.$media-break) {
+    .header-component-container{
+        display: none;
     }
 }
 
@@ -109,6 +109,27 @@
 
         .profile-info-box {
             background-color: blue;
+
+            .desktop-title {
+                display: none;
+                font-size: 1.5rem;
+                font-weight: bold;
+            }
+
+            .desktop-hr {
+                display: none;
+            }
+
+            @media (min-width: var.$media-break) {
+                .desktop-title{
+                    display: block;
+                    padding: 10px 15px;
+                }
+
+                .desktop-hr {
+                    display: block;
+                }
+            }
 
             .accesibility {
                 display: flex;
