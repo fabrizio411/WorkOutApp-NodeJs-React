@@ -1,10 +1,14 @@
 import { useRoutine } from '../../context/RoutineContext'
 import Header from '../../components/header/Header'
 import Nav from '../../components/header/Nav'
+import { useNav } from '../../context/NavContext'
 
 function HomePage() {
+
+  const {swipeHandler} = useNav()
+
   return (
-    <div className="home-container">
+    <div className="home-container" {...swipeHandler}>
         <Header/>
         <Nav current_page={'HOME'}/>
 
