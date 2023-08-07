@@ -15,9 +15,12 @@ function RoutinesPage() {
   }, [])
 
   return (
-    <div {...swipeHandler}>
+    <div className='routines-page-container' {...swipeHandler}>
       <Header/>
       <Nav current_page={'ROUTINES'}/>
+      <div className='page-content'>
+        <h1>Hola</h1>
+      </div>
     </div>
   )
 }

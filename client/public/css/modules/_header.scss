@@ -1,6 +1,4 @@
-$nav-height: 50px;
-
-$nav-media-break: 600px;
+@use '../var';
 
 // HEADER
 .header-component-container {
@@ -8,7 +6,7 @@ $nav-media-break: 600px;
     position: fixed;
     background-color: red;
     width: 100%;
-    height: $nav-height;
+    height: var.$nav-height;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,15 +17,15 @@ $nav-media-break: 600px;
         position: absolute;
         left: 0;
         top: 0;
-        height: $nav-height;
-        width: $nav-height;
+        height: var.$nav-height;
+        width: var.$nav-height;
 
         .menu-svg {
             fill: black;
         }
     }
 
-    @media (min-width: $nav-media-break) {
+    @media (min-width: var.$media-break) {
         .menu-svg-btn {
             display: none;
         }
@@ -87,7 +85,7 @@ $nav-media-break: 600px;
     }
 }
 
-@media (min-width: $nav-media-break) {
+@media (min-width: var.$media-break) {
     .nav-component-container.inactive {
         .nav-container {
             position: fixed;
@@ -106,7 +104,7 @@ $nav-media-break: 600px;
 
     .nav-container {
         height: 100%;
-        width: 300px;
+        width: var.$nav-width-mobile;
         position: fixed;
 
         .profile-info-box {
@@ -117,8 +115,8 @@ $nav-media-break: 600px;
                 justify-content: space-between;
 
                 .menu-svg-btn {
-                    height: $nav-height;
-                    width: $nav-height;
+                    height: var.$nav-height;
+                    width: var.$nav-height;
                     background-color: transparent;
                     border: none;
 
@@ -128,20 +126,20 @@ $nav-media-break: 600px;
                 }
             }
 
-            @media (min-width: $nav-media-break) {
+            @media (min-width: var.$media-break) {
                 .accesibility {
                     display: none;
                 }
             }
 
             .profile-img {
-                width: 100px;
-                height: 100px;
+                width: var.$nav-profile-pic-dimentions;
+                height: var.$nav-profile-pic-dimentions;
                 margin-left: 15px;
                 border-radius: 100%;
             }
 
-            @media (min-width: $nav-media-break) {
+            @media (min-width: var.$media-break) {
                 .profile-img {
                     margin-top: 15px;
                 }
@@ -163,8 +161,8 @@ $nav-media-break: 600px;
 
                 .logout-box {
                     .logout-btn {
-                        height: $nav-height;
-                        width: $nav-height;
+                        height: var.$nav-height;
+                        width: var.$nav-height;
                         background-color: transparent;
                         border: none;
                         margin-right: 8px;
@@ -231,9 +229,9 @@ $nav-media-break: 600px;
         }
     }
 
-    @media (min-width: $nav-media-break) {
+    @media (min-width: var.$media-break) {
         .nav-container {
-            width: 250px;
+            width: var.$nav-width-desktop;
         }
     }
 
@@ -245,7 +243,7 @@ $nav-media-break: 600px;
         position: absolute;
     }
 
-    @media (min-width: $nav-media-break) {
+    @media (min-width: var.$media-break) {
         .overlay {
             display: none;
         }

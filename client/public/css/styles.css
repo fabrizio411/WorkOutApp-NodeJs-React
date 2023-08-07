@@ -329,6 +329,19 @@
   transform: scale(0);
 }
 
+.routines-page-container {
+  height: 100%;
+}
+.routines-page-container .page-content {
+  margin-top: 50px;
+  height: calc(100% - 50px);
+}
+@media (min-width: 600px) {
+  .routines-page-container .page-content {
+    margin-left: 250px;
+  }
+}
+
 .hr-div {
   width: 100%;
   height: 2px;

@@ -1,0 +1,16 @@
+@use '../var';
+
+.routines-page-container {
+    height: 100%;
+
+    .page-content {
+        margin-top: var.$nav-height;
+        height: calc(100% - var.$nav-height);
+    }
+
+    @media (min-width: var.$media-break) {
+        .page-content{
+            margin-left: var.$nav-width-desktop;
+        }
+    }
+}
