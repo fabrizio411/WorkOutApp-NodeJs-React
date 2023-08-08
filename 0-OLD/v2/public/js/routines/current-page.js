@@ -1,1 +1,0 @@
-document.getElementById("routines-page").setAttribute("style", "background-color: #35753dc0;")
