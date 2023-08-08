@@ -3,6 +3,7 @@
 - Al crear un ejercicio, crear un record del mismo
 - weightGoal 
 - Usuario tiene que poder manejar las fechas de los datos
+- Poder cambiar el orden de las rutinas
 
 
 

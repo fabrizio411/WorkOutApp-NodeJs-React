@@ -288,7 +288,6 @@
 }
 
 .logout-popup-component.inactive {
-    width: 0;
     height: 0;
 
     .content {
@@ -304,17 +303,15 @@
 }
 
 .logout-popup-component {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     .content {
         height: 200px;
         width: 200px;
         background-color: rgb(51, 51, 51);
         z-index: 3;
+        position: absolute;
+        top: calc(50% - (200px / 2));
+        left: calc(50% - (200px / 2));
     }
 
     .overlay {

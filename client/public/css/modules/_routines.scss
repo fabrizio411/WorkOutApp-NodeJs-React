@@ -3,4 +3,36 @@
 .routines-page-container {
     height: 100%;
 
+    .page-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        padding-top: calc(var.$nav-height + 15px);
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .routines-container {
+            background-color: rgb(255, 167, 167);
+            display: flex;
+            flex-direction: column;
+
+            .new-routine-btn {
+                position: relative;
+                top: 0;
+                right: 0;
+            }
+        }
+
+    }
+
+    @media (min-width: var.$media-break) {
+        .page-content {
+            justify-content: center;
+            padding-top: 0;
+        }
+    }
 }

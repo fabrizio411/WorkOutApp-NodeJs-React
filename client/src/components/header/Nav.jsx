@@ -14,7 +14,7 @@ function Nav(props) {
     const createdAt = `${JSDate.getDate()}/${JSDate.getMonth() + 1}/${JSDate.getFullYear()}`
 
     // Nav state
-    const {isActive, setIsActive} = useNav()
+    const {isActive, setIsActive, setActivePopUp} = useNav()
     const handleCloseNav = () => {
         setIsActive(false)
     }
@@ -27,23 +27,18 @@ function Nav(props) {
     }, [currentPage])
 
     // logout popup
-    const [activePopUp, setActivePopUp] = useState(false)
 
     const handleOpenPopUp = () => {
         setActivePopUp(true)
     }
 
-    const handleClosePopUp = () => {
-        setActivePopUp(false)
-    }
-
     return (
         <NavProvider>
             {/* LogOut popUp */}
-            <div className={`logout-popup-component ${activePopUp ? 'active' : 'inactive'}`}>
+            {/* <div className={`logout-popup-component ${activePopUp ? 'active' : 'inactive'}`}>
                 <button className="overlay" onClick={handleClosePopUp}></button>
                 <div className="content"></div>
-            </div>
+            </div> */}
 
             <div className={`nav-component-container ${isActive ? 'active' : 'inactive'}`}>
                 <button className='overlay' onClick={handleCloseNav}></button>

@@ -17,6 +17,11 @@ export function NavProvider({ children }) {
 
     const [isActive, setIsActive] = useState(false)
 
+    // LogOut popUp
+    const [activePopUp, setActivePopUp] = useState(false)
+
+
+    // Swipe functionaloty
     const swipeHandler = useSwipeable({
         onSwipedRight: ({event}) => {
           event.stopPropagation()
@@ -46,7 +51,9 @@ export function NavProvider({ children }) {
         <NavContext.Provider value={{
             isActive,
             setIsActive,
-            swipeHandler
+            swipeHandler,
+            activePopUp,
+            setActivePopUp
         }}>
             {children}
         </NavContext.Provider>

@@ -308,7 +308,6 @@
 }
 
 .logout-popup-component.inactive {
-  width: 0;
   height: 0;
 }
 .logout-popup-component.inactive .content {
@@ -321,18 +320,14 @@
   animation: closeOverlay 0.3s;
 }
 
-.logout-popup-component {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .logout-popup-component .content {
   height: 200px;
   width: 200px;
   background-color: rgb(51, 51, 51);
   z-index: 3;
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
 }
 .logout-popup-component .overlay {
   background-color: rgba(0, 0, 0, 0.432);
@@ -349,6 +344,33 @@
 .routines-page-container {
   height: 100%;
 }
+.routines-page-container .page-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 65px;
+}
+.routines-page-container .page-content .page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.routines-page-container .page-content .routines-container {
+  background-color: rgb(255, 167, 167);
+  display: flex;
+  flex-direction: column;
+}
+.routines-page-container .page-content .routines-container .new-routine-btn {
+  position: relative;
+  top: 0;
+  right: 0;
+}
+@media (min-width: 600px) {
+  .routines-page-container .page-content {
+    justify-content: center;
+    padding-top: 0;
+  }
+}
 
 .hr-div {
   width: 100%;
@@ -357,13 +379,11 @@
 }
 
 .page-content {
-  margin-top: 50px;
   height: calc(100% - 50px);
 }
 
 @media (min-width: 600px) {
   .page-content {
-    margin-top: 0;
     margin-left: 250px;
   }
 }

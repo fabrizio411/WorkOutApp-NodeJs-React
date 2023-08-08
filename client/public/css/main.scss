@@ -17,13 +17,11 @@
 // Page contetnt Layout 
 // Add height: 100% in parent node
 .page-content {
-    margin-top: var.$nav-height;
     height: calc(100% - var.$nav-height);
 }
 
 @media (min-width: var.$media-break) {
     .page-content{
-        margin-top: 0;
         margin-left: var.$nav-width-desktop;
     }
 }
