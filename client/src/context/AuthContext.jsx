@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { registerRequest, loginRequest, verifyTokenrequest } from '../api/auth.js'
+import { registerRequest, loginRequest, verifyTokenrequest, logoutRequest } from '../api/auth.js'
 import Cookie from 'js-cookie'
 
 
@@ -20,6 +20,17 @@ export const AuthProvider = ({children}) => {
     const [errors, setErrors] = useState([])
     // Controlar la recarga una vez cargan los datos de las cookies
     const [loading, setLoading] = useState(true)
+
+    // Funcion log out, conencta con el backend
+    const logout = async () => {
+        try {
+            const res = await logoutRequest()
+            console.log(res)
+            setIsAuthenticated(false)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     // Funcion sign up, conecta con el backend
     const signUp = async (user) => {
@@ -105,6 +116,7 @@ export const AuthProvider = ({children}) => {
             value={{
                 signUp, 
                 signIn,
+                logout,
                 loading,
                 user, 
                 isAuthenticated, 

@@ -1,6 +1,10 @@
+import { useAuth } from "../../context/AuthContext"
 import { useNav } from "../../context/NavContext"
 
+
 function LogOutPopUp() {
+
+    const { logout } = useAuth()
 
     const {activePopUp, setActivePopUp} = useNav()
 
@@ -18,7 +22,7 @@ function LogOutPopUp() {
           </div>
           <div className="alert-buttons">
             <button className="alert-btn cancel" onClick={handleClosePopUp}>Cancel</button>
-            <button className="alert-btn submit">Log Out</button>
+            <button className="alert-btn submit" onClick={logout}>Log Out</button>
           </div>
         </div>
     </div>
