@@ -41,7 +41,12 @@
 
 // Current page
 #current-page {
-    background-color: rgb(95, 93, 93);
+    background-color: var.$green-1-rgba;
+    color: var.$text-1;
+
+    svg {
+        fill: var.$text-2
+    }
 }
 
 // Overlay opacity animation
@@ -108,12 +113,13 @@
         position: fixed;
 
         .profile-info-box {
-            background-color: blue;
+            background-color: var.$green-0;
 
             .desktop-title {
                 display: none;
                 font-size: 1.5rem;
                 font-weight: bold;
+                color: var.$text-1
             }
 
             .desktop-hr {
@@ -158,6 +164,7 @@
                 height: var.$nav-profile-pic-dimentions;
                 margin-left: 15px;
                 border-radius: 100%;
+                border: 3px solid var.$text-2;
             }
 
             @media (min-width: var.$media-break) {
@@ -174,9 +181,13 @@
                 .user-info-box {
                     padding: 15px;
                     padding-top: 8px;
+                    color: var.$text-2;
+                    font-weight: bold;
+                    font-size: 1.15rem;
 
                     .date-p {
                         font-size: .85rem;
+                        color: var.$text-3;
                     }
                 }
 
@@ -189,6 +200,10 @@
                         background-color: transparent;
                         border: none;
                         margin-right: 8px;
+
+                        svg {
+                            fill: var.$text-1
+                        }
                     }
 
                     .tooltip {
@@ -217,7 +232,7 @@
         }
 
         .nav-options-box {
-            background-color: rgb(180, 180, 178);
+            background-color: var.$bg-2;
             height: 100%;
             padding: 15px;
 
@@ -236,15 +251,15 @@
                         display: flex;
                         align-items: center;
                         gap: 15px;
-                        color: black;
+                        color: var.$text-2;
                         text-decoration: none;
 
                         &:hover {
-                            background-color: grey;
+                            background-color: var.$green-1-rgba
                         }
 
                         svg {
-                            fill: black;
+                            fill: var.$text-4;
                         }
                     }
                 }
