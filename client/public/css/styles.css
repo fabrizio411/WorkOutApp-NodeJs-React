@@ -222,6 +222,9 @@
 .nav-component-container .nav-container .profile-info-box .info-box .user-info-box .date-p {
   font-size: 0.85rem;
 }
+.nav-component-container .nav-container .profile-info-box .info-box .logout-box {
+  cursor: pointer;
+}
 .nav-component-container .nav-container .profile-info-box .info-box .logout-box .logout-btn {
   height: 50px;
   width: 50px;
@@ -391,7 +394,7 @@
   font-weight: bold;
 }
 .routines-page-container .page-content .routines-container {
-  background-color: rgb(255, 167, 167);
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -399,11 +402,54 @@
   position: relative;
   top: 0;
   right: 0;
+  background-color: green;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+}
+.routines-page-container .page-content .routines-container .routine-component-container {
+  text-decoration: none;
+  color: black;
+  width: calc(100vw - 30px);
+  background-color: rgb(89, 156, 98);
+  margin-top: 15px;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.routines-page-container .page-content .routines-container .routine-component-container .routine-info .routine-name {
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+.routines-page-container .page-content .routines-container .routine-component-container .routine-info .routine-mainmuscles {
+  font-size: 0.9rem;
+  color: rgb(64, 69, 80);
+}
+.routines-page-container .page-content .routines-container .routine-component-container .routine-start-btn {
+  background-color: rgb(92, 175, 175);
+  padding: 10px 16px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.103);
+}
+@media (min-width: 600px) {
+  .routines-page-container .page-content .routines-container .routine-component-container {
+    width: 500px;
+  }
+}
+@media (min-width: 600px) {
+  .routines-page-container .page-content .routines-container {
+    padding: 15px;
+    background-color: rgb(255, 167, 167);
+  }
 }
 @media (min-width: 600px) {
   .routines-page-container .page-content {
-    justify-content: center;
-    padding-top: 0;
+    padding-top: 25px;
   }
 }
 

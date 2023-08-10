@@ -5,6 +5,7 @@ import { useNav } from '../../context/NavContext'
 import Header from '../../components/header/Header'
 import Nav from '../../components/header/Nav'
 import LogOutPopUp from '../../components/header/LogOutPopUp'
+import Routine from '../../components/Routine'
 
 function RoutinesPage() {
 
@@ -26,10 +27,22 @@ function RoutinesPage() {
         <div className='routines-container'>
           <button className='new-routine-btn'>+ New Routine</button>
 
-          <div className='routine-component-container'>
-            <h3 className='routine-name'>Name</h3>
-            <p className='routine-mainmuscles'>main muscles</p>
-          </div>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
+          <Routine/>
 
         </div>
       </div>

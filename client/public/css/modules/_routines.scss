@@ -16,7 +16,7 @@
         }
 
         .routines-container {
-            background-color: rgb(255, 167, 167);
+            margin-top: 10px;
             display: flex;
             flex-direction: column;
 
@@ -24,6 +24,58 @@
                 position: relative;
                 top: 0;
                 right: 0;
+                background-color: green;
+                border: none;
+                border-radius: 6px;
+                padding: 8px;
+            }
+
+            .routine-component-container {
+                text-decoration: none;
+                color: black;
+                width: calc(100vw - 30px);
+                background-color: rgb(89, 156, 98);
+                margin-top: 15px;
+                border-radius: 8px;
+                padding: 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .routine-info {
+                    .routine-name {
+                        font-size: 1.15rem;
+                        font-weight: bold;
+                        margin-bottom: 6px;
+                    }
+    
+                    .routine-mainmuscles {
+                        font-size: .9rem;
+                        color: rgb(64, 69, 80);
+                    }
+                }
+
+                .routine-start-btn {
+                    background-color: rgb(92, 175, 175);
+                    padding: 10px 16px;
+                    border-radius: 16px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    box-shadow: 0 0 20px rgba(255, 255, 255, 0.103);
+                }
+            }
+
+            @media (min-width: var.$media-break) {
+                .routine-component-container {
+                    width: 500px;
+                }
+            }
+        }
+
+        @media (min-width: var.$media-break) {
+            .routines-container {
+                padding: 15px;
+                background-color: rgb(255, 167, 167);
             }
         }
 
@@ -31,8 +83,7 @@
 
     @media (min-width: var.$media-break) {
         .page-content {
-            justify-content: center;
-            padding-top: 0;
+            padding-top: 25px;
         }
     }
 }
