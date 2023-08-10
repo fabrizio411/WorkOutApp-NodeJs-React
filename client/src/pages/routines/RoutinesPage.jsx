@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { useRoutine } from '../../context/RoutineContext'
+import { useNav } from '../../context/NavContext'
+
 import Header from '../../components/header/Header'
 import Nav from '../../components/header/Nav'
-import { useNav } from '../../context/NavContext'
 import LogOutPopUp from '../../components/header/LogOutPopUp'
 
 function RoutinesPage() {

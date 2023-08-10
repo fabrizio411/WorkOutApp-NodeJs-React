@@ -1,6 +1,7 @@
 import { useRoutine } from '../../context/RoutineContext'
 import Header from '../../components/header/Header'
 import Nav from '../../components/header/Nav'
+import LogOutPopUp from '../../components/header/LogOutPopUp'
 import { useNav } from '../../context/NavContext'
 
 function HomePage() {
@@ -9,6 +10,7 @@ function HomePage() {
 
   return (
     <div className="home-container" {...swipeHandler}>
+        <LogOutPopUp/>
         <Header/>
         <Nav current_page={'HOME'}/>
 

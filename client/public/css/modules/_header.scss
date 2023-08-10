@@ -181,6 +181,8 @@
                 }
 
                 .logout-box {
+                    cursor: pointer;
+
                     .logout-btn {
                         height: var.$nav-height;
                         width: var.$nav-height;
