@@ -99,7 +99,11 @@
   }
 }
 #current-page {
-  background-color: rgb(95, 93, 93);
+  background-color: rgba(53, 117, 61, 0.7529411765);
+  color: #ffffff;
+}
+#current-page svg {
+  fill: #dadada;
 }
 
 @keyframes openOverlay {
@@ -162,12 +166,13 @@
   position: fixed;
 }
 .nav-component-container .nav-container .profile-info-box {
-  background-color: blue;
+  background-color: #285a30;
 }
 .nav-component-container .nav-container .profile-info-box .desktop-title {
   display: none;
   font-size: 1.5rem;
   font-weight: bold;
+  color: #ffffff;
 }
 .nav-component-container .nav-container .profile-info-box .desktop-hr {
   display: none;
@@ -204,6 +209,7 @@
   height: 100px;
   margin-left: 15px;
   border-radius: 100%;
+  border: 3px solid #dadada;
 }
 @media (min-width: 600px) {
   .nav-component-container .nav-container .profile-info-box .profile-img {
@@ -218,9 +224,13 @@
 .nav-component-container .nav-container .profile-info-box .info-box .user-info-box {
   padding: 15px;
   padding-top: 8px;
+  color: #dadada;
+  font-weight: bold;
+  font-size: 1.15rem;
 }
 .nav-component-container .nav-container .profile-info-box .info-box .user-info-box .date-p {
   font-size: 0.85rem;
+  color: #b3b3b3;
 }
 .nav-component-container .nav-container .profile-info-box .info-box .logout-box {
   cursor: pointer;
@@ -231,6 +241,9 @@
   background-color: transparent;
   border: none;
   margin-right: 8px;
+}
+.nav-component-container .nav-container .profile-info-box .info-box .logout-box .logout-btn svg {
+  fill: #ffffff;
 }
 .nav-component-container .nav-container .profile-info-box .info-box .logout-box .tooltip {
   display: none;
@@ -254,7 +267,7 @@
   display: block;
 }
 .nav-component-container .nav-container .nav-options-box {
-  background-color: rgb(180, 180, 178);
+  background-color: #1f2022;
   height: 100%;
   padding: 15px;
 }
@@ -273,14 +286,14 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  color: black;
+  color: #dadada;
   text-decoration: none;
 }
 .nav-component-container .nav-container .nav-options-box ul li .nav-item:hover {
-  background-color: grey;
+  background-color: rgba(53, 117, 61, 0.7529411765);
 }
 .nav-component-container .nav-container .nav-options-box ul li .nav-item svg {
-  fill: black;
+  fill: #858585;
 }
 @media (min-width: 600px) {
   .nav-component-container .nav-container {
