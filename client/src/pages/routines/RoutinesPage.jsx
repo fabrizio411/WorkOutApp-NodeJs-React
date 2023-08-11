@@ -32,19 +32,6 @@ function RoutinesPage() {
           <Routine/>
           <Routine/>
           <Routine/>
-          <Routine/>
-          <Routine/>
-          <Routine/>
-          <Routine/>
-          <Routine/>
-          <Routine/>
-          <Routine/>
-          <Routine/>
-          <Routine/>
-          <Routine/>
-          <Routine/>
-          <Routine/>
-          <Routine/>
 
         </div>
       </div>

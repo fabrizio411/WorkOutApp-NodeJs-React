@@ -6,17 +6,24 @@
 
 @use './modules/routines';
 
+@use './modules/exercises';
+
 
 // Page contetnt Layout 
 // Add height: 100% in parent node
+:root {
+    background-color: var.$bg-1;
+}
+
 .page-content {
-    min-height: calc(100% - var.$nav-height);
+    min-height: 100%;
     background-color: var.$bg-1;
     padding-top: calc(var.$nav-height + 15px);
 }
 
 @media (min-width: var.$media-break) {
     .page-content{
+        height: 100%;
         margin-left: var.$nav-width-desktop;
         padding-top: 25px;
     }
