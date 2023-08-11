@@ -69,7 +69,7 @@
 .header-component-container {
   z-index: 0;
   position: fixed;
-  background-color: red;
+  background-color: #285a30;
   width: 100%;
   height: 50px;
   display: flex;
@@ -86,11 +86,12 @@
   width: 50px;
 }
 .header-component-container .menu-svg-btn .menu-svg {
-  fill: black;
+  fill: #dadada;
 }
 .header-component-container .title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  color: #ffffff;
 }
 
 @media (min-width: 600px) {
@@ -170,20 +171,14 @@
 }
 .nav-component-container .nav-container .profile-info-box .desktop-title {
   display: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #ffffff;
-}
-.nav-component-container .nav-container .profile-info-box .desktop-hr {
-  display: none;
 }
 @media (min-width: 600px) {
   .nav-component-container .nav-container .profile-info-box .desktop-title {
     display: block;
     padding: 10px 15px;
-  }
-  .nav-component-container .nav-container .profile-info-box .desktop-hr {
-    display: block;
   }
 }
 .nav-component-container .nav-container .profile-info-box .accesibility {
@@ -197,7 +192,7 @@
   border: none;
 }
 .nav-component-container .nav-container .profile-info-box .accesibility .menu-svg-btn svg {
-  fill: black;
+  fill: #b3b3b3;
 }
 @media (min-width: 600px) {
   .nav-component-container .nav-container .profile-info-box .accesibility {
@@ -263,8 +258,10 @@
     opacity: 0.9;
   }
 }
-.nav-component-container .nav-container .profile-info-box .info-box .logout-box:hover .tooltip {
-  display: block;
+@media (min-width: 600px) {
+  .nav-component-container .nav-container .profile-info-box .info-box .logout-box:hover .tooltip {
+    display: block;
+  }
 }
 .nav-component-container .nav-container .nav-options-box {
   background-color: #1f2022;
@@ -464,12 +461,6 @@
   .routines-page-container .page-content {
     padding-top: 25px;
   }
-}
-
-.hr-div {
-  width: 100%;
-  height: 2px;
-  background-color: black;
 }
 
 .page-content {

@@ -4,7 +4,7 @@
 .header-component-container {
     z-index: 0;
     position: fixed;
-    background-color: red;
+    background-color: var.$green-0;
     width: 100%;
     height: var.$nav-height;
     display: flex;
@@ -21,13 +21,14 @@
         width: var.$nav-height;
 
         .menu-svg {
-            fill: black;
+            fill: var.$text-2;
         }
     }
 
     .title {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         font-weight: bold;
+        color: var.$text-1;
     }
 }
 
@@ -117,23 +118,15 @@
 
             .desktop-title {
                 display: none;
-                font-size: 1.5rem;
+                font-size: 2rem;
                 font-weight: bold;
                 color: var.$text-1
-            }
-
-            .desktop-hr {
-                display: none;
             }
 
             @media (min-width: var.$media-break) {
                 .desktop-title{
                     display: block;
                     padding: 10px 15px;
-                }
-
-                .desktop-hr {
-                    display: block;
                 }
             }
 
@@ -148,7 +141,7 @@
                     border: none;
 
                     svg {
-                        fill: black;
+                        fill: var.$text-3;
                     }
                 }
             }
@@ -221,8 +214,10 @@
                         0% { opacity: 0; }
                         100% { opacity: .9; }
                     }
+                }
 
-                    &:hover {
+                @media (min-width: var.$media-break) {
+                    .logout-box:hover {
                         .tooltip {
                             display: block;
                         }
