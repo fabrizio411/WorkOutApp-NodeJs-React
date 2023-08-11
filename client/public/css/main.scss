@@ -12,10 +12,12 @@
 .page-content {
     min-height: calc(100% - var.$nav-height);
     background-color: var.$bg-1;
+    padding-top: calc(var.$nav-height + 15px);
 }
 
 @media (min-width: var.$media-break) {
     .page-content{
         margin-left: var.$nav-width-desktop;
+        padding-top: 25px;
     }
 }

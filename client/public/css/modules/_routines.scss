@@ -8,7 +8,6 @@
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
-        padding-top: calc(var.$nav-height + 15px);
 
         .routines-container {
             margin-top: 10px;
@@ -27,25 +26,24 @@
                     font-weight: bold;
                     color: var.$text-1;
                 }
-            }
 
-            .new-routine-btn {
-                position: relative;
-                top: 0;
-                right: 0;
-                background-color: var.$green-1;
-                border: none;
-                border-radius: 8px;
-                padding: 8px 16px;
-                align-self: flex-end;
-                color: var.$text-2;
-                font-weight: bold;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: var.$green-2;
+                .new-routine-btn {
+                    background-color: var.$green-1;
+                    border: none;
+                    border-radius: 8px;
+                    padding: 8px 16px;
+                    align-self: flex-end;
+                    color: var.$text-2;
+                    font-weight: bold;
+                    cursor: pointer;
+    
+                    &:hover {
+                        background-color: var.$green-2;
+                    }
                 }
             }
+
+
 
             .routine-component-container {
                 text-decoration: none;
@@ -118,13 +116,6 @@
                 border-radius: 8px;
                 box-shadow: 0 0 40px var.$green-shadow
             }
-        }
-
-    }
-
-    @media (min-width: var.$media-break) {
-        .page-content {
-            padding-top: 25px;
         }
     }
 }
