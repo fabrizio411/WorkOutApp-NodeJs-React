@@ -10,7 +10,8 @@
 // Page contetnt Layout 
 // Add height: 100% in parent node
 .page-content {
-    height: calc(100% - var.$nav-height);
+    min-height: calc(100% - var.$nav-height);
+    background-color: var.$bg-1;
 }
 
 @media (min-width: var.$media-break) {

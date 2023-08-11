@@ -10,58 +10,96 @@
         flex-direction: column;
         padding-top: calc(var.$nav-height + 15px);
 
-        .page-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
         .routines-container {
             margin-top: 10px;
             display: flex;
             flex-direction: column;
+            margin-bottom: 30px;
+
+            .title-box {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px;
+
+                .page-title {
+                    font-size: 2rem;
+                    font-weight: bold;
+                    color: var.$text-1;
+                }
+            }
 
             .new-routine-btn {
                 position: relative;
                 top: 0;
                 right: 0;
-                background-color: green;
+                background-color: var.$green-1;
                 border: none;
-                border-radius: 6px;
-                padding: 8px;
+                border-radius: 8px;
+                padding: 8px 16px;
+                align-self: flex-end;
+                color: var.$text-2;
+                font-weight: bold;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var.$green-2;
+                }
             }
 
             .routine-component-container {
                 text-decoration: none;
-                color: black;
                 width: calc(100vw - 30px);
-                background-color: rgb(89, 156, 98);
+                background-color: var.$green-4;
                 margin-top: 15px;
                 border-radius: 8px;
                 padding: 15px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                border: 1px solid var.$green-2;
+
+                &:hover {
+                    background-color: var.$green-2;
+                }
+
+                &:active {
+                    background-color: var.$green-3;
+                }
 
                 .routine-info {
                     .routine-name {
                         font-size: 1.15rem;
                         font-weight: bold;
                         margin-bottom: 6px;
+                        color: var.$text-2;
                     }
     
                     .routine-mainmuscles {
                         font-size: .9rem;
-                        color: rgb(64, 69, 80);
+                        color: var.$text-3;
                     }
                 }
 
                 .routine-start-btn {
-                    background-color: rgb(92, 175, 175);
+                    background-color: var.$text-2;
+                    color: var.$green-2;
                     padding: 10px 16px;
                     border-radius: 16px;
                     text-decoration: none;
                     font-weight: bold;
                     box-shadow: 0 0 20px rgba(255, 255, 255, 0.103);
+                    transition: background-color .25s;
+
+                    &:hover {
+                        background-color: var.$text-1;
+                    }
+                }
+
+                @media (min-width: var.$media-break) {
+                    .routine-start-btn {
+                        background-color: var.$text-3;
+                    }
                 }
             }
 
@@ -74,8 +112,11 @@
 
         @media (min-width: var.$media-break) {
             .routines-container {
-                padding: 15px;
-                background-color: rgb(255, 167, 167);
+                padding: 30px;
+                padding-top: 20px;
+                background-color: var.$bg-3;
+                border-radius: 8px;
+                box-shadow: 0 0 40px var.$green-shadow
             }
         }
 

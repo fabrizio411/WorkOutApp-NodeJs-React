@@ -23,9 +23,11 @@ function RoutinesPage() {
       <Header/>
       <Nav current_page={'ROUTINES'}/>
       <div className='page-content'>
-        <h1 className='page-title'>Routines</h1>
         <div className='routines-container'>
-          <button className='new-routine-btn'>+ New Routine</button>
+          <div className='title-box'>
+            <h1 className='page-title'>Routines</h1>
+            <button className='new-routine-btn'>+ New Routine</button>
+          </div>
 
           <Routine/>
           <Routine/>
