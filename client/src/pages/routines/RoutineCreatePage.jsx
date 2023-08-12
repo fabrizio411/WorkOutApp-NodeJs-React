@@ -15,8 +15,8 @@ function RoutineCreatePage() {
     <div>
       <form onSubmit={onSubmit}>
         <input 
-          type="text" 
-          placeholder="Routine Title"
+          type='text' 
+          placeholder='Routine Title'
           {...register('name')}
           autoFocus
         />

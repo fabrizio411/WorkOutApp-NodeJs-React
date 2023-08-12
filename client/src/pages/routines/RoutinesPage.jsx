@@ -6,6 +6,7 @@ import Header from '../../components/header/Header'
 import Nav from '../../components/header/Nav'
 import LogOutPopUp from '../../components/header/LogOutPopUp'
 import Routine from '../../components/Routine'
+import { Link } from 'react-router-dom'
 
 function RoutinesPage() {
 

@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
-import { getExercisesRequest } from "../api/exercises";
+import { createContext, useContext, useState } from 'react';
+import { getExercisesRequest } from '../api/exercises';
 
 const ExerciseContext = createContext()
 
