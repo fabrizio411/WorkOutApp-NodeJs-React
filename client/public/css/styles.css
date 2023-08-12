@@ -550,6 +550,7 @@
 .create-exercise-page-container .content .title-box .page-title {
   color: #ffffff;
   font-size: 2rem;
+  font-weight: bold;
 }
 .create-exercise-page-container .content .form-container {
   margin-top: 15px;
@@ -601,6 +602,7 @@
   padding: 5px;
   border-radius: 6px;
   color: #858585;
+  outline: none;
 }
 .create-exercise-page-container .content .form-container form .inputs-container .input-box select:focus {
   border-color: #508163;
