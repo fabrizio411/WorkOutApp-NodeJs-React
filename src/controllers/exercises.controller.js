@@ -65,6 +65,7 @@ export const getOneExercise = async (req, res) => {
 }
 
 export const createExercise = async (req, res) => {
+    console.log(req)
     const { name, type, muscle } = req.body
 
     try {

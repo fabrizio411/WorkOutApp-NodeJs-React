@@ -17,8 +17,6 @@ function ExercisesPage() {
     getExercises()
   }, [])
 
-  console.log(exercies)
-
   return (
     <div className='routines-page-container' {...swipeHandler}>
       <LogOutPopUp/>

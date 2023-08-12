@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { getExercisesRequest } from '../api/exercises';
+import { createExercisesRequest, getExercisesRequest } from '../api/exercises';
 
 const ExerciseContext = createContext()
 
@@ -19,16 +19,26 @@ export function ExerciseProvider({children}) {
     const getExercises = async () => {
         try {
             const res = await getExercisesRequest()
-            console.log(res)
             setExercises(res.data)
         } catch (error) {
            console.log(error) 
         }
     }
 
+    // Crear ejercicio en BD
+    const createExercise = async (exercise) => {
+        try {
+            const res = await createExercisesRequest(exercise)
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <ExerciseContext.Provider value={{
             getExercises,
+            createExercise,
             exercies
         }}
         >

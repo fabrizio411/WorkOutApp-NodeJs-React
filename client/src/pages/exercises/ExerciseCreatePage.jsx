@@ -1,16 +1,23 @@
 import { useForm } from 'react-hook-form'
 import Header from '../../components/header/Header'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { useState } from 'react'
+import { useExercise } from '../../context/ExerciseContext'
 
 function ExerciseCreatePage() {
 
+    const [isCreated, setIsCreated] = useState(false)
+
+    const { createExercise } = useExercise()
+
     const { register, handleSubmit } = useForm()
 
-
     const onSubmit = handleSubmit((data) => {
-        console.log(data)
+        createExercise(data)
+        setIsCreated(true)
     })
+
+    if (isCreated) return (<Navigate to='/exercises'/>)
 
   return (
     <div className='create-exercise-page-container'>

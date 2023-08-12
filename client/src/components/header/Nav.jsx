@@ -8,7 +8,6 @@ function Nav(props) {
 
     // User info display
     const {user} = useAuth()
-    console.log(user)
     const username = user.username
     const JSDate = new Date(user.createdAt)
     const createdAt = `${JSDate.getDate()}/${JSDate.getMonth() + 1}/${JSDate.getFullYear()}`
