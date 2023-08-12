@@ -4,10 +4,20 @@ import LogOutPopUp from '../../components/header/LogOutPopUp'
 import { useNav } from '../../context/NavContext'
 import { Link } from 'react-router-dom'
 import Exercise from '../../components/Exercise'
+import { useExercise } from '../../context/ExerciseContext'
+import { useEffect } from 'react'
 
 function ExercisesPage() {
 
-  const {swipeHandler} = useNav()
+  const { swipeHandler } = useNav()
+
+  const { getExercises, exercies } = useExercise()
+
+  useEffect(() => {
+    getExercises()
+  }, [])
+
+  console.log(exercies)
 
   return (
     <div className='routines-page-container' {...swipeHandler}>
@@ -21,9 +31,15 @@ function ExercisesPage() {
             <button className='new-routine-btn new-btn'>+ New Exercise</button>
           </div>
 
-          <Exercise/>
-          <Exercise/>
-          <Exercise/>
+          {exercies.map((item, i) => (
+            <Exercise 
+              key={i} 
+              name={item.name} 
+              mainMuscle={item.muscle} 
+              isCustom={item.isCustom}
+              id={item._id}
+            />
+          ))}
 
         </div>
       </div>

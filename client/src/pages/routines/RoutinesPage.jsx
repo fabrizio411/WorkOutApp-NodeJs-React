@@ -9,7 +9,7 @@ import Routine from '../../components/Routine'
 
 function RoutinesPage() {
 
-  const {swipeHandler} = useNav()
+  const { swipeHandler } = useNav()
 
   const { getRoutines, routines } = useRoutine()
 

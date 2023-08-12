@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom"
 
-function Exercise() {
+function Exercise(props) {
   return (
-    <Link className='exercises-component-container'>
+    <Link className='exercises-component-container' to={props.id}>
         <div className='exercise-info'>
             <div className='info-box'>
-                <h3 className='name'>Name</h3>
-                <p className='mainmuscle'>Main muscle</p>
+                <h3 className='name'>{props.name}</h3>
+                <p className='mainmuscle'>{props.mainMuscle}</p>
             </div>
-            <p className='is-custom'>Custom</p>
+            {props.isCustom &&
+              <p className='is-custom'>Custom</p>
+            }
         </div>
     </Link>
   )
