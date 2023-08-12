@@ -28,22 +28,10 @@
                 }
 
                 .new-routine-btn {
-                    background-color: var.$green-1;
-                    border: none;
-                    border-radius: 8px;
                     padding: 8px 16px;
                     align-self: flex-end;
-                    color: var.$text-2;
-                    font-weight: bold;
-                    cursor: pointer;
-    
-                    &:hover {
-                        background-color: var.$green-2;
-                    }
                 }
             }
-
-
 
             .routine-component-container {
                 text-decoration: none;
@@ -67,7 +55,7 @@
 
                 .routine-info {
                     .routine-name {
-                        font-size: 1.15rem;
+                        font-size: 1.2rem;
                         font-weight: bold;
                         margin-bottom: 6px;
                         color: var.$text-2;

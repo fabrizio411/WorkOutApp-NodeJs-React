@@ -1,0 +1,68 @@
+@use '../var';
+
+.routines-page-container {
+    height: 100%;
+
+    .page-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+
+        .routines-container {
+            .exercises-component-container {
+                margin-top: 15px;
+                width: calc(100vw - 30px);
+                background-color: var.$bg-5;
+                border: 2px solid var.$bg-6;
+                border-radius: 8px;
+                padding: 15px;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: var.$bg-6;
+                }
+
+                &:active {
+                    background-color: var.$bg-4;
+                }
+
+                .exercise-info {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .info-box {
+
+                        .name {
+                            color: var.$text-2;
+                            font-weight: bold;
+                            font-size: 1.2rem;
+                        }
+
+                        .mainmuscle {
+                            font-size: .9rem;
+                            color: var.$text-3
+                        }
+                    }
+
+                    .is-custom {
+                        background-color: var.$green-2;
+                        border-radius: 20px;
+                        padding: 6px 12px;
+                        color: var.$text-2;
+                        font-size: .85rem;
+                    }
+                }
+
+            
+            }
+    
+            @media (min-width: var.$media-break) {
+                .exercises-component-container {
+                    width: 500px;
+                }
+            }
+        }
+    }
+}

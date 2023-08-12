@@ -26,7 +26,7 @@ function RoutinesPage() {
         <div className='routines-container'>
           <div className='title-box'>
             <h1 className='page-title'>Routines</h1>
-            <button className='new-routine-btn'>+ New Routine</button>
+            <button className='new-routine-btn new-btn'>+ New Routine</button>
           </div>
 
           <Routine/>

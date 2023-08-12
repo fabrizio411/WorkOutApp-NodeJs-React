@@ -28,3 +28,18 @@
         padding-top: 25px;
     }
 }
+
+
+// Exercises / Routines new button
+.new-btn {
+    background-color: var.$green-1;
+    border: none;
+    border-radius: 8px;
+    color: var.$text-2;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var.$green-2;
+    }
+}
