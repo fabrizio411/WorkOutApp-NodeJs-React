@@ -28,7 +28,7 @@ function ExercisesPage() {
         <div className='routines-container'>
           <div className='title-box'>
             <h1 className='page-title'>Exercises</h1>
-            <button className='new-routine-btn new-btn'>+ New Exercise</button>
+            <Link className='new-routine-btn new-btn' to='/create-exercise'>+ New Exercise</Link>
           </div>
 
           {exercies.map((item, i) => (

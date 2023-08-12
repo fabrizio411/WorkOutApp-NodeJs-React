@@ -15,6 +15,7 @@ import MeasuresPage from './pages/measures/MeasuresPage'
 import CalendarPage from './pages/calendar/CalendarPage'
 import SettingsPage from './pages/settings/SettingsPage'
 import { ExerciseProvider } from './context/ExerciseContext'
+import ExerciseCreatePage from './pages/exercises/ExerciseCreatePage'
 
 function App() {
     return (
@@ -42,6 +43,7 @@ function App() {
                                     <Route path='/routines/edit-routine/:id' element={<h1>edit routine</h1>}/>
 
                                     <Route path='/exercises' element={<ExercisesPage/>}/>
+                                    <Route path='/create-exercise' element={<ExerciseCreatePage/>}/>
 
                                     <Route path='/measures' element={<MeasuresPage/>}/>
 

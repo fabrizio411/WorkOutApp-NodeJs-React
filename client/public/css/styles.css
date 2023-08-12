@@ -555,6 +555,7 @@
   color: #dadada;
   font-weight: bold;
   cursor: pointer;
+  text-decoration: none;
 }
 .new-btn:hover {
   background-color: #508163;
