@@ -1,10 +1,10 @@
 import Header from '../../components/header/Header'
 import Nav from '../../components/header/Nav'
-import LogOutPopUp from '../../components/header/LogOutPopUp'
-import { useNav } from '../../context/NavContext'
-import { Link } from 'react-router-dom'
 import Exercise from '../../components/Exercise'
+import LogOutPopUp from '../../components/header/LogOutPopUp'
+import { Link } from 'react-router-dom'
 import { useExercise } from '../../context/ExerciseContext'
+import { useNav } from '../../context/NavContext'
 import { useEffect } from 'react'
 
 function ExercisesPage() {

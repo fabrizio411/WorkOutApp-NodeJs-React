@@ -16,6 +16,7 @@ import CalendarPage from './pages/calendar/CalendarPage'
 import SettingsPage from './pages/settings/SettingsPage'
 import { ExerciseProvider } from './context/ExerciseContext'
 import ExerciseCreatePage from './pages/exercises/ExerciseCreatePage'
+import ExerciseViewPage from './pages/exercises/ExerciseViewPage'
 
 function App() {
     return (
@@ -44,6 +45,7 @@ function App() {
 
                                     <Route path='/exercises' element={<ExercisesPage/>}/>
                                     <Route path='/create-exercise' element={<ExerciseCreatePage/>}/>
+                                    <Route path='/exercises/:id' element={<ExerciseViewPage/>}/>
 
                                     <Route path='/measures' element={<MeasuresPage/>}/>
 
