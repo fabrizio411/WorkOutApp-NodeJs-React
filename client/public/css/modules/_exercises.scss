@@ -76,3 +76,138 @@
 
 
 // CERATE EXERCISES PAGE
+.create-exercise-page-container {
+    display: flex;
+    justify-content: center;
+
+    .content {
+        padding-top: calc(var.$nav-height + 25px);
+
+        .title-box {
+            margin-left: 10px;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+
+            .back-btn {
+                fill: var.$green-2;
+                padding: 5px;
+            }
+            
+            .page-title {
+                color: var.$text-1;
+                font-size: 2rem;
+            }
+        }
+
+        .form-container {
+            margin-top: 15px;
+            padding: 20px;
+            background-color: var.$bg-3;
+            border-radius: 8px;
+            width: calc(100vw - 30px);
+
+            form {
+                width: 100%;
+
+                .name-input {
+                    width: 100%;
+                    padding: 8px;
+                    background-color: transparent;
+                    border: 3px solid var.$green-4;
+                    border-radius: 6px;
+                    outline: none;
+                    transition: border-color .2s;
+                    color: var.$text-2;
+
+                    &:focus {
+                        border-color: var.$green-2;
+                    }
+
+                    &:hover {
+                        border-color: var.$green-2;
+                    }
+
+                    &::placeholder {
+                        color: var.$text-4;
+                    }
+                }
+
+                .inputs-container {
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .input-box {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        label {
+                            color: var.$text-3;
+                        }
+
+                        select {
+                            width: 45%;
+                            background-color: transparent;
+                            border: 3px solid var.$green-4;
+                            padding: 5px;
+                            border-radius: 6px;
+                            color: var.$text-4;
+
+                            &:focus {
+                                border-color: var.$green-2
+                            }
+                        }
+                    }
+                }
+
+                .hr-bar {
+                    height: 1px;
+                    background-color: var.$bg-5
+                }
+
+                .buttons-box {
+                    margin-top: 40px;
+                    display: flex;
+                    gap: 15px;
+                    
+                    .form-btn {
+                        flex: 1;
+                        border: none;
+                        text-decoration: none;
+                        padding: 6px;
+                        border-radius: 6px;
+                        text-align: center;
+                    }
+
+                    .save-btn {
+                        background-color: var.$green-1;
+                        font-weight: bold;
+                        color: var.$text-2;
+
+                        &:hover {
+                            background-color: var.$green-2;
+                        }
+                    }
+
+                    .cancel-btn {
+                        background-color: var.$bg-6;
+                        color: var.$text-2;
+
+                        &:hover {
+                            background-color: var.$text-4
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (min-width: var.$media-break) {
+            .form-container {
+                width: 500px;
+            }
+        }
+    }
+}

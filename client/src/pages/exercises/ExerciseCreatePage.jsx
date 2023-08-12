@@ -1,10 +1,12 @@
 import { useForm } from 'react-hook-form'
 import Header from '../../components/header/Header'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 function ExerciseCreatePage() {
 
     const { register, handleSubmit } = useForm()
+
 
     const onSubmit = handleSubmit((data) => {
         console.log(data)
@@ -16,7 +18,7 @@ function ExerciseCreatePage() {
 
         <div className='content'>
             <div className='title-box'>
-                <Link>
+                <Link className='back-btn' to='/exercises'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
                 </Link>
                 <h2 className='page-title'>Create Exercise</h2>
@@ -27,8 +29,8 @@ function ExerciseCreatePage() {
                     <div className='inputs-container'>
                         <div className='input-box'>
                             <label>Exercise Type</label>
-                            <select className='' {...register('type')} required>
-                                <option className='option-hidden' value='' selected disabled>Select...</option>
+                            <select className='' {...register('type')} defaultValue='' required>
+                                <option className='option-hidden' value='' disabled>Select...</option>
                                 <option value='REPS/WEIGHT'>Weight Reps</option>
                                 <option value='REPS'>Reps Only</option>
                                 <option value='DUR'>Duration</option>
@@ -36,10 +38,13 @@ function ExerciseCreatePage() {
                                 <option value='DIST/DUR'>Distance Duration</option>
                             </select>
                         </div>
+
+                        <div className='hr-bar'></div>
+
                         <div className='input-box'>
                             <label>Main Muscle</label>
-                            <select className='' {...register('muscle')} required>
-                                <option class='option-hidden' value='' selected disabled>Select...</option>
+                            <select className='' {...register('muscle')} defaultValue='' required>
+                                <option className='option-hidden' value='' disabled>Select...</option>
                                 <option value='Cardio'>Cardio</option>
                                 <option value='Abdominals'>Abdominals</option>
                                 <option value='Back'>Back</option>
@@ -62,7 +67,7 @@ function ExerciseCreatePage() {
                         </div>
                     </div>
                     <div className='buttons-box'>
-                        <Link className='cancel-btn form-btn'>Cancel</Link>
+                        <Link className='cancel-btn form-btn' to='/exercises'>Cancel</Link>
                         <button className='save-btn form-btn'>Save Exercise</button>
                     </div>
                 </form>

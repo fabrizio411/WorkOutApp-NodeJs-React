@@ -530,6 +530,119 @@
   }
 }
 
+.create-exercise-page-container {
+  display: flex;
+  justify-content: center;
+}
+.create-exercise-page-container .content {
+  padding-top: 75px;
+}
+.create-exercise-page-container .content .title-box {
+  margin-left: 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.create-exercise-page-container .content .title-box .back-btn {
+  fill: #508163;
+  padding: 5px;
+}
+.create-exercise-page-container .content .title-box .page-title {
+  color: #ffffff;
+  font-size: 2rem;
+}
+.create-exercise-page-container .content .form-container {
+  margin-top: 15px;
+  padding: 20px;
+  background-color: #292b2f;
+  border-radius: 8px;
+  width: calc(100vw - 30px);
+}
+.create-exercise-page-container .content .form-container form {
+  width: 100%;
+}
+.create-exercise-page-container .content .form-container form .name-input {
+  width: 100%;
+  padding: 8px;
+  background-color: transparent;
+  border: 3px solid #284433;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+  color: #dadada;
+}
+.create-exercise-page-container .content .form-container form .name-input:focus {
+  border-color: #508163;
+}
+.create-exercise-page-container .content .form-container form .name-input:hover {
+  border-color: #508163;
+}
+.create-exercise-page-container .content .form-container form .name-input::placeholder {
+  color: #858585;
+}
+.create-exercise-page-container .content .form-container form .inputs-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.create-exercise-page-container .content .form-container form .inputs-container .input-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.create-exercise-page-container .content .form-container form .inputs-container .input-box label {
+  color: #b3b3b3;
+}
+.create-exercise-page-container .content .form-container form .inputs-container .input-box select {
+  width: 45%;
+  background-color: transparent;
+  border: 3px solid #284433;
+  padding: 5px;
+  border-radius: 6px;
+  color: #858585;
+}
+.create-exercise-page-container .content .form-container form .inputs-container .input-box select:focus {
+  border-color: #508163;
+}
+.create-exercise-page-container .content .form-container form .hr-bar {
+  height: 1px;
+  background-color: #4a4a4a;
+}
+.create-exercise-page-container .content .form-container form .buttons-box {
+  margin-top: 40px;
+  display: flex;
+  gap: 15px;
+}
+.create-exercise-page-container .content .form-container form .buttons-box .form-btn {
+  flex: 1;
+  border: none;
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 6px;
+  text-align: center;
+}
+.create-exercise-page-container .content .form-container form .buttons-box .save-btn {
+  background-color: #35753e;
+  font-weight: bold;
+  color: #dadada;
+}
+.create-exercise-page-container .content .form-container form .buttons-box .save-btn:hover {
+  background-color: #508163;
+}
+.create-exercise-page-container .content .form-container form .buttons-box .cancel-btn {
+  background-color: #666666;
+  color: #dadada;
+}
+.create-exercise-page-container .content .form-container form .buttons-box .cancel-btn:hover {
+  background-color: #858585;
+}
+@media (min-width: 600px) {
+  .create-exercise-page-container .content .form-container {
+    width: 500px;
+  }
+}
+
 :root {
   background-color: #191a1c;
 }
