@@ -489,6 +489,7 @@
   align-items: center;
 }
 .routines-page-container .page-content .routines-container .exercise-component .exercises-component-container {
+  width: 100%;
   position: relative;
   background-color: #4a4a4a;
   border: 2px solid #666666;
@@ -543,9 +544,6 @@
   display: none;
 }
 @media (min-width: 600px) {
-  .routines-page-container .page-content .routines-container .exercise-component .menu-box .menu-display.active {
-    display: block;
-  }
   .routines-page-container .page-content .routines-container .exercise-component .menu-box .menu-display {
     display: none;
     position: absolute;
@@ -619,11 +617,19 @@
     opacity: 0;
   }
 }
+@keyframes closeMenu {
+  0% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: -250px;
+  }
+}
 .routines-page-container .page-content .routines-container .menu-display-mobile {
   z-index: 1;
   position: absolute;
   bottom: -250px;
-  left: 0;
+  left: -100vw;
   width: 100%;
   height: 250px;
 }
@@ -673,8 +679,10 @@
   left: -100vw;
 }
 .routines-page-container .page-content .routines-container .menu-display-mobile.active {
+  left: 0;
+  transition: left 0s;
   bottom: 0;
-  transition: all 0.3s ease-out;
+  transition: bottom 0.3s ease-out;
 }
 .routines-page-container .page-content .routines-container .menu-display-mobile.active .overlay {
   left: 0;
@@ -682,7 +690,8 @@
   animation: openOverlay 0.3s;
 }
 .routines-page-container .page-content .routines-container .menu-display-mobile.inactive {
-  transition: all 0.3s ease-out;
+  animation: closeMenu 0.3s ease-out;
+  transition: all 0s 0.3s;
 }
 .routines-page-container .page-content .routines-container .menu-display-mobile.inactive .overlay {
   transition: all 0s 0.3s;

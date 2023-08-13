@@ -19,6 +19,7 @@
                 align-items: center;
 
                 .exercises-component-container {
+                    width: 100%;
                     position: relative;
                     background-color: var.$bg-5;
                     border: 2px solid var.$bg-6;
@@ -87,10 +88,6 @@
     
                 @media (min-width: var.$media-break) {
                     .menu-box {
-                        .menu-display.active {
-                            display: block;
-                        }
-
                         .menu-display {
                             display: none;
                             position: absolute;
@@ -179,12 +176,16 @@
                 0% {opacity: 1;}
                 100% {opacity: 0;}
             }
+            @keyframes closeMenu{
+                0% {bottom: 0px;}
+                100% {bottom: -250px;}
+            }
 
             .menu-display-mobile {
                 z-index: 1;
                 position: absolute;
                 bottom: -250px;
-                left: 0;
+                left: -100vw;
                 width: 100%;
                 height: 250px;
                 
@@ -242,8 +243,10 @@
             }
 
             .menu-display-mobile.active {
+                left: 0;
+                transition: left 0s;
                 bottom: 0;
-                transition: all .3s ease-out;
+                transition: bottom .3s ease-out;
 
                 .overlay {
                     left: 0;
@@ -253,7 +256,8 @@
             }
 
             .menu-display-mobile.inactive {
-                transition: all .3s ease-out;
+                animation: closeMenu .3s ease-out;
+                transition: all 0s .3s;
 
                 .overlay {
                     transition: all 0s .3s;
@@ -269,6 +273,20 @@
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

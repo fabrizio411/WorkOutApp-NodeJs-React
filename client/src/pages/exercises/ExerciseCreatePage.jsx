@@ -32,7 +32,7 @@ function ExerciseCreatePage() {
             </div>
             <article className='form-container'>
                 <form onSubmit={onSubmit}>
-                    <input className='name-input' type='text' placeholder='Exercise Name' {...register('name')} autoFocus required/>
+                    <input className='name-input' type='text' autoComplete='off' placeholder='Exercise Name' {...register('name')} autoFocus required/>
                     <div className='inputs-container'>
                         <div className='input-box'>
                             <label>Exercise Type</label>
