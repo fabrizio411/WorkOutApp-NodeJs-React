@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { createExercisesRequest, getExercisesRequest } from '../api/exercises';
+import { createExercisesRequest, deleteExerciseRequest, getExercisesRequest } from '../api/exercises';
 
 const ExerciseContext = createContext()
 
@@ -29,7 +29,15 @@ export function ExerciseProvider({children}) {
     const createExercise = async (exercise) => {
         try {
             const res = await createExercisesRequest(exercise)
-            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    // Eliminar un ejericio
+    const deleteExercise = async (id) => {
+        try {
+            const res = await deleteExerciseRequest(id)
         } catch (error) {
             console.log(error)
         }
@@ -39,6 +47,7 @@ export function ExerciseProvider({children}) {
         <ExerciseContext.Provider value={{
             getExercises,
             createExercise,
+            deleteExercise,
             exercies
         }}
         >

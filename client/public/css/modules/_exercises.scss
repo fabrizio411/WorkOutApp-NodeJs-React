@@ -14,10 +14,6 @@
         flex-direction: column;
 
         .routines-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-
             .exercise-component {
                 display: flex;
                 align-items: center;
@@ -113,6 +109,8 @@
                                     gap: 15px;
                                     align-items: center;
                                     color: var.$text-3;
+                                    background-color: transparent;
+                                    border: none;
         
                                     .svg-fix {
                                         box-sizing: content-box;
@@ -208,6 +206,8 @@
                         gap: 15px;
                         color: var.$text-2;
                         font-size: 1.2rem;
+                        background-color: transparent;
+                        border: none;
 
                         .svg-fix {
                             box-sizing: content-box;
@@ -262,7 +262,7 @@
             }
 
             @media (min-width: var.$media-break) {
-                .menu-display-mobile.active {
+                .menu-display-mobile {
                     display: none;
                 }
             }
