@@ -488,22 +488,31 @@
   align-items: center;
   flex-direction: column;
 }
+.routines-page-container .page-content .routines-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.routines-page-container .page-content .routines-container .exercise-component {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 .routines-page-container .page-content .routines-container .exercises-component-container {
-  margin-top: 15px;
+  position: relative;
   width: calc(100vw - 30px);
   background-color: #4a4a4a;
   border: 2px solid #666666;
   border-radius: 8px;
   padding: 15px;
   text-decoration: none;
-}
-.routines-page-container .page-content .routines-container .exercises-component-container:hover {
-  background-color: #666666;
-}
-.routines-page-container .page-content .routines-container .exercises-component-container:active {
-  background-color: #3c3c3c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 .routines-page-container .page-content .routines-container .exercises-component-container .exercise-info {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -524,9 +533,80 @@
   color: #dadada;
   font-size: 0.85rem;
 }
+.routines-page-container .page-content .routines-container .menu-helper {
+  z-index: 1;
+}
+.routines-page-container .page-content .routines-container .menu-box {
+  padding: 5px;
+  padding-top: 9px;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+.routines-page-container .page-content .routines-container .menu-box svg {
+  fill: #dadada;
+  transition: 0.1s;
+}
+.routines-page-container .page-content .routines-container .menu-box .menu-display.active {
+  display: block;
+}
+.routines-page-container .page-content .routines-container .menu-box .menu-display {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 80%;
+  background-color: #3c3c3c;
+  padding: 15px;
+}
+.routines-page-container .page-content .routines-container .menu-box .menu-display .content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.routines-page-container .page-content .routines-container .menu-box .menu-display .content .menu-option {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  color: #b3b3b3;
+}
+.routines-page-container .page-content .routines-container .menu-box .menu-display .content .menu-option .svg-fix {
+  box-sizing: content-box;
+  padding: 4px;
+}
+.routines-page-container .page-content .routines-container .menu-box .menu-display .content .menu-option svg {
+  fill: #858585;
+}
+.routines-page-container .page-content .routines-container .menu-box .menu-display .content .hr-bar {
+  height: 1px;
+  background-color: #4a4a4a;
+}
+@media (min-width: 600px) {
+  .routines-page-container .page-content .routines-container .menu-box:hover svg {
+    fill: #ffffff;
+    transform: scale(1.2);
+  }
+  .routines-page-container .page-content .routines-container .menu-box:hover .menu-display {
+    display: block;
+  }
+  .routines-page-container .page-content .routines-container .menu-box:hover .menu-display .content .menu-option:hover {
+    color: #ffffff;
+  }
+  .routines-page-container .page-content .routines-container .menu-box:hover .menu-display .content .menu-option:hover svg {
+    fill: #dadada;
+  }
+  .routines-page-container .page-content .routines-container .menu-box:hover .menu-display .content .menu-option:hover .delete-svg {
+    fill: rgb(133, 73, 73);
+  }
+}
 @media (min-width: 600px) {
   .routines-page-container .page-content .routines-container .exercises-component-container {
     width: 500px;
+  }
+  .routines-page-container .page-content .routines-container .exercises-component-container:hover {
+    background-color: #666666;
   }
 }
 

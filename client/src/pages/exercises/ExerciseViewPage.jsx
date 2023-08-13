@@ -2,6 +2,7 @@ import Header from '../../components/header/Header'
 import Nav from '../../components/header/Nav'
 import LogOutPopUp from '../../components/header/LogOutPopUp'
 import { useNav } from '../../context/NavContext'
+import { Link } from 'react-router-dom'
 
 function ExerciseViewPage() {
 
@@ -24,7 +25,7 @@ function ExerciseViewPage() {
             </div>
 
             <div className='info-box'>
-              
+
             </div>
 
           </div>
