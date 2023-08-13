@@ -104,3 +104,277 @@
         }
     }
 }
+
+
+
+
+
+
+
+
+// CREATE ROUTINE
+.create-routine-page-container {
+    display: flex;
+    justify-content: center;
+
+
+    //Exercise Window
+    @keyframes openOverlay{
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+    @keyframes closeOverlay{
+        0% {opacity: 1;}
+        100% {opacity: 0;}
+    }
+
+    .exercises-window.active {
+        .exercises-container {
+            transform: scale(1);
+        }
+
+        .overlay {
+            left: 0;
+            transition: all 0s;
+            animation: openOverlay .3s;
+        }
+    }
+
+    .exercises-window.inactive {
+        .exercises-container {
+            transform: scale(0);
+        }
+
+        .overlay {
+            transition: all 0s .3s;
+            animation: closeOverlay .3s;
+        }
+    }
+
+    .exercises-window {
+        .overlay {
+            z-index: 0;
+            background-color: rgba(0, 0, 0, 0.432);
+            height: 100vh;
+            width: 100vw;
+            border: none;
+            left: -100vw;
+            top: 0;
+            position: absolute;
+        }
+
+        .exercises-container {
+            transition: transform .2s;
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+
+    .content {
+        padding-top: calc(var.$nav-height + 25px);
+
+        .title-box {
+            margin-left: 10px;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+
+            .back-btn {
+                fill: var.$green-2;
+                padding: 5px;
+            }
+            
+            .page-title {
+                color: var.$text-1;
+                font-size: 2rem;
+                font-weight: bold;
+            }
+        }
+
+        .form-container {
+            margin-top: 15px;
+            padding: 20px;
+            background-color: var.$bg-3;
+            border-radius: 8px;
+            width: calc(100vw - 30px);
+
+            form {
+                width: 100%;
+
+                .buttons-box {
+                    margin-top: 10px;
+                    display: flex;
+                    gap: 15px;
+                    
+                    .form-btn {
+                        flex: 1;
+                        border: none;
+                        text-decoration: none;
+                        padding: 6px;
+                        border-radius: 6px;
+                        text-align: center;
+                        cursor: pointer;
+                    }
+
+                    .save-btn {
+                        background-color: var.$green-1;
+                        font-weight: bold;
+                        color: var.$text-2;
+
+                        &:hover {
+                            background-color: var.$green-2;
+                        }
+                    }
+
+                    .cancel-btn {
+                        background-color: var.$bg-6;
+                        color: var.$text-2;
+
+                        &:hover {
+                            background-color: var.$text-4
+                        }
+                    }
+                }
+
+                .name-input {
+                    margin-top: 30px;
+                    margin-bottom: 15px;
+                    width: 100%;
+                    padding: 8px;
+                    background-color: transparent;
+                    border: 3px solid var.$green-4;
+                    border-radius: 6px;
+                    outline: none;
+                    transition: border-color .2s;
+                    color: var.$text-2;
+
+                    &:focus {
+                        border-color: var.$green-2;
+                    }
+
+                    &:hover {
+                        border-color: var.$green-2;
+                    }
+
+                    &::placeholder {
+                        color: var.$text-4;
+                    }
+                }
+
+                .hr-bar {
+                    height: 1px;
+                    background-color: var.$bg-5
+                }
+
+                .add-btn-box {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-top: 15px;
+
+                    .add-btn {
+                        background-color: var.$green-1;
+                        padding: 5px 10px;
+                        border: none;
+                        border-radius: 6px;
+                        color: var.$text-2;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: var.$green-2;
+                        }
+                    }
+                }
+
+
+
+                .inputs-container {
+                    margin-top: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .input-box {
+                        background-color: var.$bg-4;
+                        padding: 15px;
+                        border-radius: 8px;
+
+                        .input-title-box {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
+
+                            .input-title {
+                                color: var.$text-2;
+                                font-size: 1.5rem;
+                            }
+
+                            .delete-input-btn {
+                                background-color: transparent;
+                                border: none;
+                                cursor: pointer;
+
+                                svg {
+                                    fill: var.$text-3;
+                                    transition: .2s;
+
+                                    &:hover {
+                                        fill: rgb(133, 73, 73);
+                                    }
+                                }
+                            }
+                        }
+
+                        .data-container {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 15px;
+                            margin-top: 15px;
+
+                            .data {
+                                display: flex;
+                                align-items: center;
+                                gap: 15px;
+                                margin-left: 15px;
+
+                                p {
+                                    color: var.$text-4;
+                                }
+
+                                input {
+                                    width: 40px;
+                                    background-color: transparent;
+                                    border: 1px solid var.$text-3;
+                                    border-radius: 6px;
+                                    outline: none;
+                                    padding: 4px 0;
+                                    color: var.$text-3;
+                                    text-align: center;
+
+                                    &::placeholder {
+                                        text-align: center;
+                                        columns: var.$text-4
+                                    }
+
+                                    &:focus, &:hover {
+                                        border-color: var.$text-1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (min-width: var.$media-break) {
+            .form-container {
+                width: 500px;
+            }
+        }
+    }
+}

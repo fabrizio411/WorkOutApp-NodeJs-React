@@ -27,7 +27,7 @@ function RoutinesPage() {
         <div className='routines-container'>
           <div className='title-box'>
             <h1 className='page-title'>Routines</h1>
-            <Link className='new-routine-btn new-btn'>+ New Routine</Link>
+            <Link className='new-routine-btn new-btn' to='/create-routine'>+ New Routine</Link>
           </div>
 
           <Routine/>
