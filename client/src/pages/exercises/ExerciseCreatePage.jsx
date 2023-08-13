@@ -20,17 +20,17 @@ function ExerciseCreatePage() {
     if (isCreated) return (<Navigate to='/exercises'/>)
 
   return (
-    <div className='create-exercise-page-container'>
+    <main className='create-exercise-page-container'>
         <Header/>
 
-        <div className='content'>
+        <section className='content'>
             <div className='title-box'>
                 <Link className='back-btn' to='/exercises'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
                 </Link>
                 <h1 className='page-title'>Create Exercise</h1>
             </div>
-            <div className='form-container'>
+            <article className='form-container'>
                 <form onSubmit={onSubmit}>
                     <input className='name-input' type='text' placeholder='Exercise Name' {...register('name')} autoFocus required/>
                     <div className='inputs-container'>
@@ -78,9 +78,9 @@ function ExerciseCreatePage() {
                         <button className='save-btn form-btn'>Save Exercise</button>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
+            </article>
+        </section>
+    </main>
   )
 }
 

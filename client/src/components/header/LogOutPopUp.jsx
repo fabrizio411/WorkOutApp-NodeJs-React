@@ -13,9 +13,9 @@ function LogOutPopUp() {
     }
 
   return (
-    <div className={`logout-popup-component ${activePopUp ? 'active' : 'inactive'}`}>
+    <section className={`logout-popup-component ${activePopUp ? 'active' : 'inactive'}`}>
         <button className="overlay" onClick={handleClosePopUp}></button>
-        <div className="content">
+        <article className="content">
           <div className="text-box">
             <h3 className="alert-title">Confirmation</h3>
             <p className="alert-text">Are you shure you want to logout?</p>
@@ -24,8 +24,8 @@ function LogOutPopUp() {
             <button className="alert-btn cancel" onClick={handleClosePopUp}>Cancel</button>
             <button className="alert-btn submit" onClick={logout}>Log Out</button>
           </div>
-        </div>
-    </div>
+        </article>
+    </section>
   )
 }
 

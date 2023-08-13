@@ -9,12 +9,12 @@ function ExerciseViewPage() {
   const { swipeHandler } = useNav()
 
   return (
-    <div className='exercise-view-page' {...swipeHandler}>
+    <main className='exercise-view-page' {...swipeHandler}>
         <LogOutPopUp/>
         <Header/>
         <Nav current_page={'EXERCISES'}/>
 
-        <div className='page-content'>
+        <section className='page-content'>
           <div className='exercise-container'>
             
             <div className='title-box'>
@@ -29,8 +29,8 @@ function ExerciseViewPage() {
             </div>
 
           </div>
-        </div>
-    </div>
+        </section>
+    </main>
   )
 }
 

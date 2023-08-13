@@ -18,11 +18,11 @@ function ExercisesPage() {
   }, [])
 
   return (
-    <div className='routines-page-container' {...swipeHandler}>
+    <main className='routines-page-container' {...swipeHandler}>
       <LogOutPopUp/>
       <Header/>
       <Nav current_page={'EXERCISES'}/>
-      <div className='page-content'>
+      <section className='page-content'>
         <div className='routines-container'>
           <div className='title-box'>
             <h1 className='page-title'>Exercises</h1>
@@ -40,8 +40,8 @@ function ExercisesPage() {
           ))}
 
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   )
 }
 

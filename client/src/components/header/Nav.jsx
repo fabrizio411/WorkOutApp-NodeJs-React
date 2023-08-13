@@ -33,18 +33,12 @@ function Nav(props) {
 
     return (
         <NavProvider>
-            {/* LogOut popUp */}
-            {/* <div className={`logout-popup-component ${activePopUp ? 'active' : 'inactive'}`}>
-                <button className="overlay" onClick={handleClosePopUp}></button>
-                <div className="content"></div>
-            </div> */}
-
-            <div className={`nav-component-container ${isActive ? 'active' : 'inactive'}`}>
+            <header className={`nav-component-container ${isActive ? 'active' : 'inactive'}`}>
                 <button className='overlay' onClick={handleCloseNav}></button>
 
                 <div className='nav-container'>
                     
-                    <div className='profile-info-box'>
+                    <section className='profile-info-box'>
                         <h1 className='desktop-title'>WorkOutApp</h1>
                         <div className='accesibility'>
                             <button className='menu-svg-btn' onClick={handleCloseNav}>
@@ -66,7 +60,7 @@ function Nav(props) {
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
                     <nav className='nav-options-box'>
                         <ul>
@@ -115,7 +109,7 @@ function Nav(props) {
                         </ul>
                     </nav>
                 </div>
-            </div>
+            </header>
         </NavProvider>
     )
 }

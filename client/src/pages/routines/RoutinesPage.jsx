@@ -19,11 +19,11 @@ function RoutinesPage() {
   }, [])
 
   return (
-    <div className='routines-page-container' {...swipeHandler}>
+    <main className='routines-page-container' {...swipeHandler}>
       <LogOutPopUp/>
       <Header/>
       <Nav current_page={'ROUTINES'}/>
-      <div className='page-content'>
+      <section className='page-content'>
         <div className='routines-container'>
           <div className='title-box'>
             <h1 className='page-title'>Routines</h1>
@@ -35,8 +35,8 @@ function RoutinesPage() {
           <Routine/>
 
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   )
 }
 
