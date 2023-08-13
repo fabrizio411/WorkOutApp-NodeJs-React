@@ -12,8 +12,10 @@
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
+        height: fit-content;
 
-        .routines-container {
+        .routines-container {   
+
             .exercise-component {
                 display: flex;
                 align-items: center;
@@ -67,6 +69,7 @@
                 }
     
                 .menu-box {
+                    z-index: 0;
                     padding: 5px;
                     padding-top: 9px;
                     background-color: transparent;
@@ -182,8 +185,8 @@
             }
 
             .menu-display-mobile {
-                z-index: 1;
-                position: absolute;
+                z-index: 2;
+                position: fixed;
                 bottom: -250px;
                 left: -100vw;
                 width: 100%;

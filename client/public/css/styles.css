@@ -67,7 +67,7 @@
   }
 }
 .header-component-container {
-  z-index: 0;
+  z-index: 10;
   position: fixed;
   background-color: #285a30;
   width: 100%;
@@ -155,7 +155,7 @@
   }
 }
 .nav-component-container {
-  z-index: 1;
+  z-index: 11;
   height: 100%;
   position: fixed;
   top: 0;
@@ -337,7 +337,7 @@
   height: 200px;
   width: 300px;
   background-color: rgb(51, 51, 51);
-  z-index: 3;
+  z-index: 13;
   position: absolute;
   top: calc(50% - 100px);
   left: calc(50% - 150px);
@@ -385,7 +385,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 12;
   transform: scale(0);
 }
 
@@ -397,9 +397,11 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  height: fit-content;
 }
 .routines-page-container .page-content .routines-container {
   margin-top: 10px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -483,6 +485,7 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  height: fit-content;
 }
 .routines-page-container .page-content .routines-container .exercise-component {
   display: flex;
@@ -527,6 +530,7 @@
   z-index: 1;
 }
 .routines-page-container .page-content .routines-container .exercise-component .menu-box {
+  z-index: 0;
   padding: 5px;
   padding-top: 9px;
   background-color: transparent;
@@ -626,8 +630,8 @@
   }
 }
 .routines-page-container .page-content .routines-container .menu-display-mobile {
-  z-index: 1;
-  position: absolute;
+  z-index: 2;
+  position: fixed;
   bottom: -250px;
   left: -100vw;
   width: 100%;
@@ -820,6 +824,7 @@
 
 :root {
   background-color: #191a1c;
+  height: fit-content;
 }
 
 .page-content {
