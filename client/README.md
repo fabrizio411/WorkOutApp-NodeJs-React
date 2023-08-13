@@ -5,3 +5,5 @@
 
 
 - Estilos de ejercicios y rutinas, setear de entrada el width en el container y no en el componente
+
+- Temrinar mobile menu

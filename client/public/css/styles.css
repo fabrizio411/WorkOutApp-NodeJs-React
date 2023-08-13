@@ -494,11 +494,10 @@
   gap: 15px;
 }
 .routines-page-container .page-content .routines-container .exercise-component {
-  position: relative;
   display: flex;
   align-items: center;
 }
-.routines-page-container .page-content .routines-container .exercises-component-container {
+.routines-page-container .page-content .routines-container .exercise-component .exercises-component-container {
   position: relative;
   width: calc(100vw - 30px);
   background-color: #4a4a4a;
@@ -511,32 +510,32 @@
   align-items: center;
   gap: 20px;
 }
-.routines-page-container .page-content .routines-container .exercises-component-container .exercise-info {
+.routines-page-container .page-content .routines-container .exercise-component .exercises-component-container .exercise-info {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.routines-page-container .page-content .routines-container .exercises-component-container .exercise-info .info-box .name {
+.routines-page-container .page-content .routines-container .exercise-component .exercises-component-container .exercise-info .info-box .name {
   color: #dadada;
   font-weight: bold;
   font-size: 1.2rem;
 }
-.routines-page-container .page-content .routines-container .exercises-component-container .exercise-info .info-box .mainmuscle {
+.routines-page-container .page-content .routines-container .exercise-component .exercises-component-container .exercise-info .info-box .mainmuscle {
   font-size: 0.9rem;
   color: #b3b3b3;
 }
-.routines-page-container .page-content .routines-container .exercises-component-container .exercise-info .is-custom {
+.routines-page-container .page-content .routines-container .exercise-component .exercises-component-container .exercise-info .is-custom {
   background-color: #508163;
   border-radius: 20px;
   padding: 6px 12px;
   color: #dadada;
   font-size: 0.85rem;
 }
-.routines-page-container .page-content .routines-container .menu-helper {
+.routines-page-container .page-content .routines-container .exercise-component .menu-helper {
   z-index: 1;
 }
-.routines-page-container .page-content .routines-container .menu-box {
+.routines-page-container .page-content .routines-container .exercise-component .menu-box {
   padding: 5px;
   padding-top: 9px;
   background-color: transparent;
@@ -546,67 +545,158 @@
   transform: translateY(-50%);
   right: 0;
 }
-.routines-page-container .page-content .routines-container .menu-box svg {
+.routines-page-container .page-content .routines-container .exercise-component .menu-box svg {
   fill: #dadada;
   transition: 0.1s;
 }
-.routines-page-container .page-content .routines-container .menu-box .menu-display.active {
-  display: block;
-}
-.routines-page-container .page-content .routines-container .menu-box .menu-display {
+.routines-page-container .page-content .routines-container .exercise-component .menu-box .menu-display {
   display: none;
-  position: absolute;
-  top: 0;
-  left: 80%;
-  background-color: #3c3c3c;
-  padding: 15px;
-}
-.routines-page-container .page-content .routines-container .menu-box .menu-display .content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.routines-page-container .page-content .routines-container .menu-box .menu-display .content .menu-option {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  color: #b3b3b3;
-}
-.routines-page-container .page-content .routines-container .menu-box .menu-display .content .menu-option .svg-fix {
-  box-sizing: content-box;
-  padding: 4px;
-}
-.routines-page-container .page-content .routines-container .menu-box .menu-display .content .menu-option svg {
-  fill: #858585;
-}
-.routines-page-container .page-content .routines-container .menu-box .menu-display .content .hr-bar {
-  height: 1px;
-  background-color: #4a4a4a;
 }
 @media (min-width: 600px) {
-  .routines-page-container .page-content .routines-container .menu-box:hover svg {
+  .routines-page-container .page-content .routines-container .exercise-component .menu-box .menu-display.active {
+    display: block;
+  }
+  .routines-page-container .page-content .routines-container .exercise-component .menu-box .menu-display {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 80%;
+    background-color: #3c3c3c;
+    padding: 15px;
+  }
+  .routines-page-container .page-content .routines-container .exercise-component .menu-box .menu-display .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .routines-page-container .page-content .routines-container .exercise-component .menu-box .menu-display .content .menu-option {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    color: #b3b3b3;
+  }
+  .routines-page-container .page-content .routines-container .exercise-component .menu-box .menu-display .content .menu-option .svg-fix {
+    box-sizing: content-box;
+    padding: 4px;
+  }
+  .routines-page-container .page-content .routines-container .exercise-component .menu-box .menu-display .content .menu-option svg {
+    fill: #858585;
+  }
+  .routines-page-container .page-content .routines-container .exercise-component .menu-box .menu-display .content .hr-bar {
+    height: 1px;
+    background-color: #4a4a4a;
+  }
+  .routines-page-container .page-content .routines-container .exercise-component .menu-box:hover svg {
     fill: #ffffff;
     transform: scale(1.2);
   }
-  .routines-page-container .page-content .routines-container .menu-box:hover .menu-display {
+  .routines-page-container .page-content .routines-container .exercise-component .menu-box:hover .menu-display {
     display: block;
   }
-  .routines-page-container .page-content .routines-container .menu-box:hover .menu-display .content .menu-option:hover {
+  .routines-page-container .page-content .routines-container .exercise-component .menu-box:hover .menu-display .content .menu-option:hover {
     color: #ffffff;
   }
-  .routines-page-container .page-content .routines-container .menu-box:hover .menu-display .content .menu-option:hover svg {
+  .routines-page-container .page-content .routines-container .exercise-component .menu-box:hover .menu-display .content .menu-option:hover svg {
     fill: #dadada;
   }
-  .routines-page-container .page-content .routines-container .menu-box:hover .menu-display .content .menu-option:hover .delete-svg {
+  .routines-page-container .page-content .routines-container .exercise-component .menu-box:hover .menu-display .content .menu-option:hover .delete-svg {
     fill: rgb(133, 73, 73);
   }
 }
 @media (min-width: 600px) {
-  .routines-page-container .page-content .routines-container .exercises-component-container {
+  .routines-page-container .page-content .routines-container .exercise-component .exercises-component-container {
     width: 500px;
   }
-  .routines-page-container .page-content .routines-container .exercises-component-container:hover {
+  .routines-page-container .page-content .routines-container .exercise-component .exercises-component-container:hover {
     background-color: #666666;
+  }
+}
+@keyframes openOverlay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes closeOverlay {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.routines-page-container .page-content .routines-container .menu-display-mobile {
+  z-index: 1;
+  position: absolute;
+  bottom: -250px;
+  left: 0;
+  width: 100%;
+  height: 250px;
+}
+.routines-page-container .page-content .routines-container .menu-display-mobile .content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #3c3c3c;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0;
+}
+.routines-page-container .page-content .routines-container .menu-display-mobile .content .menu-option {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #dadada;
+  font-size: 1.2rem;
+}
+.routines-page-container .page-content .routines-container .menu-display-mobile .content .menu-option .svg-fix {
+  box-sizing: content-box;
+  padding: 4px;
+  fill: #858585;
+}
+.routines-page-container .page-content .routines-container .menu-display-mobile .content .menu-option .delete-svg {
+  fill: rgb(133, 73, 73);
+}
+.routines-page-container .page-content .routines-container .menu-display-mobile .content .menu-option.delete {
+  color: rgb(173, 66, 66);
+}
+.routines-page-container .page-content .routines-container .menu-display-mobile .content .hr-bar {
+  height: 1px;
+  background-color: #4a4a4a;
+}
+.routines-page-container .page-content .routines-container .menu-display-mobile .overlay {
+  background-color: rgba(0, 0, 0, 0.432);
+  height: 100vh;
+  width: 100vw;
+  border: none;
+  position: absolute;
+  bottom: 250px;
+  left: -100vw;
+}
+.routines-page-container .page-content .routines-container .menu-display-mobile.active {
+  bottom: 0;
+  transition: all 0.3s ease-out;
+}
+.routines-page-container .page-content .routines-container .menu-display-mobile.active .overlay {
+  left: 0;
+  transition: all 0s;
+  animation: openOverlay 0.3s;
+}
+.routines-page-container .page-content .routines-container .menu-display-mobile.inactive {
+  transition: all 0.3s ease-out;
+}
+.routines-page-container .page-content .routines-container .menu-display-mobile.inactive .overlay {
+  transition: all 0s 0.3s;
+  animation: closeOverlay 0.3s;
+}
+@media (min-width: 600px) {
+  .routines-page-container .page-content .routines-container .menu-display-mobile.active {
+    display: none;
   }
 }
 
