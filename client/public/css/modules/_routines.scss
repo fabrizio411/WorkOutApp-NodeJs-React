@@ -13,7 +13,9 @@
             margin-top: 10px;
             display: flex;
             flex-direction: column;
+            gap: 15px;
             margin-bottom: 30px;
+            width: calc(100vw - 30px);
 
             .title-box {
                 display: flex;
@@ -36,9 +38,7 @@
 
             .routine-component-container {
                 text-decoration: none;
-                width: calc(100vw - 30px);
                 background-color: var.$green-4;
-                margin-top: 15px;
                 border-radius: 8px;
                 padding: 15px;
                 display: flex;
@@ -89,12 +89,6 @@
                     }
                 }
             }
-
-            @media (min-width: var.$media-break) {
-                .routine-component-container {
-                    width: 500px;
-                }
-            }
         }
 
         @media (min-width: var.$media-break) {
@@ -103,6 +97,7 @@
                 padding-top: 20px;
                 background-color: var.$bg-3;
                 border-radius: 8px;
+                width: 500px;
             }
         }
     }
