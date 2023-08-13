@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from 'react';
-import { createExercisesRequest, deleteExerciseRequest, getExercisesRequest } from '../api/exercises';
+import { createExercisesRequest, deleteExerciseRequest, getExerciseToUpdateRequest, getExercisesRequest, updateExerciseRequest } from '../api/exercises';
+import { getExerciseToUpdate } from '../../../src/controllers/exercises.controller';
+import { set } from 'mongoose';
 
 const ExerciseContext = createContext()
 
@@ -43,11 +45,34 @@ export function ExerciseProvider({children}) {
         }
     }
 
+    // Editar un ejerciico
+    const updateExercise = async (id, data) => {
+        try {
+            const res = await updateExerciseRequest(id, data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const [toUpdate, setToUpdate] = useState({})
+    // Obtener valores del ejercicio para editar
+    const getExerciseToUpdate = async (id) => {
+        try {
+            const res = await getExerciseToUpdateRequest(id)
+            setToUpdate(res.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <ExerciseContext.Provider value={{
             getExercises,
             createExercise,
             deleteExercise,
+            updateExercise,
+            getExerciseToUpdate,
+            toUpdate,
             exercies
         }}
         >

@@ -86,6 +86,33 @@ export const createExercise = async (req, res) => {
    
 }
 
+export const updateExercise = async (req, res) => {
+    const { name, muscle } = req.body
+
+    try {
+        const exercise = await Exercise.findByIdAndUpdate(
+            req.params.id, 
+            {
+                name: name,
+                muscle: muscle
+            },
+            {new: true}
+        )
+        res.json(exercise)
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+}
+
+export const getExerciseToUpdate = async (req, res) => {
+    try {
+        const exercise = await Exercise.findById(req.params.id).where({ user: req.user.id })
+        res.json(exercise)
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+}
+
 export const deleteExercise = async (req, res) => {
     try {
         const exercise = await Exercise.findByIdAndDelete(req.params.id).where({ user: req.user.id, isCustom: true })

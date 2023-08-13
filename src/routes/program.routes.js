@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { authRequired } from '../middlewares/validateToken.middleware.js'
-import { getProgram, updateProgram } from "../controllers/prgram.conteoller.js"
+import { getProgram, updateProgram } from "../controllers/program.conteoller.js"
 
 const router = Router()
 

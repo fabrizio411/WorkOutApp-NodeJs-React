@@ -17,6 +17,7 @@ import SettingsPage from './pages/settings/SettingsPage'
 import { ExerciseProvider } from './context/ExerciseContext'
 import ExerciseCreatePage from './pages/exercises/ExerciseCreatePage'
 import ExerciseViewPage from './pages/exercises/ExerciseViewPage'
+import ExerciseUpdatePage from './pages/exercises/ExerciseUpdatePage'
 
 function App() {
     return (
@@ -45,6 +46,7 @@ function App() {
 
                                     <Route path='/exercises' element={<ExercisesPage/>}/>
                                     <Route path='/create-exercise' element={<ExerciseCreatePage/>}/>
+                                    <Route path='/edit-exercise/:id' element={<ExerciseUpdatePage/>}/>
                                     <Route path='/exercises/:id' element={<ExerciseViewPage/>}/>
 
                                     <Route path='/measures' element={<MeasuresPage/>}/>

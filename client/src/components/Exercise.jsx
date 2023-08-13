@@ -23,10 +23,10 @@ function Exercise(props) {
         <section className={`menu-display-mobile ${isMenuActive ? 'active' : 'inactive'}`}>
           <button className="overlay" onClick={handleCloseMenu}></button>
           <div className="content">
-            <button className="menu-option">
+            <Link className="menu-option" to={`/edit-exercise/${props.id}`}>
               <svg className="svg-fix" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m16 2.012 3 3L16.713 7.3l-3-3zM4 14v3h3l8.299-8.287-3-3zm0 6h16v2H4z"></path></svg>
               <p>Edit</p>
-            </button>
+            </Link>
             <div className="hr-bar"></div>
             <button className="menu-option delete" onClick={() => {
               deleteExercise(props.id)
@@ -57,10 +57,10 @@ function Exercise(props) {
 
               <section className='menu-display'>
                 <div className="content">
-                  <button className="menu-option">
+                  <Link className="menu-option" to={`/edit-exercise/${props.id}`}>
                     <svg className="svg-fix" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="m16 2.012 3 3L16.713 7.3l-3-3zM4 14v3h3l8.299-8.287-3-3zm0 6h16v2H4z"></path></svg>
                     <p>Edit</p>
-                  </button>
+                  </Link>
                   <div className="hr-bar"></div>
                   <button className="menu-option" onClick={() => {
                     deleteExercise(props.id)
