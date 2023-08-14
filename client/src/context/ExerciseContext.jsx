@@ -15,7 +15,7 @@ export const useExercise = () => {
 
 export function ExerciseProvider({children}) {
     
-    const [exercies, setExercises] = useState([])
+    const [exercises, setExercises] = useState([])
 
     // Obtener ejercicios del backend
     const getExercises = async () => {
@@ -73,7 +73,7 @@ export function ExerciseProvider({children}) {
             updateExercise,
             getExerciseToUpdate,
             toUpdate,
-            exercies
+            exercises
         }}
         >
             {children}

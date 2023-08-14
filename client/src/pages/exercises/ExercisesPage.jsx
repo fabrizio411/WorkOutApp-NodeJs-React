@@ -11,7 +11,7 @@ function ExercisesPage() {
 
   const { swipeHandler } = useNav()
 
-  const { getExercises, exercies } = useExercise()
+  const { getExercises, exercises } = useExercise()
 
   useEffect(() => {
     getExercises()
@@ -29,7 +29,7 @@ function ExercisesPage() {
             <Link className='new-routine-btn new-btn' to='/create-exercise'>+ New Exercise</Link>
           </div>
 
-          {exercies.map((item, i) => (
+          {exercises.map((item, i) => (
             <Exercise 
               key={i} 
               name={item.name} 

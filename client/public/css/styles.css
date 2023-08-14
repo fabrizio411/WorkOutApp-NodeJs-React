@@ -512,6 +512,9 @@
   transition: all 0s 0.3s;
   animation: closeOverlay 0.3s;
 }
+.create-routine-page-container .exercises-window {
+  background-color: red;
+}
 .create-routine-page-container .exercises-window .overlay {
   z-index: 0;
   background-color: rgba(0, 0, 0, 0.432);
@@ -526,9 +529,80 @@
   transition: transform 0.2s;
   z-index: 1;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 70vh;
+  width: calc(100vw - 30px);
+  left: calc(50% - (100vw - 30px) / 2);
+  top: calc(50% - 35vh);
+  background-color: #3c3c3c;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-radius: 8px;
+}
+.create-routine-page-container .exercises-window .exercises-container .cancel-btn {
+  background-color: #666666;
+  color: #dadada;
+  border: none;
+  border-radius: 6px;
+  width: 50%;
+  padding: 6px;
+  font-size: 1.2rem;
+}
+.create-routine-page-container .exercises-window .exercises-container .cancel-btn:hover {
+  background-color: #858585;
+}
+.create-routine-page-container .exercises-window .exercises-container .exercises-window-component {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 8px;
+}
+.create-routine-page-container .exercises-window .exercises-container .exercises-window-component .exercise-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4a4a4a;
+  border: 2px solid #666666;
+  padding: 15px;
+  border-radius: 8px;
+}
+.create-routine-page-container .exercises-window .exercises-container .exercises-window-component .exercise-info .info-box .name {
+  color: #dadada;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: left;
+}
+.create-routine-page-container .exercises-window .exercises-container .exercises-window-component .exercise-info .info-box .mainmuscle {
+  font-size: 0.9rem;
+  color: #b3b3b3;
+  text-align: left;
+}
+.create-routine-page-container .exercises-window .exercises-container .exercises-window-component .exercise-info .is-custom {
+  background-color: #508163;
+  border-radius: 20px;
+  padding: 6px 12px;
+  color: #dadada;
+  font-size: 0.85rem;
+}
+.create-routine-page-container .exercises-window .exercises-container .exercises-window-component .exercise-info:hover {
+  background-color: #666666;
+}
+@media (min-width: 600px) {
+  .create-routine-page-container .exercises-window .exercises-container .cancel-btn {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 600px) {
+  .create-routine-page-container .exercises-window .exercises-container {
+    width: 325px;
+    height: 90vh;
+    top: calc(50% - 45vh);
+    left: calc(50% - 162.5px);
+  }
 }
 .create-routine-page-container .content {
   padding-top: 75px;

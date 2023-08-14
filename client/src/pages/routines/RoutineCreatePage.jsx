@@ -33,9 +33,6 @@ function RoutineCreatePage() {
     setIsExrWindow(false)
   }
 
-  const [exrList, setExrList] = useState([])
-
-
   const onSubmit = handleSubmit((data) => {
     console.log(data)
   })
@@ -45,7 +42,7 @@ function RoutineCreatePage() {
       
       <div className={`exercises-window ${isExrWindow ? 'active' : 'inactive'}`}>
         <div className='exercises-container'>
-          <button onClick={handleCloseExrWindow}>Cancel</button>
+          <button className='cancel-btn' onClick={handleCloseExrWindow}>Cancel</button>
           <ExercisesWindow/>
         </div>
         <button className='overlay' onClick={handleCloseExrWindow}></button>
