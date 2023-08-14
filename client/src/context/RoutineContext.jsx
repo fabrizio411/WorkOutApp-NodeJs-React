@@ -34,14 +34,33 @@ export function RoutineProvider({ children }) {
         } catch (error) {
             console.log(error)
         }
+    }
 
+    // Create routine added exercises list
+    const [exrList, setExrList] = useState([])
+    const addExercise = (exrName, exrId) => {
+        let currentList = exrList
+        const newExercise = {
+            name: exrName,
+            id: exrId
+        }
+        currentList.push(newExercise)
+        setExrList(currentList)
+    }
+    const removeExercise = (exrId) => {
+        let currentList = exrList
+        let index = currentList.findIndex(item => item.id === exrId)
+        currentList.splice(index, 1)
     }
 
     return (
         <RoutineContext.Provider value={{
             createRoutine,
             getRoutines,
-            routines
+            routines,
+            addExercise,
+            removeExercise,
+            exrList
         }}>
 
             {children}

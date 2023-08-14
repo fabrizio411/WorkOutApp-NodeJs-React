@@ -24,13 +24,31 @@ function RoutineCreatePage() {
     getExercises()
   }, [])
 
+  // Exercises window Display
   const [isExrWindow, setIsExrWindow] = useState(false)
-
   const handleOpenExrWindow = () => {
     setIsExrWindow(true)
   }
   const handleCloseExrWindow = () => {
     setIsExrWindow(false)
+  }
+
+  // Create routine added exercises list
+  const [exrList, setExrList] = useState([])
+  const addExercise = (exrName, exrId) => {
+      let currentList = [...exrList]
+      const newExercise = {
+          name: exrName,
+          id: exrId
+      }
+      currentList.push(newExercise)
+      setExrList(currentList)
+  }
+  const removeExercise = (exrId) => {
+      let currentList = [...exrList]
+      let index = currentList.findIndex(item => item.id === exrId)
+      currentList.splice(index, 1)
+      setExrList(currentList)
   }
 
   const onSubmit = handleSubmit((data) => {
@@ -40,13 +58,30 @@ function RoutineCreatePage() {
   return (
     <main className='create-routine-page-container'>
       
-      <div className={`exercises-window ${isExrWindow ? 'active' : 'inactive'}`}>
+      <section className={`exercises-window ${isExrWindow ? 'active' : 'inactive'}`}>
         <div className='exercises-container'>
           <button className='cancel-btn' onClick={handleCloseExrWindow}>Cancel</button>
-          <ExercisesWindow/>
+
+          <article className='exercises-window-component'>
+            {exercises.map((item, i) => (
+              <button key={i} className='exercise-info' onClick={() => {
+                addExercise(item.name, item._id)
+                handleCloseExrWindow()
+              }}>
+                <div className='info-box'>
+                  <h3 className='name'>{item.name}</h3>
+                  <p className='mainmuscle'>{item.muscle}</p>
+                </div>
+                {item.isCustom &&
+                  <p className='is-custom'>Custom</p>
+                }
+              </button>
+            ))}
+          </article>
+
         </div>
         <button className='overlay' onClick={handleCloseExrWindow}></button>
-      </div>
+      </section>
 
 
       <Header/>
@@ -73,28 +108,30 @@ function RoutineCreatePage() {
             </div>
 
             <div className='inputs-container'>
-              <div className='input-box'>
-                <div className='input-title-box'>
-                  <h3 className='input-title'>Exercise Name</h3>
-                  <button className='delete-input-btn'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
-                  </button>
+              {exrList.map((item, i) => (
+                <div className='input-box' key={i}>
+                  <div className='input-title-box'>
+                    <h3 className='input-title'>{item.name}</h3>
+                    <button type='button' className='delete-input-btn' onClick={() => removeExercise(item.id)}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+                    </button>
+                  </div>
+                  <div className='data-container'>
+                    <div className='data'>
+                      <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register('sets')} required/>
+                      <p>- Sets </p>
+                    </div>
+                    <div className='data'>
+                      <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register('sets')} required/>
+                      <p>- Reps Goal </p>
+                    </div>
+                    <div className='data'>
+                      <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register('sets')} required/>
+                      <p>- Rest Time (min) (optional) </p>
+                    </div>
+                  </div>
                 </div>
-                <div className='data-container'>
-                  <div className='data'>
-                    <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register('sets')} required/>
-                    <p>- Sets </p>
-                  </div>
-                  <div className='data'>
-                    <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register('sets')} required/>
-                    <p>- Reps Goal </p>
-                  </div>
-                  <div className='data'>
-                    <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register('sets')} required/>
-                    <p>- Rest Time (min) (optional) </p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
 
 

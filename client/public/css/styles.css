@@ -523,12 +523,12 @@
   border: none;
   left: -100vw;
   top: 0;
-  position: absolute;
+  position: fixed;
 }
 .create-routine-page-container .exercises-window .exercises-container {
   transition: transform 0.2s;
   z-index: 1;
-  position: absolute;
+  position: fixed;
   height: 70vh;
   width: calc(100vw - 30px);
   left: calc(50% - (100vw - 30px) / 2);
