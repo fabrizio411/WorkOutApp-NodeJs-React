@@ -3,10 +3,4 @@
 
 - Rutinas: agregar algo en caso de qeu no haya ninguna
 
-
 - Estilos de ejercicios y rutinas, setear de entrada el width en el container y no en el componente
-
-- Temrinar mobile menu
-
-
-- AL editar un ejercicio no se puede cambiar el tipo
