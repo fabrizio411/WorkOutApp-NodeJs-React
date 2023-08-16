@@ -8,6 +8,8 @@ import ExercisesWindow from '../../components/ExercisesWindow'
 
 function RoutineCreatePage() {
 
+  const [isCreater, setIsCreated] = useState()
+
   // Solo permitir ingresar numeros en los inputs
   const handleKeyPress = (event) => {
     let charCode = event.which ? event.which : event.keyCode;
@@ -52,7 +54,7 @@ function RoutineCreatePage() {
   }
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data)
+    createRoutine(data)
   })
 
   return (
@@ -118,16 +120,18 @@ function RoutineCreatePage() {
                       </button>
                     </div>
                     <div className='data-container'>
+                      <input hidden value={item.id} {...register(`exercises[${i}].id`)}/>
+                      <input hidden value={item.name} {...register(`exercises[${i}].name`)}/>
                       <div className='data'>
-                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register('sets')} required/>
+                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].sets`)} required/>
                         <p>- Sets </p>
                       </div>
                       <div className='data'>
-                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register('sets')} required/>
+                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].reps`)} required/>
                         <p>- Reps Goal </p>
                       </div>
                       <div className='data'>
-                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register('sets')} required/>
+                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].rest`)} required/>
                         <p>- Rest Time (min) (optional) </p>
                       </div>
                     </div>

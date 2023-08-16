@@ -23,7 +23,6 @@ export const getOneRoutine = async (req, res) => {
 
 export const createRoutine = async (req, res) => {
     const { name, exercises } = req.body
-
     try {
         const newRoutine = new Routine({
             name: name,
