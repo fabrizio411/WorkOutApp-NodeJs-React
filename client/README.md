@@ -3,4 +3,4 @@
 
 - Rutinas: agregar algo en caso de qeu no haya ninguna
 
-- Estilos de ejercicios y rutinas, setear de entrada el width en el container y no en el componente
+- Cartel cuando no hay rutinas
