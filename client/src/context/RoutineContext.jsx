@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { createRoutinesRequest, getRoutinesRequest } from '../api/routines'
+import { createRoutinesRequest, getOneRoutineRequest, getRoutinesRequest } from '../api/routines'
 
 const RoutineContext = createContext()
 
@@ -19,18 +19,28 @@ export function RoutineProvider({ children }) {
     const getRoutines = async () => {
         try {
             const res = await getRoutinesRequest()
-            console.log(res)
             setRoutines(res.data)
         } catch (error) {
             console.log(error)
         }
     }
 
-    // Mandar datos de rutina nueva al backend
+    // Obtener datos una rutina 
+    const [toView, setToView] = useState({})
+    const getOneRoutine = async (id) => {
+        try {
+            const res = await getOneRoutineRequest(id)
+            console.log(res)
+            setToView(res.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    // Crear rutina en backend
     const createRoutine = async (routine) => {
         try {
             const res = await createRoutinesRequest(routine)
-            console.log(res)
         } catch (error) {
             console.log(error)
         }
@@ -57,6 +67,8 @@ export function RoutineProvider({ children }) {
         <RoutineContext.Provider value={{
             createRoutine,
             getRoutines,
+            getOneRoutine,
+            toView,
             routines,
             addExercise,
             removeExercise,

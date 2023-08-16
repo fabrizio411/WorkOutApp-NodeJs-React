@@ -4,3 +4,5 @@
 - Rutinas: agregar algo en caso de qeu no haya ninguna
 
 - Cartel cuando no hay rutinas
+
+- Menus de exercicios y view routines que vaya para el otro lado en caso de la pantalla chica

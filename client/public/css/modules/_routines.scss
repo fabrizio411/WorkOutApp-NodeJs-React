@@ -463,3 +463,241 @@
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// VIEW ROUTINE
+.routine-view-page {
+    height: 100%;
+
+    .page-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .routine-container {
+            margin-top: 2rem;
+            background-color: var.$bg-3;
+            padding: 30px;
+            border-radius: 8px;
+            width: calc(100vw - 30px);
+
+            .title-box {
+                display: flex;
+                justify-content: space-between;
+
+                .title-section {
+                    display: flex;
+                    align-items: flex-end;
+                    gap: 15px;
+
+                    .page-title {
+                        color: var.$text-1;
+                        font-weight: bold;
+                        font-size: 1.75rem;
+                    }
+    
+                    .back-btn {
+                        fill: var.$green-2;
+                    }
+                }
+                
+    
+
+                .menu-container {
+
+                    .menu-btn-box {
+                        cursor: pointer;
+                        border: none;
+                        background-color: transparent;
+                        padding: 3px;
+
+                        .menu-svg {
+                            fill: var.$text-2;
+
+                            &:hover, &:active {
+                                fill: var.$text-1;
+                            }
+                        }
+                    }
+
+                    @keyframes openOverlay{
+                        0% {opacity: 0;}
+                        100% {opacity: 1;}
+                    }
+                    @keyframes closeOverlay{
+                        0% {opacity: 1;}
+                        100% {opacity: 0;}
+                    }
+                    @keyframes closeMenu{
+                        0% {bottom: 0px;}
+                        100% {bottom: -250px;}
+                    }
+        
+                    .menu-display-mobile {
+                        z-index: 2;
+                        position: fixed;
+                        bottom: -250px;
+                        left: -100vw;
+                        width: 100%;
+                        height: 250px;
+                        
+                        .content {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            background-color: var.$bg-4;
+                            border-radius: 15px;
+                            display: flex;
+                            flex-direction: column;
+                            padding: 8px 0;
+        
+                            .menu-option {
+                                cursor: pointer;
+                                padding: 12px 20px;
+                                display: flex;
+                                align-items: center;
+                                gap: 15px;
+                                color: var.$text-2;
+                                font-size: 1.2rem;
+                                background-color: transparent;
+                                border: none;
+
+                                &:hover {
+                                    color: var.$text-1;
+
+                                    .svg-fix {
+                                        fill: var.$text-1;
+                                    }
+
+                                    .delete-svg {
+                                        fill: rgb(187, 104, 104);
+                                    }
+                                }
+                                
+                                .svg-fix {
+                                    fill: var.$text-4;
+                                }
+
+                                .delete-svg {
+                                    fill: rgb(133, 73, 73);
+                                }
+                            }
+        
+                            .menu-option.delete {
+                                color: rgb(173, 66, 66);
+
+                                &:hover {
+                                    color: rgb(189, 92, 92);
+                                }
+                            }
+        
+                            .hr-bar {
+                                height: 1px;
+                                background-color: var.$bg-5;
+                            }
+                        }
+        
+                        .overlay {
+                            background-color: rgba(0, 0, 0, 0.432);
+                            height: 100vh;
+                            width: 100vw;
+                            border: none;
+                            position: absolute;
+                            bottom: 250px;
+                            left: -100vw;
+                        }
+                    }
+        
+                    .menu-display-mobile.active {
+                        left: 0;
+                        transition: left 0s;
+                        bottom: 0;
+                        transition: bottom .3s ease-out;
+        
+                        .overlay {
+                            left: 0;
+                            transition: all 0s;
+                            animation: openOverlay .3s;
+                        }
+                    }
+        
+                    .menu-display-mobile.inactive {
+                        animation: closeMenu .3s ease-out;
+                        transition: all 0s .3s;
+        
+                        .overlay {
+                            transition: all 0s .3s;
+                            animation: closeOverlay .3s;
+                        }
+                    }
+        
+                    @media (min-width: var.$media-break) {
+                        .menu-display-mobile {
+                            display: none;
+                            position: absolute;
+                            width: 200px;
+                            height: fit-content;
+                            top: 0;
+                            left: 100%;
+
+                            .overlay {
+                                display: none;
+                            }
+
+                            .content {
+                                position: static;
+                                .menu-option {
+                                    position: static;
+                                }
+                            }
+                        }
+
+                        .menu-display-mobile.active {
+                            transition: none;
+                            transition: none;
+                        }
+            
+                        .menu-display-mobile.inactive {
+                            animation: none;
+                            transition: none;
+                        }
+                    }
+                }
+
+                @media (min-width: var.$media-break) {
+                    .menu-container {
+                        position: relative;
+
+                        &:hover {
+                            .menu-display-mobile {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (min-width: var.$media-break) {
+            .routine-container {
+                width: 500px;
+            }
+        }
+    }
+}

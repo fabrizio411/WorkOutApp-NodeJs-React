@@ -773,6 +773,197 @@
   }
 }
 
+.routine-view-page {
+  height: 100%;
+}
+.routine-view-page .page-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.routine-view-page .page-content .routine-container {
+  margin-top: 2rem;
+  background-color: #292b2f;
+  padding: 30px;
+  border-radius: 8px;
+  width: calc(100vw - 30px);
+}
+.routine-view-page .page-content .routine-container .title-box {
+  display: flex;
+  justify-content: space-between;
+}
+.routine-view-page .page-content .routine-container .title-box .title-section {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+}
+.routine-view-page .page-content .routine-container .title-box .title-section .page-title {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.75rem;
+}
+.routine-view-page .page-content .routine-container .title-box .title-section .back-btn {
+  fill: #508163;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-btn-box {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 3px;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-btn-box .menu-svg {
+  fill: #dadada;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-btn-box .menu-svg:hover, .routine-view-page .page-content .routine-container .title-box .menu-container .menu-btn-box .menu-svg:active {
+  fill: #ffffff;
+}
+@keyframes openOverlay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes closeOverlay {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes closeMenu {
+  0% {
+    bottom: 0px;
+  }
+  100% {
+    bottom: -250px;
+  }
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile {
+  z-index: 2;
+  position: fixed;
+  bottom: -250px;
+  left: -100vw;
+  width: 100%;
+  height: 250px;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #3c3c3c;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .content .menu-option {
+  cursor: pointer;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #dadada;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: none;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .content .menu-option:hover {
+  color: #ffffff;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .content .menu-option:hover .svg-fix {
+  fill: #ffffff;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .content .menu-option:hover .delete-svg {
+  fill: rgb(187, 104, 104);
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .content .menu-option .svg-fix {
+  fill: #858585;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .content .menu-option .delete-svg {
+  fill: rgb(133, 73, 73);
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .content .menu-option.delete {
+  color: rgb(173, 66, 66);
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .content .menu-option.delete:hover {
+  color: rgb(189, 92, 92);
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .content .hr-bar {
+  height: 1px;
+  background-color: #4a4a4a;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .overlay {
+  background-color: rgba(0, 0, 0, 0.432);
+  height: 100vh;
+  width: 100vw;
+  border: none;
+  position: absolute;
+  bottom: 250px;
+  left: -100vw;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile.active {
+  left: 0;
+  transition: left 0s;
+  bottom: 0;
+  transition: bottom 0.3s ease-out;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile.active .overlay {
+  left: 0;
+  transition: all 0s;
+  animation: openOverlay 0.3s;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile.inactive {
+  animation: closeMenu 0.3s ease-out;
+  transition: all 0s 0.3s;
+}
+.routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile.inactive .overlay {
+  transition: all 0s 0.3s;
+  animation: closeOverlay 0.3s;
+}
+@media (min-width: 600px) {
+  .routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile {
+    display: none;
+    position: absolute;
+    width: 200px;
+    height: fit-content;
+    top: 0;
+    left: 100%;
+  }
+  .routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .overlay {
+    display: none;
+  }
+  .routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .content {
+    position: static;
+  }
+  .routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile .content .menu-option {
+    position: static;
+  }
+  .routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile.active {
+    transition: none;
+    transition: none;
+  }
+  .routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile.inactive {
+    animation: none;
+    transition: none;
+  }
+}
+@media (min-width: 600px) {
+  .routine-view-page .page-content .routine-container .title-box .menu-container {
+    position: relative;
+  }
+  .routine-view-page .page-content .routine-container .title-box .menu-container:hover .menu-display-mobile {
+    display: block;
+  }
+}
+@media (min-width: 600px) {
+  .routine-view-page .page-content .routine-container {
+    width: 500px;
+  }
+}
+
 .routines-page-container {
   height: 100%;
 }
