@@ -25,7 +25,7 @@ function RoutineViewPage() {
             </div>
 
             <div className='info-box'>
-
+                
             </div>
 
         </div>

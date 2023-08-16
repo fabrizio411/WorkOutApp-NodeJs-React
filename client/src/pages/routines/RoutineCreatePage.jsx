@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { useRoutine } from '../../context/RoutineContext'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import { useEffect, useState } from 'react'
 import { useExercise } from '../../context/ExerciseContext'
@@ -8,7 +8,7 @@ import ExercisesWindow from '../../components/ExercisesWindow'
 
 function RoutineCreatePage() {
 
-  const [isCreater, setIsCreated] = useState()
+  const [isCreated, setIsCreated] = useState(false)
 
   // Solo permitir ingresar numeros en los inputs
   const handleKeyPress = (event) => {
@@ -55,7 +55,11 @@ function RoutineCreatePage() {
 
   const onSubmit = handleSubmit((data) => {
     createRoutine(data)
+    setIsCreated(true)
   })
+
+  if (isCreated) return (<Navigate to='/routines'/>)
+
 
   return (
     <main className='create-routine-page-container'>
