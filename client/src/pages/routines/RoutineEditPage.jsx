@@ -7,7 +7,21 @@ import { useExercise } from '../../context/ExerciseContext'
 
 function RoutineEditPage() {
 
+  const { id } = useParams()
+
   const [isUpdated, setIsUpdated] = useState(false)
+
+  const [exrList, setExrList] = useState([])
+
+  const { register, handleSubmit } = useForm()
+  const { updateRoutine, getOneRoutine, toView } = useRoutine()
+  const { getExercises, exercises } = useExercise()
+
+  useEffect(() => {
+    getExercises()
+    getOneRoutine(id)
+    if(toView.exercises) setExrList([...toView.exercises])
+  }, [])
 
   // Solo permitir ingresar numeros en los inputs
   const handleKeyPress = (event) => {
@@ -16,14 +30,6 @@ function RoutineEditPage() {
         event.preventDefault();
     }
   }
-
-  const { register, handleSubmit } = useForm()
-  const { updateRoutine } = useRoutine()
-  const { getExercises, exercises } = useExercise()
-
-  useEffect(() => {
-    getExercises()
-  }, [])
 
   // Exercises window Display
   const [isExrWindow, setIsExrWindow] = useState(false)
@@ -35,7 +41,6 @@ function RoutineEditPage() {
   }
 
   // Create routine added exercises list
-  const [exrList, setExrList] = useState([])
   const addExercise = (exrName, exrMuscle, exrId) => {
     let currentList = [...exrList]
     const newExercise = {
@@ -53,15 +58,14 @@ function RoutineEditPage() {
     setExrList(currentList)
   }
 
-  const { id } = useParams()
+  console.log(exrList)
+
   const onSubmit = handleSubmit((data) => {
     updateRoutine(id, data)
     setIsUpdated(true)
   })
 
   if (isUpdated) return (<Navigate to={`/routines/${id}`}/>)
-
-  console.log(exrList)
 
   return (
     <main className='create-routine-page-container'>
@@ -98,7 +102,7 @@ function RoutineEditPage() {
           <Link className='back-btn' to='/routines'>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
           </Link>
-          <h1 className='page-title'>Create Routine</h1>
+          <h1 className='page-title'>Edit Routine</h1>
         </div>
         <article className='form-container'>
           <form onSubmit={onSubmit}>
@@ -107,7 +111,7 @@ function RoutineEditPage() {
               <button className='save-btn form-btn'>Save Routine</button>
             </div>
 
-            <input className='name-input' type='text' autoComplete='off' placeholder='Routine Title' {...register('name')} autoFocus required/>
+            <input className='name-input' defaultValue={toView.name} type='text' autoComplete='off' placeholder='Routine Title' {...register('name')} autoFocus required/>
             
             <div className='hr-bar'></div>
 
@@ -130,15 +134,15 @@ function RoutineEditPage() {
                       <input hidden value={item.name} {...register(`exercises[${i}].name`)}/>
                       <input hidden value={item.muscle} {...register(`exercises[${i}].muscle`)}/>
                       <div className='data'>
-                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].sets`, {valueAsNumber: true})} required/>
+                        <input autoComplete='off' defaultValue={item.sets ? item.sets : ''} type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].sets`, {valueAsNumber: true})} required/>
                         <p>- Sets </p>
                       </div>
                       <div className='data'>
-                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].reps`, {valueAsNumber: true})} required/>
+                        <input autoComplete='off' defaultValue={item.reps ? item.reps : ''} type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].reps`, {valueAsNumber: true})} required/>
                         <p>- Reps Goal </p>
                       </div>
                       <div className='data'>
-                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].rest`, {valueAsNumber: true})} required/>
+                        <input autoComplete='off' defaultValue={item.rest ? item.rest : ''} type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].rest`, {valueAsNumber: true})} required/>
                         <p>- Rest Time (min) (optional) </p>
                       </div>
                     </div>

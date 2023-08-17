@@ -9,14 +9,6 @@ function RoutineCreatePage() {
 
   const [isCreated, setIsCreated] = useState(false)
 
-  // Solo permitir ingresar numeros en los inputs
-  const handleKeyPress = (event) => {
-    let charCode = event.which ? event.which : event.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-        event.preventDefault();
-    }
-  }
-
   const { register, handleSubmit } = useForm()
   const { createRoutine } = useRoutine()
   const { getExercises, exercises } = useExercise()
@@ -24,6 +16,14 @@ function RoutineCreatePage() {
   useEffect(() => {
     getExercises()
   }, [])
+
+  // Solo permitir ingresar numeros en los inputs
+  const handleKeyPress = (event) => {
+    let charCode = event.which ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        event.preventDefault();
+    }
+  }
 
   // Exercises window Display
   const [isExrWindow, setIsExrWindow] = useState(false)
