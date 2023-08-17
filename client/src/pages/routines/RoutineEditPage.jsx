@@ -1,13 +1,13 @@
 import { useForm } from 'react-hook-form'
 import { useRoutine } from '../../context/RoutineContext'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import { useEffect, useState } from 'react'
 import { useExercise } from '../../context/ExerciseContext'
 
-function RoutineCreatePage() {
+function RoutineEditPage() {
 
-  const [isCreated, setIsCreated] = useState(false)
+  const [isUpdated, setIsUpdated] = useState(false)
 
   // Solo permitir ingresar numeros en los inputs
   const handleKeyPress = (event) => {
@@ -18,7 +18,7 @@ function RoutineCreatePage() {
   }
 
   const { register, handleSubmit } = useForm()
-  const { createRoutine } = useRoutine()
+  const { updateRoutine } = useRoutine()
   const { getExercises, exercises } = useExercise()
 
   useEffect(() => {
@@ -37,35 +37,35 @@ function RoutineCreatePage() {
   // Create routine added exercises list
   const [exrList, setExrList] = useState([])
   const addExercise = (exrName, exrMuscle, exrId) => {
-      let currentList = [...exrList]
-      const newExercise = {
-          name: exrName,
-          muscle: exrMuscle,
-          id: exrId
-      }
-      currentList.push(newExercise)
-      setExrList(currentList)
+    let currentList = [...exrList]
+    const newExercise = {
+        name: exrName,
+        muscle: exrMuscle,
+        id: exrId
+    }
+    currentList.push(newExercise)
+    setExrList(currentList)
   }
   const removeExercise = (exrId) => {
-      let currentList = [...exrList]
-      let index = currentList.findIndex(item => item.id === exrId)
-      currentList.splice(index, 1)
-      setExrList(currentList)
+    let currentList = [...exrList]
+    let index = currentList.findIndex(item => item.id === exrId)
+    currentList.splice(index, 1)
+    setExrList(currentList)
   }
 
+  const { id } = useParams()
   const onSubmit = handleSubmit((data) => {
-    createRoutine(data)
-    setIsCreated(true)
+    updateRoutine(id, data)
+    setIsUpdated(true)
   })
 
-  if (isCreated) return (<Navigate to='/routines'/>)
+  if (isUpdated) return (<Navigate to={`/routines/${id}`}/>)
 
   console.log(exrList)
 
-
   return (
     <main className='create-routine-page-container'>
-      
+    
       <section className={`exercises-window ${isExrWindow ? 'active' : 'inactive'}`}>
         <div className='exercises-container'>
           <button className='cancel-btn' onClick={handleCloseExrWindow}>Cancel</button>
@@ -158,4 +158,4 @@ function RoutineCreatePage() {
   )
 }
 
-export default RoutineCreatePage
+export default RoutineEditPage

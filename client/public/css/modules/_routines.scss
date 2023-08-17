@@ -135,6 +135,12 @@
 
 
 
+
+
+
+
+
+
 // CREATE ROUTINE
 .create-routine-page-container {
     display: flex;
@@ -545,11 +551,8 @@
                         fill: var.$green-2;
                     }
                 }
-                
-    
 
                 .menu-container {
-
                     .menu-btn-box {
                         cursor: pointer;
                         border: none;
@@ -606,6 +609,7 @@
                                 font-size: 1.2rem;
                                 background-color: transparent;
                                 border: none;
+                                text-decoration: none;
 
                                 &:hover {
                                     color: var.$text-1;

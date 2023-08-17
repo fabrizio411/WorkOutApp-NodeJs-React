@@ -19,6 +19,7 @@ import ExerciseCreatePage from './pages/exercises/ExerciseCreatePage'
 import ExerciseViewPage from './pages/exercises/ExerciseViewPage'
 import ExerciseUpdatePage from './pages/exercises/ExerciseUpdatePage'
 import RoutineViewPage from './pages/routines/RoutineViewPage'
+import RoutineEditPage from './pages/routines/RoutineEditPage'
 
 function App() {
     return (
@@ -43,7 +44,7 @@ function App() {
                                     <Route path='/routines' element={<RoutinesPage/>}/>
                                     <Route path='/create-routine' element={<RoutineCreatePage/>}/>
                                     <Route path='/routines/:id' element={<RoutineViewPage/>}/>
-                                    <Route path='/routines/edit-routine/:id' element={<h1>edit routine</h1>}/>
+                                    <Route path='/edit-routine/:id' element={<RoutineEditPage/>}/>
 
                                     <Route path='/exercises' element={<ExercisesPage/>}/>
                                     <Route path='/create-exercise' element={<ExerciseCreatePage/>}/>

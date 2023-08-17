@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { createRoutinesRequest, deleteRoutinesRequest, getOneRoutineRequest, getRoutinesRequest } from '../api/routines'
+import { createRoutinesRequest, deleteRoutinesRequest, getOneRoutineRequest, getRoutinesRequest, updateRoutineRequest } from '../api/routines'
 
 const RoutineContext = createContext()
 
@@ -54,12 +54,23 @@ export function RoutineProvider({ children }) {
         }
     }
 
+    // Update routine
+    const updateRoutine = async (id, routine) => {
+        try {
+            const res = await updateRoutineRequest(id, routine)
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <RoutineContext.Provider value={{
             createRoutine,
             getRoutines,
             getOneRoutine,
             deleteRoutine,
+            updateRoutine,
             toView,
             routines
         }}>
