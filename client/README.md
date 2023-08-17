@@ -6,3 +6,5 @@
 - Cartel cuando no hay rutinas
 
 - Menus de exercicios y view routines que vaya para el otro lado en caso de la pantalla chica
+
+- Pop up al eliminar rutina y ejercicio

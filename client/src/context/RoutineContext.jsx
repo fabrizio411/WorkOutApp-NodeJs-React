@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { createRoutinesRequest, getOneRoutineRequest, getRoutinesRequest } from '../api/routines'
+import { createRoutinesRequest, deleteRoutinesRequest, getOneRoutineRequest, getRoutinesRequest } from '../api/routines'
 
 const RoutineContext = createContext()
 
@@ -63,11 +63,22 @@ export function RoutineProvider({ children }) {
         currentList.splice(index, 1)
     }
 
+    // Delete Routine
+    const deleteRoutine = async (id) => {
+        try {
+            const res = await deleteRoutinesRequest(id)
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <RoutineContext.Provider value={{
             createRoutine,
             getRoutines,
             getOneRoutine,
+            deleteRoutine,
             toView,
             routines,
             addExercise,

@@ -2,7 +2,7 @@ import Header from '../../components/header/Header'
 import Nav from '../../components/header/Nav'
 import LogOutPopUp from '../../components/header/LogOutPopUp'
 import { useNav } from '../../context/NavContext'
-import { Link, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import { useRoutine } from '../../context/RoutineContext'
 import { useEffect, useState } from 'react'
 
@@ -19,7 +19,7 @@ function RoutineViewPage() {
 
     const { swipeHandler } = useNav()
 
-    const { getOneRoutine, toView } = useRoutine()
+    const { getOneRoutine, toView, deleteRoutine } = useRoutine()
     const { id } = useParams()
 
     useEffect(() => {
@@ -27,6 +27,12 @@ function RoutineViewPage() {
     }, [])
 
     console.log(toView)
+
+    // Delete routine management
+    const [isDeleted, setIsDeleted] = useState(false)
+
+    if (isDeleted) return (<Navigate to='/routines'/>)
+
 
   return (
     <main className='routine-view-page' {...swipeHandler}>
@@ -61,7 +67,11 @@ function RoutineViewPage() {
                                     <p>Edit</p>
                                 </button>
                                 <div className='hr-bar'></div>
-                                <button className='menu-option delete'>
+                                <button className='menu-option delete' onClick={(event) => {
+                                    event.stopPropagation()
+                                    deleteRoutine(toView._id)
+                                    setIsDeleted(true)
+                                }}>
                                     <svg className="delete-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="2 0 20 20"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
                                     <p>Delete</p>
                                 </button>
