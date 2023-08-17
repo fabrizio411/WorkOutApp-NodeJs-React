@@ -10,3 +10,7 @@
 - Pop up al eliminar rutina y ejercicio
 
 - agregar animacion a la entrada de ejercicios al crear rutina
+
+- Busqueda en pagina de ejercicios y en crear rutina
+
+-view routine considerar la unidad de los ejercicios

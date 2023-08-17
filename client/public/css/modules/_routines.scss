@@ -398,13 +398,12 @@
                     }
                 }
 
-
-
                 .inputs-container {
                     margin-top: 15px;
                     display: flex;
                     flex-direction: column;
                     gap: 15px;
+
 
                     .input-box {
                         background-color: var.$bg-4;
@@ -717,6 +716,87 @@
                         &:hover {
                             .menu-display-mobile {
                                 display: block;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .info-box {
+                margin-top: 20px;
+
+                .routine-total {
+                    font-size: 1.1rem;
+                    color: var.$text-3;
+
+                    span {
+                        color: var.$green-2;
+                        font-weight: bold;
+                        font-size: 1.25rem;
+                        margin-left: 6px;
+                    }
+                }
+
+                .routine-date {
+                    padding-left: 10px;
+                    margin-top: 5px;
+                    font-size: .9rem;
+                    color: var.$text-4;
+                    margin-bottom: 20px;
+
+                    span {
+                        color: var.$text-4;
+                        margin-left: 6px;
+                    }
+                }
+
+                .routine-data-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .exercise-data {
+                        background: var.$bg-2;
+                        border: 2px solid var.$bg-5;
+                        border-radius: 8px;
+                        padding: 15px;
+
+                        .name {
+                            font-size: 1.5rem;
+                            color: var.$text-2;
+                            font-weight: bold;
+                        }
+
+                        .muscle {
+                            color: var.$text-4;
+                            padding-left: 5px;
+                        }
+
+                        .data {
+                            display: flex;
+                            gap: 15px;
+                            margin-top: 15px;
+
+                            .exercise-data-box {
+                                background-color: var.$bg-5;
+                                border-radius: 6px;
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+                                padding: 3px 6px;
+
+                                .data-text {
+                                    color: var.$text-3;
+
+                                    span {
+                                        font-weight: bold;
+                                        margin-right: 2px;
+                                    }
+                                }
+
+                                svg {
+                                    fill: var.$text-4;
+                                }
                             }
                         }
                     }

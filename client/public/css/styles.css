@@ -984,6 +984,73 @@
     display: block;
   }
 }
+.routine-view-page .page-content .routine-container .info-box {
+  margin-top: 20px;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-total {
+  font-size: 1.1rem;
+  color: #b3b3b3;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-total span {
+  color: #508163;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-left: 6px;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-date {
+  padding-left: 10px;
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #858585;
+  margin-bottom: 20px;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-date span {
+  color: #858585;
+  margin-left: 6px;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-data-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-data-container .exercise-data {
+  background: #1f2022;
+  border: 2px solid #4a4a4a;
+  border-radius: 8px;
+  padding: 15px;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-data-container .exercise-data .name {
+  font-size: 1.5rem;
+  color: #dadada;
+  font-weight: bold;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-data-container .exercise-data .muscle {
+  color: #858585;
+  padding-left: 5px;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-data-container .exercise-data .data {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-data-container .exercise-data .data .exercise-data-box {
+  background-color: #4a4a4a;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 6px;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-data-container .exercise-data .data .exercise-data-box .data-text {
+  color: #b3b3b3;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-data-container .exercise-data .data .exercise-data-box .data-text span {
+  font-weight: bold;
+  margin-right: 2px;
+}
+.routine-view-page .page-content .routine-container .info-box .routine-data-container .exercise-data .data .exercise-data-box svg {
+  fill: #858585;
+}
 @media (min-width: 600px) {
   .routine-view-page .page-content .routine-container {
     width: 500px;
