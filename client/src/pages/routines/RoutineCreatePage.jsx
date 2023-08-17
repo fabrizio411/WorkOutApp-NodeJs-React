@@ -142,7 +142,7 @@ function RoutineCreatePage() {
                   </div>
                 ))
               ) : (
-                <p>Nothing yet</p>
+                <p className='no-exercises-text'>No exercises added yet</p>
               )}
 
             </div>

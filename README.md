@@ -5,7 +5,7 @@
 - Usuario tiene que poder manejar las fechas de los datos
 - Poder cambiar el orden de las rutinas
 
-
+### Inicio: 19/6/2023
 
 ## Dev
 - [Crear ejercicios default](#createexercisedev)

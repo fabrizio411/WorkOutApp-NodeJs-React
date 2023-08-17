@@ -787,6 +787,12 @@
 .create-routine-page-container .content .form-container form .inputs-container .input-box .data-container .data input:focus, .create-routine-page-container .content .form-container form .inputs-container .input-box .data-container .data input:hover {
   border-color: #ffffff;
 }
+.create-routine-page-container .content .form-container form .inputs-container .no-exercises-text {
+  padding: 30px;
+  color: #858585;
+  text-align: center;
+  font-size: 1.25rem;
+}
 @media (min-width: 600px) {
   .create-routine-page-container .content .form-container {
     width: 500px;

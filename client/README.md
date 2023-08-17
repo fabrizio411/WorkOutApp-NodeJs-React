@@ -8,3 +8,5 @@
 - Menus de exercicios y view routines que vaya para el otro lado en caso de la pantalla chica
 
 - Pop up al eliminar rutina y ejercicio
+
+- agregar animacion a la entrada de ejercicios al crear rutina
