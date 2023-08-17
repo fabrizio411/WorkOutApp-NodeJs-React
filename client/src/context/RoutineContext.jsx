@@ -30,7 +30,6 @@ export function RoutineProvider({ children }) {
     const getOneRoutine = async (id) => {
         try {
             const res = await getOneRoutineRequest(id)
-            console.log(res)
             setToView(res.data)
         } catch (error) {
             console.log(error)
@@ -50,7 +49,6 @@ export function RoutineProvider({ children }) {
     const deleteRoutine = async (id) => {
         try {
             const res = await deleteRoutinesRequest(id)
-            console.log(res)
         } catch (error) {
             console.log(error)
         }

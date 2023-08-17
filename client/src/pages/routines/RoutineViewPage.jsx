@@ -26,6 +26,8 @@ function RoutineViewPage() {
         getOneRoutine(id)
     }, [])
 
+    console.log(toView)
+
     // Delete routine management
     const [isDeleted, setIsDeleted] = useState(false)
     if (isDeleted) return (<Navigate to='/routines'/>)
@@ -96,16 +98,18 @@ function RoutineViewPage() {
                                 <div className='data'>
                                     <div className='exercise-data-box'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm4 5h12v2H8zm5 5h7v2h-7z"></path></svg>
-                                        <p className='data-text'><span>0</span>sets</p>
+                                        <p className='data-text'><span>{item.sets}</span>sets</p>
                                     </div>
                                     <div className='exercise-data-box'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 7a1 1 0 0 0-1-1h-8v2h7v5h-3l3.969 5L22 13h-3V7zM5 17a1 1 0 0 0 1 1h8v-2H7v-5h3L6 6l-4 5h3v6z"></path></svg>
-                                        <p className='data-text'><span>0</span>reps</p>
+                                        <p className='data-text'><span>{item.reps}</span>reps</p>
                                     </div>
-                                    <div className='exercise-data-box'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 -1 24 24"><path d="M12 5c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zm0 14c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6z"></path><path d="M11 9h2v5h-2zM9 2h6v2H9zm10.293 5.707-2-2 1.414-1.414 2 2z"></path></svg>
-                                        <p className='data-text'><span>0</span>'</p>
-                                    </div>
+                                    {item.rest > 0 && (
+                                        <div className='exercise-data-box'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 -1 24 24"><path d="M12 5c-4.411 0-8 3.589-8 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zm0 14c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6z"></path><path d="M11 9h2v5h-2zM9 2h6v2H9zm10.293 5.707-2-2 1.414-1.414 2 2z"></path></svg>
+                                            <p className='data-text'><span>{item.rest}</span>'</p>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         )))}
