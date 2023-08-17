@@ -131,15 +131,15 @@ function RoutineCreatePage() {
                       <input hidden value={item.name} {...register(`exercises[${i}].name`)}/>
                       <input hidden value={item.muscle} {...register(`exercises[${i}].muscle`)}/>
                       <div className='data'>
-                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].sets`)} required/>
+                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].sets`, {valueAsNumber: true})} required/>
                         <p>- Sets </p>
                       </div>
                       <div className='data'>
-                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].reps`)} required/>
+                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].reps`, {valueAsNumber: true})} required/>
                         <p>- Reps Goal </p>
                       </div>
                       <div className='data'>
-                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].rest`)} required/>
+                        <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].rest`, {valueAsNumber: true})} required/>
                         <p>- Rest Time (min) (optional) </p>
                       </div>
                     </div>
