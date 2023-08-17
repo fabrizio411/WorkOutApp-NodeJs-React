@@ -971,6 +971,7 @@
   .routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile.active {
     transition: none;
     transition: none;
+    left: 100%;
   }
   .routine-view-page .page-content .routine-container .title-box .menu-container .menu-display-mobile.inactive {
     animation: none;

@@ -19,7 +19,6 @@ function ExerciseUpdatePage() {
     const { register, handleSubmit } = useForm()
 
     const onSubmit = handleSubmit((data) => {
-        console.log(data)
         updateExercise(id, data)
         setIsUpdated(true)
     })

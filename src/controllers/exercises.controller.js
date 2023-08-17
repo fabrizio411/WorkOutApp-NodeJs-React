@@ -106,7 +106,7 @@ export const updateExercise = async (req, res) => {
 
 export const getExerciseToUpdate = async (req, res) => {
     try {
-        const exercise = await Exercise.findById(req.params.id).where({ user: req.user.id })
+        const exercise = await Exercise.findById(req.params.id)
         res.json(exercise)
     } catch (error) {
         res.status(500).json({message: error.message})
