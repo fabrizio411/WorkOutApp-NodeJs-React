@@ -37,10 +37,11 @@ function RoutineCreatePage() {
 
   // Create routine added exercises list
   const [exrList, setExrList] = useState([])
-  const addExercise = (exrName, exrId) => {
+  const addExercise = (exrName, exrMuscle, exrId) => {
       let currentList = [...exrList]
       const newExercise = {
           name: exrName,
+          muscle: exrMuscle,
           id: exrId
       }
       currentList.push(newExercise)
@@ -60,6 +61,8 @@ function RoutineCreatePage() {
 
   if (isCreated) return (<Navigate to='/routines'/>)
 
+  console.log(exrList)
+
 
   return (
     <main className='create-routine-page-container'>
@@ -71,7 +74,7 @@ function RoutineCreatePage() {
           <article className='exercises-window-component'>
             {exercises.map((item, i) => (
               <button key={i} className='exercise-info' onClick={() => {
-                addExercise(item.name, item._id)
+                addExercise(item.name, item.muscle, item._id)
                 handleCloseExrWindow()
               }}>
                 <div className='info-box'>
@@ -126,6 +129,7 @@ function RoutineCreatePage() {
                     <div className='data-container'>
                       <input hidden value={item.id} {...register(`exercises[${i}].id`)}/>
                       <input hidden value={item.name} {...register(`exercises[${i}].name`)}/>
+                      <input hidden value={item.muscle} {...register(`exercises[${i}].muscle`)}/>
                       <div className='data'>
                         <input autoComplete='off' type='text' onKeyDown={(event) => {handleKeyPress(event)}} placeholder='-' {...register(`exercises[${i}].sets`)} required/>
                         <p>- Sets </p>

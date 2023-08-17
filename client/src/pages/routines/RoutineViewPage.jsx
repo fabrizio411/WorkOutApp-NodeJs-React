@@ -26,8 +26,6 @@ function RoutineViewPage() {
         getOneRoutine(id)
     }, [])
 
-    console.log(toView)
-
     // Delete routine management
     const [isDeleted, setIsDeleted] = useState(false)
     if (isDeleted) return (<Navigate to='/routines'/>)
@@ -91,10 +89,10 @@ function RoutineViewPage() {
                     <p className='routine-date'>Created date: <span>{formatedDate}</span></p>
 
                     <div className='routine-data-container'>
-                        {toView.exercises.map((item, i) => (
+                        {toView.exercises && (toView.exercises.map((item, i) => (
                             <div key={i} className='exercise-data'>
                                 <h4 className='name'>{item.name}</h4>
-                                <p className='muscle'>mainMuscle</p>
+                                <p className='muscle'>{item.muscle}</p>
                                 <div className='data'>
                                     <div className='exercise-data-box'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm4 5h12v2H8zm5 5h7v2h-7z"></path></svg>
@@ -110,7 +108,7 @@ function RoutineViewPage() {
                                     </div>
                                 </div>
                             </div>
-                        ))}
+                        )))}
 
 
                     </div>

@@ -46,23 +46,6 @@ export function RoutineProvider({ children }) {
         }
     }
 
-    // Create routine added exercises list
-    const [exrList, setExrList] = useState([])
-    const addExercise = (exrName, exrId) => {
-        let currentList = exrList
-        const newExercise = {
-            name: exrName,
-            id: exrId
-        }
-        currentList.push(newExercise)
-        setExrList(currentList)
-    }
-    const removeExercise = (exrId) => {
-        let currentList = exrList
-        let index = currentList.findIndex(item => item.id === exrId)
-        currentList.splice(index, 1)
-    }
-
     // Delete Routine
     const deleteRoutine = async (id) => {
         try {
@@ -80,10 +63,7 @@ export function RoutineProvider({ children }) {
             getOneRoutine,
             deleteRoutine,
             toView,
-            routines,
-            addExercise,
-            removeExercise,
-            exrList
+            routines
         }}>
 
             {children}
