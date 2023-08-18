@@ -1406,6 +1406,13 @@
   }
 }
 
+.routine-view-page .page-content .routine-container .title-box .title-section .custom-tag {
+  background-color: #508163;
+  border-radius: 20px;
+  padding: 6px 12px;
+  color: #dadada;
+  font-size: 0.85rem;
+}
 :root {
   background-color: #191a1c;
   height: fit-content;

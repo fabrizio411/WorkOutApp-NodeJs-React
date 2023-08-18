@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { createExercisesRequest, deleteExerciseRequest, getExerciseToUpdateRequest, getExercisesRequest, updateExerciseRequest } from '../api/exercises';
+import { createExercisesRequest, deleteExerciseRequest, getExerciseToUpdateRequest, getExercisesRequest, getOneExerciseRequest, updateExerciseRequest } from '../api/exercises';
 import { getExerciseToUpdate } from '../../../src/controllers/exercises.controller';
 import { set } from 'mongoose';
 
@@ -16,6 +16,7 @@ export const useExercise = () => {
 export function ExerciseProvider({children}) {
     
     const [exercises, setExercises] = useState([])
+    const [exerciseData, setExerciseData] = useState()
 
     // Obtener ejercicios del backend
     const getExercises = async () => {
@@ -24,6 +25,16 @@ export function ExerciseProvider({children}) {
             setExercises(res.data)
         } catch (error) {
            console.log(error) 
+        }
+    }
+
+    // Obtener estadisticas e informacion de un ejercicio
+    const getOneExercise = async (id) => {
+        try {
+            const res = await getOneExerciseRequest(id)
+            setExerciseData(res.data)
+        } catch (error) {
+            console.log(error)
         }
     }
 
@@ -68,10 +79,12 @@ export function ExerciseProvider({children}) {
     return (
         <ExerciseContext.Provider value={{
             getExercises,
+            getOneExercise,
             createExercise,
             deleteExercise,
             updateExercise,
             getExerciseToUpdate,
+            exerciseData,
             toUpdate,
             exercises
         }}

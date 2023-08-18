@@ -42,22 +42,61 @@ export const getOneExercise = async (req, res) => {
         const exercise = await Exercise.findById(req.params.id)
         const exerciseData = await History.find({ user: req.user.id, exercise: req.params.id })
 
+        if (exerciseData.length === 0) {
+            const data = {
+                id: exercise._id,
+                name: exercise.name,
+                muscle: exercise.muscle,
+                isCustom: exercise.isCustom,
+                isData: false
+            }
+
+            res.json(data)
+            return
+        }
+
+        let typeFormated = ['', 'Weight']
+        let unitMain = ''
+        let unitSecondary = 'kg'
+        if (exercise.type === 'REPS/WEIGHT' || exercise.type === 'REPS') {
+            typeFormated[0] = 'Repetitions'
+            unitMain = 'reps'
+        }
+        else if (exercise.type === 'DUR/WEIGHT' || exercise.type === 'DUR') {
+            typeFormated[0] = 'Duration'
+            unitMain = 'seg'
+        }
+        else if (exercise.type === 'DIST/DUR') {
+            typeFormated = ['Distance', 'Duration']
+            unitMain = 'km'
+            unitSecondary = 'min'
+        }
+
+        let isSecondaryData = true
+        if (exercise.type === 'REPS' || exercise.type === 'DUR') isSecondaryData = false
+
         const data = {
+            id: exercise._id,
             name: exercise.name,
-            type: exercise.type,
+            type: typeFormated,
+            unitMain: unitMain,
+            unitSecondary: unitSecondary,
             muscle: exercise.muscle,
             isCustom: exercise.isCustom,
+            isData: true,
             mainData: {
                 total: getTotal(exerciseData, 'MAIN'),
                 max: getMax(exerciseData, 'MAIN'),
                 average: getAverage(exerciseData, 'MAIN')
             },
+            isSecondaryData: isSecondaryData,
             secondaryData: {
                 total: getTotal(exerciseData, 'SECONDARY'),
                 max: getMax(exerciseData, 'SECONDARY'),
                 average: getAverage(exerciseData, 'SECONDARY')
             }
         }
+
         res.json(data)
     } catch (error) {
         res.status(500).json({message: error.message})
