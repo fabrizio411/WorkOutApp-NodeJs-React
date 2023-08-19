@@ -85,7 +85,38 @@ function ExerciseViewPage() {
                 <div>
                   <h3>Statistics</h3>
                   <div>
-                    <p><span></span></p>
+                    <h5>{exerciseData.type[0]}</h5>
+                    <div>
+                      <p>Total: 
+                        <span>{exerciseData.mainData.total}</span>
+                        <span>{exerciseData.unitMain}</span>
+                      </p>
+                      <p>Max: 
+                        <span>{exerciseData.mainData.max}</span>
+                        <span>{exerciseData.unitSecondary}</span>
+                      </p>
+                      <p>Average: 
+                        <span>{exerciseData.mainData.average}</span>
+                        <span>{exerciseData.unitMain}</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <h5>{exerciseData.type[1]}</h5>
+                    <div>
+                      <p>Total: 
+                        <span>{exerciseData.secondaryData.total}</span>
+                        <span>{exerciseData.unitMain}</span>
+                      </p>
+                      <p>Max: 
+                        <span>{exerciseData.secondaryData.max}</span>
+                        <span>{exerciseData.unitSecondary}</span>
+                      </p>
+                      <p>Average: 
+                        <span>{exerciseData.secondaryData.average}</span>
+                        <span>{exerciseData.unitMain}</span>
+                      </p>
+                    </div>
                   </div>
                 </div>
               ) : (
