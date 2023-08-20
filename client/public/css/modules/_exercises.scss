@@ -463,9 +463,33 @@
                         font-size: .85rem;
                     }
                 }
-        
-                .exercise-info-box {
+            }
+
+            .exercise-info-box {
+                .muscle-info {
+                    padding: 10px 0;
+                    color: var.$text-3;
                     
+                    span {
+                        font-weight: bold;
+                        margin-left: 5px;
+                    }
+                }
+
+                .stats-container {
+
+                }
+
+                .no-data {
+                    height: 100px;
+                    display: grid;
+                    place-items: center;
+
+                    .text {
+                        color: var.$text-4;
+                        font-weight: bold;
+                        font-size: 1.2rem;
+                    }
                 }
             }
         } 

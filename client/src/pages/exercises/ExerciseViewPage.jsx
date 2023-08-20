@@ -80,47 +80,50 @@ function ExerciseViewPage() {
             </div>
 
             <div className='exercise-info-box'>
-              <p>Main muscle: <span>{exerciseData.muscle}</span></p>
+              <p className='muscle-info'>Main muscle: <span>{exerciseData.muscle}</span></p>
               {exerciseData.isData ? (
-                <div>
-                  <h3>Statistics</h3>
-                  <div>
-                    <h5>{exerciseData.type[0]}</h5>
+                <div className='stats-container'>
+                  <h3 className='title'>Statistics</h3>
+                  <div className='data-stats-box'>
+                    <h5 className='subtitle'>{exerciseData.type[0]}</h5>
                     <div>
-                      <p>Total: 
-                        <span>{exerciseData.mainData.total}</span>
-                        <span>{exerciseData.unitMain}</span>
+                      <p className='data-box'>Total: 
+                        <span className='data'>{exerciseData.mainData.total}</span>
+                        <span className='unit'>{exerciseData.unitMain}</span>
                       </p>
-                      <p>Max: 
-                        <span>{exerciseData.mainData.max}</span>
-                        <span>{exerciseData.unitSecondary}</span>
+                      <p className='data-box'>Max: 
+                        <span className='data'>{exerciseData.mainData.max}</span>
+                        <span className='unit'>{exerciseData.unitMain}</span>
                       </p>
-                      <p>Average: 
-                        <span>{exerciseData.mainData.average}</span>
-                        <span>{exerciseData.unitMain}</span>
+                      <p className='data-box'>Average: 
+                        <span className='data'>{exerciseData.mainData.average}</span>
+                        <span className='unit'>{exerciseData.unitMain}</span>
                       </p>
                     </div>
                   </div>
-                  <div>
-                    <h5>{exerciseData.type[1]}</h5>
+                  <div className='data-stats-box'>
+                    <h5 className='subtitle'>{exerciseData.type[1]}</h5>
                     <div>
-                      <p>Total: 
-                        <span>{exerciseData.secondaryData.total}</span>
-                        <span>{exerciseData.unitMain}</span>
-                      </p>
-                      <p>Max: 
-                        <span>{exerciseData.secondaryData.max}</span>
+                      <p className='data-box'>Total: 
+                        <span className='data'>{exerciseData.secondaryData.total}</span>
                         <span>{exerciseData.unitSecondary}</span>
                       </p>
-                      <p>Average: 
-                        <span>{exerciseData.secondaryData.average}</span>
-                        <span>{exerciseData.unitMain}</span>
+                      <p className='data-box'>Max: 
+                        <span className='data'>{exerciseData.secondaryData.max}</span>
+                        <span className='unit'>{exerciseData.unitSecondary}</span>
+                      </p>
+                      <p className='data-box'>Average: 
+                        <span className='data'>{exerciseData.secondaryData.average}</span>
+                        <span className='unit'>{exerciseData.unitSecondary}</span>
                       </p>
                     </div>
                   </div>
                 </div>
               ) : (
-                <p>No data</p>
+                <div className='no-data'>
+                  <p className='text'>No data</p>
+                </div>
+
               )}
 
             </div>

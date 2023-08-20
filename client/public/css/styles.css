@@ -1413,6 +1413,25 @@
   color: #dadada;
   font-size: 0.85rem;
 }
+.routine-view-page .page-content .routine-container .exercise-info-box .muscle-info {
+  padding: 10px 0;
+  color: #b3b3b3;
+}
+.routine-view-page .page-content .routine-container .exercise-info-box .muscle-info span {
+  font-weight: bold;
+  margin-left: 5px;
+}
+.routine-view-page .page-content .routine-container .exercise-info-box .no-data {
+  height: 100px;
+  display: grid;
+  place-items: center;
+}
+.routine-view-page .page-content .routine-container .exercise-info-box .no-data .text {
+  color: #858585;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
 :root {
   background-color: #191a1c;
   height: fit-content;
