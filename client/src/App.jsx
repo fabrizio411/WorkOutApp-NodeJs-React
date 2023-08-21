@@ -20,6 +20,7 @@ import ExerciseViewPage from './pages/exercises/ExerciseViewPage'
 import ExerciseUpdatePage from './pages/exercises/ExerciseUpdatePage'
 import RoutineViewPage from './pages/routines/RoutineViewPage'
 import RoutineEditPage from './pages/routines/RoutineEditPage'
+import WorkoutPage from './pages/workout/WorkoutPage'
 
 function App() {
     return (
@@ -36,7 +37,8 @@ function App() {
                                 <Route element={<ProtecterRoute/>}>
                                     <Route path='/home' element={<HomePage/>}/>
                                     <Route path='/program' element={<h1>program</h1>}/>
-                                    <Route path='/workout' element={<h1>workout</h1>}/>
+
+                                    <Route path='/workout/:id' element={<WorkoutPage/>}/>
 
                                     <Route path='/profile' element={<ProfilePage/>}/>
                                     <Route path='/history' element={<h1>history</h1>}/>

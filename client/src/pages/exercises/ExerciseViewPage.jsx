@@ -123,11 +123,8 @@ function ExerciseViewPage() {
                 <div className='no-data'>
                   <p className='text'>No data</p>
                 </div>
-
               )}
-
             </div>
-
           </div>
         </section>
       ) : (
