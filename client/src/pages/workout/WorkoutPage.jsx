@@ -6,7 +6,7 @@ function WorkoutPage() {
 
     const { id } = useParams()
 
-    const { getOneRoutine } = useRoutine()
+    const { getOneRoutine, toView } = useRoutine()
 
     useEffect(() => {
         getOneRoutine(id)

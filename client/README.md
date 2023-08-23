@@ -10,3 +10,5 @@
 - Busqueda en pagina de ejercicios y en crear rutina
 
 -view routine considerar la unidad de los ejercicios
+
+- Dentro de view exercise agregar una opcion para cargar el historial
